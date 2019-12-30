@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>homey cornelisse dash</title>
+    
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="./css/homeydash.settings.css">
+
+        <script type="text/javascript" src="./js/homeydash.helpers.js"></script>
+        <script type="text/javascript" src="./js/homeydash.settings.js"></script>
+    </head>
+    <body id="body-settings">
+        <div id="left-col">
+            <div id="settings-language-title" class="select-description">Select your language</div>
+            <select id="settings-language-select" class="select">
+                <option value="cs">🇨🇿 Český</option>
+                <option value="da">🇩🇰 Dansk</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="nb">🇳🇴 Norsk</option>
+                <option value="ro">🇷🇴 Română</option>
+                <option value="sv">🇸🇪 Svenska</option>
+            </select>
+            
+            <div id="settings-theme-title" class="select-description">Select your theme</div>
+            <select id="settings-theme-select" class="select">
+                <option value="ipad">iPad</option>
+                <option value="iphone">iPhone</option>
+                <option value="web">web</option>
+                <option value="raspberry">Raspberry </option>
+            </select>
+
+            <div id="appearance-temperature-outdoor"class="select-description">
+                Outdoor temperature
+            </div>
+            <select id="settings-temperature-outdoor-select" class="select">
+            </select>
+
+            <div id="appearance-temperature-indoor" class="select-description">
+                Indoor temperature
+            </div>
+            <select id="settings-temperature-indoor-select" class="select">
+            </select>
+
+            <div id="appearance-device-brightness" class="select-description hidden">
+                Brightness device
+            </div>
+            <select id="settings-device-brightness-select" class="select hidden">
+            </select>
+        </div>
+        <div id="right-col">
+            <div id="content">
+                <div id="row1" class="roworder">
+                    <div id="row1-up" class="arrow-up"></div>
+                    <div id="row1-down" class="arrow-down"></div>
+                    <div class="flow">
+                        <div class="play"></div><div class="name">Flow</div>
+                    </div>
+                </div>
+
+                <div id="row2" class="roworder">
+                    <div id="row2-up" class="arrow-up"></div>
+                    <div id="row2-down" class="arrow-down"></div>    
+                    <div class="device">
+                        <div class="name">Device</div>
+                    </div>
+                    <div class="device">
+                        <div class="name">Device</div>
+                    </div>
+                    <div class="device">
+                        <div class="name">Device</div>
+                    </div>
+                </div>
+
+                <div id="row3" class="roworder">
+                    <div id="row3-up" class="arrow-up"></div>
+                    <div id="row3-down" class="arrow-down"></div>
+                    <div class="alarm">
+                        <div class="value">12:00</div>
+                        <div class="name">Alarm</div>
+                        <div class="schedule">weekdays</div>
+                    </div>
+                    <div class="alarm">
+                        <div class="value">12:00</div>
+                        <div class="name">Alarm</div>
+                        <div class="schedule">weekend</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="appearance">
+                <br />
+                <div>
+                    <div id="appearance-logo" class="appearance-description">
+                        Logo (url) 
+                    </div>
+                    <div class="appearance-input">
+                        <input id="url-logo">
+                    </div>
+                    <div class="appearance-buttons">
+                        <div id="btn-delete-logo"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="appearance-background" class="appearance-description">
+                        Background (url) 
+                    </div>
+                    <div class="appearance-input">
+                        <input id="url-background">
+                    </div>
+                    <div class="appearance-buttons">
+                        <div id="btn-delete-background"></div>
+                    </div>
+                </div>  
+                <div>
+                    <div id="appearance-opacity" class="appearance-description">
+                        Background opacity
+                    </div>
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="50" class="slider" id="opacity-background">
+                    </div>
+                </div>
+                <div id="setting-showtime">
+                    <div id="appearance-clock" class="appearance-description">
+                        Show clock
+                    </div>
+                    <label class="form-switch">
+                        <input id="switch-show-time" type="checkbox">
+                        <i></i>
+                    </label>
+                </div>
+                <div id="settings-zoom">
+                    <div id="appearance-zoom" class="appearance-description">
+                        Zoom
+                    </div>
+                    <div class="slidecontainer">
+                        <input type="range" min="50" max="100" value="100" class="slider" id="zoom-content">
+                    </div>
+                </div>
+                <div id="preview"></div>
+            </div>
+
+
+        <div id="version"></div>
+    </body>
+</html>
