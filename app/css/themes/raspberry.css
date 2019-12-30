@@ -1,18 +1,9 @@
 /*
- * Original theme by: Emile Nijssen
- * Enriched by Danee de Kruyff
+ * Theme by: Danee de Kruyff
  */
 
-body {
+ #container {
 
-}
-
-#container {
-
-}
-
-#content {
-  zoom: .8;
 }
 
 .info-message {
@@ -24,36 +15,30 @@ body {
   margin-bottom: 1%;
 }
 
+#zoom {
+  visibility: hidden;
+}
+
 #weather {
   width: 42vw;
   top: 0vw;
 }
-#weather-state-icon {
-}
-#weather-temperature {
-
-}
-
-#weather-temperature:after {
-  content: "°";
+  #sunrise-icon, #sunset-icon  {
+    width: 3vw;
+    height: 3vw;
+    margin-right: 0vw;
   }
-
-  #sun-events {
-    left: 15vw;
-    width: 26vw;
+  #sunrise-time, #sunset-time {
+    font-size: 1.2vw;
+    line-height: 0vh;
   }
-    #sunrise, #sunset {
-      display: inline-block;
-    }
-    #sunrise-icon, #sunset-icon  {
-      width: 3vw;
-      height: 3vw;
-      margin-right: 0vw;
-    }
-    #sunrise-time, #sunset-time {
-      font-size: 1.2vw;
-      line-height: 0vh;
-    }
+  #weather-state-icon {
+  }
+  #weather-temperature {
+  }
+  #weather-temperature:after {
+    content: "°";
+  }
 
   #text {
     position: absolute;
@@ -122,9 +107,9 @@ body {
   }
   .favorites h2 {
     display: block;
-    width: auto;
-    font-size: 2vh;
-    margin-bottom: 2.5vh;
+    width: 100%;
+    font-size: 0.5vh;
+    margin-bottom: 1vh;
     text-transform: uppercase;
 
     display: flex;
@@ -134,7 +119,7 @@ body {
     opacity: 0.3;
   }
   .favorites h2:after {
-    display: block;
+    display: none;
   }
     .favorites h2 span {
       flex-shrink: 0;
@@ -147,112 +132,112 @@ body {
       vertical-align: middle;
       height: 1px;
       background: white;
+      margin-bottom: 1vh;
     }
 
 #flows {
-  margin-bottom: 4vh;
+  margin-bottom: 15px; /*2vh;*/
 }
   .flow {
-    height: 7vh;
-    margin-bottom: 2vh;
-    border-radius: 7vh;
+    height: 52px; /*7vh;*/
+    margin-bottom: 15px; /*2vh;*/
+    border-radius: 52px; /*7vh;*/
   }
   .flow.running:before {
-    font-size: 3.2vh;
-    line-height: 7vh;
+    font-size: 24px; /*3.2vh;*/
+    line-height: 52px; /*7vh;*/
   }
     .flow .play {
-      width: 7vh;
-      height: 7vh;
+      width: 52px; /*7vh;*/
+      height: 52px; /*7vh;*/
     }
     .flow .name {
       font-weight: 300;
-      height: 7vh;
-      line-height: 7vh;
-      font-size: 2.8vh;
-      padding: 0 3vh;
-      padding-right: 4vh;
-      max-width: auto;
+      height: 52px; /*7vh;*/
+      line-height: 52px; /*7vh;*/
+      font-size: 21px; /*2.8vh;*/
+      padding: 0 22px; /*3vh;*/
+      padding-right: 30px; /*8vh;*/
+      max-width: auto; /*20vw;*/
     }
 
 #alarms {
   
 }
   .alarms .alarm {
-    width: 20vh;
-    height: 16vh;
-    padding: 2vh;
-    margin-right: 1.36vw;
-    margin-bottom: 3vh;
-    border-radius: 3vh;
+    width: 150px; /*20vh;*/
+    height: 120px; /*16vh;*/
+    padding: 15px; /*2vh;*/
+    margin-right: 13px; /*1.9vh;*/
+    margin-bottom: 15px; /*2vh;*/
+    border-radius: 22px; /*3vh;*/
   }
     .alarms .alarm .value {
-      top: 3vh;
-      left: 2vh;
-      right: 2vh;
-      font-size: 4.2vh;
+      top: 22px; /*3vh;*/
+      left: 15px; /*2vh;*/
+      right: 15px; /*2vh;*/
+      font-size: 31px; /*4.2vh;*/
       font-weight: 300;
-      line-height: 4.2vh;
+      line-height: 31px; /*4.2vh;*/
       height: auto;
-      max-height: 8vh;
+      max-height: 60px; /*8vh;*/
     }
     .alarms .alarm .name {
-      bottom: 5vh;
-      left: 2vh;
-      right: 2vh;
-      font-size: 2.7vh;
+      bottom: 37px; /*5vh;*/
+      left: 15px; /*2vh;*/
+      right: 15px; /*2vh;*/
+      font-size: 20px; /*2.7vh;*/
       font-weight: 300;
-      line-height: 2.7vh;
-      max-height: 2.7vh;
+      line-height: 20px; /*2.7vh;*/
+      max-height: 20px; /*2.7vh;*/
       width: auto;
       height: auto;
     }
     .alarms .alarm .schedule {
-      bottom: 2vh;
-      left: 2vh;
-      right: 2vh;
-      max-height: 2.5vh;
-      font-size: 1.8vh;
-      line-height: 3vh;
+      bottom: 15px; /*2vh;*/
+      left: 15px; /*2vh;*/
+      right: 15px; /*2vh;*/
+      max-height: 19px; /*2.5vh;*/
+      font-size: 14px; /*1.8vh;*/
+      line-height: 22px; /*3vh;*/
       font-weight: 200;
     }
 
 #devices {
-  position: auto;
+  position: static;
 }
   .device {
-    width: 22vh;
-    height: 20vh;
-    padding: 3vh;
-    margin-right: 1.36vw;
-    margin-bottom: 3vh;
-    margin-top: 1vh;
-    border-radius: 3vh;
+    width: 135px; /*20vh;*/
+    height: 135px; /*20vh;*/
+    padding: 15px; /*2vh;*/
+    margin-right: 13px; /*1.9vh;*/
+    margin-bottom: 15px; /*2vh;*/
+    border-radius: 22px; /*3vh;*/
   }
     .device .icon {
       position: absolute;
-      top: 2vh;
-      left: 2vh;
-      width: 7vh;
-      height: 7vh;
+      top: 15px; /*2vh;*/
+      left: 15px; /*2vh;*/
+      width: 45px; /*7vh;*/
+      height: 45px; /*7vh;*/
     }
     .device .icon-capability {
       position: absolute;
-      top: 6vh;
-      left: 2.5vh;
-      width: 5vh;
-      height: 5vh;
+      top: 30px; /*6vh;*/
+      left: 19px; /*2.5vh;*/
+      width: 38px; /*5vh;*/
+      height: 38px; /*5vh;*/
     }
     .device .value {
       position: absolute;
-      top: 3vh;
-      right: 2vh;
-      font-size: 4.2vh;
+      top: 22px; /*3vh;*/
+      right: 15px; /*2vh;*/
+      font-size: 25px; /*4.2vh;*/
       font-weight: 300;
-      line-height: 4.2vh;
+      line-height: 25px; /*4.2vh;*/
       width: auto;
       height: auto;
-      max-height: 8vh;
+      max-height: 60px; /*8vh;*/
       text-align: right;
     }
 
@@ -261,16 +246,17 @@ body {
     }
     .device .name {
       position: absolute;
-      bottom: 2vh;
-      left: 2vh;
-      right: 2vh;
-      font-size: 2.2vh;
-      font-weight: 400;
-      line-height: 3.5vh;
+      bottom: 15px; /*2vh;*/
+      left: 15px; /*2vh;*/
+      right: 15px; /*2vh;*/
+      font-size: 15px; /*2.7vh;*/
+      font-weight: 300;
+      line-height: 26px; /*3.5vh;*/
       width: auto;
       height: auto;
-      max-height: 7vh;
+      max-height: 52px; /*7vh;*/
     }
+
     .device .name.highlight {
       font-weight: 500;
     }

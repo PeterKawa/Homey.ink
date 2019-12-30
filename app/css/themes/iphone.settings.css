@@ -1,0 +1,68 @@
+
+#left-col {
+    width: 100%;
+}
+
+#right-col {
+    width: 100%;
+    padding-top: 2vh;
+}
+
+.select, .select-description {
+    width: 46vw;
+    font-size: 2.0vh;
+    line-height: 2.0vh;
+}
+
+.select {
+    height: 20px;
+    margin-right: 2px;
+}
+
+
+.appearance-description {
+    width: 25vw;
+    font-size: 1.6vh;
+    line-height: 1.7vh;
+}
+
+.appearance-input {
+    width: 62vw;
+}
+
+.appearance-buttons {
+    width: 5vw;
+}
+    /*#btn-delete-logo, #btn-delete-background, #btn-preview-logo, #btn-preview-background {*/
+    #btn-delete-logo, #btn-delete-background {
+        width: 9px;
+        height: 9px;
+    }
+
+input {
+    width: 60vw;
+    font-size: 8px;
+}
+
+.slidecontainer {
+    width: 70%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 9px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 13px;
+    height: 13px;
+  }
+
+#setting-showtime {
+    visibility: hidden;
+}
+
+#settings-zoom {
+visibility: hidden;
+}
