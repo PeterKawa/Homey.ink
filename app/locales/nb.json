@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Favoritt flows",
+    "favoritedevices": "Favoritt enheter",
+    "alarms": "Alarmer",
+    "schedules": {
+        "weekdays": "ukedagene",
+        "weekend": "helg",
+        "alldays": "alle dager"
+    },
+    "text" : {
+        "good": "God ",
+        "morning": "morgen",
+        "afternoon": "ettermiddag",
+        "evening": "kveld",
+        "night": "natt",
+        "today": "I dag er det ",
+        "the": "den",
+        "of": " "
+    },
+    "notification": {
+        "title": "Nylige hendelser",
+        "nonotification": "Det er ingen hendelser"
+    },
+    "weather": {
+        "title": "V&aelig;r informasjon for ",
+        "temperature": "Temperaturen er ",
+        "degrees": " grader, ",
+        "humidity": "luftfuktigheten er ",
+        "pressure": "% og trykket er ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Solen vil g&aring; opp klokken ",
+        "postsunrise": "Solen gikk opp klokken ",
+        "presunset": " og vil g&aring; ned klokken ",
+        "postsunset": " og gikk ned klokken "
+    },
+    "battery": {
+        "title": "Batteri informasjon",
+        "in": ": ",
+        "has": " har ",
+        "left": "% igjen"
+    },
+    "sensor": {
+        "title": "Sensor informasjon",
+        "in": " i ",
+        "alarm": " er aktivert av alarm.",
+        "noalarm": " Det er ingen sensorer som er aktiverte av alarm.",
+        "fault": "Det er et problem ved lasting av enheter, vennligst kontroller dine enheter og applikasjoner i Homey appen"
+    },
+    "flame": {
+        "title": "Informasjon om røykvarsler",
+        "in": "inn",
+        "alarm": "er i alarm.",
+        "noalarm": "Det er ingen sensorer i alarm.",
+        "testalarm":" Ikke glem å teste røykvarslerne en gang i måneden for riktig drift",
+        "fault": "Det er et problem med å laste inn enhetene dine, vennligst sjekk enhetene og appene dine i Homey-appen"
+    },
+    "settings": {
+        "title": {
+            "language": "Velg språk",
+            "theme": "Velg ditt tema",
+            "appearance": "Utseende",
+            "temperature": {
+                "outdoor": "Utetemperatur",
+                "indoor": "Innetemperatur"
+            },
+            "brightnessdevice": "Lysstyrke enhet"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Bakgrunn (url)",
+            "opacity": "Bakgrunnsdyktighet",
+            "clock": "Vis klokke",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Vennligst lagre logoadresse",
+            "background": "Vennligst lagre bakgrunnsadresse"
+        }
+    }
+}

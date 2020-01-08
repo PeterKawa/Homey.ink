@@ -1,0 +1,88 @@
+{
+    "favoriteflows": "Favoriete flows",
+    "favoritedevices": "Favoriete apparaten",
+    "alarms": "Wekkers",
+    "schedules": {
+        "weekdays": "weekdagen",
+        "weekend": "weekend",
+        "alldays": "alle dagen"
+    },
+    "text" : {
+        "good": "Goede",
+        "evening": "navond",
+        "afternoon": "middag",
+        "morning": "morgen",
+        "night": "nacht",
+        "today": "Vandaag is het",
+        "the": "de",
+        "of": ""
+    },
+    "notification": {
+        "title": "Recente notificaties",
+        "nonotification": "Er zijn geen notificaties"
+    },
+    "weather": {
+        "title": "Weer informatie voor ",
+        "temperature": "De huidige temperatuur is ",
+        "degrees": " graden, ",
+        "humidity": "de luchtvochtigheid is ",
+        "pressure": "% en de druk is ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "De zon komt op om  ",
+        "postsunrise": "De zon kwam op om ",
+        "presunset": " en gaat onder om ",
+        "postsunset": " en ging onder om "
+    },
+    "battery": {
+        "title": "Batterij informatie",
+        "in": " in zone ",
+        "has": " heeft ",
+        "left": "% batterij over"
+    },
+    "sensor": {
+        "title": "Sensor informatie",
+        "in": " in zone ",
+        "alarm": " is in alarm.",
+        "noalarm": " Er zijn geen sensoren in alarm .",
+        "fault": "Er is een probleem met laden van apparaten, controleer de apparaten en je apps in de Homey app"
+    },
+    "flame": {
+        "title": "Brandmeldpaneel",
+        "in": " in zone ",
+        "alarm": " is in alarm.",
+        "noalarm": " Er zijn geen rook of CO melders in alarm.",
+        "testalarm": "Vergeet niet een keer per maand de rookmelders te testen voor een goede werking",
+        "has": " heeft ",
+        "left": "% over",
+        "fault": "Er is een probleem met laden van apparaten, controleer de apparaten en je apps in de Homey app"
+    },
+    "settings": {
+        "title": {
+            "language": "Selecteer uw taal",
+            "theme": "Selecteer uw thema",
+            "appearance": "Uiterlijk",
+            "temperature": {
+                "outdoor": "Buiten temperatuur",
+                "indoor": "Binnen temperatuur"
+            },
+            "brightnessdevice": "Helderheidsapparaat"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Achtergrond (url)",
+            "opacity": "Achtergrond transparantie",
+            "clock": "Toon klok",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Corrigeer logo url",
+            "background": "Corrigeer achtergrond url"
+        },
+        "update": {
+            "titel": "Nieuwe updates"
+            
+        }
+    }
+}

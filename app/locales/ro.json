@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Fluxuri Favorite",
+    "favoritedevices": "Dispozitive Favorite",
+    "alarms": "Alarma",
+    "schedules": {
+        "weekdays": "zilele saptamanii",
+        "weekend": "sfârșit de săptămână",
+        "alldays": "toate zilele"
+    },
+    "text" : {
+        "good": "",
+        "evening": "Buna seara",
+        "afternoon": "Buna dupaamiaza",
+        "morning": "Buna dimineata",
+        "night": "Noapte buna",
+        "today": "Astazi este ",
+        "the": "",
+        "of": ""
+    },
+    "notification": {
+        "title": "Notificari recente",
+        "nonotification": "Nu aveti notificari"
+    },
+    "weather": {
+        "title": "Informatii meteo pentru ",
+        "temperature": "Temperatura actuala este ",
+        "degrees": " grade, ",
+        "humidity": "umiditatea este ",
+        "pressure": "% si presiunea atmosferica ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Soarele rasare la ",
+        "postsunrise": "Rasaritul a fost la ",
+        "presunset": " si va apune la ",
+        "postsunset": " si apune la "
+    },
+    "battery": {
+        "title": "Informatii despre baterii",
+        "in": " in ",
+        "has": " are ",
+        "left": "% ramas"
+    },
+    "sensor": {
+        "title": "Informatii despre Sensori",
+        "in": " in ",
+        "alarm": " este in stare de alerta.",
+        "noalarm": " nici un senzor in stare de alerta.",
+        "fault": "Este o problema cu dispozitivul,verificati dispozitivele si aplicatiile in aplicatia lui Homey"
+    },
+    "flame": {
+        "title": "Informații despre alarmă de fum",
+        "în": "în",
+        "alarmă": "este în alarmă. Glöm inte att testa rökdetektorerna en gång i månaden för korrekt drift",
+        "noalarm": "Nu există senzori în alarmă.",
+        "testalarm":" Nu uitați să testați detectoarele de fum o dată pe lună pentru o funcționare corectă",
+        "fault": "Există o problemă la încărcarea dispozitivelor, vă rugăm să verificați dispozitivele și aplicațiile din aplicația Homey"
+    },
+    "settings": {
+        "title": {
+            "language": "Selectați limba dvs.",
+            "theme": "Selectați tema",
+            "appearance": "Aspect",
+            "temperature": {
+                "outdoor": "Temperatură exterioară",
+                "indoor": "Temperatură interioară"
+            },
+            "brightnessdevice": "Dispozitiv de luminozitate"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Fundal (url)",
+            "opacity": "Opacitatea de fond",
+            "clock": "Afișare ceas",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Vă rugăm să remediați urlul logo-ului",
+            "background": "Vă rugăm să remediați urlul de fundal"
+        }
+    }
+}

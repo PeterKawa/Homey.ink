@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Favori Akışlar",
+    "favoritedevices": "Favori cihazlar",
+    "alarms": "Alarmlar",
+    "schedules": {
+        "weekdays": "hafta içi",
+        "weekend": "hafta sonu",
+        "alldays": "tüm günle"
+    },
+    "text" : {
+        "good": "iyi ",
+        "evening": "akşam",
+        "afternoon": "öğleden sonra",
+        "morning": "sabah",
+        "night": "gece",
+        "today": "Bugün ",
+        "the": "the",
+        "of": "/"
+    },
+    "notification": {
+        "title": "Son bildirimler",
+        "nonotification": "Bildirim yok"
+    },
+    "weather": {
+        "title": "için hava durumu bilgileri ",
+        "temperature": "Geçerli sıcaklık ",
+        "degrees": " derece ",
+        "humidity": "nem ",
+        "pressure": "% ve basınç ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Güneş doğacak ",
+        "postsunrise": "Güneş doğdu ",
+        "presunset": " ve olarak ayarlanır",
+        "postsunset": " ve "
+    },
+    "battery": {
+        "title": "Pil bilgileri",
+        "in": " in ",
+        "has": " vardır ",
+        "left": "% sol"
+    },
+    "sensor": {
+        "title": "Sensör bilgileri",
+        "in": " in ",
+        "alarm": " alarmda.",
+        "noalarm": " Alarm durumunda sensör yok.",
+        "fault": "Cihazlarınızı yüklerken bir sorun var, lütfen Homey uygulamasındaki cihazlarınızı ve uygulamalarınızı kontrol edin"
+    },
+    "flame": {
+        "title": "Yangın paneli",
+        "in": " in ",
+        "alarm": " alarmda .",
+        "noalarm": " Alarmda duman veya CO sensörü yok.",
+        "testalarm":" Duman dedektörlerini düzgün çalışması için ayda bir kez test etmeyi unutmayın.",
+        "fault": "Cihazlarınızı yüklerken bir sorun var, lütfen Homey uygulamasındaki cihazlarınızı ve uygulamalarınızı kontrol edin"
+    },
+    "settings": {
+        "title": {
+            "language": "Dilinizi seçin",
+            "theme": "Temanızı seçin",
+            "appearance": "Görünüm",
+            "temperature": {
+                "outdoor": "Dış ortam sıcaklığı",
+                "indoor": "İç ortam sıcaklığı"
+            },
+            "brightnessdevice": "Parlaklık cihazı"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Arka plan (url)",
+            "opacity": "Arka plan opaklığı",
+            "clock": "Saati göster",
+            "zoom": "yakınlaş yakınlaş"
+        },
+        "errors": {
+            "logo": "Lütfen logo URL'sini düzeltin",
+            "background": "Lütfen arka plan URL'sini düzeltin"
+        }
+    }
+}

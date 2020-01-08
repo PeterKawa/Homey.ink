@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Flows favoritos",
+    "favoritedevices": "Dispositivos favoritos",
+    "alarms": "Alarmas",
+    "schedules": {
+        "weekdays": "Entre semana",
+        "weekend": "Fin de semana",
+        "alldays": "todos los días"
+    },
+    "text" : {
+        "good": "",
+        "evening": "Buenas noches",
+        "afternoon": "Buenas tardes",
+        "morning": "Buenos días",
+        "night": "Buenas noches",
+        "today": "Hoy es ",
+        "the": "",
+        "of": "de"
+    },
+    "notification": {
+        "title": "Notificaciones recientes",
+        "nonotification": "No hay notificaciones"
+    },
+    "weather": {
+        "title": "Información del tiempo para ",
+        "temperature": "La temperatura actual es de ",
+        "degrees": " grados, ",
+        "humidity": "la humedad es del ",
+        "pressure": "% y la presión es de ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "El sol saldrá a las ",
+        "postsunrise": "El sol salió a las ",
+        "presunset": " y se pondrá a las ",
+        "postsunset": " y se puso "
+    },
+    "battery": {
+        "title": "Información de la batería",
+        "in": " en ",
+        "has": " tiene ",
+        "left": "% restante"
+    },
+    "sensor": {
+        "title": "Información de sensores",
+        "in": " en ",
+        "alarm": " está activado.",
+        "noalarm": " No hay sensores activados.",
+        "fault": "Hay un problema al cargar sus dispositivos, verifique sus dispositivos y aplicaciones en la aplicación Homey"
+    },
+    "flame": {
+        "title": "Información de la alarma de humo",
+        "en en":"en",
+        "alarm": "está en alarma",
+        "noalarm": "No hay sensores en alarma.", 
+        "testalarm":"No olvide probar los detectores de humo una vez al mes para verificar que funcionen correctamente.",
+        "culpa": "Hay un problema al cargar sus dispositivos, verifique sus dispositivos y aplicaciones en la aplicación Homey"
+    },
+    "settings": {
+        "title": {
+            "language": "Seleccione su idioma",
+            "theme": "Seleccione su tema",
+            "appearance": "Apariencia",
+            "temperature": {
+                "outdoor": "Temperatura exterior",
+                "indoor": "Temperatura interior"
+            },
+            "brightnessdevice": "Dispositivo de brillo"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Fondo (url)",
+            "opacity": "opacidad de fondo",
+            "clock": "Mostrar reloj",
+            "zoom": "Cerca"
+        },
+        "errors": {
+            "logo": "Por favor arregle la url del logo",
+            "background": "Por favor arregle la url de fondo"
+        }
+    }
+}

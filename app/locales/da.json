@@ -1,0 +1,81 @@
+{
+    "favoriteflows": "Favoritflows",
+    "favoritedevices": "Favoritenheder",
+    "alarms": "Alarmer",
+    "schedules": {
+        "weekdays": "hverdage",
+        "weekend": "weekend",
+        "alldays": "alle dage"
+    },
+    "text" : {
+        "good": "God ",
+        "evening": "aften",
+        "afternoon": "eftermiddag",
+        "morning": "morgen",
+        "night": "nat",
+        "today": "I dag er det ",
+        "the": "den",
+        "of": " "
+    },
+    "notification": {
+        "title": "Nye notifikationer",
+        "nonotification": "Der er ingen notifikationer"
+    },
+    "weather": {
+        "title": "Vejret i ",
+        "temperature": "Temperaturen er ",
+        "degrees": " grader, ",
+        "humidity": "luftfugtigheden er ",
+        "pressure": "% og trykket er ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Solen står op klokken ",
+        "postsunrise": "Solen stod op klokken ",
+        "presunset": " og vil gå ned klokken ",
+        "postsunset": " og går ned klokken "
+    },
+    "battery": {
+        "title": "Batteri information",
+        "in": ": ",
+        "has": " har ",
+        "left": "% tilbage"
+    },
+    "sensor": {
+        "title": "Sensor information",
+        "in": " i ",
+        "alarm": " er aktiveret af alarm.",
+        "noalarm": " Der er ingen sensorer som er aktiveret af alarm."
+    },
+    "flame": {
+        "title": "Oplysninger om røgalarm",
+        "i": "i",
+        "alarm": "er i alarm.",
+        "noalarm": "Der er ingen sensorer i alarm.",
+        "testalarm": "Glem ikke at teste røgdetektorerne en gang om måneden for at fungere korrekt",
+        "fejl": "Der er et problem med indlæsning af dine enheder. Kontroller dine enheder og apps i Homey-appen"
+    },
+    "settings": {
+        "title": {
+            "language": "Vælg dit sprog",
+            "theme": "Vælg dit tema",
+            "appearance": "Udseende",
+            "temperature": {
+                "outdoor": "Udetemperatur",
+                "indoor": "Indendørs temperatur"
+            },
+            "brightnessdevice": "Lysstyrke enhed"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Baggrund (url)",
+            "opacity": "Baggrundsopacitet",
+            "clock": "Vis ur",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Ret venligst logoadressen",
+            "background": "Ret venligst baggrundsadressen"
+        }
+    }
+}

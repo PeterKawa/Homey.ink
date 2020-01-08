@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Favoritflöden",
+    "favoritedevices": "Favoritenheter",
+    "alarms": "Larm",
+    "schedules": {
+        "weekdays": "vardagar",
+        "weekend": "helgen",
+        "alldays": "alla dagar"
+    },
+    "text" : {
+        "good": "God ",
+        "evening": "kväll",
+        "afternoon": "eftermiddag",
+        "morning": "förmiddag",
+        "night": "natt",
+        "today": "I dag är det ",
+        "the": "den",
+        "of": " "
+    },
+    "notification": {
+        "title": "Nya händelser",
+        "nonotification": "Det finns inga händelser"
+    },
+    "weather": {
+        "title": "Väderinformation för ",
+        "temperature": "Temperaturen är ",
+        "degrees": " grader, ",
+        "humidity": "luftfuktigheten är ",
+        "pressure": "% och trycket är ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Solen kommer gå upp ",
+        "postsunrise": "Solen gick upp klockan ",
+        "presunset": " och kommer gå ner ",
+        "postsunset": " och gick ner "
+    },
+    "battery": {
+        "title": "Batteriinformation",
+        "in": ": ",
+        "has": " har ",
+        "left": "% kvar"
+    },
+    "sensor": {
+        "title": "Sensorinformation",
+        "in": " i ",
+        "alarm": " har aktiverat alarm.",
+        "noalarm": " Det är inga sensorer med alarm.",
+        "fault": "Det gick inte att ladda dina enheter. Kontrollera dina enheter och appar i Homeyappen"
+    },
+    "flame": {
+        "title": "Information om rökalarm",
+        "in": "in",
+        "alarm": "är i larm.",
+        "noalarm": "Det finns inga sensorer i larm.",
+        "testalarm":"Glöm inte att testa rökdetektorerna en gång i månaden för korrekt drift",
+        "fault": "Det finns ett problem med att ladda dina enheter, kontrollera dina enheter och appar i appen Homey"
+    },
+    "settings": {
+        "title": {
+            "language": "Välj språk",
+            "theme": "Välj ditt tema",
+            "appearance": "Utseende",
+            "temperature": {
+                "outdoor": "Utetemperatur",
+                "indoor": "Inomhus temperatur"
+            },
+            "brightnessdevice": "Ljusstyrka enhet"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Bakgrund (url)",
+            "opacity": "Bakgrundsopacitet",
+            "clock": "Visa klocka",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Vänligen fixa logoadressen",
+            "background": "Vänligen fixa bakgrundsadressen"
+        }
+    }
+}

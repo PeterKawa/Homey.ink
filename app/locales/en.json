@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Favorite Flows",
+    "favoritedevices": "Favorite devices",
+    "alarms": "Alarms",
+    "schedules": {
+        "weekdays": "weekdays",
+        "weekend": "weekend",
+        "alldays": "all days"
+    },
+    "text" : {
+        "good": "Good ",
+        "evening": "evening",
+        "afternoon": "afternoon",
+        "morning": "morning",
+        "night": "night",
+        "today": "Today is ",
+        "the": "the",
+        "of": "of"
+    },
+    "notification": {
+        "title": "Recent notifications",
+        "nonotification": "There are no notifications"
+    },
+    "weather": {
+        "title": "Weather information for ",
+        "temperature": "The current temperature is ",
+        "degrees": " degrees, ",
+        "humidity": "the humidity is ",
+        "pressure": "% and the pressure is ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "The sun will rise at ",
+        "postsunrise": "The sun rose at ",
+        "presunset": " and will set at ",
+        "postsunset": " and set at "
+    },
+    "battery": {
+        "title": "Battery information",
+        "in": " in ",
+        "has": " has ",
+        "left": "% left"
+    },
+    "sensor": {
+        "title": "Sensor information",
+        "in": " in ",
+        "alarm": " is in alarm.",
+        "noalarm": " There are no sensors in alarm.",
+        "fault": "There is a problem loading your devices, please check your devices and apps in the Homey app"
+    },
+    "flame": {
+        "title": "Fire panel",
+        "in": " in ",
+        "alarm": " is in alarm .",
+        "noalarm": " There are no smoke or Co detectors in alarm.",
+        "testalarm": " Do not forget to test the smoke detectors once a month for proper operation",
+        "fault": "There is a problem loading your devices, please check your devices and apps in the Homey app"
+    },
+    "settings": {
+        "title": {
+            "language": "Select your language",
+            "theme": "Select your theme",
+            "appearance": "Appearance",
+            "temperature": {
+                "outdoor": "Outdoor temperature",
+                "indoor": "Indoor temperature"
+            },
+            "brightnessdevice": "Brightness device"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Background (url)",
+            "opacity": "Background opacity",
+            "clock": "Show clock",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Please fix logo url",
+            "background": "Please fix background url"
+        }
+    }
+}

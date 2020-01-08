@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Flux préférés",
+    "favoritedevices": "Appareils favoris",
+    "alarms": "Les alarmes",
+    "schedules": {
+        "weekdays": "jours de la semaine",
+        "weekend": "weekend",
+        "alldays": "tous les jours"
+    },
+    "text" : {
+        "good": "Bonne ",
+        "evening": "soirée",
+        "afternoon": "après-midi",
+        "morning": "matinée",
+        "night": "nuit",
+        "today": " Aujourd'hui nous sommes ",
+        "the": "le",
+        "of": "de"
+    },
+    "notification": {
+        "title": "Notifications récentes",
+        "nonotification": "Pas de nouvelles notifications"
+    },
+    "weather": {
+        "title": " Informations météo pour ",
+        "temperature": "La température actuelle est ",
+        "degrees": " degrés, ",
+        "humidity": "le taux d'humidité est de ",
+        "pressure": "% et la pression atmosphérique est de ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Le soleil se lèvera à ",
+        "postsunrise": "Le soleil s'est levé à ",
+        "presunset": " et levera à ",
+        "postsunset": " et couchera à "
+    },
+    "battery": {
+        "title": "Informations batteries",
+        "in": " dans la zone ",
+        "has": " à ",
+        "left": "% de batterie"
+    },
+    "sensor": {
+        "title": "Informations capteurs",
+        "in": " dans la zone ",
+        "alarm": " est en état d'alarme.",
+        "noalarm": " Il n'y a pas de capteur en état d'alarme.",
+        "fault": "Un problème est survenu lors du chargement de vos appareils. Veuillez vérifier vos appareils et vos applications dans l’application Homey."
+    },
+    "flame": {
+        "title": "Informations sur l'avertisseur de fumée",
+        "in": "dans ",
+        "alarm": " est en état d'alarme .",
+        "noalarm": " Il n'y a pas de détecteur de fumée dans l'alarme.",
+        "testalarm":" N'oubliez pas de tester les détecteurs de fumée une fois par mois pour leur bon fonctionnement",
+        "fault": "Un problème est survenu lors du chargement de vos appareils. Veuillez vérifier vos appareils et vos applications dans l’application Homey."
+    },
+    "settings": {
+        "title": {
+            "language": "Choisissez votre langue",
+            "theme": "Choisissez votre thème",
+            "appearance": "Apparence",
+            "temperature": {
+                "outdoor": "température extérieure",
+                "indoor": "Température intérieure"
+            },
+            "brightnessdevice": "Dispositif de luminosité"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Fond (url)",
+            "opacity": "opacité du fond",
+            "clock": "Afficher l'horloge",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "S'il vous plaît corriger l'URL du logo",
+            "background": "S'il vous plaît corriger l'URL de fond"
+        }
+    }
+}

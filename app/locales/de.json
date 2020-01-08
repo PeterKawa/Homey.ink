@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Favoritisierte Flows",
+    "favoritedevices": "Favorisierte Geräte",
+    "alarms": "Alarme",
+    "schedules": {
+        "weekdays": "wochentage",
+        "weekend": "wochenende",
+        "alldays": "alle tage"
+    },
+    "text" : {
+        "good": "Gute",
+        "evening": "n Abend",
+        "afternoon": "n Nachmittag",
+        "morning": "n Morgen",
+        "night": " Nacht",
+        "today": "Heute ist ",
+        "the": "der",
+        "of": ""
+    },
+    "notification": {
+        "title": "Letzte Benachrichtigungen",
+        "nonotification": "Es gibt keine Benachrichtigungen"
+    },
+    "weather": {
+        "title": "Wetterinformationen für ",
+        "temperature": "Die aktuelle Temperatur beträgt ",
+        "degrees": " Grad, ",
+        "humidity": "die Luftfeuchtigkeit beträgt ",
+        "pressure": "% und der Druck beträgt ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Sonnenaufgang ist um ",
+        "postsunrise": "Sonnenaufgang war um ",
+        "presunset": " Sonnenuntergang ist um ",
+        "postsunset": " Sonnenuntergang war um "
+    },
+    "battery": {
+        "title": "Batterieinformation",
+        "in": " in ",
+        "has": " hat ",
+        "left": "% verbleibend"
+    },
+    "sensor": {
+        "title": "Sensorinformation",
+        "in": " in ",
+        "alarm": " ist im Alarmzustand.",
+        "noalarm": " Es gibt keine Sensoren in Alarmzustand.",
+        "fault": "Es gibt ein Problem beim laden der Geräte, bitte überprüfe die Geräte und Apps in der Homey App"
+    },
+    "flame": {
+        "title": "Informationen zum Rauchmelder",
+        "in": " in ",
+        "alarm": " ist im Alarmzustand.",
+        "noalarm": " Der Alarm enthält keinen Rauchmelder.",
+        "testalarm": "Vergessen Sie nicht, die Rauchmelder einmal im Monat auf ordnungsgemäßen Betrieb zu testen",
+        "fault": "Es gibt ein Problem beim laden der Geräte, bitte überprüfe die Geräte und Apps in der Homey App."
+    },
+    "settings": {
+        "title": {
+            "language": "Wählen Sie Ihre Sprache",
+            "theme": "Wählen Sie Ihr Thema",
+            "appearance": "aussehen",
+            "temperature": {
+                "outdoor": "Außentemperatur",
+                "indoor": "Innentemperatur"
+            },
+            "brightnessdevice": "Helligkeitsgerät"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Hintergrund (url)",
+            "opacity": "Hintergrundopazität",
+            "clock": "Uhr anzeigen",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Bitte korrigieren Sie die Logo-URL",
+            "background": "Bitte korrigieren Sie die Hintergrund-URL"
+        }
+    }
+}

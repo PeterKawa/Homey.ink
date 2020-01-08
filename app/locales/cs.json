@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Oblíbená Flows",
+    "favoritedevices": "Oblíbená zařízení",
+    "alarms": "Alarmy",
+    "schedules": {
+        "weekdays": "Pracovní dny",
+        "weekend": "Víkend",
+        "alldays": "všechny dny"
+    },
+    "text" : {
+        "good": "",
+        "evening": "Dobrý večer",
+        "afternoon": "Dobré odpoledne",
+        "morning": "Dobré ráno",
+        "night": "Dobrou noc",
+        "today": "Dnes je ",
+        "the": "",
+        "of": ""
+    },
+    "notification": {
+        "title": "Poslední upozornění",
+        "nonotification": "Nejsou žádná upozornění"
+    },
+    "weather": {
+        "title": "Předpověď počasí pro ",
+        "temperature": "Aktuální teplota je ",
+        "degrees": "°C ",
+        "humidity": "vlhkost vzduchu je ",
+        "pressure": "% a atmosferický tlak je ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Slunce vyjde v ",
+        "postsunrise": "Slunce vyšlo v ",
+        "presunset": " a zapadne v ",
+        "postsunset": " a zapadlo v "
+    },
+    "battery": {
+        "title": "Informace o bateriích",
+        "in": " v ",
+        "has": " zbývá ",
+        "left": "%"
+    },
+    "sensor": {
+        "title": "Informace o čidlech",
+        "in": " v ",
+        "alarm": " zaznamenána aktivita.",
+        "noalarm": " Žádná aktivita nezaznamenána.",
+        "fault": "Chyba při načítání tvých zařízení, prosím prověř svá zařízení a aplikaci v Homey App"
+    },
+    "flame": {
+        "title": "Informace o poplachu",
+        "in": "in",
+        "alarm": "je v poplachu.",
+        "noalarm": "Neexistují žádné senzory v poplachu.",
+        "testalarm": "Nezapomeňte jednou za měsíc otestovat detektory kouře, zda fungují správně",
+        "fault": "Při načítání zařízení došlo k potížím, zkontrolujte prosím zařízení a aplikace v aplikaci Homey"
+    },
+    "settings": {
+        "title": {
+            "language": "Vyberte jazyk",
+            "theme": "Vyberte motiv",
+            "appearance": "Vzhled",
+            "temperature": {
+                "outdoor": "Venkovní teplota",
+                "indoor": "Vnitřní teplota"
+            },
+            "brightnessdevice": "Zařízení jasu"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Pozadí (url)",
+            "opacity": "Neprůhlednost pozadí",
+            "clock": "Zobrazit hodiny",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Opravte adresu URL loga",
+            "background": "Opravte adresu URL pozadí"
+        }
+    }
+}

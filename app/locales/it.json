@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Scene Preferite",
+    "favoritedevices": "Dispositivi Preferiti",
+    "alarms": "Allarme",
+    "schedules": {
+        "weekdays": "questi giorni della settimana",
+        "weekend": "fine settimana",
+        "alldays": "ogni giorno"
+    },
+    "text" : {
+        "good": "Buon ",
+        "evening": "sera",
+        "afternoon": "pomeriggio",
+        "morning": "giorno",
+        "night": "notte",
+        "today": "Oggi è",
+        "the": "il",
+        "of": "di"
+    },
+    "notification": {
+        "title": "Notifiche recenti",
+        "nonotification": "Non ci sono notifiche"
+    },
+    "weather": {
+        "title": "Informazioni meteo per",
+        "temperature": "La temperatura corrente è",
+        "degrees": " gradi, ",
+        "humidity": "l’umidità è ",
+        "pressure": "% e la pressione è ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "Il sole sorgerà alle ",
+        "postsunrise": "Il sole tramonterà alle ",
+        "presunset": " e risorgerà alle ",
+        "postsunset": " e tramonterà alle "
+    },
+    "battery": {
+        "title": "Informazioni Stato Batteria",
+        "in": " in ",
+        "has": " ha il ",
+        "left": "% di carica."
+    },
+    "sensor": {
+        "title": "Informazioni Sensori",
+        "in": " in ",
+        "alarm": " è nello stato di Allarme.",
+        "noalarm": " Non ci sono sensori nello stato di allarme.",
+        "fault": "Ci sono dei problemi nel rilevare i tuoi dispositivi, prego controllare i tuoi dispositivi e le tue applicazioni nell’applicazione di Homey"
+    },
+    "flame": {
+        "title": "Informazioni sull'allarme fumo",
+        "in": "in",
+        "alarm": "is in alarm.",
+        "noalarm": "Non ci sono sensori in allarme.",
+        "testalarm":" Non dimenticare di testare i rilevatori di fumo una volta al mese per un corretto funzionamento",
+        "fault": "Si è verificato un problema durante il caricamento dei dispositivi, controlla i dispositivi e le app nell'app Homey"
+    },
+    "settings": {
+        "title": {
+            "language": "Seleziona Lingua",
+            "theme": "Seleziona il tuo tema",
+            "appearance": "Aaspetto",
+            "temperature": {
+                "outdoor": "Temperatura Esterna",
+                "indoor": "Temperatura Interna"
+            },
+            "brightnessdevice": "Luminosità Dispositivo"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Sfondo (url)",
+            "opacity": "Opacità Sfondo",
+            "clock": "Visualizza Orologio",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Prego correggere l’indirizzo URL per il logo",
+            "background": "Prego correggere l’indirizzo URL per lo sfondo"
+        }
+    }
+}

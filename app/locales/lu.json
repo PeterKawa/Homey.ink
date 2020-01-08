@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Liiblingsflows",
+    "favoritedevices":"Liiblings Geräter",
+    "alarms": "Alarmer",
+    "schedules": {
+        "weekdays": "Wochendeeg",
+        "weekend": "Weekend",
+        "alldays": "all Deeg"
+    },
+    "text" : {
+        "good": "gutt ",
+        "evening": "Owend",
+        "afternoon": "Nomëtteg",
+        "morning": "moies",
+        "night": "Nuecht",
+        "today": "Haut ass et ",
+        "the": "de",
+        "of": "vun"
+    },
+    "notification": {
+        "title": "Rezent Notifikatiounen",
+        "nonotification": "Et gi keng Notifikatiounen"
+    },
+    "weather": {
+        "title": "Wiederinformatioun fir ",
+        "temperature": "Déi aktuell Temperatur ass ",
+        "degrees": " Grad, ",
+        "humidity": "d'Fiichtegkeet ass ",
+        "pressure": "% an den Drock ass ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "D'Sonn kënnt op ",
+        "postsunrise": "D'Sonn ass opgaang ",
+        "presunset": " a setzt sech op ",
+        "postsunset": " a setzt op "
+    },
+    "battery": {
+        "title": "Batterieinformatioun",
+        "in": " an ",
+        "has": " huet ",
+        "left": "% lénks"
+    },
+    "sensor": {
+        "title": "Sensorinformatioun",
+        "in": " an ",
+        "alarm": " ass am Alarm.",
+        "noalarm": " Et gi keng Sensoren am Alarm.",
+        "fault": "Et gëtt e Problem Är Geräter ze laden, kuckt w.e.g. Är Apparater an Apps an der Homey App"
+    },
+    "flame": {
+        "title": "Feierpanel",
+        "in": " an ",
+        "alarm": " ass am Alarm .",
+        "noalarm": " Et gi keng Rauchmelder vun CO Sensoren am Alarm.",
+        "testalarm":"Vergiesst net de Rauchmelder eemol am Mount fir déi richteg Operatioun ze testen",
+        "fault": "Et gëtt e Problem Är Geräter ze laden, kuckt w.e.g. Är Apparater an Apps an der Homey App"
+    },
+    "settings": {
+        "title": {
+            "language": "Wielt Är Sprooch",
+            "theme": "Wielt Äert Thema",
+            "appearance": "Ausgesinn",
+            "temperature": {
+                "outdoor": "Outdoor Temperatur",
+                "indoor": "Indoor Temperatur"
+            },
+            "brightnessdevice": "Hellegkeet Apparat"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Hannergrond (url)",
+            "opacity": "Hannergrond Opazitéit",
+            "clock": "Auer weisen",
+            "zoom": "zoomen"
+        },
+        "errors": {
+            "logo": "Fixéiert w.e.g. d'Logo url",
+            "background": "W.e.g. fixéiert den Hannergrond url"
+        }
+    }
+}

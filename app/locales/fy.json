@@ -1,0 +1,82 @@
+{
+    "favoriteflows": "Geunstiche flows",
+    "favoritedevices": "Geunstiche apparaten",
+    "alarms": "Alaarms",
+    "schedules": {
+        "weekdays": "weekdagen",
+        "weekend": "Wykein",
+        "alldays": "alle dage"
+    },
+    "text" : {
+        "good": "",
+        "evening": "Goej n",
+        "afternoon": "middag",
+        "morning": "Moarn",
+        "night": "Nacht",
+        "today": "Hjoed is ",
+        "the": "de",
+        "of": ""
+    },
+    "notification": {
+        "title": "Resinte meidieling",
+        "nonotification": "Dêr syn gjinien meidielingen"
+    },
+    "weather": {
+        "title": "Wetter-ynformaasje foar ",
+        "temperature": "De aktuele temperatuer is ",
+        "degrees": " de, ",
+        "humidity": "de waarmheid is ",
+        "pressure": "% en de druk is ",
+        "mbar": " mbar"
+    },
+    "sunevent": {
+        "presunrise": "de sinne rint  ",
+        "postsunrise": "de sinne kaam op ",
+        "presunset": " en giet ûnder ",
+        "postsunset": " en gong ûnder "
+    },
+    "battery": {
+        "title": "Akkount ynformaasje",
+        "in": " in ",
+        "has": " hat ",
+        "left": "% oerlibbe"
+    },
+    "sensor": {
+        "title": "Sensor ynformaasje",
+        "in": " in ",
+        "alarm": " is yn alarmstatus.",
+        "noalarm": " Der binne gjin sensor yn alarmstatus.",
+        "fault": "Der is in probleem mei it apparaat laden, kontrolearje de apparaten en jo apps yn de Homey app"
+    },
+    "flame": {
+        "title": "Fire paniel",
+        "in": "yn",
+        "alarm": "is yn alarm.",
+        "noalarm": "D'r binne gjin reek of CO-alarmen yn alarm.",
+        "testalarm":" Ferjit net om de reekmelders ien kear yn 'e moanne te testen foar goede wurking",
+        "fout": "D'r is problemen mei it laden fan jo apparaten, kontrolearje asjebleaft jo apparaten en apps yn 'e Homey-app"
+    },
+    "settings": {
+        "title": {
+            "language": "Selektearje jo taal",
+            "theme": "Selektearje jo tema",
+            "appearance": "Uterlik",
+            "temperature": {
+                "outdoor": "Bûten temperatuur",
+                "indoor": "Binnen temperatuur"
+            },
+            "brightnessdevice": "Helderheid apparaat"
+        },
+        "appearance": {
+            "logo": "Logo (url)",
+            "background": "Eftergrûn (url)",
+            "opacity": "Eftergrûn transparant",
+            "clock": "klok sjen",
+            "zoom": "Zoom"
+        },
+        "errors": {
+            "logo": "Please fix logo url",
+            "background": "Please fix background url"
+        }
+    }
+}
