@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: black;
   font-size: 24px;
   font-weight: 2px;
 }
@@ -60,21 +60,22 @@ a {
 
   #info-panel {
      position: absolute;
-    width: 80vw;
-    height: 60vh;
+    width: 85vw;
+    height: auto; /*60vh;*/
+    min-height: 60vh;
     left: 10vw;
     top: 10vh;
     padding: 5vh 5vh;
     background-image: url(../img/background.png);
     background-attachment: fixed;
     background-size: cover;
-    border: 1px solid #04bef7;
+    border: 3.2px solid #04bef7;
     border-radius: 6px;
     box-sizing: border-box;
     z-index: 1;
     visibility: hidden;
     overflow: auto;
-    opacity: 0.95;
+    opacity: 0.88;
   }
     .info-message {
      
@@ -88,7 +89,7 @@ a {
     top: 10vh;
     padding: 3vh 2vw;
     background: white;
-    border: 1px solid rgb(49,171,229);
+    border: 3.2px solid rgb(49,171,229);
     border-radius: 6px;
     box-sizing: border-box;
     z-index: 99;
@@ -132,7 +133,7 @@ a {
       top: 20vh;
       left: 32.5vw;
       width: 35%;
-      border: 1px solid rgb(49,171,229);
+      border: 4px solid rgb(49,171,229);
       background-color: #ffffff;
       box-shadow: 0 2px 2px rgba(0,0,0,0.2);
       border-radius: 16px;
@@ -377,7 +378,7 @@ a {
       width: 5;
       height: 5;
       margin-left: auto;
-      margin-right: 0;
+      margin-right: -8px;
       background: Lightgreen;
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
@@ -391,7 +392,7 @@ a {
        border-radius: none;
         border: none;
        color: red;
-       cursor: pointer;
+       cursor: auto; /*-pointer;*/
        -webkit-animation: glowing 1500ms infinite;
 
        -o-animation: glowing 1500ms infinite;
@@ -407,8 +408,8 @@ a {
       width: 2px;
       height: 2px;
       margin-left: auto;
-      margin-right: 0;
-      background: white;
+      margin-right: 1px;
+      background: gray;
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center center;
@@ -422,8 +423,8 @@ a {
       width: 20px;
       height: 20px;
       margin-left: auto;
-      margin-right: 0;
-      background: lightgreen;
+      margin-right: 7px;
+      background: transparent;
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center center;
@@ -450,10 +451,41 @@ a {
       #sensor-details.fault {
         background-color: red;
       }
-    #settings-icon {
+      #flame-details{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: 0px;
+        background: transparent;
+        -webkit-mask-backgroundImage: url(img/fire.png/);
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        -webkit-mask-image: url(../img/flame.png);
+      }
+        #flame-details.alarm {
+          -webkit-mask-image: url(../img/flame.png);
+          Background-color: white;
+          -webkit-border-radius: none;
+          border-radius: none;
+         border: none;
+         color: #FFFFFF;
+         cursor: pointer;
+         -webkit-animation: glowing 1500ms infinite;
+      
+         -o-animation: glowing 1500ms infinite;
+         animation: glowing 1500ms infinite;
+         }
+         @-webkit-keyframes glowing {
+         0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+         50% { background-color: #FF0000; -webkit-box-shadow: 0 0 50px #FF0000; }
+         100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+       }
+        #settings-icon {
       display: inline-block;
-      width: 2px;
-      height: 2px;
+      width: 20px;
+      height: 20px;
       margin-left: auto;
       margin-right: 0;
       background: white;
@@ -464,8 +496,8 @@ a {
       }
     #logo {
       display: inline-block;
-      width: 40px;
-      height: 40px;
+      width: 20px;
+      height: 20px;
       margin-left: auto;
       margin-right: 0;
       background:  no-repeat center center;
@@ -507,9 +539,9 @@ a {
         position: relative;
         display: inline-block;
         vertical-align: middle;
-        overflow: hidden;
         white-space: nowrap;
         height: 64px;
+        width: auto;
         border: none;
         border-radius: 64px;
         overflow: hidden;
@@ -546,6 +578,7 @@ a {
           display: inline-block;
           vertical-align: middle;
           height: 64px;
+          width: auto;
           line-height: 64px;
           font-size: 28px;
           font-weight: 700;
@@ -554,7 +587,7 @@ a {
           text-overflow: ellipsis;
           padding: 0 20px;
           padding-right: 30px;
-          max-width: 300px;
+          max-width: auto;
           color: rgb(49,171,229);
         }
 
@@ -662,15 +695,16 @@ a {
           opacity: 0.9;
         }
         .device.alarm {
-          Background-color: #FF0000;
+          Background-color: rgb(255, 115, 0);
          -webkit-border-radius: none;
-         -webkit-box-shadow: 0 0 50px #FF0000; 
+         -webkit-box-shadow: 0 0 50px rgb(255, 115, 0); 
          border-radius: none;
           border: none;
          color: #FFFFFF;
          cursor: pointer;
+        
         }
-        .device.away {
+               .device.away {
           opacity: 0.5;
         }
         .device.day {
