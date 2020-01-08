@@ -80,6 +80,11 @@
       width: 3vw;
       height: 5vw;
     }
+    #flame-details {
+      display: inline-block;
+      width: 3vw;
+      height: 5vw;
+    }
     #sensor-details {
       display: inline-block;
       width: 3vw;
@@ -139,6 +144,7 @@
 }
   .flow {
     height: 52px; /*7vh;*/
+    width: auto;
     margin-bottom: 15px; /*2vh;*/
     border-radius: 52px; /*7vh;*/
   }
@@ -153,6 +159,7 @@
     .flow .name {
       font-weight: 300;
       height: 52px; /*7vh;*/
+      width: auto;
       line-height: 52px; /*7vh;*/
       font-size: 21px; /*2.8vh;*/
       padding: 0 22px; /*3vh;*/

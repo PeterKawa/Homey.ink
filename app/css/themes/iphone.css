@@ -7,7 +7,9 @@ h1 {
 }
 
 h2 {
-  font-size: 2vh;
+  font-size: 1.7vh;
+  font-weight: 300;
+  margin-top: 0.8vw;
 }
 #container {
 
@@ -39,7 +41,7 @@ h2 {
 
 #header {
   height: 9vh;
-  margin-bottom: 1vw;
+  margin-bottom: 2Svw;
 }
 
 .info-message {
@@ -48,6 +50,8 @@ h2 {
 }
 
 .info-date {
+  font-size: 1.7vh;
+  font-weight: 300;
   margin-bottom: 1%;
 }
 
@@ -56,7 +60,7 @@ h2 {
 }
 
 #weather {
-  width: 42vw;
+  width: 32vw;
   top: 0;
 }
   #weather-temperature:after {
@@ -65,23 +69,24 @@ h2 {
   #weather-state-icon {
     display: inline-block;
     margin-left: 4vw;
+    margin-right: 4.4vw;
     top: 0;
-    width: 8vw;
-    height: 6vh;
-    background-size: 8vw 6vh;
+    width: 4vw;
+    height: 4vh;
+    background-size: 4vw 4vh;
   }
   #weather-temperature {
     display: inline-block;
     margin-left: -11vw;
     top: -1vh;
-    font-size: 6vw;
+    font-size: 5vw;
     line-height: 6vw;
     /*vertical-align: text-top;*/
   }
   #weather-roof {
-    width: 8vw;
-    height: 14vw;
-    margin-left: 2vw;
+    width: 5vw;
+    height: 5vw;
+    margin-left: 4vw;
   }
   #weather-temperature-inside {
     margin-left: -9.5vw;
@@ -130,39 +135,44 @@ h2 {
   }
 
   #details {
-    top: 1vh;
-    right: 0;
-    width: 36vw;
+    top: 2vh;
+    right: 1;
+    width: 60vw;
   }
     #version-icon {
       display: inline-block;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
     }
     #battery-details {
       display: inline-block;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
     }
     #notification-details {
       display: inline-block;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
     }
     #sensor-details {
       display: inline-block;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
+    }
+    #flame-details {
+      display: inline-block;
+      width: 7vw;
+      height: 7vw;
     }
     #settings-icon {
       display: inline-block;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
     }
     #logo {
       display: inline-block;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
     }
 
 .favorites {
@@ -177,8 +187,9 @@ h2 {
   .favorites h2 {
     display: block;
     width: auto;
-    font-size: 1.6vh;
+    font-size: 1vh;
     margin-bottom: .8vh;
+    margin-top: .8vh;
     text-transform: uppercase;
 
     display: flex;
@@ -192,6 +203,7 @@ h2 {
   }
     .favorites h2 span {
       flex-shrink: 0;
+      font-size: 1.5vh;
       margin-right: 1vw;
     }
     .favorites h2:after {
@@ -225,13 +237,19 @@ h2 {
       line-height: 5.6vh;
       font-size: 2.2vh;
       padding: 0 2.4vh;
-      padding-right: 3.2vh;
-      max-width: 21vw;
+      padding-right: 2vh;
+      max-width: auto;
     }
 
 #alarms {
   
-}
+  width: 16.9vh;
+    height: 16.9vh;
+    padding: 1.6vh;
+    margin-right: 2.2vh;
+    margin-bottom: 2.2vh;
+    border-radius: 2.4vh;
+  }
   .alarms .alarm {
     width: 16.9vh;
     height: 11.9vh;
@@ -245,7 +263,7 @@ h2 {
       bottom: 2.6vh;
       left: 1.6vh;
       right: 1.6vh;
-      font-size: 2.2vh;
+      font-size: 1.7vh;
       font-weight: 300;
       line-height: 2.8vh;
       width: auto;
@@ -255,13 +273,14 @@ h2 {
     .alarms .alarm .value {
       position: absolute;
       top: 2.4vh;
-      left: 1.8vh;
       right: 1.8vh;
       font-size: 3.4vh;
       font-weight: 300;
       line-height: 3.4vh;
+      width: auto;
       height: auto;
       max-height: 6vh;
+      text-align: left;
     }
 
 #devices {
@@ -303,7 +322,7 @@ h2 {
     }
 
     #decimal {
-      font-size: 2.4vh;
+      font-size: 1.5vh;
     }
     .device .name {
       position: absolute;

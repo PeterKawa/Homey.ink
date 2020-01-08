@@ -63,7 +63,7 @@
   #details {
     top: 1vh;
     right: 0;
-    width: 26vw;
+    width: 30vw;
   }
     #version-icon {
       display: inline-block;
@@ -81,6 +81,11 @@
       height: 5vw;
     }
     #sensor-details {
+      display: inline-block;
+      width: 3vw;
+      height: 5vw;
+    }
+    #flame-details {
       display: inline-block;
       width: 3vw;
       height: 5vw;
@@ -205,6 +210,7 @@
 
 #devices {
   position: static;
+    max-height: 5px;
 }
   .device {
     width: 135px; /*20vh;*/

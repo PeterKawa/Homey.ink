@@ -6,6 +6,15 @@
 body {
 
 }
+h1 {
+  font-size: 3vh;
+}
+
+h2 {
+  font-size: 1.7vh;
+  font-weight: 300;
+  margin-top: 0.8vw;
+}
 
 #container {
 
@@ -16,11 +25,13 @@ body {
 }
 
 .info-message {
-  font-size: 3.4vh;
-  font-weight: 350;
+  font-size: 3vh;
+  font-weight: 300;
 }
 
 .info-date {
+  font-size: 1.7vh;
+  font-weight: 300;
   margin-bottom: 1%;
 }
 
@@ -96,6 +107,11 @@ body {
       height: 5vw;
     }
     #sensor-details {
+      display: inline-block;
+      width: 3vw;
+      height: 5vw;
+    }
+    #flame-details {
       display: inline-block;
       width: 3vw;
       height: 5vw;
