@@ -1,4 +1,4 @@
- var version = "1.1.3"
+ var version = "1.1.6"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -34,7 +34,8 @@ window.addEventListener('load', function() {
   var batteryDetails = [];
   var batteryAlarm = false;
   var sensorDetails =[];
-  var nrMsg = 8;
+  var flameDetails =[];
+  var nrMsg = 7;
   var faultyDevice = false;
   var nameChange = false;
   var longtouch = false;
@@ -74,6 +75,7 @@ window.addEventListener('load', function() {
         var $batterydetails = document.getElementById('battery-details');
         var $notificationdetails = document.getElementById('notification-details');
         var $sensordetails = document.getElementById('sensor-details');
+        var $flamedetails = document.getElementById('flame-details');
         var $settingsIcon = document.getElementById('settings-icon');
         var $logo = document.getElementById('logo');
     $content = document.getElementById('content');
@@ -186,6 +188,11 @@ window.addEventListener('load', function() {
     return renderInfoPanel("s")
   })
 
+  $flamedetails.addEventListener('click', function() {
+    return renderInfoPanel("f")
+  })
+
+
   $notificationdetails.addEventListener('click', function() {
     homey.notifications.getNotifications().then(function(notifications) {
       return renderInfoPanel('t',notifications);
@@ -240,7 +247,8 @@ window.addEventListener('load', function() {
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>voor meer informatie</a></center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
+    
     return
   }
   /*
@@ -249,7 +257,7 @@ window.addEventListener('load', function() {
   */
   try { token = atob(token) }
   catch(err) {
-    $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token invalid.  Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>Voor meer informatie </a></center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token invalid.  Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>Voor meer informatie </a></center>"
     return
   }
   token = JSON.parse(token);
@@ -336,6 +344,8 @@ window.addEventListener('load', function() {
 
       checkSensorStates();
 
+      checkFlameStates();
+
       renderVersion();
 
       renderImages();
@@ -376,6 +386,47 @@ window.addEventListener('load', function() {
             $sensordetails.classList.add('fault')
             return
           }
+          if (!device.ready) {
+            faultyDevice=true;
+            $flamedetails.classList.add('fault')
+            return
+          }
+          if ( device.capabilitiesObj.alarm_smoke ) {
+            device.makeCapabilityInstance('alarm_smoke', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                $deviceElement.classList.toggle('alarm', !!value);
+                checkFlameStates();
+              }
+            });
+          }
+          if ( device.capabilitiesObj.alarm_fire ) {
+            device.makeCapabilityInstance('alarm_fire', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                $deviceElement.classList.toggle('alarm', !!value);
+                checkFlameStates();
+              }
+            });
+          }
+          if ( device.capabilitiesObj.alarm_co ) {
+            device.makeCapabilityInstance('alarm_co', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                $deviceElement.classList.toggle('alarm', !!value);
+                checkFlameStates();
+              }
+            });
+          }
+          if ( device.capabilitiesObj.alarm_heat ) {
+            device.makeCapabilityInstance('alarm_heat', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                $deviceElement.classList.toggle('alarm', !!value);
+                checkFlameStates();
+              }
+            });
+          }
           if ( device.ui.quickAction ) {
             device.makeCapabilityInstance(device.ui.quickAction, function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -402,6 +453,7 @@ window.addEventListener('load', function() {
               }
             });
           }
+         
           if ( device.capabilitiesObj.alarm_contact ) {
             device.makeCapabilityInstance('alarm_contact', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -436,7 +488,6 @@ window.addEventListener('load', function() {
                   checkSensorStates();
                 }
               });
-
             }
             if ( device.capabilitiesObj.alarm_tamper ) {
               device.makeCapabilityInstance('alarm_tamper', function(value){
@@ -453,6 +504,16 @@ window.addEventListener('load', function() {
               if( $deviceElement ) {
                 $deviceElement.classList.toggle('alarm', !!value);
                 checkSensorStates();
+              }
+            });
+          }
+          if ( device.capabilitiesObj.vacuumcleaner_state ) {
+            device.makeCapabilityInstance('vacuumcleaner_state', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":vacuumcleaner_state");
+                capability = device.capabilitiesObj['vacuumcleaner_state']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
               }
             });
           }
@@ -575,6 +636,16 @@ window.addEventListener('load', function() {
               if( $deviceElement ) {
                 var $valueElement = document.getElementById('value:' + device.id + ":measure_power");
                 capability = device.capabilitiesObj['measure_power']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+          if ( device.capabilitiesObj.measure_co ) {
+            device.makeCapabilityInstance('measure_co', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_co");
+                capability = device.capabilitiesObj['measure_co']
                 renderValue($valueElement, capability.id, capability.value, capability.units)
               }
             });
@@ -764,9 +835,19 @@ window.addEventListener('load', function() {
       $versionIcon.addEventListener('click', function() {
         setCookie('version', version ,12)
         changeLog = ""
-        changeLog = changeLog + "* Verschillende css fixes<br />"
-        changeLog = changeLog + "* Toegevoegd Fibaro floot sensor capabilities<br />"
-        changeLog = changeLog + "* Toegevoegd Raspberry thema<br />"  
+        changeLog = changeLog + "Version 1.1.6 <br />"
+        changeLog = changeLog + "<br />"
+        changeLog = changeLog + "- Multiple css fixes <br />"
+        changeLog = changeLog + "- Added Smoke detector info panel <br />"
+        changeLog = changeLog + "- Added smoke detector alarm capabilities <br />"
+        changeLog = changeLog + "- Added CO alarm capabilities <br />"
+        changeLog = changeLog + "<br />"
+        changeLog = changeLog + "Added languages <br />"
+        changeLog = changeLog + "<br />"
+        changeLog = changeLog + "- Turkey <br />"
+        changeLog = changeLog + "- Luxembourg <br />"
+        changeLog = changeLog + "- Frisian (was already available but now also selectable in settings panel) <br />"
+        changeLog = changeLog + "- Arabische<br />"
         renderInfoPanel("u",changeLog)
       })
     }
@@ -828,6 +909,33 @@ window.addEventListener('load', function() {
         $sensordetails.classList.add('alarm')
       } else {
         $sensordetails.classList.remove('alarm')
+      }
+    }).catch(console.error);
+  }
+
+  function checkFlameStates() {
+    homey.flowToken.getFlowTokens().then(function(tokens) {
+      var flameAlarm = false
+      flameDetails = [];
+      for ( token in tokens) {
+        if (
+            tokens[token].id == "alarm_smoke" && tokens[token].value == true ||
+            tokens[token].id == "alarm_fire" && tokens[token].value == true ||
+            tokens[token].id == "alarm_co" && tokens[token].value == true ||
+            tokens[token].id == "alarm_heat" && tokens[token].value == true 
+             
+          ) {
+            var element = {}
+            element.name = tokens[token].uriObj.name
+            element.zone = tokens[token].uriObj.meta.zoneName
+            flameDetails.push(element)
+            flameAlarm = true
+        }
+      }
+      if ( flameAlarm ) {
+        $flamedetails.classList.add('alarm')
+      } else {
+        $flamedetails.classList.remove('alarm')
       }
     }).catch(console.error);
   }
@@ -916,7 +1024,7 @@ window.addEventListener('load', function() {
         $infoPanelSunevents.innerHTML = $se
 
         break;
-      case "b":
+        case "b":
         $infopanel.innerHTML = '';
         var $infoPanelBattery = document.createElement('div');
         $infoPanelBattery.id = "infopanel-battery"
@@ -928,7 +1036,6 @@ window.addEventListener('load', function() {
           $bi = $bi + batteryDetails[device].level + texts.battery.left + "</h2>"
         }
         $infopanel.innerHTML = $bi
-
         break;
       case "s":
         $infopanel.innerHTML = '';
@@ -949,13 +1056,34 @@ window.addEventListener('load', function() {
         }
         $infopanel.innerHTML = $si
         break;
+        case "f":
+          $infopanel.innerHTML = '';
+          var $infoPanelFlame = document.createElement('div');
+          $infoPanelFlame.id = "infopanel-flame"
+          $infopanel.appendChild($infoPanelFlame);
+          $fi = "<center><h1>" + texts.flame.title + "</h1></center><br /><br />"
+          if ( Object.keys(flameDetails).length ) {
+            for ( device in flameDetails) {
+              $fi = $fi + "<h2>" + flameDetails[device].name + texts.flame.in
+              $fi = $fi + flameDetails[device].zone + texts.flame.alarm + "</h2>"
+
+            }
+          } else {
+            $fi = $fi + "<h2>" + texts.flame.noalarm + "</h2>"
+            $fi = $fi + "<h2>" + texts.flame.testalarm + "</h2>"
+          }
+          if ( faultyDevice ) {
+            $fi = $fi +"<br /><h2>" + texts.flame.fault + "</h2>"
+          }
+          $infopanel.innerHTML = $fi
+          break;
       case "u":
 
         $infopanel.innerHTML = '';
         var $infoPanelUpdate = document.createElement('div');
         $infoPanelUpdate.id = "infopanel-update"
         $infopanel.appendChild($infoPanelUpdate);
-        $ui = "<center><h1>New Version</h1></center><br /><br />"
+        $ui = "<center><h1>New updates</h1></center><br /><br />"
         $ui = $ui + "<h2>Changes</h2><br /><h3>"
         $ui = $ui + info +"</h3>"
         $infopanel.innerHTML = $ui
@@ -1111,13 +1239,16 @@ window.addEventListener('load', function() {
       if ( device.capabilitiesObj && device.capabilitiesObj.button ) {
         $deviceElement.classList.toggle('on', true)
       }
-      $devicesInner.appendChild($deviceElement);
+      $devicesInner.appendChild($deviceElement); 
 
       if (device.capabilitiesObj && device.capabilitiesObj.alarm_generic && device.capabilitiesObj.alarm_generic.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_motion && device.capabilitiesObj.alarm_motion.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_contact && device.capabilitiesObj.alarm_contact.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_vibration && device.capabilitiesObj.alarm_vibration.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_water && device.capabilitiesObj.alarm_water.value 
+          device.capabilitiesObj && device.capabilitiesObj.alarm_water && device.capabilitiesObj.alarm_water.value ||
+          device.capabilitiesObj && device.capabilitiesObj.alarm_co && device.capabilitiesObj.alarm_co.value ||
+          device.capabilitiesObj && device.capabilitiesObj.alarm_heat && device.capabilitiesObj.alarm_heat.value ||
+          device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value  
           ) {
             $deviceElement.classList.add('alarm')
       }

@@ -16,6 +16,7 @@ var newZoom
 var $styleElem
 var $content
 var $settingspanel
+var $flamepanel
 var homey
 
 window.addEventListener('load', function() {
