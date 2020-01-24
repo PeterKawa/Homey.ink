@@ -1,4 +1,4 @@
- var version = "1.1.6"
+ var version = "1.1.7"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -247,7 +247,7 @@ window.addEventListener('load', function() {
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a></center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
     
     return
   }
@@ -835,19 +835,10 @@ window.addEventListener('load', function() {
       $versionIcon.addEventListener('click', function() {
         setCookie('version', version ,12)
         changeLog = ""
-        changeLog = changeLog + "Version 1.1.6 <br />"
+        changeLog = changeLog + "Version 1.1.7 <br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "- Multiple css fixes <br />"
-        changeLog = changeLog + "- Added Smoke detector info panel <br />"
-        changeLog = changeLog + "- Added smoke detector alarm capabilities <br />"
-        changeLog = changeLog + "- Added CO alarm capabilities <br />"
+        changeLog = changeLog + "- Added option to change the status of heimdal to enabled or disabled. when heimdal is switched on, the button turns dark orange. if heimdall is switched off, the button turns green. Code is written by RonnyW. for more info look at https://community.athom.com/t/homey-cornelisse-dash/24059  <br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "Added languages <br />"
-        changeLog = changeLog + "<br />"
-        changeLog = changeLog + "- Turkey <br />"
-        changeLog = changeLog + "- Luxembourg <br />"
-        changeLog = changeLog + "- Frisian (was already available but now also selectable in settings panel) <br />"
-        changeLog = changeLog + "- Arabische<br />"
         renderInfoPanel("u",changeLog)
       })
     }
@@ -1252,6 +1243,54 @@ window.addEventListener('load', function() {
           ) {
             $deviceElement.classList.add('alarm')
       }
+
+      if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
+				if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
+					$deviceElement.classList.toggle('disarmed',  true);
+					
+				} else {
+					$deviceElement.classList.toggle('disarmed', false);
+        }
+      }
+      if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
+				if ( device.capabilitiesObj.homealarm_state.value == "armed" ){
+					$deviceElement.classList.toggle('armed', true);	
+        	} else {
+					$deviceElement.classList.toggle('armed', false);
+				}
+				//Click-Event for Icon for changing mode on touch/click
+				$deviceElement.addEventListener('click', function() {
+          if ( nameChange ) { return } // No click when shown capability just changed
+					if ( longtouch ) {return} // No click when longtouch was performed
+				
+					if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
+						$deviceElement.classList.toggle('armed', true);
+						homey.devices.setCapabilityValue({
+							deviceId: device.id,
+							capabilityId: 'homealarm_state',
+							value: 'armed',
+						}).catch(console.error);
+					} else {
+						$deviceElement.classList.toggle('disarmed', false);
+						homey.devices.setCapabilityValue({
+							deviceId: device.id,
+							capabilityId: 'homealarm_state',
+							value: 'disarmed',
+            }).catch(console.error);
+					}
+				});
+				//register eventhandler for mode change
+				device.makeCapabilityInstance('homealarm_state', function(value){
+					var $deviceElement = document.getElementById('device:' + device.id);
+					if( $deviceElement ) {
+						if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
+							$deviceElement.classList.toggle('disarmed', true);
+						} else {
+							$deviceElement.classList.toggle('disarmed', false);
+						}
+					}
+				});
+			}
 
       if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
         var moisture = device.capabilitiesObj.flora_measure_moisture.value
