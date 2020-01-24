@@ -694,16 +694,30 @@ a {
         .device.on {
           opacity: 0.9;
         }
+      .device.armed {
+        Background-color: #ff7300;
+       -webkit-border-radius: none;
+       border-radius: none;
+        border: none;
+        color: #ff7300;     
+      }
+    
+      .device.disarmed {
+        Background-color: rgb(5, 190, 5);
+       -webkit-border-radius: none;
+       border-radius: none;
+       border: none;  
+       color: rgb(5, 190, 5);   
+      }
         .device.alarm {
-          Background-color: rgb(255, 115, 0);
+          Background-color: #ff8800;
          -webkit-border-radius: none;
-         -webkit-box-shadow: 0 0 50px rgb(255, 115, 0); 
+         -webkit-box-shadow: 0 0 50px #ff8800; 
          border-radius: none;
           border: none;
          color: #FFFFFF;
          cursor: pointer;
-        
-        }
+      }
                .device.away {
           opacity: 0.5;
         }
