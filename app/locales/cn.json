@@ -1,0 +1,81 @@
+{
+        “favoriteflows"：“收藏夾流”，
+        “ favoritedevices”：“最喜歡的設備”，
+        “警報”：“警報”，
+        “時間表”：{
+            “工作日”：“工作日”，
+            “ weekend”：“ weekend”，
+            “ alldays”：“所有日子”
+        }，
+        “文字”：{
+            “好好 ”，
+            “ evening”：“ evening”，
+            “ afternoon”：“下午”，
+            “ morning”：“早晨”，
+            “ night”：“ night”，
+            “ today”：“今天是”，
+            “ the”：“ the”，
+            “ of”：“ of”
+        }，
+        “通知”：{
+            “ title”：“最近的通知”，
+            “ nonotification”：“沒有通知”
+        }，
+        “天氣”：{
+            “ title”：“的天氣信息，”
+            “ temperature”：“當前溫度為”，
+            “度”：“度”，
+            “濕度”：“濕度為”，
+            “ pressure”：“％，壓力為”，
+            “ mbar”：“ mbar”
+        }，
+        “ sunevent”：{
+            “ presunrise”：“太陽將升起”，
+            “ postsunrise”：“太陽升起”，
+            “ presunset”：“，並將設置為”，
+            “ postsunset”：“並設置為”
+        }，
+        “電池”：{
+            “ title”：“電池信息”，
+            “ in”：“ in”，
+            “有”：“有”，
+            “左”：“％左”
+        }，
+        “傳感器”：{
+            “ title”：“傳感器信息”，
+            “ in”：“ in”，
+            “ alarm”：“處於警報狀態。”，
+            “ noalarm”：“警報中沒有煙霧或一氧化碳探測器。”，
+            “故障”：“加載您的設備時出現問題，請在Homey應用程序中檢查您的設備和應用程序”
+        }，
+        “火焰”：{
+            “ title”：“煙霧警報信息”，
+            “ in”：“ in”，
+            “ alarm”：“正在報警。”，
+            “ noalarm”：“警報中沒有傳感器。”，
+            “故障”：“加載您的設備時出現問題，請在Homey應用程序中檢查您的設備和應用程序”
+        }，
+        “設置”：{
+            “標題”：{
+                “ language”：“選擇您的語言”，
+                “ theme”：“選擇您的主題”，
+                “外觀”：“外觀”，
+                “溫度”：{
+                    “室外”：“室外溫度”，
+                    “室內”：“室內溫度”
+                }，
+                “ brightnessdevice”：“亮度設備”
+            }，
+            “外觀”：{
+                “ logo”：“徽標（url¬）”，
+                “ background”：“ Background（url¬）”，
+                “ opacity”：“背景不透明度”，
+                “ clock”：“顯示時鐘”，
+                “ zoom”：“ Zoom”
+            }，
+            “錯誤”：{
+                “ logo”：“請修改徽標網址”，
+                “ background”：“請修復背景URL”
+            }
+        }
+    }
