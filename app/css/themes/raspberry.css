@@ -210,7 +210,6 @@
 
 #devices {
   position: static;
-    max-height: 5px;
 }
   .device {
     width: 135px; /*20vh;*/
