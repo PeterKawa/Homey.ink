@@ -1,4 +1,4 @@
- var version = "1.1.7"
+ var version = "1.1.8"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -91,17 +91,22 @@ window.addEventListener('load', function() {
         var $alarms = document.getElementById('alarms');
           var $favoritealarms = document.getElementById('favorite-alarms');
             var $alarmsInner = document.getElementById('alarms-inner');
+       
+           
+         
+                
 
   var order = getCookie("order")
   if ( order != "") {
     row = order.split(",")
   } else {
-    row = "1,2,3".split(",")
+    row = "1,2,3,".split(",")
   }
   
   $row1.style.order = row[0]
   $row2.style.order = row[1]
   $row3.style.order = row[2]
+
 
   try {
     $favoriteflows.innerHTML = texts.favoriteflows
@@ -241,6 +246,7 @@ window.addEventListener('load', function() {
   if ( logofromurl == undefined ) { logofromurl = "" }
 
   var zoom = getCookie("zoom")
+  
   $content.style.zoom = zoom;
 
   var token = getQueryVariable('token');
@@ -390,6 +396,16 @@ window.addEventListener('load', function() {
             faultyDevice=true;
             $flamedetails.classList.add('fault')
             return
+          }
+          if ( device.capabilitiesObj.locked ) {
+            device.makeCapabilityInstance('locked', function(value){
+              var $valueElement = document.getElementById('lock:' + device.id);
+              if( $valueElement ) {
+                console.log("Locked: " + value)
+                $valueElement.classList.toggle('locked', !!value);
+                $valueElement.classList.toggle('unlocked', !value);
+              }
+            });
           }
           if ( device.capabilitiesObj.alarm_smoke ) {
             device.makeCapabilityInstance('alarm_smoke', function(value){
@@ -589,6 +605,16 @@ window.addEventListener('load', function() {
               }
             });
           }
+          if ( device.capabilitiesObj.measure_rain_day ) {
+            device.makeCapabilityInstance('measure_rain_day', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_rain_day");
+                capability = device.capabilitiesObj['measure_rain_day']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
           if ( device.capabilitiesObj.measure_solarradiation ) {
             device.makeCapabilityInstance('measure_solarradiation', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -760,6 +786,63 @@ window.addEventListener('load', function() {
               }
             });
           }
+          
+          if ( device.capabilitiesObj.measure_co2 ) {
+            device.makeCapabilityInstance('measure_co2', function(value) {
+              var $deviceElement = document.getElementById('device:' + device.id);
+              var co2 = value;
+              if( $deviceElement) {
+                var $element = document.getElementById('value:' + device.id +":measure_co2");
+                $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
+                console.log(co2)
+                  if ( co2 > 200 || co2 > 400  ) {
+                    console.log("co2 out of bounds")
+                    $deviceElement.classList.add("low")
+                   } else {
+                    $deviceElement.classList.remove("low")
+                  }
+                  checkSensorStates();
+                }
+              });
+            }
+            
+            if ( device.capabilitiesObj.measure_co2 ) {
+              device.makeCapabilityInstance('measure_co2', function(value) {
+                var $deviceElement = document.getElementById('device:' + device.id);
+                var co2 = value;
+                if( $deviceElement) {
+                  var $element = document.getElementById('value:' + device.id +":measure_co2");
+                  $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
+                  console.log(co2)
+                    if ( co2 > 1500 || co2 > 2000  ) {
+                      console.log("co2 out of bounds")
+                      $deviceElement.classList.add("high")
+                    } else {
+                      $deviceElement.classList.remove("high")
+                    }
+                    checkSensorStates();
+                  }
+                });
+              }
+              if ( device.capabilitiesObj.measure_co2 ) {
+                device.makeCapabilityInstance('measure_co2', function(value) {
+                  var $deviceElement = document.getElementById('device:' + device.id);
+                  var co2 = value;
+                  if( $deviceElement) {
+                    var $element = document.getElementById('value:' + device.id +":measure_co2");
+                    $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
+                    console.log(co2)
+                    if ( co2 > 900 || co2 > 1400   ) {
+                      console.log("co2 out of bounds")
+                      $deviceElement.classList.add("mid")
+                    } else {
+                      $deviceElement.classList.remove("mid")
+                    }
+                      checkSensorStates();
+                    }
+                  });
+                }
+
           if ( device.capabilitiesObj.flora_measure_fertility ) {
             device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -835,15 +918,22 @@ window.addEventListener('load', function() {
       $versionIcon.addEventListener('click', function() {
         setCookie('version', version ,12)
         changeLog = ""
-        changeLog = changeLog + "Version 1.1.7 <br />"
+        changeLog = changeLog + "Version 1.1.8 <br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "- Added option to change the status of heimdal to enabled or disabled. when heimdal is switched on, the button turns dark orange. if heimdall is switched off, the button turns green. Code is written by RonnyW. for more info look at https://community.athom.com/t/homey-cornelisse-dash/24059  <br />"
+        changeLog = changeLog + "- Added partial armed mode for the heimdall button. The button works as follows. disarmed > partially armed > armed > disarmed. <br />"
+        changeLog = changeLog + "- Added lock status icon (made by: Danee de Kruyff)<br />"
+        changeLog = changeLog + "- Prevent unloadable device icons causing display problems (made by: Danee de Kruyff)<br />"
+        changeLog = changeLog + "- Corrected Italian translations (made by: Danee de Kruyff)<br />"
+        changeLog = changeLog + "- minor CSS fixes<br />"
+        changeLog = changeLog + "- Added devices with a measuring co2 capability have now been given a color based on co2 level (changed automatic) <br />"
         changeLog = changeLog + "<br />"
-        renderInfoPanel("u",changeLog)
+        changeLog = changeLog + "Green = good co2 value <br />" 
+        changeLog = changeLog +" Orange = moderate co2 value  <br />"
+        changeLog = changeLog + "Red = poor co2 value  ( window or door must be opened ) <br />"
+       renderInfoPanel("u",changeLog)
       })
     }
   }
-
   function renderImages() {
     var backgroundUrl = getCookie('background')
     var backgroundColor = getCookie('backgroundcolor')
@@ -1181,7 +1271,17 @@ window.addEventListener('load', function() {
       }).catch(console.error);
     });
   }
-  
+    function attachEvent($alarmElement,alarm) {
+    $alarmElement.addEventListener('click', function(){
+      var value = !$alarmElement.classList.contains('on');
+      $alarmElement.classList.toggle('on', value);
+      var newValue = {enabled:value}
+      homey.alarms.updateAlarm({
+        id: alarm.id,
+        alarm: newValue,
+      }).catch(console.error);
+    });
+  }
   function renderFlows(flows) {
     if ( flows != "" ) {
     $flowsInner.innerHTML = '';
@@ -1242,8 +1342,9 @@ window.addEventListener('load', function() {
           device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value  
           ) {
             $deviceElement.classList.add('alarm')
-      }
-
+          }
+ 
+    
       if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
 				if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
 					$deviceElement.classList.toggle('disarmed',  true);
@@ -1254,30 +1355,48 @@ window.addEventListener('load', function() {
       }
       if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
 				if ( device.capabilitiesObj.homealarm_state.value == "armed" ){
-					$deviceElement.classList.toggle('armed', true);	
+          $deviceElement.classList.toggle('armed', true);	
+          
         	} else {
 					$deviceElement.classList.toggle('armed', false);
+        }
+      }
+      if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
+				if ( device.capabilitiesObj.homealarm_state.value == "partially_armed" ){
+          $deviceElement.classList.toggle('partially', true);	
+          
+        	} else {
+					$deviceElement.classList.toggle('partially', false);
 				}
 				//Click-Event for Icon for changing mode on touch/click
 				$deviceElement.addEventListener('click', function() {
           if ( nameChange ) { return } // No click when shown capability just changed
 					if ( longtouch ) {return} // No click when longtouch was performed
-				
-					if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
+          if ( device.capabilitiesObj.homealarm_state.value == "partially_armed" ){
 						$deviceElement.classList.toggle('armed', true);
 						homey.devices.setCapabilityValue({
 							deviceId: device.id,
 							capabilityId: 'homealarm_state',
 							value: 'armed',
-						}).catch(console.error);
-					} else {
-						$deviceElement.classList.toggle('disarmed', false);
+            }).catch(console.error);
+        
+          }
+					if ( device.capabilitiesObj.homealarm_state.value == "armed" ){
+						$deviceElement.classList.toggle('disarmed', true);
 						homey.devices.setCapabilityValue({
 							deviceId: device.id,
 							capabilityId: 'homealarm_state',
 							value: 'disarmed',
+						}).catch(console.error);
+          }
+          if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
+            $deviceElement.classList.toggle('partially', false);
+						homey.devices.setCapabilityValue({
+							deviceId: device.id,
+							capabilityId: 'homealarm_state',
+							value: 'partially_armed',
             }).catch(console.error);
-					}
+          }
 				});
 				//register eventhandler for mode change
 				device.makeCapabilityInstance('homealarm_state', function(value){
@@ -1287,10 +1406,24 @@ window.addEventListener('load', function() {
 							$deviceElement.classList.toggle('disarmed', true);
 						} else {
 							$deviceElement.classList.toggle('disarmed', false);
-						}
-					}
-				});
-			}
+            }
+          }
+            if( $deviceElement ) {
+              if ( device.capabilitiesObj.homealarm_state.value == "armed" ){
+                $deviceElement.classList.toggle('armed', true);
+              } else {
+                $deviceElement.classList.toggle('armed', false);
+              }
+            }
+            if( $deviceElement ) {
+              if ( device.capabilitiesObj.homealarm_state.value == "partially_armed" ){
+                $deviceElement.classList.toggle('partially', true);
+              } else {
+                $deviceElement.classList.toggle('partially', false);
+              }
+            }
+          });
+        }
 
       if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
         var moisture = device.capabilitiesObj.flora_measure_moisture.value
@@ -1302,7 +1435,45 @@ window.addEventListener('load', function() {
           //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
-
+      
+      if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+        var co2 = device.capabilitiesObj.measure_co2.value
+        console.log(co2)
+        if ( co2 > 1500 || co2 > 2000 ) {
+          console.log("co2 out of bounds")
+          $deviceElement.classList.add('high')
+        }else{
+          $deviceElement.classList.remove('high')
+           //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+        }
+      }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+          var co2 = device.capabilitiesObj.measure_co2.value
+          console.log(co2)
+        if ( co2 > 900 || co2 > 1400 ) {
+          console.log("co2 out of bounds")
+          $deviceElement.classList.add('mid')
+        }else{
+          $deviceElement.classList.remove('mid')
+           //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+        }
+     }
+      
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+          var co2 = device.capabilitiesObj.measure_co2.value
+          console.log(co2)
+        if ( co2 > 200 || co2 > 400 ) {
+          console.log("co2 out of bounds")
+          $deviceElement.classList.add('low')
+        }else{
+          $deviceElement.classList.remove('low')
+           //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+         } 
+        }
+   
       if ( device.capabilitiesObj && device.capabilitiesObj.alarm_connected ) {
         if ( device.capabilitiesObj.alarm_connected.value ) {
           $deviceElement.classList.remove('away')
@@ -1322,7 +1493,11 @@ window.addEventListener('load', function() {
       var $icon = document.createElement('div');
       $icon.id = 'icon:' + device.id
       $icon.classList.add('icon');
-      $icon.style.webkitMaskImage = 'url(https://icons-cdn.athom.com/' + device.iconObj.id + '-128.png)';
+      if ( device.iconObj ) {
+        $icon.style.webkitMaskImage = 'url(https://icons-cdn.athom.com/' + device.iconObj.id + '-128.png)';
+      } else if ( device.icon ) {
+        $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
+      }
       if ( device.name == "Bier" || device.name == "Bier temperatuur" ) {
         $icon.style.webkitMaskImage = 'url(img/capabilities/beer.png)';
         $icon.style.backgroundImage = 'url(img/capabilities/beer.png)';
@@ -1350,6 +1525,19 @@ window.addEventListener('load', function() {
             renderValue($value, capability.id, capability.value, capability.units)
             if (device.name=="Bier") {renderValue($value, capability.id, capability.value, "")}
             $deviceElement.appendChild($value)
+            itemNr =itemNr + 1
+          } else 
+          if ( capability.id == "locked" ) {
+            var $lock = document.createElement('div');
+            $lock.id = 'lock:' + device.id
+            $lock.title = capability.title
+            $lock.classList.add('icon-capability-lock');
+            if ( device.capabilitiesObj.locked.value ) {
+              $lock.classList.add('locked');
+            } else {
+              $lock.classList.add('unlocked');
+            }
+            $deviceElement.appendChild($lock)
             itemNr =itemNr + 1
           }
         }
@@ -1484,7 +1672,8 @@ window.addEventListener('load', function() {
         capabilityId == "measure_humidity"
         ) {
       capabilityValue = Math.round(capabilityValue*10)/10
-      var integer = Math.floor(capabilityValue)
+            //var integer = Math.floor(capabilityValue)
+            var integer = parseInt(capabilityValue)
       n = Math.abs(capabilityValue)
       var decimal = Math.round((n - Math.floor(n))*10)/10 + "-"
       var decimal = decimal.substring(2,3)
@@ -1770,7 +1959,9 @@ window.addEventListener('load', function() {
           capabilityToShow = capability.id
           // measure_uv and measure_solarradiation icons are broken at icons-cdn.athom.com
           if ( capability.iconObj && capability.id != "measure_uv" && capability.id != "measure_solarradiation" ) {
+            //if ( capability.iconObj ) {
             iconToShow = 'https://icons-cdn.athom.com/' + capability.iconObj.id + '-128.png'
+            console.log(iconToShow)
 
           } else {
             iconToShow = 'img/capabilities/' + capability.id + '.png'
