@@ -25,7 +25,7 @@ body {
 
 .danger {
   background-color: #ffdddd;
-  border-left: 6px solid #f44336;
+  border-left: 6px solid  #FF0700;
 }
 .tablecell {
   display: table-cell;
@@ -48,7 +48,7 @@ a {
 
   #header {
     display: flex;
-    height: 5Svw;
+    height: 8vw;
     margin-bottom: 1vw;
   }
 
@@ -69,7 +69,7 @@ a {
     background-image: url(../img/background.png);
     background-attachment: fixed;
     background-size: cover;
-    border: 3.2px solid #04bef7;
+    border: 3.2px solid #0190E3;
     border-radius: 6px;
     box-sizing: border-box;
     z-index: 1;
@@ -78,7 +78,6 @@ a {
     opacity: 0.88;
   }
     .info-message {
-     
     }
 
   #settings-panel {
@@ -89,7 +88,7 @@ a {
     top: 10vh;
     padding: 3vh 2vw;
     background: white;
-    border: 3.2px solid rgb(49,171,229);
+    border: 3.2px solid #0190E3;
     border-radius: 6px;
     box-sizing: border-box;
     z-index: 99;
@@ -133,7 +132,7 @@ a {
       top: 20vh;
       left: 32.5vw;
       width: 35%;
-      border: 4px solid rgb(49,171,229);
+      border: 4px solid #0190E3;
       background-color: #ffffff;
       box-shadow: 0 2px 2px rgba(0,0,0,0.2);
       border-radius: 16px;
@@ -213,11 +212,11 @@ a {
       appearance: none;
       width: 25px;
       height: 25px;
-      border-color: rgb(49,171,229);
+      border-color: #0190E3;
       border-width: 1px;
       border-style: solid;
       border-radius: 50%;
-      background: rgb(49,171,229);
+      background: #0190E3;
       cursor: pointer;
     }
     
@@ -225,7 +224,7 @@ a {
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      background: rgb(75, 215, 98);
+      background:rgb(29,185,84);
       cursor: pointer;
     }
 
@@ -236,11 +235,11 @@ a {
     #content > #row1 { order: 1; }
     #content > #row2 { order: 2; }
     #content > #row3 { order: 3; }
-
+    #content > #row4 { order: 4; }
   #weather {
     position: relative;
     left: 1vw;
-    width: 350px
+    width: 470px
   }
   #sunstate {
     display: inline-block;
@@ -302,6 +301,7 @@ a {
       background-size: contain;
       background-image: url(../img/roof.png);
       visibility: hidden;
+ 
     }
     #weather-temperature-inside {
       display: inline-block;
@@ -316,21 +316,12 @@ a {
       font-size: 1.5vw;
       vertical-align: text-top;
     }
-
+    
   #sun-events {
     display: inline-block;
     /*left: 128px;
     width: 128px*/
   }
-
-
-  #nav {
-    position: absolute;
-    right:0;
-    width: 128px;
-  }
-
-
   #text {
     text-align: center;
   }
@@ -379,7 +370,7 @@ a {
       height: 5;
       margin-left: auto;
       margin-right: -8px;
-      background: Lightgreen;
+      background: rgb(29,185,84);
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center center;
@@ -391,7 +382,7 @@ a {
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-       color: red;
+       color:  #FF0700;
        cursor: auto; /*-pointer;*/
        -webkit-animation: glowing 1500ms infinite;
 
@@ -400,7 +391,7 @@ a {
       }     
        @-webkit-keyframes glowing {
        0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-       50% { background-color: #FF0000; -webkit-box-shadow: 0 0 50px #FF0000; }
+       50% { background-color:  #FF0700; -webkit-box-shadow: 0 0 50px  #FF0700; }
        100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
       }
     #notification-details{
@@ -445,7 +436,7 @@ a {
        }
        @-webkit-keyframes glowing {
        0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-       50% { background-color: #FF0000; -webkit-box-shadow: 0 0 50px #FF0000; }
+       50% { background-color:  #FF0700; -webkit-box-shadow: 0 0 50px #FF0700; }
        100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
        }
       #sensor-details.fault {
@@ -479,7 +470,7 @@ a {
          }
          @-webkit-keyframes glowing {
          0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-         50% { background-color: #FF0000; -webkit-box-shadow: 0 0 50px #FF0000; }
+         50% { background-color:  #FF0700; -webkit-box-shadow: 0 0 50px #FF0700; }
          100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
        }
         #settings-icon {
@@ -557,7 +548,7 @@ a {
         line-height: 110px;
         display: block;
         background-color: rgba(90, 88, 88, 0.836);
-        color: #61CC38;
+        color: rgb(29,185,84);
         position: absolute;
         left: 0;
         right: 0;
@@ -588,7 +579,7 @@ a {
           padding: 0 20px;
           padding-right: 30px;
           max-width: auto;
-          color: rgb(49,171,229);
+          color: #0190E3;
         }
 
   #alarms {
@@ -603,7 +594,7 @@ a {
           position: relative;
           width: 100px;
           height: 100px;
-          border: 6px solid  rgb(49,171,229);
+          border: 6px solid  #0190E3;
           background-color: white;
           border: none;
           box-shadow: 0 2px 2px rgba(0,0,0,0.2);
@@ -680,7 +671,7 @@ a {
         position: relative;
         width: 100px;
         height: 100px;
-        border: 4px solid rgb(9, 170, 245);
+        border: 4px solid #0190E3;
         background-color: rgb(255, 254, 254);
         border: none;
         box-shadow: 0 2px 2px rgba(0,0,0,0.2);
@@ -695,29 +686,65 @@ a {
           opacity: 0.9;
         }
       .device.armed {
-        Background-color: #ff7300;
+        Background-color:  #FF0700;
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-        color: #ff7300;     
+        color:  #FF0700;     
       }
-    
+      .device.partially {
+        Background-color: rgb(255,102,0);
+       -webkit-border-radius: none;
+       border-radius: none;
+        border: none;
+        color: rgb(255,102,0);     
+      }
       .device.disarmed {
-        Background-color: rgb(5, 190, 5);
+        Background-color: rgb(29,185,84);
        -webkit-border-radius: none;
        border-radius: none;
        border: none;  
-       color: rgb(5, 190, 5);   
+       color: rgb(29,185,84);   
       }
         .device.alarm {
-          Background-color: #ff8800;
-         -webkit-border-radius: none;
-         -webkit-box-shadow: 0 0 50px #ff8800; 
-         border-radius: none;
-          border: none;
-         color: #FFFFFF;
-         cursor: pointer;
+          Background-color: white;
+          -webkit-border-radius: none;
+          border-radius: none;
+           border: none;
+          color:  #FF0700;
+          cursor: auto; /*-pointer;*/
+          -webkit-animation: glowing 1500ms infinite;
+   
+          -o-animation: glowing 1500ms infinite;
+           animation: glowing 1500ms infinite;
+         }     
+          @-webkit-keyframes glowing {
+          0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+          50% { background-color: #FF0700; -webkit-box-shadow: 0 0 50px #FF0700; }
+          100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+         }
+      .device.low {
+        Background-color: rgb(29,185,84);
+       -webkit-border-radius: none;
+       border-radius: none;
+        border: none;
+        color: rgb(29,185,84);     
       }
+      .device.mid {
+        Background-color: rgb(255,102,0);
+       -webkit-border-radius: none;
+       border-radius: none;
+        border: none;
+        color: rgb(255,102,0);     
+      }
+      .device.high {
+        Background-color:  #FF0700;
+       -webkit-border-radius: none;
+       border-radius: none;
+        border: none;
+        color:  #FF0700;   
+      }
+      
                .device.away {
           opacity: 0.5;
         }
@@ -749,14 +776,33 @@ a {
           position: absolute;
           top: 30px;
           left: 15px;
-          width: 35px;
-          height: 35px;
+          width: 45px;
+          height: 45px;
           background: black;
           margin-bottom: 3px;
           -webkit-mask-size: contain;
           -webkit-mask-repeat: no-repeat;
           -webkit-mask-position: center center;
           -webkit-user-select: none;
+        }
+        .device .icon-capability-lock {
+          position: absolute;
+          top: 30px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+          background: black;
+          margin-bottom: 3px;
+          -webkit-mask-size: contain;
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center center;
+          -webkit-user-select: none;
+        }
+        .device .icon-capability-lock.locked {
+          -webkit-mask-image: url(../img/capabilities/locklocked.png);
+        }
+        .device .icon-capability-lock.unlocked {
+          -webkit-mask-image: url(../img/capabilities/lockunlocked.png);
         }
         .device .value {
           position: absolute;
