@@ -1,3 +1,14 @@
+## Version 1.1.8 - published on Dash.homeycornelisse.nl
+ * Added partial armed mode for the heimdall button. The button works as follows. disarmed > partially armed > armed > disarmed.
+ * Added lock status icon (made by: Danee de Kruyff)
+ * Prevent unloadable device icons causing display problems (made by: Danee de Kruyff)
+ * Corrected Italian translations (made by: Danee de Kruyff)
+ * minor CSS fixes
+ * Added devices with a measuring co2 capability have now been given a color based on co2 level (changed automatic) 
+    - Green = good co2 value 
+    - Orange = moderate co2 value 
+    - Red = poor co2 value  ( window or door must be opened ) 
+
 ## Version 1.1.3 - published on homeydash.com
  * Verschillende css fixes
  * Toegevoegd Fibaro floot sensor capabilities
