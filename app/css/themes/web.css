@@ -36,11 +36,13 @@ h2 {
 }
 
 #weather {
-  width: 42vw;
+  width: 90vw;
   top: 0vw;
 }
 #weather-state-icon {
+
 }
+
 #weather-temperature {
 
 }
@@ -64,8 +66,8 @@ h2 {
     #sunrise-time, #sunset-time {
       font-size: 1.2vw;
       line-height: 0vh;
+     
     }
-
   #text {
     position: absolute;
     left: 30vw;

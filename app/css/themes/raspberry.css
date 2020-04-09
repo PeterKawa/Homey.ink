@@ -39,8 +39,7 @@
   #weather-temperature:after {
     content: "°";
   }
-
-  #text {
+   #text {
     position: absolute;
     left: 30vw;
     right: 30vw;
