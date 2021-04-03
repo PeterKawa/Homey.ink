@@ -3,7 +3,7 @@
 # --- under construction ---
 April 3, 2021: this online fork still is just a copy of Homey Cornelisse Dash!
 
-I primary edited this nice flavour of Homeydash.com for these reasons:
+> I primary edited this nice flavour of Homeydash.com for these reasons:
 
 1) I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so probably usable at Google Hubs too.
 
@@ -11,9 +11,11 @@ I primary edited this nice flavour of Homeydash.com for these reasons:
 
 3) I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers.
 
+
 --------------------------------------------------
 
 Original ReadMe.md:
+
 Homey Cornelisse Dash is an open-source project for wall-mounted Homey dashboards.
 This project is forked from Homey.ink / homeydash.com and is primarily aimed at usage on an iPad or iPhone
 
