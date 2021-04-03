@@ -1,12 +1,15 @@
 # PeterDeeDash 
 #
 # --- under construction ---
-April 3, 2021: this still is just a copy of Homey Cornelisse Dash!
+April 3, 2021: this online fork still is just a copy of Homey Cornelisse Dash!
 
 I primary edited this nice flavour of Homeydash.com for these reasons:
-I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so probably usable at Google Hubs too.
-I wanted to make room for as much tiles as possible, so less space used by the info bar.
-I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers.
+
+1) I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so probably usable at Google Hubs too.
+
+2) I wanted to make room for as much tiles as possible, so less space used by the info bar.
+
+3) I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers.
 
 --------------------------------------------------
 
