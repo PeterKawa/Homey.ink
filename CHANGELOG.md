@@ -1,3 +1,11 @@
+## Version 1.0 by PeterKawa
+ * Initial PeterDeeDash version
+   * Edited for running on local server
+     - Displaying all available device values on tiles without "longpressing"; probably handy for Google Hubs too
+     - Various layout adjustments to show the dash nicely on an Android Tablet (Chrome & Fully browsers)
+     - Added menu option "Android Tablet"
+##
+
 ## Version 1.1.8 - published on Dash.homeycornelisse.nl
  * Added partial armed mode for the heimdall button. The button works as follows. disarmed > partially armed > armed > disarmed.
  * Added lock status icon (made by: Danee de Kruyff)
