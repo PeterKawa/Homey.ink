@@ -3,7 +3,7 @@
 # - test version -
 April 5, 2021: uploaded all my edited files and new files.
 
-> I primarily edited this nice flavour of Homeydash.com for these reasons:
+- I primarily edited this nice flavour of Homeydash.com for these reasons:
 
 1) I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so probably usable at Google Hubs too.
 
@@ -13,6 +13,7 @@ April 5, 2021: uploaded all my edited files and new files.
 
 - Screenshots: 
 
+![Chromium-linuxMint](https://user-images.githubusercontent.com/74005072/113612906-ba2d1980-9650-11eb-918b-716632d4c5f8.png)
 Added menu item Tablet
 
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
@@ -32,34 +33,38 @@ Chromium browser op linux Mint
 Firefox browser op linux Mint
 
 ![Firefox browser op linux Mint](https://user-images.githubusercontent.com/74005072/113604135-24d85800-9645-11eb-9818-b430dff2e6ec.png)
+<br>
+<br>
+<br>
+- <B>To run this dashboard on Homey, using the micro server app: </B> 
+1. Install the Micro Web Server app on your Homey
+2. Then go to config from within the app and push the button `Start FTP Server`, and check if it says `Running`
+3. Now look for the IP address of your Homey, it is presented in this screen, something like `192.16.1.23` or `192.168.2.54`
+4. Copy this IP address / write this down!
+5. I'm serious, you'll need it often
+6. Using a PC or MAC install the freeware FTP software FileZilla, on linux the default filemanager should do
+7. The whole "website" is packed in a Zip file. Download this Zip via https://github.com/PeterKawa/PeterDeeDash/archive/refs/heads/master.zip
+8. Unpack Zip file "PeterDeeDash-master.zip" f.i. to your Desktop, then a folder named PeterDeeDash-master is created
+9. Let's rename this folder to “PeterDeeDash”, a little shorter; NOTE: this is part of the link used at step 13.!
+10. Start the FTP program (FileZilla) and log on to Homey FTP
+11. On the left upperside, at “Host” you enter `YourHomeyIPAddress` (from step 3.), at “Port” you enter `5081`.
+12. At the right side, click "Fast Connect” (no username/pw needed)
+13. If the connection succeeded, you'll find your pc folders at the left screen, now look for folder Desktop\PeterDeeDash; Right-click at  "Upload", then the whole folder will be copied (uploaded) to your Homey.
+16. After a few secs or minutes, you'll find this folder in the right hand column, this is the server folder of your Homey.
+17. Yay, now PeterDeeDash is running from your Homey!
+18. Start your fav browser, and enter this:</b>
+`http://YourHomeyIPAddress:5080/PeterDeeDash/app?theme=tablet&lang=nl&token=[YourToken**]`<br>
+- Casting the dashboard to your Google hub can also be done by entering this URL to the "Cast" card in your flow.
 
-
-
-
-- <B>To run this dashboard on Homey, using the micro server app (in Dutch for now): </B> 
-1. Micro Web Server app op Homey installeren
-2. In de configuratie van de app druk op de knop “Start FTP Server”, zodat deze “Running” aangeeft.
-3. Op een PC of MAC installeer bijvoorbeeld het gratis FTP programma FileZilla, op linux bijv met de default filemanager
-4. The whole "website" is packed in a Zip file. Download de Zip op je PC of MAC, via https://github.com/PeterKawa/PeterDeeDash/archive/refs/heads/master.zip
-5. Pak de Zip file PeterDeeDash-master.zip uit, jerijgt nu een map PeterDeeDash-master met de bestanden erin, zet deze map b.v. op je bureaublad.
-6. Ik hernoem de map dan even naar “PeterDeeDash”, dat is wat korter.
-7. Met het FTP programma FileZilla log je nu in op je Homey FTP Server.
-8. Vul linksboven bij het vakje “Host” je eigen Homey ip adres in en bij “Poort” 5081.
-9. Druk nu rechts op de knop “Snelverbinden” (no username/pw needed)
-10. Als de verbinding is gelukt kun je in de linkerkolom naar de map “PeterDeeDash” op je bureaublad browsen en kun je met een rechtermuisklik "Uploaden" kiezen om de hele map naar Homey te uploaden.
-11. De map zie je nu in de rechter kolom verschijnen, en staat nu dus op Homey zelf.
-12. Nu kun je PeterDeeDash vanaf je Homey draaien.
-13. Type het volgende in je browser `http://IPADRES-HOMEY:5080/PeterDeeDash/app?theme=tablet&lang=nl&token=[JouwToken**]`, Casten naar je google hub gaat zo ook prima.
-
-Wil je de FTP server uitschakelen, herstert de app “Micro Web Server” even, want FTP heb je alleen nodig om files naar Homey te uploaden. De HTTP server blijft werken, dus PeterDeeDash ook. 
-(thanks Martin_van_der_Aart)
+In case you want to stop the FTP server, just restart “Micro Web Server” app, b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash</b> 
+(thanks to Martin_van_der_Aart)
 
 
 
 - <B>To run this dashboard locally @ raspberry or linux (vm) (linux command line):</B>
 ```
 npm i -g serve
-git clone https://github.com/PeterKawa/PeterDeeDash
+git clone https://github.com/PeterKawa/PeterDeeDash.git
 cd PeterDeeDash
 serve -p 5000 app
 ```
@@ -71,11 +76,11 @@ Then visit (for English, change `lang=nl` into `lang=en`. Other languages*** can
 - Raspberry: `http://localhost:5000/?theme=raspberry&lang=nl&token=<TOKEN>`</br>
 - Web (common) `http://localhost:5000/?theme=web&lang=nl&token=<TOKEN>`</br>
 
-> `**)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
+> <b>`**)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
 
 
 
-`***)` <b><I>PeterDeeDash is available in CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
+`***)` <I>PeterDeeDash is available in CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
 
 
 
