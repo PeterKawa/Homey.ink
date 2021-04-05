@@ -23,7 +23,7 @@ April 5, 2021: <b>live</b>
 
 - Android Phone Chromebrowser Portrait
 
-![Android Phone Portrait Chromebrowser](https://user-images.githubusercontent.com/74005072/113604179-2efa5680-9645-11eb-9dff-f002c610f819.jpg)
+![Android Phone Portrait Chromebrowser](https://user-images.githubusercontent.com/74005072/113622433-49402e80-965d-11eb-9837-4db9fc7e3b56.jpg)
 
 - Chromium browser op linux Mint
 
