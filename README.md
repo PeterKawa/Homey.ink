@@ -21,13 +21,17 @@ A big thanks to all developers (WeeJeWel) who started this dashboard and those (
 
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
 
-- Android Phone Chromebrowser Landscape
+- Android Tablet Chromebrowser Landscape
 
-![Android Phone Landscape Chromebrowser](https://user-images.githubusercontent.com/74005072/113604159-2b66cf80-9645-11eb-8d57-86a960d8acda.jpg)
+![AndroidTabletLandscapeChrome](https://user-images.githubusercontent.com/74005072/113629338-9a085500-9666-11eb-85b9-59b0ea798dc8.jpg)
 
 - Android Phone Chromebrowser Portrait
 
 ![Android Phone Portrait Chromebrowser](https://user-images.githubusercontent.com/74005072/113622433-49402e80-965d-11eb-9837-4db9fc7e3b56.jpg)
+
+- Android Phone Chromebrowser Landscape
+
+![Android Phone Landscape Chromebrowser](https://user-images.githubusercontent.com/74005072/113604159-2b66cf80-9645-11eb-8d57-86a960d8acda.jpg)
 
 - Chromium browser op linux Mint
 
