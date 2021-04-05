@@ -1,0 +1,28 @@
+
+#settings-zoom {
+    /*visibility: hidden;*/
+}
+
+.select, .select-description {
+    width: 24vw;
+}
+
+.select {
+    margin-right: 17px;
+}
+
+.appearance-description {
+    width: 24vw;
+}
+
+.appearance-input {
+    width: 65vw;
+}
+
+input {
+    width: 65vw;
+}
+
+.slidecontainer {
+    width: 72%;
+  }
