@@ -55,7 +55,7 @@ April 5, 2021: <b>live</b>
 `http://YourHomeyIPAddress:5080/peterdeedash/app?theme=tablet&lang=en&token=[YourToken**]`<br>
 19. For your language, change `lang=en` into `lang=xx` (`where xx = cn/cs/da/de/en/es/fr/fy/it/lu/ma/nb/nl/ro/sv/tr`)
 - Casting the dashboard to your Google hub can also be done by entering this URL to the "Cast" card in your flow.
-
+- <b>Your token can be acquired by visiting https://homey.ink, look for a large string in the console (push F12 mostly) after logging on</b>
 
 In case you want to stop the FTP server, just restart “Micro Web Server” app, b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash
 </br> 
@@ -70,7 +70,7 @@ git clone https://github.com/PeterKawa/PeterDeeDash.git
 cd PeterDeeDash
 serve -p 5000 app
 ```
-Then visit (for English, change `lang=nl` into `lang=en`. Other languages*** can be selected from the dashboard menu after opening the URL):</br>
+Then alter the URL with your token and language of choice (for your language, change `lang=en` into `lang=xx` (`where xx = cn/cs/da/de/en/es/fr/fy/it/lu/ma/nb/nl/ro/sv/tr`):</br>
 - Android tablet / phone: `http://localhost:5000/?theme=tablet&lang=nl&token=<TOKEN>`</br>
 - Google Nest Hub: `http://localhost:5000/?theme=google_nest_hub&lang=nl&token=<TOKEN>`</br>
 - iPad: `http://localhost:5000/?theme=ipad&lang=nl&token=<TOKEN>`</br>
@@ -79,10 +79,10 @@ Then visit (for English, change `lang=nl` into `lang=en`. Other languages*** can
 </br>
 </br>
 </br>
-# **)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
+<b>Your token can be acquired by visiting https://homey.ink, look for a large string in the console (push F12 mostly) after logging in</b>
 </br>
 </br>
-`***)` <b><I>PeterDeeDash is available in these languages: CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
+`***)' <b><I>PeterDeeDash is available in these languages: CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
 
 
 
