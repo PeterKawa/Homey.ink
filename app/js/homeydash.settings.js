@@ -21,7 +21,7 @@ var homey
 
 window.addEventListener('load', function() {
     var $version = document.getElementById('version');
-    $version.innerHTML = "Homey Cornelisse dash version " + parent.version
+    $version.innerHTML = "Homey PeterDeeDash version " + parent.version
 
     newoutdoortemperature = parent.outdoortemperature
     newindoortemperature = parent.indoortemperature

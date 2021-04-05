@@ -1,4 +1,4 @@
- var version = "1.1.8"
+var version = "1.0"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -47,7 +47,7 @@ window.addEventListener('load', function() {
   var sliderUnit = "";
 
   var $infopanel = document.getElementById('info-panel');
-  $settingspanel = document.getElementById('settings-panel');
+  var $settingspanel = document.getElementById('settings-panel'); // var was removed PeterDee
   var $sliderpanel = document.getElementById('slider-panel');
   var $slider = document.getElementById('slider');
   var $sliderclose = document.getElementById('slider-close');
@@ -78,7 +78,7 @@ window.addEventListener('load', function() {
         var $flamedetails = document.getElementById('flame-details');
         var $settingsIcon = document.getElementById('settings-icon');
         var $logo = document.getElementById('logo');
-    $content = document.getElementById('content');
+    var $content = document.getElementById('content'); // var was removed PeterDee
       var $row1 = document.getElementById('row1'); 
         var $flows = document.getElementById('flows');
           var $favoriteflows = document.getElementById('favorite-flows');  
@@ -253,7 +253,7 @@ window.addEventListener('load', function() {
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Homey Cornelisse, Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
     
     return
   }
@@ -380,7 +380,7 @@ window.addEventListener('load', function() {
           return !!device;
         }).filter(function(device){
           if(!device.ui) return false;
-          //if(!device.ui.quickAction) return false;
+          //if(!device.ui.quickAction) return false; //Disabled shows all avail. values on tiles
           return true;
         });
 
@@ -918,7 +918,7 @@ window.addEventListener('load', function() {
       $versionIcon.addEventListener('click', function() {
         setCookie('version', version ,12)
         changeLog = ""
-        changeLog = changeLog + "Version 1.1.8 <br />"
+        changeLog = changeLog + "Version 1.0 <br />"
         changeLog = changeLog + "<br />"
         changeLog = changeLog + "- Added partial armed mode for the heimdall button. The button works as follows. disarmed > partially armed > armed > disarmed. <br />"
         changeLog = changeLog + "- Added lock status icon (made by: Danee de Kruyff)<br />"
