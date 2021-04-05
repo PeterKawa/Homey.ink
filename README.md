@@ -33,10 +33,10 @@ Chromium browser op linux Mint
 Firefox browser op linux Mint
 
 ![Firefox browser op linux Mint](https://user-images.githubusercontent.com/74005072/113604135-24d85800-9645-11eb-9818-b430dff2e6ec.png)
-<br>
-<br>
-<br>
-- <B>To run this dashboard on Homey, using the micro server app: </B> 
+</br>
+</br>
+</br>
+- <B>To run this dashboard locally on Homey, using the micro server app: </B> 
 1. Install the Micro Web Server app on your Homey
 2. Then go to config from within the app and push the button `Start FTP Server`, and check if it says `Running`
 3. Now look for the IP address of your Homey, it is presented in this screen, something like `192.16.1.23` or `192.168.2.54`
@@ -45,22 +45,23 @@ Firefox browser op linux Mint
 6. Using a PC or MAC install the freeware FTP software FileZilla, on linux the default filemanager should do
 7. The whole "website" is packed in a Zip file. Download this Zip via https://github.com/PeterKawa/PeterDeeDash/archive/refs/heads/master.zip
 8. Unpack Zip file "PeterDeeDash-master.zip" f.i. to your Desktop, then a folder named PeterDeeDash-master is created
-9. Let's rename this folder to “PeterDeeDash”, a little shorter; NOTE: this is part of the link used at step 13.!
+9. Let's rename this folder to “peterdeedash”, no caps and a little shorter; NOTE: this is part of the link used at step 13.!
 10. Start the FTP program (FileZilla) and log on to Homey FTP
 11. On the left upperside, at “Host” you enter `YourHomeyIPAddress` (from step 3.), at “Port” you enter `5081`.
 12. At the right side, click "Fast Connect” (no username/pw needed)
-13. If the connection succeeded, you'll find your pc folders at the left screen, now look for folder Desktop\PeterDeeDash; Right-click at  "Upload", then the whole folder will be copied (uploaded) to your Homey.
+13. If the connection succeeded, you'll find your pc folders at the left screen, now look for folder `Desktop`, open it and look for folder `peterdeedash`; Now right-click at "Upload", the complete folder will be copied (uploaded) to your Homey.
 16. After a few secs or minutes, you'll find this folder in the right hand column, this is the server folder of your Homey.
 17. Yay, now PeterDeeDash is running from your Homey!
-18. Start your fav browser, and enter this:</b>
-`http://YourHomeyIPAddress:5080/PeterDeeDash/app?theme=tablet&lang=nl&token=[YourToken**]`<br>
+18. Start your fav browser, and enter this:</br>
+`http://YourHomeyIPAddress:5080/peterdeedash/app?theme=tablet&lang=nl&token=[YourToken**]`<br>
 - Casting the dashboard to your Google hub can also be done by entering this URL to the "Cast" card in your flow.
 
-In case you want to stop the FTP server, just restart “Micro Web Server” app, b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash</b> 
+In case you want to stop the FTP server, just restart “Micro Web Server” app, b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash
+</br> 
 (thanks to Martin_van_der_Aart)
-
-
-
+</br>
+</br>
+</br>
 - <B>To run this dashboard locally @ raspberry or linux (vm) (linux command line):</B>
 ```
 npm i -g serve
@@ -75,11 +76,12 @@ Then visit (for English, change `lang=nl` into `lang=en`. Other languages*** can
 - iPad: `http://localhost:5000/?theme=ipad&lang=nl&token=<TOKEN>`</br>
 - Raspberry: `http://localhost:5000/?theme=raspberry&lang=nl&token=<TOKEN>`</br>
 - Web (common) `http://localhost:5000/?theme=web&lang=nl&token=<TOKEN>`</br>
-
-> <b>`**)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
-
-
-
+</br>
+</br>
+</br>
+<b>`**)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
+</br>
+</br>
 `***)` <I>PeterDeeDash is available in CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
 
 
