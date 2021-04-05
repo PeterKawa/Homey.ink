@@ -8,12 +8,14 @@
         "alldays": "alle dagen"
     },
     "text" : {
-        "good": "Goede",
+        "__comment": "PeterDee original line: Goeie",        
+        "good": "Familie x, goeie", 
         "evening": "navond",
         "afternoon": "middag",
         "morning": "morgen",
         "night": "nacht",
-        "today": "Vandaag is het",
+        "__comment": "PeterDee original line: Vandaag is het",
+        "today": "Familie x, vandaag is het",
         "the": "de",
         "of": ""
     },
@@ -24,7 +26,7 @@
     "weather": {
         "title": "Weer informatie voor ",
         "temperature": "De huidige temperatuur is ",
-        "degrees": " graden, ",
+        "degrees": " graden Celsius, ",
         "humidity": "de luchtvochtigheid is ",
         "pressure": "% en de druk is ",
         "mbar": " mbar"
@@ -38,8 +40,8 @@
     "battery": {
         "title": "Batterij informatie",
         "in": " in zone ",
-        "has": " heeft ",
-        "left": "% batterij over"
+        "has": " heeft nog ",
+        "left": "% energie"
     },
     "sensor": {
         "title": "Sensor informatie",
@@ -54,7 +56,7 @@
         "alarm": " is in alarm.",
         "noalarm": " Er zijn geen rook of CO melders in alarm.",
         "testalarm": "Vergeet niet een keer per maand de rookmelders te testen voor een goede werking",
-        "has": " heeft ",
+        "has": " heeft nog ",
         "left": "% over",
         "fault": "Er is een probleem met laden van apparaten, controleer de apparaten en je apps in de Homey app"
     },
@@ -67,21 +69,21 @@
                 "outdoor": "Buiten temperatuur",
                 "indoor": "Binnen temperatuur"
             },
-            "brightnessdevice": "Helderheidsapparaat"
+            "brightnessdevice": "Helderheids apparaat"
         },
         "appearance": {
-            "logo": "Logo (url)",
-            "background": "Achtergrond (url)",
-            "opacity": "Achtergrond transparantie",
-            "clock": "Toon klok",
-            "zoom": "Zoom"
+            "logo": "Logo (url):",
+            "background": "Achtergrond (url):",
+            "opacity": "Achtergrond transparantie:",
+            "clock": "Klok tonen?",
+            "zoom": "Zoomen:"
         },
         "errors": {
             "logo": "Corrigeer logo url",
             "background": "Corrigeer achtergrond url"
         },
         "update": {
-            "titel": "Nieuwe updates"
+            "titel": "Updates"
             
         }
     }
