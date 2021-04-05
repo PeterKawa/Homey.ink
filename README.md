@@ -3,6 +3,10 @@
 
 April 5, 2021: <b>live</b>
 
+PeterDeeDash is an open-source project for (wall-mounted) Homey dashboards on a  tablet, Google hub, iPad, laptop or TV! As long as it has a webbrowser it works.</br> 
+This project is forked from Homey.ink / Homeydash.com / Homeycornelisse and is primarily aimed at usage on an Android Tablet / Phone.</b>
+A big thanks to all developers (WeeJeWel) who started this dashboard and those (daneedk, Rocodamelshe, Homeycornelisse) who expanded and customized it to what it is now.
+
 - I primarily edited this nice flavour of Homeydash.com for these reasons:
 
 1) I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so probably usable at Google Hubs too.
