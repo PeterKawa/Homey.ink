@@ -1,7 +1,7 @@
 # PeterDeeDash 
 #
-# - test version -
-April 5, 2021: uploaded all my edited files and new files.
+
+April 5, 2021: <b>live</b>
 
 - I primarily edited this nice flavour of Homeydash.com for these reasons:
 
@@ -11,32 +11,31 @@ April 5, 2021: uploaded all my edited files and new files.
 
 3) I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers, added menu item "Tablet"
 
-- Screenshots: 
+# Screenshots: 
 
-![Chromium-linuxMint](https://user-images.githubusercontent.com/74005072/113612906-ba2d1980-9650-11eb-918b-716632d4c5f8.png)
-Added menu item Tablet
+- Added menu item Tablet
 
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
 
-Android Phone Chromebrowser Landscape
+- Android Phone Chromebrowser Landscape
 
 ![Android Phone Landscape Chromebrowser](https://user-images.githubusercontent.com/74005072/113604159-2b66cf80-9645-11eb-8d57-86a960d8acda.jpg)
 
-Android Phone Chromebrowser Portrait
+- Android Phone Chromebrowser Portrait
 
 ![Android Phone Portrait Chromebrowser](https://user-images.githubusercontent.com/74005072/113604179-2efa5680-9645-11eb-9dff-f002c610f819.jpg)
 
-Chromium browser op linux Mint
+- Chromium browser op linux Mint
 
 ![Chromium browser op linux Mint](https://user-images.githubusercontent.com/74005072/113604196-3457a100-9645-11eb-8dfb-5872ea1b6320.png)
 
-Firefox browser op linux Mint
+- Firefox browser op linux Mint
 
 ![Firefox browser op linux Mint](https://user-images.githubusercontent.com/74005072/113604135-24d85800-9645-11eb-9818-b430dff2e6ec.png)
 </br>
 </br>
 </br>
-- <B>To run this dashboard locally on Homey, using the micro server app: </B> 
+# To run this dashboard locally on Homey, using the micro server app:
 1. Install the Micro Web Server app on your Homey
 2. Then go to config from within the app and push the button `Start FTP Server`, and check if it says `Running`
 3. Now look for the IP address of your Homey, it is presented in this screen, something like `192.168.1.23` or `192.168.2.54`
@@ -53,8 +52,10 @@ Firefox browser op linux Mint
 16. After a few secs or minutes, you'll find this folder in the right hand column, this is the server folder of your Homey.
 17. Yay, now PeterDeeDash is running from your Homey!
 18. Start your fav browser, and enter this:</br>
-`http://YourHomeyIPAddress:5080/peterdeedash/app?theme=tablet&lang=nl&token=[YourToken**]`<br>
+`http://YourHomeyIPAddress:5080/peterdeedash/app?theme=tablet&lang=en&token=[YourToken**]`<br>
+19. For your language, change `lang=en` into `lang=xx` (`where xx = cn/cs/da/de/en/es/fr/fy/it/lu/ma/nb/nl/ro/sv/tr`)
 - Casting the dashboard to your Google hub can also be done by entering this URL to the "Cast" card in your flow.
+
 
 In case you want to stop the FTP server, just restart “Micro Web Server” app, b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash
 </br> 
@@ -62,14 +63,13 @@ In case you want to stop the FTP server, just restart “Micro Web Server” app
 </br>
 </br>
 </br>
-- <B>To run this dashboard locally @ raspberry or linux (vm) (linux command line):</B>
+# To run this dashboard locally @ raspberry or linux (vm) (linux command line):
 ```
 npm i -g serve
 git clone https://github.com/PeterKawa/PeterDeeDash.git
 cd PeterDeeDash
 serve -p 5000 app
 ```
-
 Then visit (for English, change `lang=nl` into `lang=en`. Other languages*** can be selected from the dashboard menu after opening the URL):</br>
 - Android tablet / phone: `http://localhost:5000/?theme=tablet&lang=nl&token=<TOKEN>`</br>
 - Google Nest Hub: `http://localhost:5000/?theme=google_nest_hub&lang=nl&token=<TOKEN>`</br>
@@ -79,10 +79,10 @@ Then visit (for English, change `lang=nl` into `lang=en`. Other languages*** can
 </br>
 </br>
 </br>
-<b>`**)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
+# **)Your token can be acquired by visiting https://homey.ink and looking in the console after logging in.
 </br>
 </br>
-`***)` <I>PeterDeeDash is available in CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
+`***)` <b><I>PeterDeeDash is available in these languages: CN/CS/DA/DE/EN/ES/FR/FY/IT/LU/MA/NB/NL/RO/SV/TR</I></b>
 
 
 
