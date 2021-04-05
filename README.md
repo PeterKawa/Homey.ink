@@ -39,7 +39,7 @@ Firefox browser op linux Mint
 - <B>To run this dashboard locally on Homey, using the micro server app: </B> 
 1. Install the Micro Web Server app on your Homey
 2. Then go to config from within the app and push the button `Start FTP Server`, and check if it says `Running`
-3. Now look for the IP address of your Homey, it is presented in this screen, something like `192.16.1.23` or `192.168.2.54`
+3. Now look for the IP address of your Homey, it is presented in this screen, something like `192.168.1.23` or `192.168.2.54`
 4. Copy this IP address / write this down!
 5. I'm serious, you'll need it often
 6. Using a PC or MAC install the freeware FTP software FileZilla, on linux the default filemanager should do
