@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 
 body {
-    font-family: yanone kaffe, comfortaa, sans-serif;
+    font-family: yanone kaffe, comfortaa, arial, sans-serif;
     -webkit-user-select: none;
 }
 
@@ -18,7 +18,7 @@ fieldset {
 
 #content {
     display: flex; 
-    background-image: url(../img/background.png);
+    background-image: url(../img/background.jpg);
     background-attachment: fixed;
     background-size: cover;
     border-radius: 8px;
@@ -103,7 +103,7 @@ fieldset {
     position: relative;
     width: 50px;
     height: 50px;
-    border: 1px solid black;
+    border: 100px solid black;
     background-color: white;
     border: none;
     box-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -115,18 +115,18 @@ fieldset {
     }
         .device .name {
             position: absolute;
-            bottom: 6px;
-            left: 6px;
-            right: 6px;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
             width: 100%;
             height: 100%;
-            max-height: 7px;
-            font-size: 9px;
-            line-height: 9px;
-            font-weight: 150;
-            overflow: hidden;
+            max-height: 8px;
+            font-size: 10px;
+            line-height: 10px;
+            font-weight: 200;
+            overflow: auto;
             white-space: normal;
-            text-overflow: ellipsis;
+            text-overflow: scroll;
             -webkit-user-select: none;
             color: black;
         }

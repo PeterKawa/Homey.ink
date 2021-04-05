@@ -5,8 +5,8 @@
   padding: 0;
   border: none;
   -webkit-tap-highlight-color: black;
-  font-size: 24px;
-  font-weight: 2px;
+  font-size: 16px;
+  font-weight: 3px;
 }
 
 html,
@@ -17,7 +17,7 @@ body {
 
 body {
   font-family: yanone kaffe, comfortaa, sans-serif;
-  background-image: url(../img/background.png);
+  background-image: url(../img/background.jpg); 
   background-attachment: fixed;
   background-size: cover;
   color: white;
@@ -62,10 +62,10 @@ a {
      position: absolute;
     width: 85vw;
     height: auto; /*60vh;*/
-    min-height: 60vh;
-    left: 10vw;
-    top: 10vh;
-    padding: 5vh 5vh;
+    min-height: 20vh;
+    left: 5vw;
+    top: 5vh;
+    padding: 2vh 2vh;
     background-image: url(../img/background.png);
     background-attachment: fixed;
     background-size: cover;
@@ -75,7 +75,7 @@ a {
     z-index: 1;
     visibility: hidden;
     overflow: auto;
-    opacity: 0.88;
+    opacity: 0.95;
   }
     .info-message {
     }
@@ -262,7 +262,7 @@ a {
       position: relative;
       margin-left: 0;
       margin-right: auto;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 10px;
     }
     #weather-state-icon {
@@ -279,20 +279,20 @@ a {
     }
     #weather-temperature {
       display: inline-block;
-      margin-left: -4vw;
-      font-size: 2.5vw;
+      margin-left: -2vw;
+      font-size: 2.2vw;
       line-height: 3vw;
       font-weight: 250;
     }
     #weather-temperature:after {
       content: "°";
-      font-size: 1.5vw;
+      font-size: 2.0vw;
       vertical-align: text-top;
     }
     #weather-roof {
       display: inline-block;
       vertical-align: top;
-      margin-top: 0vw;
+      margin-top: 1.9vw;
       width: 3vw;
       height: 3vw;
       margin-left: 3vw;
@@ -305,16 +305,16 @@ a {
     }
     #weather-temperature-inside {
       display: inline-block;
-      margin-left: -3vw;
-      font-size: 2.5vw;
+      margin-left: -3.5vw;
+      font-size: 2.2vw;
       line-height: 3vw;
       font-weight: 250;
-      visibility: hidden;
+      /*visibility: hidden;*/
     }
     #weather-temperature-inside:after {
       content: "°";
-      font-size: 1.5vw;
-      vertical-align: text-top;
+      font-size: 2vw;
+      vertical-align: text-bottom;
     }
     
   #sun-events {
@@ -326,9 +326,9 @@ a {
     text-align: center;
   }
     #text-large {
-      font-size: 44px;
-      font-weight: 700;
-      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 10px;
     }
     #text-large:after {
       content: "";
@@ -351,6 +351,7 @@ a {
     width: 250px;
     /*-webkit-user-select: none;*/
   }
+/* Very boring info says PeterDee
     #version-icon {
       display: inline-block;
       width: 10px;
@@ -364,6 +365,7 @@ a {
       -webkit-mask-image: url(../img/new.png);
       visibility: hidden;
     }
+*/
     #battery-details {
       display: inline-block;
       width: 5;
@@ -391,7 +393,7 @@ a {
       }     
        @-webkit-keyframes glowing {
        0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-       50% { background-color:  #FF0700; -webkit-box-shadow: 0 0 50px  #FF0700; }
+       50% { background-color: #FF0700; -webkit-box-shadow: 0 0 50px  #FF0700; }
        100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
       }
     #notification-details{
@@ -602,11 +604,11 @@ a {
           box-sizing: border-box;
           padding: 12px;
           margin-right: 12px;
-          opacity: 0.5;
+          opacity: 0.3;
           -webkit-user-select: none;
         }
           .alarms .alarm.on {
-            opacity: 1;
+            opacity: 0.9;
           }
           .alarms .alarm .value {
             position: absolute;
@@ -669,13 +671,13 @@ a {
         display: inline-block;
         vertical-align: middle;
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         border: 4px solid #0190E3;
         background-color: rgb(255, 254, 254);
         border: none;
-        box-shadow: 0 2px 2px rgba(0,0,0,0.2);
-        border-radius: 16px;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+        border-radius: 5px;
         box-sizing: border-box;
         padding: 12px;
         margin-right: 12px;
@@ -713,14 +715,14 @@ a {
            border: none;
           color:  #FF0700;
           cursor: auto; /*-pointer;*/
-          -webkit-animation: glowing 1500ms infinite;
+          -webkit-animation: glowing 1000ms infinite;
    
-          -o-animation: glowing 1500ms infinite;
-           animation: glowing 1500ms infinite;
+          -o-animation: glowing 1000ms infinite;
+           animation: glowing 1000ms infinite;
          }     
           @-webkit-keyframes glowing {
           0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-          50% { background-color: #FF0700; -webkit-box-shadow: 0 0 50px #FF0700; }
+          50% { background-color: #FF0700; -webkit-box-shadow: 0 0 40px #FF0700; }
           100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
          }
       .device.low {
@@ -746,10 +748,10 @@ a {
       }
       
                .device.away {
-          opacity: 0.5;
+          opacity: 0.6;
         }
         .device.day {
-          opacity: 0.5;
+          opacity: 0.6;
         }
         .device.push {
           background-color: white;
@@ -758,7 +760,7 @@ a {
         .device.push-long {
           background-color: white;
           -webkit-box-shadow: 0 0 50px white;
-          -webkit-box-shadow-radius: 0 0 4vh
+          -webkit-box-shadow-radius: 0 0 3vh
 
         }
 
@@ -766,7 +768,7 @@ a {
           width: 45px;
           height: 45px;
           background: black;
-          margin-bottom: 3px;
+          margin-bottom: 1px;
           -webkit-mask-size: contain;
           -webkit-mask-repeat: no-repeat;
           -webkit-mask-position: center center;
@@ -776,8 +778,8 @@ a {
           position: absolute;
           top: 30px;
           left: 15px;
-          width: 45px;
-          height: 45px;
+          width: 35px;
+          height: 35px;
           background: black;
           margin-bottom: 3px;
           -webkit-mask-size: contain;
@@ -806,40 +808,41 @@ a {
         }
         .device .value {
           position: absolute;
-          top: 15px;
-          right: 12px;
-          width: 100%;
-          font-size: 18px;
-          height: 42px;
-          line-height: 18px;
-          font-weight: 300;
+          top: 2px;
+          right: 2px;
+          width: 50%;
+          font-size: 5px;
+          height: 20px;
+          line-height: 11px;
+          font-weight: 200;
           vertical-align: text-top;
           overflow: hidden;
           white-space: normal;
           text-overflow: ellipsis;
           -webkit-user-select: none;
-          color: black;
+/*        Color changed from black to SteelBlue by PeterDee */
+          color: SteelBlue;
           text-align: right;
         }
         #decimal {
-          font-size: 2vw;
+          font-size: 1.6vw;
           vertical-align: text-top;
           -webkit-user-select: none;
         }
         .device .value.hidden {
-          visibility: hidden;
+          visibility: ;
         }
         .device .name {
           position: absolute;
-          bottom: 12px;
-          left: 12px;
-          right: 12px;
-          width: 86%;
+          bottom: 5px;
+          left: 5px;
+          right: 4px;
+          width: 97%;
           height: 100%;
-          max-height: 14px;
-          font-size: 14px;
-          line-height: 15px;
-          font-weight: 300;
+          max-height: 13px;
+          font-size: 13px;
+          line-height: 14px;
+          font-weight: 800;
           overflow: hidden;
           white-space: normal;
           text-overflow: ellipsis;
