@@ -9,11 +9,11 @@ A big thanks to all developers (WeeJeWel) who started this dashboard and those (
 
 - I primarily edited this nice flavour of Homeydash.com for these reasons:
 
-1) I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so probably usable at Google Hubs too.
+1) I wanted it to be able to show all available values on tiles, without touching or "longpress" them, so usable at Google Nest Hubs too.
 
 2) I wanted to make room for as much tiles as possible, so less space used by the info bar.
 
-3) I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers, added menu item "Tablet"
+3) I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers, added menu item "Tablet". This theme also looks cool on a Google Nest Hub.
 
 # Screenshots: 
 
@@ -25,21 +25,14 @@ A big thanks to all developers (WeeJeWel) who started this dashboard and those (
 
 ![AndroidTabletLandscapeChrome](https://user-images.githubusercontent.com/74005072/113629338-9a085500-9666-11eb-85b9-59b0ea798dc8.jpg)
 
+- Google Hub (Thanx for testing and this picture feRon!)
+
+![GoogleHub_view_with_tablet_theme](https://user-images.githubusercontent.com/74005072/117881075-1c5ce800-b2a9-11eb-916e-1eda42badca9.jpeg)
+
 - Android Phone Chromebrowser Portrait
 
 ![Android Phone Portrait Chromebrowser](https://user-images.githubusercontent.com/74005072/113622433-49402e80-965d-11eb-9837-4db9fc7e3b56.jpg)
 
-- Android Phone Chromebrowser Landscape
-
-![Android Phone Landscape Chromebrowser](https://user-images.githubusercontent.com/74005072/113604159-2b66cf80-9645-11eb-8d57-86a960d8acda.jpg)
-
-- Chromium browser op linux Mint
-
-![Chromium browser op linux Mint](https://user-images.githubusercontent.com/74005072/113604196-3457a100-9645-11eb-8dfb-5872ea1b6320.png)
-
-- Firefox browser op linux Mint
-
-![Firefox browser op linux Mint](https://user-images.githubusercontent.com/74005072/113604135-24d85800-9645-11eb-9818-b430dff2e6ec.png)
 </br>
 </br>
 </br>
