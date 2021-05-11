@@ -3,7 +3,7 @@
 
 April 5, 2021: <b>live</b>
 
-PeterDeeDash is an open-source project for (wall-mounted) Homey dashboards on a  tablet, Google hub, iPad, laptop or TV! As long as it has a webbrowser it works.</br> 
+PeterDeeDash is an open-source project for (wall-mounted) Homey dashboards on a  tablet, Google Nest Hub, iPad, laptop or TV! As long as it has a webbrowser it works.</br> 
 This project is forked from Homey.ink / Homeydash.com / Homeycornelisse and is primarily aimed at usage on an Android Tablet / Phone.</b>
 A big thanks to all developers (WeeJeWel) who started this dashboard and those (daneedk, Rocodamelshe, Homeycornelisse) who expanded and customized it to what it is now.
 
