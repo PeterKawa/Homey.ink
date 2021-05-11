@@ -25,7 +25,7 @@ A big thanks to all developers (WeeJeWel) who started this dashboard and those (
 
 ![AndroidTabletLandscapeChrome](https://user-images.githubusercontent.com/74005072/113629338-9a085500-9666-11eb-85b9-59b0ea798dc8.jpg)
 
-- Google Hub (Thanx for testing and this picture feRon!)
+- Google Hub (Thanx for testing and this picture, feRon)
 
 ![GoogleHub_view_with_tablet_theme](https://user-images.githubusercontent.com/74005072/117881075-1c5ce800-b2a9-11eb-916e-1eda42badca9.jpeg)
 
@@ -96,15 +96,3 @@ Then alter the URL with your token and language of choice (for your language, ch
 </br>
 </br>
 --------------------------------------------------
-
-
-
-Original Homey Cornelisse ReadMe.md:
-
-Homey Cornelisse Dash is an open-source project for wall-mounted Homey dashboards.
-This project is forked from Homey.ink / homeydash.com and is primarily aimed at usage on an iPad or iPhone
-
-![Homey.ink on web](https://raw.githubusercontent.com/Homeycornelisse/homey.ink/master/assets/devices/web/web.png)
-![Homey.ink on iPad](https://raw.githubusercontent.com/Homeycornelisse/homey.ink/master/assets/devices/ipad/ipad.png)
-![Homey.ink on iPhone](https://raw.githubusercontent.com/Homeycornelisse/homey.ink/master/assets/devices/iphone/iphone.png)
-![Homey.ink on algemeen](https://raw.githubusercontent.com/Homeycornelisse/homey.ink/master/assets/devices/algemeen/brandmeld.png)
