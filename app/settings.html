@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>PeterDeeDash</title>
-    
+
         <meta charset="UTF-8">
 
         <link rel="stylesheet" type="text/css" href="./css/homeydash.settings.css">
@@ -26,15 +26,19 @@
                 <option value="sv">🇸🇪 Svenska</option>
 
             </select>
-            
+
             <div id="settings-theme-title" class="select-description">Select your theme</div>
             <select id="settings-theme-select" class="select">
+                <option value="tablet">Android Tablet</option>
+                <option value="tablet">Android Phone</option>
+                <option value="tablet">Google nest hub</option>
+                <option value="web">Web</option>
+                <option value="raspberry">Raspberry Pi</option>
                 <option value="ipad">iPad</option>
                 <option value="iphone">iPhone</option>
-                <option value="web">Web</option>
-                <option value="raspberry">Raspberry </option>
-                <option value="google_nest_hub">Google nest hub</option>
-                <option value="tablet">Android Tablet</option>
+
+
+
             </select>
 
             <div id="appearance-temperature-outdoor"class="select-description">
@@ -57,7 +61,8 @@
         </div>
         <div id="right-col">
             <div id="content">
-                <div id="row1" class="roworder">
+
+                <div id="row2" class="roworder">
                     <div id="row1-up" class="arrow-up"></div>
                     <div id="row1-down" class="arrow-down"></div>
                     <div class="flow">
@@ -65,9 +70,9 @@
                     </div>
                 </div>
 
-                <div id="row2" class="roworder">
+                <div id="row1" class="roworder">
                     <div id="row2-up" class="arrow-up"></div>
-                    <div id="row2-down" class="arrow-down"></div>    
+                    <div id="row2-down" class="arrow-down"></div>
                     <div class="device">
                         <div class="name">Device</div>
                     </div>
@@ -99,7 +104,7 @@
                 <br />
                 <div>
                     <div id="appearance-logo" class="appearance-description">
-                        Logo (url) 
+                        Logo (url)
                     </div>
                     <div class="appearance-input">
                         <input id="url-logo">
@@ -111,7 +116,7 @@
 
                 <div>
                     <div id="appearance-background" class="appearance-description">
-                        Background (url) 
+                        Background (url)
                     </div>
                     <div class="appearance-input">
                         <input id="url-background">
@@ -119,7 +124,7 @@
                     <div class="appearance-buttons">
                         <div id="btn-delete-background"></div>
                     </div>
-                </div>  
+                </div>
                 <div>
                     <div id="appearance-opacity" class="appearance-description">
                         Background opacity
