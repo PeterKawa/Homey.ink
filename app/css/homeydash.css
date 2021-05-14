@@ -17,7 +17,7 @@ body {
 
 body {
   font-family: yanone kaffe, comfortaa, sans-serif;
-  background-image: url(../img/background.jpg); 
+  background-image: url(../img/background.jpg);
   background-attachment: fixed;
   background-size: cover;
   color: white;
@@ -136,16 +136,16 @@ a {
       background-color: #ffffff;
       box-shadow: 0 2px 2px rgba(0,0,0,0.2);
       border-radius: 16px;
-      box-sizing: border-box;      
+      box-sizing: border-box;
       color: #000000;
       padding: 8px 16px 24px 16px;
-      
+
     }
 
     #slider-icon {
       position: absolute;
       top: 15px;
-      left: 15px;      
+      left: 15px;
       width: 45px;
       height: 45px;
       background: black;
@@ -159,7 +159,7 @@ a {
     #slider-capability {
       position: absolute;
       top: 30px;
-      left: 58px;      
+      left: 58px;
       width: 30px;
       height: 30px;
       background: black;
@@ -202,11 +202,11 @@ a {
     #slider:disabled {
         opacity: 0.2;
     }
-    
+
     #slider:hover {
       opacity: 1;
     }
-    
+
     #slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -219,7 +219,7 @@ a {
       background: #0190E3;
       cursor: pointer;
     }
-    
+
     #slider::-moz-range-thumb {
       width: 25px;
       height: 25px;
@@ -229,7 +229,7 @@ a {
     }
 
   #content {
-    display: flex; 
+    display: flex;
     flex-direction: column;
   }
     #content > #row1 { order: 1; }
@@ -301,7 +301,7 @@ a {
       background-size: contain;
       background-image: url(../img/roof.png);
       visibility: hidden;
- 
+
     }
     #weather-temperature-inside {
       display: inline-block;
@@ -316,7 +316,7 @@ a {
       font-size: 2vw;
       vertical-align: text-bottom;
     }
-    
+
   #sun-events {
     display: inline-block;
     /*left: 128px;
@@ -386,11 +386,11 @@ a {
         border: none;
        color:  #FF0700;
        cursor: auto; /*-pointer;*/
-       -webkit-animation: glowing 1500ms infinite;
+       -webkit-animation: glowing 2000ms infinite;
 
-       -o-animation: glowing 1500ms infinite;
-        animation: glowing 1500ms infinite;
-      }     
+       -o-animation: glowing 2000ms infinite;
+        animation: glowing 2000ms infinite;
+      }
        @-webkit-keyframes glowing {
        0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
        50% { background-color: #FF0700; -webkit-box-shadow: 0 0 50px  #FF0700; }
@@ -424,22 +424,22 @@ a {
       -webkit-mask-image: url(../img/warning.png);
     }
       #sensor-details.alarm {
-        -webkit-mask-image: url(../img/warning.png);
+        -webkit-mask-image: url(../img/warning.png); /* Warning triangle icon next to battery icon */
         Background-color: white;
         -webkit-border-radius: none;
         border-radius: none;
        border: none;
        color: #FFFFFF;
        cursor: pointer;
-       -webkit-animation: glowing 1500ms infinite;
-    
-       -o-animation: glowing 1500ms infinite;
-       animation: glowing 1500ms infinite;
+       -webkit-animation: glowing 2000ms infinite;
+
+       -o-animation: glowing 2000ms infinite;
+       animation: glowing 2000ms infinite;
        }
        @-webkit-keyframes glowing {
-       0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-       50% { background-color:  #FF0700; -webkit-box-shadow: 0 0 50px #FF0700; }
-       100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+       0%  { background-color: #ff6600; -webkit-box-shadow: 0 0 3px #ff6600; }
+       50% { background-color:  #800000; -webkit-box-shadow: 0 0 50px #800000; }
+       100% { background-color: #ff6600; -webkit-box-shadow: 0 0 3px #ff6600; }
        }
       #sensor-details.fault {
         background-color: red;
@@ -465,10 +465,10 @@ a {
          border: none;
          color: #FFFFFF;
          cursor: pointer;
-         -webkit-animation: glowing 1500ms infinite;
-      
-         -o-animation: glowing 1500ms infinite;
-         animation: glowing 1500ms infinite;
+         -webkit-animation: glowing 3000ms infinite;
+
+         -o-animation: glowing 3000ms infinite;
+         animation: glowing 3000ms infinite;
          }
          @-webkit-keyframes glowing {
          0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
@@ -692,21 +692,21 @@ a {
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-        color:  #FF0700;     
+        color:  #FF0700;
       }
       .device.partially {
         Background-color: rgb(255,102,0);
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-        color: rgb(255,102,0);     
+        color: rgb(255,102,0);
       }
       .device.disarmed {
         Background-color: rgb(29,185,84);
        -webkit-border-radius: none;
        border-radius: none;
-       border: none;  
-       color: rgb(29,185,84);   
+       border: none;
+       color: rgb(29,185,84);
       }
         .device.alarm {
           Background-color: white;
@@ -715,38 +715,38 @@ a {
            border: none;
           color:  #FF0700;
           cursor: auto; /*-pointer;*/
-          -webkit-animation: glowing 1000ms infinite;
-   
-          -o-animation: glowing 1000ms infinite;
-           animation: glowing 1000ms infinite;
-         }     
+          -webkit-animation: glowing 5000ms infinite;
+
+          -o-animation: glowing 5000ms infinite;
+           animation: glowing 5000ms infinite;
+         }
           @-webkit-keyframes glowing {
-          0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-          50% { background-color: #FF0700; -webkit-box-shadow: 0 0 40px #FF0700; }
-          100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+          0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+          50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
+          100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
          }
       .device.low {
         Background-color: rgb(29,185,84);
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-        color: rgb(29,185,84);     
+        color: rgb(29,185,84);
       }
       .device.mid {
         Background-color: rgb(255,102,0);
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-        color: rgb(255,102,0);     
+        color: rgb(255,102,0);
       }
       .device.high {
         Background-color:  #FF0700;
        -webkit-border-radius: none;
        border-radius: none;
         border: none;
-        color:  #FF0700;   
+        color:  #FF0700;
       }
-      
+
                .device.away {
           opacity: 0.6;
         }
@@ -755,7 +755,7 @@ a {
         }
         .device.push {
           background-color: white;
-          -webkit-box-shadow: 0 0 50px white; 
+          -webkit-box-shadow: 0 0 50px white;
         }
         .device.push-long {
           background-color: white;
@@ -821,7 +821,7 @@ a {
           text-overflow: ellipsis;
           -webkit-user-select: none;
 /*        Color changed from black to SteelBlue by PeterDee */
-          color: SteelBlue;
+          color: slategrey;
           text-align: right;
         }
         #decimal {
@@ -852,5 +852,3 @@ a {
         .device .name.highlight {
           font-weight: 1000;
         }
-
-  
