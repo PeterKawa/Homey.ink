@@ -1,7 +1,12 @@
 # PeterDeeDash 
 #
 
-April 5, 2021: <b>live</b>
+May 14th, 2021: <b>Added configuration/modification how-to's</b> 
+                <b>Added how-to cast including all of your preferences to Google Hub</b>
+                This, because one has to re-cast every 9mins to prevent screensaver kicking in.
+                All changes made on-screen are lost then. So make these changes in the code and off you cast!
+                
+April 5th, 2021: <b>live</b>
 
 PeterDeeDash is an open-source project for (wall-mounted) Homey dashboards on a  tablet, Google Nest Hub***, iPad, laptop or TV! As long as it has a webbrowser it works.</br> 
 This project is forked from Homey.ink / Homeydash.com / Homeycornelisse and is primarily aimed at usage on an Android Tablet / Phone.</b>
