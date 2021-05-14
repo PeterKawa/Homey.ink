@@ -14,7 +14,7 @@
 11. **Alter time & date fonts, sizes and colors**
 12. **Removal of Favorite this and Favorite that lines**
 13. **Center devices, flows and alarms, instead of left aligned**
-
+14. **Changing color and speed of warning animations**
 
 ----------------------
 ----------------------
@@ -435,3 +435,63 @@ and add this line below it:
     margin-left: 3vw; /* fiddle with this value*/
 ```
 Lower or higher the '3vw' number to adjust left side space
+
+
+
+14. **Changing color and speed of warning animations**
+file: `/app/css/homeydash.css`
+- The red glowing warning triangle icon
+Look for this:
+```
+#sensor-details.alarm {
+```
+and adust speed (1500ms default) and colors here
+```
+       -webkit-animation: glowing 1500ms infinite;
+
+       -o-animation: glowing 1500ms infinite;
+       animation: glowing 1500ms infinite;
+       }
+       @-webkit-keyframes glowing {
+       0%  { background-color: #ff6600; -webkit-box-shadow: 0 0 3px #ff6600; }
+       50% { background-color:  #800000; -webkit-box-shadow: 0 0 50px #800000; }
+       100% { background-color: #ff6600; -webkit-box-shadow: 0 0 3px #ff6600; }
+```
+- The red glowing device tile
+Look for this:
+```
+        .device.alarm {
+```
+and adust speed (1500ms default) and colors here
+```
+          -webkit-animation: glowing 1500ms infinite;
+
+          -o-animation: glowing 1500ms infinite;
+           animation: glowing 1500ms infinite;
+         }
+          @-webkit-keyframes glowing {
+          0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+          50% { background-color: #FF0700; -webkit-box-shadow: 0 0 40px #FF0700; }
+          100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+
+```
+Example of glowing from white to orange and back - 5000 msecs
+```
+        .device.alarm {
+          Background-color: white;
+          -webkit-border-radius: none;
+          border-radius: none;
+           border: none;
+          color:  #FF0700;
+          cursor: auto; /*-pointer;*/
+          -webkit-animation: glowing 5000ms infinite;
+
+          -o-animation: glowing 5000ms infinite;
+           animation: glowing 5000ms infinite;
+         }
+          @-webkit-keyframes glowing {
+          0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+          50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
+          100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+         }
+```
