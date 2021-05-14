@@ -79,9 +79,9 @@ window.addEventListener('load', function() {
         var $settingsIcon = document.getElementById('settings-icon');
         var $logo = document.getElementById('logo');
     var $content = document.getElementById('content'); // var was removed PeterDee
-      var $row1 = document.getElementById('row1'); 
+      var $row1 = document.getElementById('row1');
         var $flows = document.getElementById('flows');
-          var $favoriteflows = document.getElementById('favorite-flows');  
+          var $favoriteflows = document.getElementById('favorite-flows');
             var $flowsInner = document.getElementById('flows-inner');
       var $row2 = document.getElementById('row2');
         var $devices = document.getElementById('devices');
@@ -91,10 +91,10 @@ window.addEventListener('load', function() {
         var $alarms = document.getElementById('alarms');
           var $favoritealarms = document.getElementById('favorite-alarms');
             var $alarmsInner = document.getElementById('alarms-inner');
-       
-           
-         
-                
+
+
+
+
 
   var order = getCookie("order")
   if ( order != "") {
@@ -102,7 +102,7 @@ window.addEventListener('load', function() {
   } else {
     row = "1,2,3,".split(",")
   }
-  
+
   $row1.style.order = row[0]
   $row2.style.order = row[1]
   $row3.style.order = row[2]
@@ -122,7 +122,7 @@ window.addEventListener('load', function() {
   $logo.addEventListener('mousedown', function() {
     logoStart();
   });
-  
+
   $logo.addEventListener('touchstart', function() {
     logoStart();
   });
@@ -205,16 +205,42 @@ window.addEventListener('load', function() {
   });
 
   outdoortemperature = getCookie("outdoortemperature")
-  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey"}
+  if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
+/*
+Comment:
+ This large "xxxx " string represents the device ID of my Openweather device.
+   To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
+`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
+And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
+*/
 
   indoortemperature = getCookie("indoortemperature")
-  if ( indoortemperature != "" && indoortemperature != "none" ) {
+  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature != "none" || indoortemperature == undefined ) {
     $weatherroof.style.visibility = "visible"
     $weathertemperatureinside.style.visibility = "visible"
-  }
+    }
+  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature == undefined ) {
+    indoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
+/* Comment:
+This large "xxxxx " string represents the device ID of my Tado Thermostate's thermometer device. To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
+`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
+    And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the settings dropdown list, e.g. MyTadoThermometer
+    */
 
   showTime = getCookie("showtime")
+  if ( showTime == undefined || showTime == "" || showTime == "none" ) {
+        showTime = "true"
+   }
+/* Show the time as default instead of Good Evening /*
+/*
+change this:
   showTime = ( showTime == "true") ? true: false;
+into this:
+  if ( showTime == undefined || showTime == "" || showTime == "none" ) {
+        showTime = "true"
+   }
+*/
+
   renderText();
   later.setInterval(function(){
     renderText();
@@ -238,7 +264,7 @@ window.addEventListener('load', function() {
 
   var backgroundfromurl = getQueryVariable('background');
   if ( backgroundfromurl == undefined ) { backgroundfromurl = "" }
-  
+
   var vadjust = getQueryVariable('vadjust');
   if ( vadjust == undefined ) { vadjust = 0}
 
@@ -246,7 +272,7 @@ window.addEventListener('load', function() {
   if ( logofromurl == undefined ) { logofromurl = "" }
 
   var zoom = getCookie("zoom")
-  
+
   $content.style.zoom = zoom;
 
   var token = getQueryVariable('token');
@@ -254,7 +280,7 @@ window.addEventListener('load', function() {
 
   if ( token == undefined || token == "undefined" || token == "") {
     $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Homey Cornelisse, Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
-    
+
     return
   }
   /*
@@ -469,7 +495,7 @@ window.addEventListener('load', function() {
               }
             });
           }
-         
+
           if ( device.capabilitiesObj.alarm_contact ) {
             device.makeCapabilityInstance('alarm_contact', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -774,7 +800,7 @@ window.addEventListener('load', function() {
                 var $element = document.getElementById('value:' + device.id +":flora_measure_moisture");
                 $element.innerHTML = Math.round(moisture) + "<span id='decimal'>%</span><br />"
                 console.log(moisture)
-                if ( moisture < 15 || moisture > 65 ) {
+                if ( moisture < 20 || moisture > 65 ) {
                   console.log("moisture out of bounds")
                   $deviceElement.classList.add('alarm')
                   selectValue(device, $element)
@@ -786,7 +812,7 @@ window.addEventListener('load', function() {
               }
             });
           }
-          
+
           if ( device.capabilitiesObj.measure_co2 ) {
             device.makeCapabilityInstance('measure_co2', function(value) {
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -805,7 +831,7 @@ window.addEventListener('load', function() {
                 }
               });
             }
-            
+
             if ( device.capabilitiesObj.measure_co2 ) {
               device.makeCapabilityInstance('measure_co2', function(value) {
                 var $deviceElement = document.getElementById('device:' + device.id);
@@ -903,7 +929,7 @@ window.addEventListener('load', function() {
         }
 
         setBrightness(brightness)
-        return renderDevices(favoriteDevices);        
+        return renderDevices(favoriteDevices);
 
       }).catch(console.error);
     }).catch(console.error);
@@ -927,7 +953,7 @@ window.addEventListener('load', function() {
         changeLog = changeLog + "- minor CSS fixes<br />"
         changeLog = changeLog + "- Added devices with a measuring co2 capability have now been given a color based on co2 level (changed automatic) <br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "Green = good co2 value <br />" 
+        changeLog = changeLog + "Green = good co2 value <br />"
         changeLog = changeLog +" Orange = moderate co2 value  <br />"
         changeLog = changeLog + "Red = poor co2 value  ( window or door must be opened ) <br />"
        renderInfoPanel("u",changeLog)
@@ -977,7 +1003,7 @@ window.addEventListener('load', function() {
             tokens[token].id == "alarm_contact" && tokens[token].value == true ||
             tokens[token].id == "alarm_vibration" && tokens[token].value == true ||
             tokens[token].id == "alarm_water" && tokens[token].value == true ||
-            tokens[token].id == "alarm_tamper" && tokens[token].value == true 
+            tokens[token].id == "alarm_tamper" && tokens[token].value == true
           ) {
             var element = {}
             element.name = tokens[token].uriObj.name
@@ -1003,8 +1029,8 @@ window.addEventListener('load', function() {
             tokens[token].id == "alarm_smoke" && tokens[token].value == true ||
             tokens[token].id == "alarm_fire" && tokens[token].value == true ||
             tokens[token].id == "alarm_co" && tokens[token].value == true ||
-            tokens[token].id == "alarm_heat" && tokens[token].value == true 
-             
+            tokens[token].id == "alarm_heat" && tokens[token].value == true
+
           ) {
             var element = {}
             element.name = tokens[token].uriObj.name
@@ -1215,7 +1241,7 @@ window.addEventListener('load', function() {
         if ( alarm.repetition["saturday"] ) { weekend = weekend + moment.weekdaysMin(6) + ","}
         if ( alarm.repetition["sunday"] ) { weekend = weekend + moment.weekdaysMin(7) + ","}
         if ( weekend == moment.weekdaysMin(6) + "," +
-              moment.weekdaysMin(7) + "," 
+              moment.weekdaysMin(7) + ","
             ) { weekend = texts.schedules.weekend + "," }
         schedule = week + weekend
         schedule = schedule.substr(schedule,schedule.length-1)
@@ -1330,7 +1356,7 @@ window.addEventListener('load', function() {
       if ( device.capabilitiesObj && device.capabilitiesObj.button ) {
         $deviceElement.classList.toggle('on', true)
       }
-      $devicesInner.appendChild($deviceElement); 
+      $devicesInner.appendChild($deviceElement);
 
       if (device.capabilitiesObj && device.capabilitiesObj.alarm_generic && device.capabilitiesObj.alarm_generic.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_motion && device.capabilitiesObj.alarm_motion.value ||
@@ -1339,32 +1365,32 @@ window.addEventListener('load', function() {
           device.capabilitiesObj && device.capabilitiesObj.alarm_water && device.capabilitiesObj.alarm_water.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_co && device.capabilitiesObj.alarm_co.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_heat && device.capabilitiesObj.alarm_heat.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value  
+          device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value
           ) {
             $deviceElement.classList.add('alarm')
           }
- 
-    
+
+
       if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
 				if ( device.capabilitiesObj.homealarm_state.value == "disarmed" ){
 					$deviceElement.classList.toggle('disarmed',  true);
-					
+
 				} else {
 					$deviceElement.classList.toggle('disarmed', false);
         }
       }
       if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
 				if ( device.capabilitiesObj.homealarm_state.value == "armed" ){
-          $deviceElement.classList.toggle('armed', true);	
-          
+          $deviceElement.classList.toggle('armed', true);
+
         	} else {
 					$deviceElement.classList.toggle('armed', false);
         }
       }
       if ( device.capabilitiesObj && device.capabilitiesObj.homealarm_state ){
 				if ( device.capabilitiesObj.homealarm_state.value == "partially_armed" ){
-          $deviceElement.classList.toggle('partially', true);	
-          
+          $deviceElement.classList.toggle('partially', true);
+
         	} else {
 					$deviceElement.classList.toggle('partially', false);
 				}
@@ -1379,7 +1405,7 @@ window.addEventListener('load', function() {
 							capabilityId: 'homealarm_state',
 							value: 'armed',
             }).catch(console.error);
-        
+
           }
 					if ( device.capabilitiesObj.homealarm_state.value == "armed" ){
 						$deviceElement.classList.toggle('disarmed', true);
@@ -1428,14 +1454,14 @@ window.addEventListener('load', function() {
       if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
         var moisture = device.capabilitiesObj.flora_measure_moisture.value
         console.log(moisture)
-        if ( moisture < 15 || moisture > 65 ) {
+        if ( moisture < 20 || moisture > 65 ) {
           console.log("moisture out of bounds")
           $deviceElement.classList.add('alarm')
           //selectValue(device, $element)
           //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
-      
+
       if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
         var co2 = device.capabilitiesObj.measure_co2.value
         console.log(co2)
@@ -1460,7 +1486,7 @@ window.addEventListener('load', function() {
           //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
      }
-      
+
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
@@ -1471,9 +1497,9 @@ window.addEventListener('load', function() {
           $deviceElement.classList.remove('low')
            //selectValue(device, $element)
           //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
-         } 
+         }
         }
-   
+
       if ( device.capabilitiesObj && device.capabilitiesObj.alarm_connected ) {
         if ( device.capabilitiesObj.alarm_connected.value ) {
           $deviceElement.classList.remove('away')
@@ -1498,12 +1524,12 @@ window.addEventListener('load', function() {
       } else if ( device.icon ) {
         $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
       }
-      if ( device.name == "Bier" || device.name == "Bier temperatuur" ) {
-        $icon.style.webkitMaskImage = 'url(img/capabilities/beer.png)';
+/*      if ( device.name == "Bier" || device.name == "Bier temperatuur" ) { /* crap 140521 PeterDee */
+/*        $icon.style.webkitMaskImage = 'url(img/capabilities/beer.png)';
         $icon.style.backgroundImage = 'url(img/capabilities/beer.png)';
         $icon.style.backgroundSize = 'contain'
-      }
-
+    }
+*/
       $deviceElement.appendChild($icon);
 
       var $iconCapability = document.createElement('div');
@@ -1526,7 +1552,7 @@ window.addEventListener('load', function() {
             if (device.name=="Bier") {renderValue($value, capability.id, capability.value, "")}
             $deviceElement.appendChild($value)
             itemNr =itemNr + 1
-          } else 
+          } else
           if ( capability.id == "locked" ) {
             var $lock = document.createElement('div');
             $lock.id = 'lock:' + device.id
@@ -1601,12 +1627,12 @@ window.addEventListener('load', function() {
     });
   }
 
-// New code start    
+// New code start
   function deviceStart($deviceElement, device, event) {
     if ( nameChange ) { return }
     longtouch = false;
     $deviceElement.classList.add('startTouch')
-         
+
     timeout = setTimeout(function() {
       if ( $deviceElement.classList.contains('startTouch') ) {
         //console.log("first timeout");
@@ -1643,7 +1669,13 @@ window.addEventListener('load', function() {
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
     var currentTime = hours + ":" + minutes + ":" + seconds;
+    // Added to be able to show name of weekday.
+    // now.getDay() gets the day number
+    // The array with names of the days makes it possible to replace that number...
+    // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
+    var weekdayarray = ['zondag','baaldag','dinsdag','Woensdag','Donderdag','vrijdag','zaterdag'];
 
+    var myweekday = (weekdayarray[now.getDay()]);
     var tod;
     if( hours >= 18 ) {
       tod = texts.text.evening;
@@ -1660,7 +1692,9 @@ window.addEventListener('load', function() {
     } else {
       $textLarge.innerHTML = texts.text.good + tod + '!';
     }
-    $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
+    // $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
+    $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
+    // [+ myweekday] shows name of weekday in front of date
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
@@ -1824,7 +1858,7 @@ window.addEventListener('load', function() {
     setCookie("indoortemperature",iframesettings.newindoortemperature,12)
     setCookie("homeydashdevicebrightness",iframesettings.newhomeydashdevicebrightness,12)
     setCookie("showtime",iframesettings.newshowTime,12)
-    setCookie("zoom",iframesettings.newZoom,12)   
+    setCookie("zoom",iframesettings.newZoom,12)
     setCookie("order",iframesettings.neworder,12)
     location.assign(location.protocol + "//" + location.host + location.pathname + "?theme="+iframesettings.newtheme+"&lang="+iframesettings.newlanguage+"&token="+iframesettings.token+"&background="+encodeURIComponent(iframesettings.urlbackground)+"&logo="+encodeURIComponent(iframesettings.urllogo))
   }
@@ -1846,7 +1880,7 @@ window.addEventListener('load', function() {
       xpos = Math.round( 25 + ( parseInt((event.touches[0].clientX - 25)/(163*zoom) ) * (163*zoom) ) )
     }
     catch(err) {
-      if ( theme == "web" ) { 
+      if ( theme == "web" ) {
         xpos = event.clientX - event.offsetX
       } else {
         xpos = Math.round( 25 + ( parseInt((event.clientX - 25)/(163*zoom) ) * (163*zoom) ) )
@@ -1930,7 +1964,7 @@ window.addEventListener('load', function() {
       }).catch(console.error);
       slideDebounce = false
     },200)
-    
+
   }
 
   function valueCycle(device) {
