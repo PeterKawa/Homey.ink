@@ -31,7 +31,9 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 
 - Android Tablet Chromebrowser Landscape
 
-![AndroidTabletLandscapeChrome](https://user-images.githubusercontent.com/74005072/113629338-9a085500-9666-11eb-85b9-59b0ea798dc8.jpg)
+![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
+
+![Screenshot_20210514-175240](https://user-images.githubusercontent.com/74005072/118332651-b66f9b00-b50a-11eb-8e2e-4da82d262fd7.png)
 
 - Google Hub (Thanx for testing and this picture, feRon)
 
