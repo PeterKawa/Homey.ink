@@ -1,6 +1,6 @@
 {
-    "favoriteflows": "Favoriete flows",
-    "favoritedevices": "Favoriete apparaten",
+    "favoriteflows": "",
+    "favoritedevices": "",
     "alarms": "Wekkers",
     "schedules": {
         "weekdays": "weekdagen",
@@ -8,8 +8,8 @@
         "alldays": "alle dagen"
     },
     "text" : {
-        "__comment": "PeterDee original line: Goeie",        
-        "good": "Familie x, goeie", 
+        "__comment": "PeterDee original line: Goede",        
+        "good": "Familie x, goede", 
         "evening": "navond",
         "afternoon": "middag",
         "morning": "morgen",
@@ -26,7 +26,7 @@
     "weather": {
         "title": "Weer informatie voor ",
         "temperature": "De huidige temperatuur is ",
-        "degrees": " graden Celsius, ",
+        "degrees": "° Celsius, ",
         "humidity": "de luchtvochtigheid is ",
         "pressure": "% en de druk is ",
         "mbar": " mbar"
