@@ -2,7 +2,7 @@
  * Original theme by: Emile Nijssen
  * Enriched by Danee de Kruyff
  *
- * Fd-up by PeterDee 17-03-2020, 
+ * Fd-up by PeterDee 17-03-2020,
  * to show device values by default, & more space for longer device names
  */
 
@@ -24,7 +24,7 @@ h2 {
 }
 
 #content {
-  zoom: .8;
+  zoom: 1.0;
 }
 
 .info-message {
@@ -79,12 +79,13 @@ h2 {
     height: 2vw;
   }
     #text-large { /* Clock or Goodday text */
-      font-weight: 800; 
-      font-size: 2.8vw; 
-      margin-top: 2vw; 
+      font-weight: 800;
+      font-size: 2.8vw;
+      margin-top: 2vw;
       line-height: 1.1vh;
       height: 1.6vw;
-      opacity: 0.7; /* added PeterDee*/
+      opacity: 0.75; /* added PeterDee*/
+      /*color: DodgerBlue;*/ /* added PeterDee */
     }
     #text-large:after { /* Divider between Clock and Date text */
       font-weight: 200;
@@ -97,9 +98,10 @@ h2 {
     #text-small { /* Date shown */
       font-weight: 600; /* added value PeterDee*/
       font-size: 1.6vw; /* 1 PeterDee*/
-      line-height: 9vh;    
+      line-height: 9vh;
       font-style: italic; /* added style italic PeterDee*/
-      opacity: 0.5; /* added PeterDee*/
+      opacity: 0.8; /* added PeterDee*/
+      /*color: DodgerBlue;*/ /* added PeterDee */
     }
 
   #details {
@@ -153,6 +155,8 @@ h2 {
   .favorites-inner {
     white-space: normal;
     -webkit-mask-image: none;
+    /* align-items: center; */ /* 140521 PeterDee*/
+    margin-left: 0.1vw; /* kan ook in px - Centreren van devices,flows,alarms - 140521 PeterDee*/
   }
   .favorites h2 {
     display: block;
@@ -170,7 +174,7 @@ h2 {
   }
     .favorites h2 span {
       flex-shrink: 0;
-      margin-right: 1vw;
+      margin-right: 0vw;
     }
     .favorites h2:after {
       content: "";
@@ -186,8 +190,9 @@ h2 {
 }
   .flow {
     height: 7vh;
-    margin-bottom: 2vh;
+    margin-bottom: 1.5vh;
     border-radius: 7vh;
+    background: rgb(11, 5, 96);
   }
   .flow.running:before {
     font-size: 3.2vh;
@@ -198,17 +203,19 @@ h2 {
       height: 7vh;
     }
     .flow .name {
-      font-weight: 300;
+      font-weight: 550;
       height: 7vh;
       line-height: 7vh;
-      font-size: 2.8vh;
-      padding: 0 3vh;
-      padding-right: 4vh;
+      font-size: 2.6vh;
+      padding: 0 .5vh;
+      padding-right: 1.5vh;
       max-width: auto;
+      color: beige;
+      font-style: italic;
     }
 
 #alarms {
-  
+
 }
   .alarms .alarm {
     width: 20vh;
@@ -253,13 +260,14 @@ h2 {
   position: auto;
 }
   .device {
-    width: 22vh;
-    height: 22vh;
-    padding: 1vh;
-    margin-right: 1.5vw;
-    margin-bottom: 1.5vh;
-    margin-top: 1.5vh;
-    border-radius: 3vh;
+    width: 23vh;
+    height: 23vh;
+    padding: 1.2vh;
+    margin-right: 0.6vw;
+    margin-bottom: 1.0vh;
+    margin-top: 0.0vh;
+    border-radius: 1.8vh;
+    /*background: lightblue; */ /* to change tile color - PeterDee */
   }
     .device .icon {
       position: absolute;
@@ -275,35 +283,43 @@ h2 {
       width: 5vh;
       height: 5vh;
     }
-/* PeterDee 
-   ".device .value" position: sticky; shows all available values 
+/* PeterDee
+   ".device .value" position: sticky; shows all available values
 */
     .device .value {
       position: sticky;
-      top: 0.4vh;
+      top: 1.5vh;
       right: 0.4vh;
-      font-size: 2.4vh;
-      font-weight: 500;
-      line-height: 3vh;
+      font-size: 2.5vh;
+      font-weight: 600;
+      line-height: 2.8vh;
       width: auto;
       height: auto;
-      max-height: 2.6vh;
+      max-height: 2.8vh;
       text-align: right;
+      text-overflow: ellipsis;
+      color: slategrey; /* added PeterDee*/
     }
 
     #decimal {
-      font-size: 1.8vh;
+      font-size: 1.85vh;
       /*color: darkorange; /* color added but disabled PeterDee*/
-      line-height: 1.5vh; /* added PeterDee*/
-      height: 1.5vh; /* added PeterDee*/
+      line-height: 1.86vh; /* added PeterDee*/
+      height: 1.86vh; /* added PeterDee*/
+      /*color: slategrey;*/ /* added PeterDee*/
     }
+
+        .device .value.hidden {
+          /*visibility: hidden;*/ /* This hides the all available values */
+        }
+
     .device .name {
       position: absolute;
       bottom: 1.4vh;
       left: 1.3vh;
       right: 1.2vh;
       font-size: 2.5vh;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 2.8vh;
       width: auto;
       height: auto;
