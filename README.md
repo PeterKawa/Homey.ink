@@ -1,7 +1,7 @@
 # PeterDeeDash 
 #
 
-May 14th, 2021: 
+May 14th, 2021: <br> 
 <b>- Added configuration/modification how-to's</b><br> 
 <b>- Added how-to cast including all of your preferences to Google Hub</b><br>
 This, because one has to re-cast every 9mins to prevent screensaver kicking in.<br>
