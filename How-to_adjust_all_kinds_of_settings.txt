@@ -15,6 +15,8 @@
 12. **Removal of Favorite this and Favorite that lines**
 13. **Center devices, flows and alarms, instead of left aligned**
 14. **Changing color and speed of warning animations**
+15. **CO2 Device render functions**
+16. **Tile color**
 
 ----------------------
 ----------------------
@@ -494,4 +496,74 @@ Example of glowing from white to orange and back - 5000 msecs
           50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
           100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
          }
+
+
+
+
+15. **CO2 Device render functions**
+file: `/app/js/homeydash.app.js`
+Line 817
+This is being rendered at `/app/js/homeydash.css` at line 728 at:
+`      .device.low {`
+`      .device.mid {`
+`      .device.high {`
+
 ```
+      if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+        var co2 = device.capabilitiesObj.measure_co2.value
+        console.log(co2)
+        if ( co2 > 1500 || co2 > 2000 ) {
+          console.log("co2 out of bounds")
+          $deviceElement.classList.add('high')
+        }else{
+          $deviceElement.classList.remove('high')
+           //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+        }
+      }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+          var co2 = device.capabilitiesObj.measure_co2.value
+          console.log(co2)
+        if ( co2 > 900 || co2 > 1400 ) {
+          console.log("co2 out of bounds")
+          $deviceElement.classList.add('mid')
+        }else{
+          $deviceElement.classList.remove('mid')
+           //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+          var co2 = device.capabilitiesObj.measure_co2.value
+          console.log(co2)
+        if ( co2 > 200 || co2 > 400 ) {
+          console.log("co2 out of bounds")
+          $deviceElement.classList.add('low')
+        }else{
+          $deviceElement.classList.remove('low')
+           //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+         }
+        }
+
+
+```
+
+
+16. **Tile color**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+
+```
+  .device {
+    width: 26vh;
+    height: 26vh;
+    padding: 1vh;
+    margin-right: 1.0vw;
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    border-radius: 1vh;
+  }
+```
+and add this (with an example color), below `border-radius: 1vh;` but above the `}` sign:
+`background: lightblue;`
