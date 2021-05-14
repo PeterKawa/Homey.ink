@@ -1,0 +1,519 @@
+Settings for Google Hub devices, which cannot/don't use cookies to store your preferences.
+So edit some files is the way to go.
+
+
+***Index***
+1. **Zoom factor setting**
+2. a. **Tile values Font color setting**
+2. b. **Tile values Font size setting**
+3. a. **Tile Decimal values Font color setting**
+3. b. **Tile Decimal values Font size setting**
+4. **Tile size setting**
+5. **Show the time as default instead of Good Evening**
+6. **Show default Indoor temperature device of your choosing**
+7. **Show default Outdoor temperature device of your choosing**
+8. **Show Flows above Devices**
+9. **Flows font color and font size**
+10. **Flows color**
+11. **To change the welcome text, or add your family name in front of the date message:**
+12. **Use own background and or logo**
+13. **Show weekday name in front of date shown**
+14. **Alter time & date fonts, sizes and colors**
+15. **Removal of Favorite this and Favorite that lines**
+16. **Center devices, flows and alarms, instead of left aligned**
+
+
+----------------------
+----------------------
+
+1.**Zoom factor setting:**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+```
+#content {
+  zoom: .X;
+}
+```
+Zoom values range: from 0.01 - 5.00 (much higher is not practical?)
+If this setting doesn't work for you, try adjusting device (tile) size and font sizes with info below here.
+
+
+
+
+2. a. **Tile values Font color setting:**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+```
+    .device .value {
+      position: sticky;
+      top: 0.6vh;
+      right: 0.4vh;
+      font-size: 2.8vh;
+      font-weight: 500;
+      line-height: 3.3vh;
+      width: auto;
+      height: auto;
+      max-height: 3.3vh;
+      text-align: right;
+    }
+```
+If not present: Add this right below the last value [`text-align: right;`] :
+        `color: darkgrey`;
+And enter a color of your liking
+It should look like this:
+```
+    .device .value {
+      position: sticky;
+      top: 0.6vh;
+      right: 0.4vh;
+      font-size: 2.8vh;
+      font-weight: 500;
+      line-height: 3.3vh;
+      width: auto;
+      height: auto;
+      max-height: 3.3vh;
+      text-align: right;
+      color: darkgrey;
+    }
+```
+- Color info: `https://www.w3schools.com/cssref/css_colors.asp` -
+
+
+
+
+2. b. **Tile values Font size setting:**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+```
+    .device .value {
+      position: sticky;
+      top: 0.6vh;
+      right: 0.4vh;
+      font-size: 2.8vh;
+      font-weight: 500;
+      line-height: 3.3vh;
+      width: auto;
+      height: auto;
+      max-height: 3.3vh;
+      text-align: right;
+    }
+```
+Change the value of `font-size: 2.8vh;`
+Change the values of `line-height` and `max-height` accordingly if needed
+
+
+
+
+3. a. **Tile Decimal values Font color setting:**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+```
+#decimal {
+   font-size: 1.8vh;
+/* color: darkorange;*/ /* color added but disabled PeterDee*/
+```
+(It was commented out because I don't use it for now.)
+To enable it, change this:
+```
+/* color: darkorange;*/ /* color added but disabled PeterDee*/
+```
+to this:
+```
+   color: darkorange; /* color set to darkorange; comment out to use default color*/
+```
+and enter the the color you liking
+
+- Color info: `https://www.w3schools.com/cssref/css_colors.asp` -
+
+
+
+
+3. b. **Tile Decimal values Font size setting:**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+```
+#decimal {
+   font-size: 1.8vh;
+/* color: darkorange;*/ /* color added but disabled PeterDee*/
+```
+Change this:
+`font-size: 1.8vh;`
+to this:
+`font-size: 2.1vh;`
+for instance, to enlarge the font size
+
+
+
+
+4. **Tile size setting:**
+If zooming does not do what you expected, you can enlarge or shrink the tile size.
+Icons and text are not altered.
+
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+```
+  .device {
+    width: 26vh;
+    height: 26vh;
+    padding: 1vh;
+    margin-right: 1.0vw;
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    border-radius: 1vh;
+  }
+```
+change this:
+```
+    width: 26vh;
+    height: 26vh;
+```
+to this:
+```
+    width: 32vh;
+    height: 32vh;
+```
+for instance, to enlarge the tiles
+
+
+
+
+5. **Show the time as default instead of Good Evening**
+file: `/app/js/homeydash.app.js`
+Look for this:
+```
+  showTime = getCookie("showtime")
+  showTime = ( showTime == "true") ? true: false;
+```
+and change this:
+```
+  showTime = ( showTime == "true") ? true: false;
+```
+to this:
+```
+  if ( showTime == undefined || showTime == "" || showTime == "none" ) {
+        showTime = "true"
+   }
+```
+
+
+
+6. **Show default Indoor temperature device of your choosing:**
+file: /app/js/homeydash.app.js
+Look for this:
+```
+  indoortemperature = getCookie("indoortemperature")
+  if ( indoortemperature != "" && indoortemperature != "none" ) {
+    $weatherroof.style.visibility = "visible"
+    $weathertemperatureinside.style.visibility = "visible"
+  }
+
+```
+replace all 4 lines with these:
+```
+  indoortemperature = getCookie("indoortemperature")
+  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature != "none" || indoortemperature == undefined ) {
+    $weatherroof.style.visibility = "visible"
+    $weathertemperatureinside.style.visibility = "visible"
+    }
+  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature == undefined ) {
+    indoortemperature = "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxx" }
+```
+Comment:
+This large "xxxxx " string represents the device ID of my Tado Thermostate's thermometer device. To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
+`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
+    And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the settings dropdown list, e.g. MyTadoThermometer
+
+
+
+
+7. **Show default Outdoor temperature device of your choosing:**
+file: `/app/js/homeydash.app.js`
+Look for this:
+```
+  outdoortemperature = getCookie("outdoortemperature")
+  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey"}
+```
+Now change this:
+```
+  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey" }
+```
+to this:
+```
+    if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
+```
+Comment:
+ This large "xxxx " string represents the device ID of my Openweather device.
+   To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
+`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
+And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
+
+**Screenshot of my deviceID lookup results:**
+![finding_your_deviceID|690x333](upload://bLJljyN3yUUvOcjDMuQ8V0Np20l.png)
+
+
+
+
+8. **Show Flows above Devices:**
+file: `/app/index.html`
+Look for this:
+```
+        <div id="content">
+
+          <div id="row1">
+            <div id="flows" class="favorites">
+              <h2><span id="favorite-flows"></span></h2>
+              <div id="flows-inner" class="flows favorites-inner"></div>
+            </div>
+          </div>
+
+          <div id="row2">
+            <div id="devices" class="favorites">
+              <h2><span id="favorite-devices"></span></h2>
+              <div id="devices-inner" class="devices favorites-inner"></div>
+            </div>
+          </div>
+
+And change exchange the lines below <div id="rowX">
+like this:
+```
+          <div id="row1">
+            <div id="devices" class="favorites">
+              <h2><span id="favorite-devices"></span></h2>
+              <div id="devices-inner" class="devices favorites-inner"></div>
+            </div>
+          </div>
+
+          <div id="row2">
+            <div id="flows" class="favorites">
+              <h2><span id="favorite-flows"></span></h2>
+              <div id="flows-inner" class="flows favorites-inner"></div>
+            </div>
+          </div>
+
+
+
+
+
+
+```
+AND
+file: `/app/settings.html`
+Look for this, around line 65:
+```
+            <div id="row1" class="roworder">
+                <div id="row1-up" class="arrow-up"></div>
+                <div id="row1-down" class="arrow-down"></div>
+                <div class="flow">
+                    <div class="play"></div><div class="name">Flow</div>
+                </div>
+            </div>
+
+            <div id="row2" class="roworder">
+```
+And change `"row1"` to `"row2"`
+and  below that, change  `"row2"` to `"row1"`
+
+
+
+9. **Flows font color and font size**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+
+```
+    .flow .name {
+      font-weight: 300;
+      height: 7vh;
+      line-height: 7vh;
+      font-size: 2.8vh;
+      padding: 0 3vh;
+      padding-right: 4vh;
+      max-width: auto;
+    }
+```
+Add `color: white;` below the last line, but above the `}` sign:
+```
+    .flow .name {
+      font-weight: 300;
+      height: 7vh;
+      line-height: 7vh;
+      font-size: 2.8vh;
+      padding: 0 3vh;
+      padding-right: 4vh;
+      max-width: auto;
+      color: white;
+    }
+```
+Change `white` to the color of your choosing
+
+To change the font size:
+Change the value of `font-size: 2.8vh;`
+F.i. `font-size: 3.6vh;` to increase font size.
+
+
+
+
+10. **Flows color**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+
+```
+  .flow {
+    height: 7vh;
+    margin-bottom: 2vh;
+    border-radius: 7vh;
+    }
+```
+Add `background: rgb(88, 188, 250);` below the last line, but above the `}` sign:
+```
+  .flow {
+    height: 7vh;
+    margin-bottom: 2vh;
+    border-radius: 7vh;
+    background: rgb(88, 188, 250);
+    }
+```
+Adjust the numbers to display the color of your liking.
+
+
+
+
+11. **To change the welcome text, or add your family name in front of the date message:**
+File: `/app/locales/nl/nl.json`
+Look for this:
+```
+     "text" : {
+        "good": "Goede",
+        "evening": "navond",
+        "afternoon": "middag",
+        "morning": "morgen",
+        "night": "nacht",
+        "today": "Vandaag is het",
+        "the": "de",
+        "of": ""
+    }
+```
+and change
+`        "today": "Vandaag is het",`
+to this:
+`        "today": "Familie [Naam], vandaag is het",`
+
+
+
+
+12. **Use own background and or logo**
+a. On a laptop/tablet/phone, you could search for images and copy their URL.
+Open your dash in a browser.
+Then paste these URLs into the background and logo fields in the settings screen. Hit save.
+Now copy the changed new dash URL and paste it to your 'cast' card in your flow.
+
+or
+
+b. On Homey FTP,  go to folder `/app/img/` and replace `background.jpg` and `logo.png` image files.
+
+
+
+
+13. **Show weekday name in front of date shown**
+Files: `/app/js/homeydash.app.js`
+Line 1645 (somewhere there):
+search for this line:
+
+```
+var currentTime = hours + ":" + minutes + ":" + seconds;
+```
+And add this below that (name the days you like them, f.i. 'Montag' or 'Maandag' etc.):
+```
+    // Added to be able to show name of weekday.
+    // now.getDay() gets the day number
+    // The array with names of the days makes it possible to replace that number...
+    // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
+    var weekdayarray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+    var myweekday = (weekdayarray[now.getDay()]);
+```
+
+Then search for this line:
+```
+    $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
+```
+and replace it with these lines:
+```
+    // $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
+    $textSmall.innerHTML = texts.text.today + myweekday + moment(now).format(' D MMMM YYYY ');
+    // [+ myweekday] shows name of weekday in front of date
+```
+
+
+14. **Alter time & date fonts, sizes and colors**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Line no: 81 (somewhere there)
+Look for this, and adjust the numbers to your likings
+```
+    #text-large { /* Clock or Goodday text */
+      font-weight: 800;
+      font-size: 2.8vw;
+      margin-top: 1.2vw;
+      line-height: 1.1vh;
+      height: 1.6vw;
+      opacity: 0.8; /* 0=invisible 1=visible - added PeterDee */
+      color: yellow; /* added PeterDee */
+    }
+    #text-large:after { /* Divider between Clock and Date text */
+      font-weight: 200;
+      width: 40vw; /* divider wideness */
+      margin: 1.7vw;
+      line-height: 2.0vh;
+      height: 0.1vw; /* divider thickness */
+      opacity: 0.3; /* 0=invisible 1=visible - added PeterDee */
+     }
+    #text-small { /* Today it is [Date] shown */
+      font-weight: 400; /* added value PeterDee */
+      font-size: 1.6vw; /* 1 PeterDee*/
+      line-height: 8vh;
+      font-style: italic; /* added style italic PeterDee */
+      opacity: 0.8; /* 0=invisible 1=visible - added PeterDee */
+      color: orange; /* added PeterDee */
+    }
+
+```
+
+15. **Removal of Favorite this and Favorite that lines**
+If you want to remove the line "Favorite Devices" above the tiles,
+edit this ( `/app/locales/en.json` or your used language file (it's the first couple of code) ):
+```
+{
+    "favoriteflows": "Favorite Flows",
+    "favoritedevices": "Favorite devices",
+    "alarms": "Alarms",
+    "schedules": {
+        "weekdays": "weekdays",
+        "weekend": "weekend",
+        "alldays": "all days"
+    },
+```
+And remove the text after `:`, but leave the `""`. This way it isn't shown anylonger, and so you have more space for your tiles ;-)
+Example:
+```
+{
+    "favoriteflows": "",
+    "favoritedevices": "",
+```
+
+
+
+
+16. **Center devices, flows and alarms, instead of left aligned**
+file: `/app/css/themes/tablet.css` (or the .css you use)
+Look for this:
+
+```
+  .favorites-inner {
+    white-space: normal;
+    -webkit-mask-image: none;
+
+```
+and add this line below it:
+```
+    margin-left: 3vw; /* fiddle with this value*/
+```
+Lower or higher the '3vw' number to adjust left side space
