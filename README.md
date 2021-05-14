@@ -5,7 +5,7 @@ May 14th, 2021: <br>
 <b>- Added configuration/modification how-to's</b><br> 
 <b>- Added how-to cast including all of your preferences to Google Hub</b><br>
 This, because one has to re-cast every 9mins to prevent screensaver kicking in.<br>
-All changes made on-screen are lost then. So make these changes in the code and off you cast!<br>
+All changes made on-screen are lost then. So make these changes permanent in the code and off you cast!<br>
                 
 April 5th, 2021: <b>live</b>
 
