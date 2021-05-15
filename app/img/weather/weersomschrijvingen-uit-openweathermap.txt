@@ -1,0 +1,12 @@
+Omschrijving van het weer in openweathermap app:
+bewolkt
+regenachtig
+helder
+miezerig
+mistig
+onweer
+sneeuw
+extreem
+
+Omschrijving van het weer in detail in openweathermap app:
+Dit is weer wel in het Engels. bijv. light 'thunderstorm'
