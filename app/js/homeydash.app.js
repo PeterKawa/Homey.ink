@@ -205,27 +205,44 @@ window.addEventListener('load', function() {
   });
 
   outdoortemperature = getCookie("outdoortemperature")
-  if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
+  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey"}
+
+/* To show a default Outdoor temperature device of your choosing (for casting to GOOGLE HUB): */
 /*
-Comment:
+Replace the 2 lines of code above here, with these 3 lines:
+  outdoortemperature = getCookie("outdoortemperature")
+  if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
+
+Comment, please read::
  This large "xxxx " string represents the device ID of my Openweather device.
    To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
 `Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
 And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
 */
 
+
   indoortemperature = getCookie("indoortemperature")
-  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature != "none" || indoortemperature == undefined ) {
+  if ( indoortemperature != "" && indoortemperature != "none" ) {
     $weatherroof.style.visibility = "visible"
     $weathertemperatureinside.style.visibility = "visible"
-    }
+  }
+/* To show a default Indoor temperature device of your choosing (for casting to GOOGLE HUB): */
+/*
+Replace the 5 lines of code above here, with these 8 lines:
+  indoortemperature = getCookie("indoortemperature")
+  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == undefined ) {
+    $weatherroof.style.visibility = "visible"
+    $weathertemperatureinside.style.visibility = "visible"
+  }
   if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature == undefined ) {
-    indoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
-/* Comment:
+    indoortemperature = "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxx"
+  }
+
+Comment, please read:
 This large "xxxxx " string represents the device ID of my Tado Thermostate's thermometer device. To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
 `Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
     And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the settings dropdown list, e.g. MyTadoThermometer
-    */
+*/
 
   showTime = getCookie("showtime")
   if ( showTime == undefined || showTime == "" || showTime == "none" ) {
@@ -866,7 +883,7 @@ into this:
                       checkSensorStates();
                     }
                   });
-                }	  
+                }
             if ( device.capabilitiesObj.measure_co2 ) {
               device.makeCapabilityInstance('measure_co2', function(value) {
                 var $deviceElement = document.getElementById('device:' + device.id);
