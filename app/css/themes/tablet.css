@@ -82,7 +82,7 @@ h2 {
       font-weight: 800;
       font-size: 2.8vw;
       margin-top: 2vw;
-      line-height: 1.1vh;
+      /*line-height: 1.1vh;*/
       height: 1.6vw;
       opacity: 0.75; /* added PeterDee*/
       /*color: DodgerBlue;*/ /* added PeterDee */
@@ -93,7 +93,7 @@ h2 {
       margin: 1.7vw;
       line-height: 2.0vh;
       height: 0.1vw; /* divider thickness */
-      opacity: 0.3; /* added PeterDee*/
+      opacity: 0.0; /* added PeterDee*/
      }
     #text-small { /* Date shown */
       font-weight: 600; /* added value PeterDee*/
