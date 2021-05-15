@@ -24,7 +24,7 @@
     "weather": {
         "title": "Weather information for ",
         "temperature": "The current temperature is ",
-        "degrees": " degrees, ",
+        "degrees": " degrees Celsius, ",
         "humidity": "the humidity is ",
         "pressure": "% and the pressure is ",
         "mbar": " mbar"
