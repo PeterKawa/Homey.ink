@@ -30,7 +30,11 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
 
 - Android Tablet Chromebrowser Landscape
+- 
+![Screenshot_20210515-164948](https://user-images.githubusercontent.com/74005072/118365892-d0f35400-b59e-11eb-9310-e14a4dfd0d16.png)
 
+
+- - Layout options (tablet.css file) edited a bit:
 ![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
 
 ![Screenshot_20210514-175240](https://user-images.githubusercontent.com/74005072/118332651-b66f9b00-b50a-11eb-8e2e-4da82d262fd7.png)
