@@ -91,11 +91,11 @@ cd PeterDeeDash
 serve -p 5000 app
 ```
 Then alter the URL with your token and language of choice (for your language, change `lang=en` into `lang=xx`, `where xx = cn/cs/da/de/en/es/fr/fy/it/lu/ma/nb/nl/ro/sv/tr`):</br>
-- Android tablet / phone: `http://localhost:5000/?theme=tablet&lang=nl&token=<TOKEN>`</br>
-- Google Nest Hub: `http://localhost:5000/?theme=tablet&lang=nl&token=<TOKEN>`</br>
-- iPad: `http://localhost:5000/?theme=ipad&lang=nl&token=<TOKEN>`</br>
-- Raspberry: `http://localhost:5000/?theme=raspberry&lang=nl&token=<TOKEN>`</br>
-- Web (common) `http://localhost:5000/?theme=web&lang=nl&token=<TOKEN>`</br>
+- Android tablet / phone: `http://localhost:5000/?theme=tablet&lang=en&token=<TOKEN>`</br>
+- Google Nest Hub: `http://localhost:5000/?theme=tablet&lang=en&token=<TOKEN>`</br>
+- iPad: `http://localhost:5000/?theme=ipad&lang=en&token=<TOKEN>`</br>
+- Raspberry: `http://localhost:5000/?theme=raspberry&lang=en&token=<TOKEN>`</br>
+- Web (common) `http://localhost:5000/?theme=web&lang=en&token=<TOKEN>`</br>
 </br>
 <b>Your token can be acquired by visiting https://homey.ink, look for a large string in the console (push F12 mostly) after logging in</b>
 </br>
