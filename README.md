@@ -1,5 +1,7 @@
 # PeterDeeDash 
 #
+May 15th, 2021: <br>
+<b>- Renamed Dutch weathericons to reflect the Dutch weatherdescriptions from openweathermap, used by Homey</>Now let's see if it is going to work ;-)<br>
 
 May 14th, 2021: <br> 
 <b>- Added configuration/modification how-to's</b><br> 
