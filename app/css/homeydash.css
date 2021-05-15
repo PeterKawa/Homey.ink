@@ -18,6 +18,7 @@ body {
 body {
   font-family: yanone kaffe, comfortaa, sans-serif;
   background-image: url(../img/background.jpg);
+  /*background: -webkit-linear-gradient(55deg, #009785 0%, #245AA5 50%, #B800E9 100%); */
   background-attachment: fixed;
   background-size: cover;
   color: white;
@@ -67,6 +68,7 @@ a {
     top: 5vh;
     padding: 2vh 2vh;
     background-image: url(../img/background.png);
+    /* background: -webkit-linear-gradient(55deg, #009785 0%, #245AA5 50%, #B800E9 90%); */
     background-attachment: fixed;
     background-size: cover;
     border: 3.2px solid #0190E3;
@@ -236,6 +238,7 @@ a {
     #content > #row2 { order: 2; }
     #content > #row3 { order: 3; }
     #content > #row4 { order: 4; }
+
   #weather {
     position: relative;
     left: 1vw;
@@ -280,13 +283,13 @@ a {
     #weather-temperature {
       display: inline-block;
       margin-left: -2vw;
-      font-size: 2.2vw;
+      font-size: 2.8vw;
       line-height: 3vw;
-      font-weight: 250;
+      font-weight: 400;
     }
     #weather-temperature:after {
       content: "°";
-      font-size: 2.0vw;
+      font-size: 2.8vw;
       vertical-align: text-top;
     }
     #weather-roof {
@@ -308,12 +311,12 @@ a {
       margin-left: -3.5vw;
       font-size: 2.2vw;
       line-height: 3vw;
-      font-weight: 250;
+      font-weight: 350;
       /*visibility: hidden;*/
     }
     #weather-temperature-inside:after {
       content: "°";
-      font-size: 2vw;
+      font-size: 2.2vw;
       vertical-align: text-bottom;
     }
 
@@ -322,6 +325,14 @@ a {
     /*left: 128px;
     width: 128px*/
   }
+
+/* #nav {
+    position: absolute;
+    right:0;
+    width: 128px;
+  }
+*/
+
   #text {
     text-align: center;
   }
@@ -754,11 +765,11 @@ a {
           opacity: 0.6;
         }
         .device.push {
-          background-color: white;
+          background-color: beige;
           -webkit-box-shadow: 0 0 50px white;
         }
         .device.push-long {
-          background-color: white;
+          background-color: beige;
           -webkit-box-shadow: 0 0 50px white;
           -webkit-box-shadow-radius: 0 0 3vh
 
