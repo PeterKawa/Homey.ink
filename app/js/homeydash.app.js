@@ -279,7 +279,7 @@ into this:
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Homey Cornelisse, Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center>"<br /><br /><br /><br />Credits to Danee de Kruyff, Roco damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
 
     return
   }
@@ -289,7 +289,7 @@ into this:
   */
   try { token = atob(token) }
   catch(err) {
-    $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token invalid.  Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>Voor meer informatie </a></center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>PeterDeeDash<br /><br />Whoops.... I'm sorry, your entered Token seems invalid. Please log on again at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center>"
     return
   }
   token = JSON.parse(token);
@@ -297,9 +297,9 @@ into this:
 
   api.isLoggedIn().then(function(loggedIn) {
     if(!loggedIn)
-      $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token Expired. Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center>"
+      $container.innerHTML ="<br /><br /><br /><br /><center>PeterDeeDash<br /><br />Whoops.... I'm sorry, your entered Token seems to be expired. Please log on again at<br /><br /><a href='https://homey.ink'>homey.ink</a></center>"
       return
-      //throw new Error('Token Expired. Log alstublieft opnieuw in.');
+      //throw new Error('Whoops, your Token has expired. Please log on again at https://homey.ink');
   }).then(function(){
     return api.getAuthenticatedUser();
   }).then(function(user) {
@@ -812,7 +812,25 @@ into this:
               }
             });
           }
-
+          if ( device.capabilitiesObj.flora_measure_fertility ) {
+            device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement) {
+                var $element = document.getElementById('value:' + device.id +":flora_measure_fertility");
+                $element.innerHTML = Math.round(fertility) + "<span id='decimal'> µS/cm</span><br />"
+	        console.log(fertility)
+                if ( fertility < 200 || fertility > 1200 ) {
+                  console.log("fertility out of bounds")
+                  $deviceElement.classList.add('alarm')
+                  selectValue(device, $element)
+                  selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_fertility'])
+                } else {
+                  $deviceElement.classList.remove('alarm')
+                }
+                checkSensorStates();
+              }
+            });
+          }
           if ( device.capabilitiesObj.measure_co2 ) {
             device.makeCapabilityInstance('measure_co2', function(value) {
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -831,25 +849,6 @@ into this:
                 }
               });
             }
-
-            if ( device.capabilitiesObj.measure_co2 ) {
-              device.makeCapabilityInstance('measure_co2', function(value) {
-                var $deviceElement = document.getElementById('device:' + device.id);
-                var co2 = value;
-                if( $deviceElement) {
-                  var $element = document.getElementById('value:' + device.id +":measure_co2");
-                  $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
-                  console.log(co2)
-                    if ( co2 > 1500 || co2 > 2000  ) {
-                      console.log("co2 out of bounds")
-                      $deviceElement.classList.add("high")
-                    } else {
-                      $deviceElement.classList.remove("high")
-                    }
-                    checkSensorStates();
-                  }
-                });
-              }
               if ( device.capabilitiesObj.measure_co2 ) {
                 device.makeCapabilityInstance('measure_co2', function(value) {
                   var $deviceElement = document.getElementById('device:' + device.id);
@@ -867,18 +866,26 @@ into this:
                       checkSensorStates();
                     }
                   });
-                }
-
-          if ( device.capabilitiesObj.flora_measure_fertility ) {
-            device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
-              var $deviceElement = document.getElementById('device:' + device.id);
-              if( $deviceElement) {
-                var $element = document.getElementById('value:' + device.id +":flora_measure_fertility");
-                $element.innerHTML = Math.round(fertility) + "<span id='decimal'>%</span><br />"
-              }
-            });
+                }	  
+            if ( device.capabilitiesObj.measure_co2 ) {
+              device.makeCapabilityInstance('measure_co2', function(value) {
+                var $deviceElement = document.getElementById('device:' + device.id);
+                var co2 = value;
+                if( $deviceElement) {
+                  var $element = document.getElementById('value:' + device.id +":measure_co2");
+                  $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
+                  console.log(co2)
+                  if ( co2 > 1500 || co2 > 2000  ) {
+                     console.log("co2 out of bounds")
+                     $deviceElement.classList.add("high")
+                   } else {
+                      $deviceElement.classList.remove("high")
+                   }
+                   checkSensorStates();
+             }
+           });
           }
-        });
+  	});
         homeydashdevicebrightness = getCookie("homeydashdevicebrightness")
         var brightness = 100
         for (item in devices) {
@@ -1451,7 +1458,7 @@ into this:
           });
         }
 
-      if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
+     if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
         var moisture = device.capabilitiesObj.flora_measure_moisture.value
         console.log(moisture)
         if ( moisture < 20 || moisture > 65 ) {
@@ -1461,7 +1468,16 @@ into this:
           //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
-
+     if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_fertility ) { /* added 160521 PeterDee*/
+        var moisture = device.capabilitiesObj.flora_measure_fertility.value
+        console.log(moisture)
+        if ( moisture < 200 || moisture > 1200 ) {
+          console.log("fertility out of bounds")
+          $deviceElement.classList.add('alarm')
+          //selectValue(device, $element)
+          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
+        }
+      }
       if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
         var co2 = device.capabilitiesObj.measure_co2.value
         console.log(co2)
@@ -1524,12 +1540,7 @@ into this:
       } else if ( device.icon ) {
         $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
       }
-/*      if ( device.name == "Bier" || device.name == "Bier temperatuur" ) { /* crap 140521 PeterDee */
-/*        $icon.style.webkitMaskImage = 'url(img/capabilities/beer.png)';
-        $icon.style.backgroundImage = 'url(img/capabilities/beer.png)';
-        $icon.style.backgroundSize = 'contain'
-    }
-*/
+
       $deviceElement.appendChild($icon);
 
       var $iconCapability = document.createElement('div');
