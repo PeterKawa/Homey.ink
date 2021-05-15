@@ -1701,7 +1701,7 @@ into this:
     // now.getDay() gets the day number
     // The array with names of the days makes it possible to replace that number...
     // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
-    var weekdayarray = ['zondag','baaldag','dinsdag','Woensdag','Donderdag','vrijdag','zaterdag'];
+    var weekdayarray = ['zonnedag','baaldag','dinsdag','woensdag','donderrrrrdag','VRIJdag','zaaaaterdag'];  /*belongs to + myweekday @line1727 */
 
     var myweekday = (weekdayarray[now.getDay()]);
     var tod;
@@ -1721,8 +1721,14 @@ into this:
       $textLarge.innerHTML = texts.text.good + tod + '!';
     }
     // $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
-    $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
-    // [+ myweekday] shows name of weekday in front of date
+    // For use as a simple date display like '18 april 2021'
+    // Please comment out the active line of code below here
+
+    // Unomment to display custom day names:
+//    $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
+    // [+ myweekday] shows custom name of weekday in front of date
+    // Comment out to display custom day names:
+    $textSmall.innerHTML = texts.text.today + moment(now).format('dddd[, ' + texts.text.the + ' ]Do[ ' + texts.text.of + ' ]MMMM YYYY');
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
