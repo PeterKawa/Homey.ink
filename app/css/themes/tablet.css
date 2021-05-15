@@ -260,8 +260,8 @@ h2 {
   position: auto;
 }
   .device {
-    width: 23vh;
-    height: 23vh;
+    width: 20vh;
+    height: 20vh;
     padding: 1.2vh;
     margin-right: 0.6vw;
     margin-bottom: 1.0vh;
@@ -271,10 +271,10 @@ h2 {
   }
     .device .icon {
       position: absolute;
-      top: 1.2vh;
-      left: 1.2vh;
-      width: 7vh;
-      height: 7vh;
+      top: 1.0vh;
+      left: 1.1vh;
+      width: 8.5vh;
+      height: 8.5vh;
     }
     .device .icon-capability {
       position: absolute;
@@ -319,7 +319,7 @@ h2 {
       left: 1.3vh;
       right: 1.2vh;
       font-size: 2.5vh;
-      font-weight: 600;
+      font-weight: 500;
       line-height: 2.8vh;
       width: auto;
       height: auto;
