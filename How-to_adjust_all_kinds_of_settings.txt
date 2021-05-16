@@ -17,7 +17,7 @@
 14. **Changing color and speed of warning animations**
 15. **CO2 Device render functions**
 16. **Tile color**
-
+17. **Tile 'Device=OFF color**
 ----------------------
 ----------------------
 
@@ -567,3 +567,27 @@ Look for this:
 ```
 and add this (with an example color), below `border-radius: 1vh;` but above the `}` sign:
 `background: lightblue;`
+
+
+
+17. **Tile 'Device=OFF color**
+What the device-backgroundcolor-code does, is making the background color of the switched off devices transparent for, say, 50%. So it blends in with the background colors that way.
+
+To just set or hard-code colors for device ON and OFF statusses, you can do this:
+File: `/apps/css/themes/tablet.css`
+
+Look for (line 263 -ish):
+`   .device {`
+Add these lines below the code, but above the `}` sign:
+```
+     opacity: 1.0; /* to change device=OFF transparency to NO transparency  */
+     background: rgb(173, 173, 133); /* a grey tint, to change device=OFF color  */
+```
+Below that, look for:
+`   .device.on {`
+
+And add/change the code into:
+```
+    opacity: 0.98; /* device=ON transparency */
+    background-color: beige; /* device=ON tile color  */
+```
