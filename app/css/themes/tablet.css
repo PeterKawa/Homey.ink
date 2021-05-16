@@ -29,7 +29,7 @@ h2 {
 
 .info-message {
   font-size: 2.5vh;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .info-date {
@@ -113,6 +113,7 @@ h2 {
       display: inline-block;
       width: 2vw;
       height: 3vw;
+      opacity: 0.5; /* added PeterDee*/
     }
     #battery-details {
       display: inline-block;
@@ -156,7 +157,7 @@ h2 {
     white-space: normal;
     -webkit-mask-image: none;
     /* align-items: center; */ /* 140521 PeterDee*/
-    margin-left: 0.1vw; /* kan ook in px - Centreren van devices,flows,alarms - 140521 PeterDee*/
+    margin-left: 0.01vw; /* kan ook in px - Centreren van devices,flows,alarms - 140521 PeterDee*/
   }
   .favorites h2 {
     display: block;
@@ -259,16 +260,21 @@ h2 {
 #devices {
   position: auto;
 }
-  .device {
-    width: 20vh;
-    height: 20vh;
-    padding: 1.2vh;
-    margin-right: 0.6vw;
-    margin-bottom: 1.0vh;
-    margin-top: 0.0vh;
-    border-radius: 1.8vh;
-    /*background: lightblue; */ /* to change tile color - PeterDee */
-  }
+   .device {
+     width: 20vh;
+     height: 20vh;
+     padding: 1.2vh;
+     margin-right: 0.6vw;
+     margin-bottom: 1.0vh;
+     margin-top: 0.0vh;
+     border-radius: 1.8vh;
+     opacity: 0.45; /* to change device=OFF trasperancy - PeterDee */
+     background-color: white; /* to change device=OFF color - PeterDee */
+   }
+   .device.on {
+    opacity: 0.99;
+    background-color: beige; /* added device=ON tile color - PeterDee */
+   }
     .device .icon {
       position: absolute;
       top: 1.0vh;
@@ -283,15 +289,15 @@ h2 {
       width: 5vh;
       height: 5vh;
     }
-/* PeterDee
-   ".device .value" position: sticky; shows all available values
+/*   PeterDee
+    .device .value position: sticky; shows all available values below eachother
 */
     .device .value {
       position: sticky;
       top: 1.5vh;
       right: 0.4vh;
-      font-size: 2.5vh;
-      font-weight: 600;
+      font-size: 2.2vh;
+      font-weight: 575;
       line-height: 2.8vh;
       width: auto;
       height: auto;
@@ -300,25 +306,22 @@ h2 {
       text-overflow: ellipsis;
       color: slategrey; /* added PeterDee*/
     }
-
     #decimal {
       font-size: 1.85vh;
       line-height: 1.86vh; /* added PeterDee*/
       height: 1.86vh; /* added PeterDee*/
       /*color: slategrey;*/ /* added PeterDee*/
     }
-
-        .device .value.hidden {
+    .device .value.hidden {
           /*visibility: hidden;*/ /* This hides the all available values */
-        }
-
+    }
     .device .name {
       position: absolute;
       bottom: 1.4vh;
       left: 1.3vh;
       right: 1.2vh;
       font-size: 2.5vh;
-      font-weight: 500;
+      font-weight: 575;
       line-height: 2.8vh;
       width: auto;
       height: auto;
