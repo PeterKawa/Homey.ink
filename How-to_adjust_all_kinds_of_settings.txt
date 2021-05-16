@@ -17,7 +17,7 @@
 14. **Changing color and speed of warning animations**
 15. **CO2 Device render functions**
 16. **Tile color**
-17. **Tile 'Device=OFF color**
+17. **Tile Device=OFF color**
 ----------------------
 ----------------------
 
