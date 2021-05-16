@@ -8,9 +8,10 @@
 5. **Show Flows above Devices**
 6. **Flows font color and font size**
 7. **Flows color**
-8. **To change the welcome text, or add your family name in front of the date message:**
+8. **To change the welcome text, or add your family name in front of the date message**
 9. **Use own background and or logo**
-10. **Show weekday name in front of date shown**
+10a. **Show your own custom weekday name in front of date shown**
+10b. **Show weekday name in front of date shown**
 11. **Alter time & date fonts, sizes and colors**
 12. **Removal of Favorite this and Favorite that lines**
 13. **Center devices, flows and alarms, instead of left aligned**
@@ -333,9 +334,9 @@ b. On Homey FTP,  go to folder `/app/img/` and replace `background.jpg` and `log
 
 
 
-10. **Show weekday name in front of date shown**
+10a. **Show your own custom weekday name in front of date shown**
 Files: `/app/js/homeydash.app.js`
-Line 1645 (somewhere there):
+Line 1699 (somewhere there):
 search for this line:
 
 ```
@@ -347,7 +348,7 @@ And add this below that (name the days you like them, f.i. 'Montag' or 'Maandag'
     // now.getDay() gets the day number
     // The array with names of the days makes it possible to replace that number...
     // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
-    var weekdayarray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var weekdayarray = ['Funday','Moonday','Tuesday','Wednesday','Thursday','Freeday','Saaaaaturday!'];
 
     var myweekday = (weekdayarray[now.getDay()]);
 ```
@@ -362,6 +363,22 @@ and replace it with these lines:
     $textSmall.innerHTML = texts.text.today + myweekday + moment(now).format(' D MMMM YYYY ');
     // [+ myweekday] shows name of weekday in front of date
 ```
+
+
+
+10b. **Show weekday name in front of date shown**
+Alternative, show 'normal' weekday names in your language (if your language is supported):
+Forget all of 10.a,
+
+search for this line:
+```
+    $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
+```
+and  change it into this line:
+```
+    $textSmall.innerHTML = texts.text.today + moment(now).format('dddd[, ' + texts.text.the + ' ]Do[ ' + texts.text.of + ' ]MMMM YYYY');
+```
+
 
 
 11. **Alter time & date fonts, sizes and colors**
