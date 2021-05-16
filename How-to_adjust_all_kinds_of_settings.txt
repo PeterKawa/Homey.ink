@@ -583,6 +583,8 @@ Add these lines below the code, but above the `}` sign:
      opacity: 1.0; /* to change device=OFF transparency to NO transparency  */
      background: rgb(173, 173, 133); /* a grey tint, to change device=OFF color  */
 ```
+If 'background or background-color already exists, then just adjust the color value of it.
+
 Below that, look for:
 `   .device.on {`
 
@@ -591,4 +593,4 @@ And add/change the code into:
     opacity: 0.98; /* device=ON transparency */
     background-color: beige; /* device=ON tile color  */
 ```
-If 'background or background-color already exists, then just adjust the color value of it.
+
