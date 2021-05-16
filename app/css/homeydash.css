@@ -610,7 +610,7 @@ a {
         }
           .alarms .alarm.on {
             opacity: 0.9;
-          }
+            }
           .alarms .alarm .value {
             position: absolute;
             top: 15px;
@@ -626,7 +626,7 @@ a {
             text-overflow: ellipsis;
             -webkit-user-select: none;
             color: black;
-          }
+            }
           .alarms .alarm .name {
             position: absolute;
             bottom: 34px;
@@ -643,7 +643,7 @@ a {
             text-overflow: ellipsis;
             -webkit-user-select: none;
             color: black;
-          }
+            }
           .alarms .alarm .schedule {
             position: absolute;
             bottom: 12px;
@@ -660,14 +660,12 @@ a {
             text-overflow: ellipsis;
             -webkit-user-select: none;
             color: rgb(1,2,3);
-          }
-
-  #devices {
-
-  }
-    .devices {
-      overflow-y: visible;
-    }
+            }
+      #devices {
+        }
+      .devices {
+        overflow-y: visible;
+      }
       .device {
         display: inline-block;
         vertical-align: middle;
@@ -691,167 +689,165 @@ a {
         }
       }
       .device.armed {
-        Background-color:  #FF0700;
-       -webkit-border-radius: none;
-       border-radius: none;
+        background-color:  #FF0700;
+        -webkit-border-radius: none;
+        border-radius: none;
         border: none;
         color:  #FF0700;
       }
       .device.partially {
-        Background-color: rgb(255,102,0);
+        background-color: rgb(255,102,0);
        -webkit-border-radius: none;
-       border-radius: none;
+        border-radius: none;
         border: none;
         color: rgb(255,102,0);
       }
       .device.disarmed {
-        Background-color: rgb(29,185,84);
+        background-color: rgb(29,185,84);
        -webkit-border-radius: none;
-       border-radius: none;
-       border: none;
-       color: rgb(29,185,84);
+        border-radius: none;
+        border: none;
+        color: rgb(29,185,84);
       }
-        .device.alarm {
-          Background-color: white;
-          -webkit-border-radius: none;
-          border-radius: none;
-           border: none;
-          color:  #FF0700;
-          cursor: auto; /*-pointer;*/
-          -webkit-animation: glowing 5000ms infinite;
+      .device.alarm {
+        background-color: white;
+        -webkit-border-radius: none;
+        border-radius: none;
+        border: none;
+        color:  #FF0700;
+        cursor: auto; /*-pointer;*/
+        -webkit-animation: glowing 5000ms infinite;
 
-          -o-animation: glowing 5000ms infinite;
-           animation: glowing 5000ms infinite;
-         }
-          @-webkit-keyframes glowing {
-          0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
-          50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
-          100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
-         }
+        -o-animation: glowing 5000ms infinite;
+        animation: glowing 5000ms infinite;
+      }
+        @-webkit-keyframes glowing {
+        0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+        50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
+        100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+      }
       .device.low {
-        Background-color: rgb(29,185,84);
-       -webkit-border-radius: none;
-       border-radius: none;
+        background-color: rgb(29,185,84);
+        -webkit-border-radius: none;
+        border-radius: none;
         border: none;
         color: rgb(29,185,84);
       }
       .device.mid {
-        Background-color: rgb(255,102,0);
-       -webkit-border-radius: none;
-       border-radius: none;
+        background-color: rgb(255,102,0);
+        -webkit-border-radius: none;
+        border-radius: none;
         border: none;
         color: rgb(255,102,0);
       }
       .device.high {
-        Background-color:  #FF0700;
-       -webkit-border-radius: none;
-       border-radius: none;
+        background-color:  #FF0700;
+        -webkit-border-radius: none;
+        border-radius: none;
         border: none;
         color:  #FF0700;
       }
 
-               .device.away {
-          opacity: 0.5;
-        }
-        .device.day {
-          opacity: 0.7;
-        }
-        .device.push {
-          background-color: #ffffff;
-          -webkit-box-shadow: 0 0 50px white;
-        }
-        .device.push-long {
-          background-color: white;
-          -webkit-box-shadow: 0 0 50px white;
-          -webkit-box-shadow-radius: 0 0 3vh
-
-        }
-
-        .device .icon {
-          width: 45px;
-          height: 45px;
-          background: black;
-          margin-bottom: 1px;
-          -webkit-mask-size: contain;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center center;
-          -webkit-user-select: none;
-        }
-        .device .icon-capability {
-          position: absolute;
-          top: 30px;
-          left: 15px;
-          width: 35px;
-          height: 35px;
-          background: black;
-          margin-bottom: 3px;
-          -webkit-mask-size: contain;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center center;
-          -webkit-user-select: none;
-        }
-        .device .icon-capability-lock {
-          position: absolute;
-          top: 30px;
-          right: 15px;
-          width: 45px;
-          height: 45px;
-          background: black;
-          margin-bottom: 3px;
-          -webkit-mask-size: contain;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center center;
-          -webkit-user-select: none;
-        }
-        .device .icon-capability-lock.locked {
-          -webkit-mask-image: url(../img/capabilities/locklocked.png);
-        }
-        .device .icon-capability-lock.unlocked {
-          -webkit-mask-image: url(../img/capabilities/lockunlocked.png);
-        }
-        .device .value {
-          position: absolute;
-          top: 2px;
-          right: 2px;
-          width: 50%;
-          font-size: 5px;
-          height: 20px;
-          line-height: 11px;
-          font-weight: 200;
-          vertical-align: text-top;
-          overflow: hidden;
-          white-space: normal;
-          text-overflow: ellipsis;
-          -webkit-user-select: none;
-/*        Color changed from black to SteelBlue by PeterDee */
-          color: slategrey;
-          text-align: right;
-        }
-        #decimal {
-          font-size: 1.6vw;
-          vertical-align: text-top;
-          -webkit-user-select: none;
-        }
-        .device .value.hidden {
-          visibility: ;
-        }
-        .device .name {
-          position: absolute;
-          bottom: 5px;
-          left: 5px;
-          right: 4px;
-          width: 97%;
-          height: 100%;
-          max-height: 13px;
-          font-size: 13px;
-          line-height: 14px;
-          font-weight: 800;
-          overflow: hidden;
-          white-space: normal;
-          text-overflow: ellipsis;
-          -webkit-user-select: none;
-          color: black;
-        }
-        .device .name.highlight {
-          font-weight: 1000;
-        }
+      .device.away {
+        opacity: 0.5;
+      }
+      .device.day {
+        opacity: 0.7;
+      }
+      .device.push {
+        background-color: #ffffff;
+        -webkit-box-shadow: 0 0 50px white;
+      }
+      .device.push-long {
+        background-color: white;
+        -webkit-box-shadow: 0 0 50px white;
+        -webkit-box-shadow-radius: 0 0 3vh
+      }
+      .device .icon {
+        width: 45px;
+        height: 45px;
+        background: black;
+        margin-bottom: 1px;
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        -webkit-user-select: none;
+      }
+      .device .icon-capability {
+        position: absolute;
+        top: 30px;
+        left: 15px;
+        width: 35px;
+        height: 35px;
+        background: black;
+        margin-bottom: 3px;
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        -webkit-user-select: none;
+       }
+       .device .icon-capability-lock {
+         position: absolute;
+         top: 30px;
+         right: 15px;
+         width: 45px;
+         height: 45px;
+         background: black;
+         margin-bottom: 3px;
+         -webkit-mask-size: contain;
+         -webkit-mask-repeat: no-repeat;
+         -webkit-mask-position: center center;
+         -webkit-user-select: none;
+       }
+       .device .icon-capability-lock.locked {
+         -webkit-mask-image: url(../img/capabilities/locklocked.png);
+       }
+       .device .icon-capability-lock.unlocked {
+         -webkit-mask-image: url(../img/capabilities/lockunlocked.png);
+       }
+       .device .value {
+         position: absolute;
+         top: 2px;
+         right: 2px;
+         width: 50%;
+         font-size: 5px;
+         height: 20px;
+         line-height: 11px;
+         font-weight: 200;
+         vertical-align: text-top;
+         overflow: hidden;
+         white-space: normal;
+         text-overflow: ellipsis;
+         -webkit-user-select: none;
+/*       Color changed from black to SteelBlue by PeterDee */
+         color: slategrey;
+         text-align: right;
+       }
+       #decimal {
+         font-size: 1.6vw;
+         vertical-align: text-top;
+         -webkit-user-select: none;
+       }
+       .device .value.hidden {
+         visibility: ;
+       }
+       .device .name {
+         position: absolute;
+         bottom: 5px;
+         left: 5px;
+         right: 4px;
+         width: 97%;
+         height: 100%;
+         max-height: 13px;
+         font-size: 13px;
+         line-height: 14px;
+         font-weight: 800;
+         overflow: hidden;
+         white-space: normal;
+         text-overflow: ellipsis;
+         -webkit-user-select: none;
+         color: black;
+       }
+       .device .name.highlight {
+         font-weight: 1000;
+       }
