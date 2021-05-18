@@ -320,14 +320,14 @@ a {
       vertical-align: text-bottom;
     }
 
-  #sun-events {
-    display: inline-block;
-    /*left: 128px;
-    width: 128px*/
-  }
-  #text {
-    text-align: center;
-  }
+    #sun-events {
+      display: inline-block;
+      /*left: 128px;
+      width: 128px*/
+    }
+    #text {
+      text-align: center;
+    }
     #text-large {
       font-size: 16px;
       font-weight: 400;
@@ -346,14 +346,13 @@ a {
       font-size: 14px;
       font-weight: 300;
     }
-
-  #details {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 250px;
-    /*-webkit-user-select: none;*/
-  }
+    #details {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 250px;
+      /*-webkit-user-select: none;*/
+    }
     #version-icon {
       display: inline-block;
       width: 10px;
@@ -726,24 +725,26 @@ a {
         50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
         100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
       }
+
+/* WAS Temp disabled and WAS active in ../themes/tablet.css */
       .device.low {
-        background-color: rgb(29,185,84);
-        -webkit-border-radius: none;
-        border-radius: none;
+        Background-color: rgb(29, 185, 84);
+        /*-webkit-border-radius: none; *//* invalid property value - 17052021 PeterDee */
+        /*border-radius: none; *//* invalid property value - 17052021 PeterDee */
         border: none;
         color: rgb(29,185,84);
       }
       .device.mid {
-        background-color: rgb(255,102,0);
-        -webkit-border-radius: none;
-        border-radius: none;
+        Background-color: rgb(235, 141, 0);
+        /* -webkit-border-radius: none; *//* invalid property value - 17052021 PeterDee */
+        /* border-radius: none; *//* invalid property value - 17052021 PeterDee */
         border: none;
         color: rgb(255,102,0);
       }
       .device.high {
-        background-color:  #FF0700;
-        -webkit-border-radius: none;
-        border-radius: none;
+        Background-color:  rgb(204, 2, 16);
+        /* -webkit-border-radius: none; *//* invalid property value - 17052021 PeterDee */
+        /* border-radius: none; *//* invalid property value - 17052021 PeterDee */
         border: none;
         color:  #FF0700;
       }
