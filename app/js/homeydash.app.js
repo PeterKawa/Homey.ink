@@ -937,20 +937,22 @@ into this:
       newVersion = true;
       $versionIcon.style.visibility = 'visible';
       $versionIcon.addEventListener('click', function() {
-        setCookie('version', version ,12)
+        setCookie('version', version ,13)
         changeLog = ""
-        changeLog = changeLog + "Version 1.0 <br />"
+        changeLog = changeLog + "Version: I don't care <br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "- Added partial armed mode for the heimdall button. The button works as follows. disarmed > partially armed > armed > disarmed. <br />"
-        changeLog = changeLog + "- Added lock status icon (made by: Danee de Kruyff)<br />"
-        changeLog = changeLog + "- Prevent unloadable device icons causing display problems (made by: Danee de Kruyff)<br />"
-        changeLog = changeLog + "- Corrected Italian translations (made by: Danee de Kruyff)<br />"
-        changeLog = changeLog + "- minor CSS fixes<br />"
-        changeLog = changeLog + "- Added devices with a measuring co2 capability have now been given a color based on co2 level (changed automatic) <br />"
+        changeLog = changeLog + "- Added devices with a measuring temperature and (solar) power capability have now been given a color based on a level (It adjusts colors automatically)<br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "Green = good co2 value <br />"
-        changeLog = changeLog +" Orange = moderate co2 value  <br />"
-        changeLog = changeLog + "Red = poor co2 value  ( window or door must be opened ) <br />"
+        changeLog = changeLog + "Temperature indicators. Adjust your Virtual Device measure_temperature sensor with the right calculation for a decent representation of your thermometers"	      
+        changeLog = changeLog + "Default tile color = J.. J.. Jagermeister please... everything is frozen!<br />"
+	changeLog = changeLog + "Green = Man, is it me, or is it cold in here?<br />"
+        changeLog = changeLog +" Orange = a temp which isn't bad, or good....<br />"
+        changeLog = changeLog + "Red = Oh wow, it's getting hot here....<br />"	      
+        changeLog = changeLog + "<br />"	   
+        changeLog = changeLog + "(Solar)Power indicators. Adjust your Virtual Device measure_power sensor with the right calculation for a decent representation of your solar panel output"	      
+        changeLog = changeLog + "Green = high (solar)power value <br />"
+        changeLog = changeLog +" Orange = moderate (solar)power value  <br />"
+        changeLog = changeLog + "Red = low (solar)power value  ( tell the sun to go shine a bit ) <br />"
        renderInfoPanel("u",changeLog)
       })
     }
@@ -1734,7 +1736,7 @@ into this:
     // now.getDay() gets the day number
     // The array with names of the days makes it possible to replace that number...
     // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
-    var weekdayarray = ['zondag','baaldag','dinsdag','Woensdag','Donderdag','vrijdag','zaterdag'];
+    var weekdayarray = ['zonnedag','baaldag','dinsdag','Woensdag','Dondersdag','VRIJdag','zaaaaaaterdag'];
 
     var myweekday = (weekdayarray[now.getDay()]);
     var tod;
