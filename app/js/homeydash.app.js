@@ -939,20 +939,20 @@ into this:
       $versionIcon.addEventListener('click', function() {
         setCookie('version', version ,13)
         changeLog = ""
-        changeLog = changeLog + "Version: I don't care <br />"
+        changeLog = changeLog + "Version: A new one<br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "- Added devices with a measuring temperature and (solar) power capability have now been given a color based on a level (It adjusts colors automatically)<br />"
+        changeLog = changeLog + "1. Added devices with a measuring temperature and (solar) power capability have now been given a color based on a level (It adjusts colors automatically)<br />"
         changeLog = changeLog + "<br />"
-        changeLog = changeLog + "Temperature indicators. Adjust your Virtual Device measure_temperature sensor with the right calculation for a decent representation of your thermometers"	      
+        changeLog = changeLog + "Temperature indicators. Adjust your Virtual Device measure_temperature sensor with the right calculation for a decent representation of your thermometers<br />"
         changeLog = changeLog + "Default tile color = J.. J.. Jagermeister please... everything is frozen!<br />"
 	changeLog = changeLog + "Green = Man, is it me, or is it cold in here?<br />"
         changeLog = changeLog +" Orange = a temp which isn't bad, or good....<br />"
-        changeLog = changeLog + "Red = Oh wow, it's getting hot here....<br />"	      
-        changeLog = changeLog + "<br />"	   
-        changeLog = changeLog + "(Solar)Power indicators. Adjust your Virtual Device measure_power sensor with the right calculation for a decent representation of your solar panel output"	      
+        changeLog = changeLog + "Red = Oh wow, it's getting hot in here....<br />"      
+        changeLog = changeLog + "<br />"
+        changeLog = changeLog + "(Solar)Power indicators. Adjust your Virtual Device measure_power sensor with the right calculation for a decent representation of your solar panel output<br />"
         changeLog = changeLog + "Green = high (solar)power value <br />"
-        changeLog = changeLog +" Orange = moderate (solar)power value  <br />"
-        changeLog = changeLog + "Red = low (solar)power value  ( tell the sun to go shine a bit ) <br />"
+        changeLog = changeLog +" Orange = moderate (solar)power value <br />"
+        changeLog = changeLog + "Red = low (solar)power value  ( tell the sun to go shine a bit )<br />"
        renderInfoPanel("u",changeLog)
       })
     }
