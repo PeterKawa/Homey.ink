@@ -205,28 +205,13 @@ window.addEventListener('load', function() {
   });
 
   outdoortemperature = getCookie("outdoortemperature")
-  if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "63495805-7a6d-44e5-80f2-adcf59d03c9e" }
-/*
-Comment:
- This large "xxxx " string represents the device ID of my Openweather device.
-   To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
-`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
-And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
-*/
-
+  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey"}
+	
   indoortemperature = getCookie("indoortemperature")
-  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature != "none" || indoortemperature == undefined ) {
+  if ( indoortemperature != "" && indoortemperature != "none" ) {
     $weatherroof.style.visibility = "visible"
     $weathertemperatureinside.style.visibility = "visible"
-    }
-  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature == undefined ) {
-    indoortemperature = "5f2e5ea7-1091-4484-81cf-3230e0385590" }
-/* Comment:
-This large "xxxxx " string represents the device ID of my Tado Thermostate's thermometer device. To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
-`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
-    And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the settings dropdown list, e.g. MyTadoThermometer
-    */
-
+  }
 
   showTime = getCookie("showtime")
   if ( showTime == undefined || showTime == "" || showTime == "none" ) {
