@@ -268,12 +268,12 @@ h2 {
      margin-bottom: 1.0vh;
      margin-top: 0.0vh;
      border-radius: 1.8vh;
-     opacity: 0.45; /* to change device=OFF trasperancy - PeterDee */
+     opacity: 0.35; /* to change device=OFF transparency - PeterDee */
      background-color: white; /* to change device=OFF color - PeterDee */
    }
-   .device.on {
+   .device .on {
     opacity: 0.99;
-    background-color: beige; /* added device=ON tile color - PeterDee */
+    background-color: white; /* added device=ON tile color - PeterDee */
    }
     .device .icon {
       position: absolute;
@@ -318,8 +318,8 @@ h2 {
     .device .name {
       position: absolute;
       bottom: 1.4vh;
-      left: 1.3vh;
-      right: 1.2vh;
+      left: 1.0vh;
+      right: 0.2vh;
       font-size: 2.5vh;
       font-weight: 575;
       line-height: 2.8vh;
