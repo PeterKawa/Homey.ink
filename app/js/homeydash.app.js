@@ -205,44 +205,28 @@ window.addEventListener('load', function() {
   });
 
   outdoortemperature = getCookie("outdoortemperature")
-  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey"}
-
-/* To show a default Outdoor temperature device of your choosing (for casting to GOOGLE HUB): */
+  if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "63495805-7a6d-44e5-80f2-adcf59d03c9e" }
 /*
-Replace the 2 lines of code above here, with these 3 lines:
-  outdoortemperature = getCookie("outdoortemperature")
-  if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
-
-Comment, please read::
+Comment:
  This large "xxxx " string represents the device ID of my Openweather device.
    To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
 `Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
 And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
 */
 
-
   indoortemperature = getCookie("indoortemperature")
-  if ( indoortemperature != "" && indoortemperature != "none" ) {
+  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature != "none" || indoortemperature == undefined ) {
     $weatherroof.style.visibility = "visible"
     $weathertemperatureinside.style.visibility = "visible"
-  }
-/* To show a default Indoor temperature device of your choosing (for casting to GOOGLE HUB): */
-/*
-Replace the 5 lines of code above here, with these 8 lines:
-  indoortemperature = getCookie("indoortemperature")
-  if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == undefined ) {
-    $weatherroof.style.visibility = "visible"
-    $weathertemperatureinside.style.visibility = "visible"
-  }
+    }
   if ( indoortemperature == "" || indoortemperature != "" || indoortemperature == "none" || indoortemperature == undefined ) {
-    indoortemperature = "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxx"
-  }
-
-Comment, please read:
+    indoortemperature = "5f2e5ea7-1091-4484-81cf-3230e0385590" }
+/* Comment:
 This large "xxxxx " string represents the device ID of my Tado Thermostate's thermometer device. To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
 `Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
     And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the settings dropdown list, e.g. MyTadoThermometer
-*/
+    */
+
 
   showTime = getCookie("showtime")
   if ( showTime == undefined || showTime == "" || showTime == "none" ) {
@@ -296,7 +280,7 @@ into this:
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center><br /><br /><br /><br />Credits to Danee de Kruyff, Roco damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Homey Cornelisse, Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
 
     return
   }
@@ -306,7 +290,7 @@ into this:
   */
   try { token = atob(token) }
   catch(err) {
-    $container.innerHTML ="<br /><br /><br /><br /><center>PeterDeeDash<br /><br />Whoops.... I'm sorry, your entered Token seems invalid. Please log on again at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token invalid.  Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>Voor meer informatie </a></center>"
     return
   }
   token = JSON.parse(token);
@@ -314,9 +298,9 @@ into this:
 
   api.isLoggedIn().then(function(loggedIn) {
     if(!loggedIn)
-      $container.innerHTML ="<br /><br /><br /><br /><center>PeterDeeDash<br /><br />Whoops.... I'm sorry, your entered Token seems to be expired. Please log on again at<br /><br /><a href='https://homey.ink'>homey.ink</a></center>"
+      $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token Expired. Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center>"
       return
-      //throw new Error('Whoops, your Token has expired. Please log on again at https://homey.ink');
+      //throw new Error('Token Expired. Log alstublieft opnieuw in.');
   }).then(function(){
     return api.getAuthenticatedUser();
   }).then(function(user) {
@@ -423,7 +407,7 @@ into this:
           return !!device;
         }).filter(function(device){
           if(!device.ui) return false;
-          //if(!device.ui.quickAction) return false; //Disabled shows all avail. values on tiles
+          //if(!device.ui.quickAction) return false; //Disabled shows all available values on tiles
           return true;
         });
 
@@ -470,6 +454,16 @@ into this:
           }
           if ( device.capabilitiesObj.alarm_co ) {
             device.makeCapabilityInstance('alarm_co', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                $deviceElement.classList.toggle('alarm', !!value);
+                checkFlameStates();
+              }
+            });
+          }
+// added 17052021 - PeterDee
+          if ( device.capabilitiesObj.alarm_co2 ) {
+            device.makeCapabilityInstance('alarm_co2', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
               if( $deviceElement ) {
                 $deviceElement.classList.toggle('alarm', !!value);
@@ -829,25 +823,7 @@ into this:
               }
             });
           }
-          if ( device.capabilitiesObj.flora_measure_fertility ) {
-            device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
-              var $deviceElement = document.getElementById('device:' + device.id);
-              if( $deviceElement) {
-                var $element = document.getElementById('value:' + device.id +":flora_measure_fertility");
-                $element.innerHTML = Math.round(fertility) + "<span id='decimal'> µS/cm</span><br />"
-	        console.log(fertility)
-                if ( fertility < 200 || fertility > 1200 ) {
-                  console.log("fertility out of bounds")
-                  $deviceElement.classList.add('alarm')
-                  selectValue(device, $element)
-                  selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_fertility'])
-                } else {
-                  $deviceElement.classList.remove('alarm')
-                }
-                checkSensorStates();
-              }
-            });
-          }
+// START - CO2 GREEN ORANGE RED INDICATOR
           if ( device.capabilitiesObj.measure_co2 ) {
             device.makeCapabilityInstance('measure_co2', function(value) {
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -856,7 +832,7 @@ into this:
                 var $element = document.getElementById('value:' + device.id +":measure_co2");
                 $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
                 console.log(co2)
-                  if ( co2 > 200 || co2 > 400  ) {
+                  if ( co2 > 1 || co2 > 400  ) {
                     console.log("co2 out of bounds")
                     $deviceElement.classList.add("low")
                    } else {
@@ -866,24 +842,6 @@ into this:
                 }
               });
             }
-              if ( device.capabilitiesObj.measure_co2 ) {
-                device.makeCapabilityInstance('measure_co2', function(value) {
-                  var $deviceElement = document.getElementById('device:' + device.id);
-                  var co2 = value;
-                  if( $deviceElement) {
-                    var $element = document.getElementById('value:' + device.id +":measure_co2");
-                    $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
-                    console.log(co2)
-                    if ( co2 > 900 || co2 > 1400   ) {
-                      console.log("co2 out of bounds")
-                      $deviceElement.classList.add("mid")
-                    } else {
-                      $deviceElement.classList.remove("mid")
-                    }
-                      checkSensorStates();
-                    }
-                  });
-                }
             if ( device.capabilitiesObj.measure_co2 ) {
               device.makeCapabilityInstance('measure_co2', function(value) {
                 var $deviceElement = document.getElementById('device:' + device.id);
@@ -892,17 +850,45 @@ into this:
                   var $element = document.getElementById('value:' + device.id +":measure_co2");
                   $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
                   console.log(co2)
-                  if ( co2 > 1500 || co2 > 2000  ) {
-                     console.log("co2 out of bounds")
-                     $deviceElement.classList.add("high")
-                   } else {
+                  if ( co2 > 401 || co2 > 1400   ) {
+                    console.log("co2 out of bounds")
+                    $deviceElement.classList.add("mid")
+                  } else {
+                    $deviceElement.classList.remove("mid")
+                  }
+                    checkSensorStates();
+                  }
+                });
+              }
+            if ( device.capabilitiesObj.measure_co2 ) {
+              device.makeCapabilityInstance('measure_co2', function(value) {
+                var $deviceElement = document.getElementById('device:' + device.id);
+                var co2 = value;
+                if( $deviceElement) {
+                  var $element = document.getElementById('value:' + device.id +":measure_co2");
+                  $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
+                  console.log(co2)
+                    if ( co2 > 1401 || co2 > 4000  ) {
+                      console.log("co2 out of bounds")
+                      $deviceElement.classList.add("high")
+                    } else {
                       $deviceElement.classList.remove("high")
-                   }
-                   checkSensorStates();
-             }
-           });
+                    }
+                    checkSensorStates();
+                  }
+                });
+              }
+
+          if ( device.capabilitiesObj.flora_measure_fertility ) {
+            device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement) {
+                var $element = document.getElementById('value:' + device.id +":flora_measure_fertility");
+                $element.innerHTML = Math.round(fertility) + "<span id='decimal'>%</span><br />"
+              }
+            });
           }
-  	});
+        });
         homeydashdevicebrightness = getCookie("homeydashdevicebrightness")
         var brightness = 100
         for (item in devices) {
@@ -1053,6 +1039,7 @@ into this:
             tokens[token].id == "alarm_smoke" && tokens[token].value == true ||
             tokens[token].id == "alarm_fire" && tokens[token].value == true ||
             tokens[token].id == "alarm_co" && tokens[token].value == true ||
+            tokens[token].id == "alarm_co2" && tokens[token].value == true || // added 17052021 - PeterDee
             tokens[token].id == "alarm_heat" && tokens[token].value == true
 
           ) {
@@ -1388,6 +1375,7 @@ into this:
           device.capabilitiesObj && device.capabilitiesObj.alarm_vibration && device.capabilitiesObj.alarm_vibration.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_water && device.capabilitiesObj.alarm_water.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_co && device.capabilitiesObj.alarm_co.value ||
+          device.capabilitiesObj && device.capabilitiesObj.alarm_co2 && device.capabilitiesObj.alarm_co.value || // added 17052021- PeterDee
           device.capabilitiesObj && device.capabilitiesObj.alarm_heat && device.capabilitiesObj.alarm_heat.value ||
           device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value
           ) {
@@ -1475,7 +1463,7 @@ into this:
           });
         }
 
-     if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
+      if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
         var moisture = device.capabilitiesObj.flora_measure_moisture.value
         console.log(moisture)
         if ( moisture < 20 || moisture > 65 ) {
@@ -1485,54 +1473,109 @@ into this:
           //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
-     if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_fertility ) { /* added 160521 PeterDee*/
-        var moisture = device.capabilitiesObj.flora_measure_fertility.value
-        console.log(moisture)
-        if ( moisture < 200 || moisture > 1200 ) {
+// added 160521 PeterDee
+     if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_fertility ) {
+        var fertility = device.capabilitiesObj.flora_measure_fertility.value
+        console.log(fertility)
+        if ( fertility < 200 || fertility > 1200 ) {
           console.log("fertility out of bounds")
           $deviceElement.classList.add('alarm')
-          //selectValue(device, $element)
-          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
+// START - CO2 GREEN ORANGE RED INDICATOR
       if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
         var co2 = device.capabilitiesObj.measure_co2.value
         console.log(co2)
-        if ( co2 > 1500 || co2 > 2000 ) {
+        if ( co2 > 1401 || co2 > 4000 ) {
           console.log("co2 out of bounds")
           $deviceElement.classList.add('high')
         }else{
           $deviceElement.classList.remove('high')
-           //selectValue(device, $element)
-          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
-        if ( co2 > 900 || co2 > 1400 ) {
+        if ( co2 > 401 || co2 > 1400 ) {
           console.log("co2 out of bounds")
           $deviceElement.classList.add('mid')
         }else{
           $deviceElement.classList.remove('mid')
-           //selectValue(device, $element)
-          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
      }
 
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
-        if ( co2 > 200 || co2 > 400 ) {
+        if ( co2 > 1 || co2 > 400 ) {
           console.log("co2 out of bounds")
           $deviceElement.classList.add('low')
         }else{
           $deviceElement.classList.remove('low')
-           //selectValue(device, $element)
-          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
          }
         }
-
+// START - (SOLAR) POWER GREEN ORANGE RED INDICATOR
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
+          var power = device.capabilitiesObj.measure_power.value
+          console.log(power)
+        if ( power > 100 || power > 500 ) {  // value below 100, tile gets no special color
+          console.log("power out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
+          var power = device.capabilitiesObj.measure_power.value
+          console.log(power)
+        if ( power > 501 || power > 1000 ) {
+          console.log("power out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
+        var power = device.capabilitiesObj.measure_power.value
+        console.log(power)
+        if ( power > 1001 || power > 4000 ) {
+          console.log("power out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+      }
+// START - TEMPERATURE GREEN ORANGE RED INDICATOR
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+          var temperature = device.capabilitiesObj.measure_temperature.value
+          console.log(temperature)
+        if ( temperature > 19 || temperature > 60 ) {  // value below 100, tile gets no special color
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+          var temperature = device.capabilitiesObj.measure_temperature.value
+          console.log(temperature)
+        if ( temperature > 11 || temperature > 19 ) {
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature > 0 || temperature > 10 ) {  // value below 0, tile gets no special color
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+      }
       if ( device.capabilitiesObj && device.capabilitiesObj.alarm_connected ) {
         if ( device.capabilitiesObj.alarm_connected.value ) {
           $deviceElement.classList.remove('away')
@@ -1557,7 +1600,12 @@ into this:
       } else if ( device.icon ) {
         $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
       }
-
+/*      if ( device.name == "Bier" || device.name == "Bier temperatuur" ) { /* crap 140521 PeterDee */
+/*        $icon.style.webkitMaskImage = 'url(img/capabilities/beer.png)';
+        $icon.style.backgroundImage = 'url(img/capabilities/beer.png)';
+        $icon.style.backgroundSize = 'contain'
+    }
+*/
       $deviceElement.appendChild($icon);
 
       var $iconCapability = document.createElement('div');
@@ -1701,7 +1749,7 @@ into this:
     // now.getDay() gets the day number
     // The array with names of the days makes it possible to replace that number...
     // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
-    var weekdayarray = ['zonnedag','baaldag','dinsdag','woensdag','donderrrrrdag','VRIJdag','zaaaaterdag'];  /*belongs to + myweekday @line1727 */
+    var weekdayarray = ['zondag','baaldag','dinsdag','Woensdag','Donderdag','vrijdag','zaterdag'];
 
     var myweekday = (weekdayarray[now.getDay()]);
     var tod;
@@ -1721,14 +1769,8 @@ into this:
       $textLarge.innerHTML = texts.text.good + tod + '!';
     }
     // $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
-    // For use as a simple date display like '18 april 2021'
-    // Please comment out the active line of code below here
-
-    // Unomment to display custom day names:
-//    $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
-    // [+ myweekday] shows custom name of weekday in front of date
-    // Comment out to display custom day names:
-    $textSmall.innerHTML = texts.text.today + moment(now).format('dddd[, ' + texts.text.the + ' ]Do[ ' + texts.text.of + ' ]MMMM YYYY');
+    $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
+    // [+ myweekday] shows name of weekday in front of date
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
