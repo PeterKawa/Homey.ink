@@ -265,7 +265,7 @@ into this:
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welkom bij Homeydash<br /><br />Log alstublieft in op<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>voor meer informatie</a><br /><br /><a Credits to Homey Cornelisse, Danee de Kruyff, Roco damhelse, Danny Mertens en Andre Prins.</a><br /><br /><a zij hebben dit dashboard gemaakt en deze versie is slechts mijn bewerking daar op </center>"
+      $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center><br /><br /><br /><br />Credits to Danee de Kruyff, Roco damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
 
     return
   }
@@ -275,7 +275,7 @@ into this:
   */
   try { token = atob(token) }
   catch(err) {
-    $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token invalid.  Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><center><a href='https://homeycornelisse.nl/dash/'>Voor meer informatie </a></center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>PeterDeeDash<br /><br />Whoops.... I'm sorry, your entered Token seems invalid. Please log on again at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center>"
     return
   }
   token = JSON.parse(token);
@@ -283,9 +283,9 @@ into this:
 
   api.isLoggedIn().then(function(loggedIn) {
     if(!loggedIn)
-      $container.innerHTML ="<br /><br /><br /><br /><center>homeycornelisse.nl<br /><br />Token Expired. Log alstublieft opnieuw in.<br /><br /><a href='https://homey.ink'>homey.ink</a></center>"
+      $container.innerHTML ="<br /><br /><br /><br /><center>PeterDeeDash<br /><br />Whoops.... I'm sorry, your entered Token seems to be expired. Please log on again at<br /><br /><a href='https://homey.ink'>homey.ink</a></center>"
       return
-      //throw new Error('Token Expired. Log alstublieft opnieuw in.');
+      //throw new Error('Whoops, your Token has expired. Please log on again at https://homey.ink');
   }).then(function(){
     return api.getAuthenticatedUser();
   }).then(function(user) {
