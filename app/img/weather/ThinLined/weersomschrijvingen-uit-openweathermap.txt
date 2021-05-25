@@ -1,0 +1,48 @@
+van Openweathermap:
+200: onweersbui met lichte regen
+201: onweersbui met regen
+202: onweersbui met zware regenval
+210: lichte onweersbui
+211: onweersbui
+212: zware onweersbui
+221: onregelmatig onweersbui
+230: onweersbui met lichte motregen
+231: onweersbui met motregen
+232: onweersbui met zware motregen
+300: lichte motregen
+301: motregen
+302: zware motregen
+310: lichte motregen/regen
+312: zware motregen/regen
+313: stortbuien en motregen
+314: hevige stortbuien en motregen
+321: zware motregen
+500: lichte regen
+501: matige regen
+502: zware regenval
+503: zeer zware regenval
+504: extreme regen
+511: koude buien
+520: lichte stortregen
+521: stortregen
+522: zware stortregen
+531: afwisselende stortbuien
+600: lichte sneeuw
+601: sneeuw
+602: hevige sneeuw
+611: ijzel
+612: lichte ijzel
+621: natte sneeuw
+622: hevige sneeuw
+701: mist
+721: nevel
+731: zand/stof werveling
+751: zandstorm
+762: vulkanische as
+771: rukwinden
+781: tornado
+800: onbewolkt
+801: licht bewolkt
+802: half bewolkt
+803: zwaar bewolkt
+804: geheel bewolkt
