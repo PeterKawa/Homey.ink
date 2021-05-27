@@ -17,12 +17,17 @@ body {
 
 body {
   font-family: yanone kaffe, comfortaa, sans-serif;
-  background-image: url(../img/background.jpg);
-  background-attachment: fixed;
+/*  background-image: url(../img/background.jpg);
+*/  background-attachment: fixed;
   background-size: cover;
   color: white;
-  /* background-image: linear-gradient(to bottom left, blue, navy); */ /*To use instead of a wallpaper picture*/
-  background-color: navy; /* in case if the picture doesn't load or something, or or browsers that do not support gradients */
+  /* To use instead of a wallpaper picture, or if it can't be found */
+  background-image: linear-gradient(to bottom left, #0407a5, #245ccc);
+  /*
+  background-image: linear-gradient(to bottom left, #0407a5, #194db5);
+  */
+  /* in case if the bg picture doesn't load or something, or or for browsers that do not support gradients */
+  background-color: navy;
 
 }
 
@@ -271,48 +276,52 @@ a {
     #weather-state-icon {
       display: inline-block;
       vertical-align: top;
-      width: 4vw;
-      height: 4vw;
-      margin-left: 1vw;
+      margin-top: -1.4vw;
+      width: 8vw;
+      height: 8vw;
+      margin-left: 1.0vw;
       margin-right: auto;
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center center;
-      background-size: 4vW 4vw;
+      background-size: 8vw 8vw;
     }
     #weather-temperature {
       display: inline-block;
-      margin-left: -2vw;
+      margin-left: -6.0vw;
       font-size: 2.2vw;
       line-height: 3vw;
       font-weight: 250;
+      /*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
+      text-shadow: 1px 1px 3px lightblue, 1px 0 2px slategrey, 0 0 1px darkblue;
     }
     #weather-temperature:after {
       content: "°";
       font-size: 2.0vw;
-      vertical-align: text-top;
+      vertical-align: text-bottom;
     }
     #weather-roof {
       display: inline-block;
       vertical-align: top;
-      margin-top: 1.9vw;
-      width: 3vw;
-      height: 3vw;
-      margin-left: 3vw;
+      margin-top: 0.6vw;
+      width: 4vw;
+      height: 4vw;
+      margin-left: 2.0vw;
       margin-right: auto;
       background: no-repeat center center;
       background-size: contain;
       background-image: url(../img/roof.png);
       visibility: hidden;
-
     }
     #weather-temperature-inside {
       display: inline-block;
-      margin-left: -3.5vw;
+      margin-left: -3.7vw;
       font-size: 2.2vw;
       line-height: 3vw;
-      font-weight: 250;
+      font-weight: 150;
       /*visibility: hidden;*/
+      /*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
+      text-shadow: 1px 1px 3px lightblue, 1px 0 2px slategrey, 0 0 1px darkblue;
     }
     #weather-temperature-inside:after {
       content: "°";
@@ -332,6 +341,11 @@ a {
       font-size: 16px;
       font-weight: 400;
       margin-top: 10px;
+/*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
+      text-shadow: 2px 3px 3px lightblue, 1px 0 5px slategrey, 0 1px 2px darkblue;
+    }
+    #text-large:before {
+      content: "";
     }
     #text-large:after {
       content: "";
@@ -343,8 +357,14 @@ a {
       margin: 10px auto;
     }
     #text-small {
+      /* text-align: middle; */
       font-size: 14px;
       font-weight: 300;
+      text-shadow: 4px 3px 5px rgb(204, 194, 194);
+/*    text-shadow: 2px 1px 1px lightblue, 0px 0 1px slategrey, 0 0 1px darkblue; */
+    }
+    #text-small:before {
+      content: "";
     }
     #details {
       position: absolute;
@@ -380,10 +400,10 @@ a {
     }
       #battery-details.alarm {
         -webkit-mask-image: url(../img/battery.png);
-       Background-color: white;
+       background-color: white;
        -webkit-border-radius: none;
        border-radius: none;
-        border: none;
+       border: none;
        color:  #FF0700;
        cursor: auto; /*-pointer;*/
        -webkit-animation: glowing 2000ms infinite;
@@ -421,25 +441,25 @@ a {
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center center;
-      -webkit-mask-image: url(../img/warning.png);
+      -webkit-mask-image: url(../img/warning.png); /* Warning triangle icon next to battery icon */
     }
       #sensor-details.alarm {
-        -webkit-mask-image: url(../img/warning.png); /* Warning triangle icon next to battery icon */
-        Background-color: white;
-        -webkit-border-radius: none;
-        border-radius: none;
+       -webkit-mask-image: url(../img/warning.png);
+       background-color: white;
+       -webkit-border-radius: none;
+       border-radius: none;
        border: none;
        color: #FFFFFF;
        cursor: pointer;
-       -webkit-animation: glowing 1500ms infinite;
+       -webkit-animation: glowing 2000ms infinite;
 
-       -o-animation: glowing 1500ms infinite;
-       animation: glowing 1500ms infinite;
+       -o-animation: glowing 2000ms infinite;
+       animation: glowing 2000ms infinite;
        }
        @-webkit-keyframes glowing {
-       0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
-       50% { background-color:  #ffe0b3; -webkit-box-shadow: 0 0 50px #ffe0b3; }
-       100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+       0%  { background-color: rgb(222, 2, 17); -webkit-box-shadow: 0 0 3px rgb(222, 2, 17); }
+       50% { background-color: rgb(255, 224, 179); -webkit-box-shadow: 0 0 50px rgb(255, 224, 179); }
+       100% { background-color: rgb(222, 2, 17); -webkit-box-shadow: 0 0 3px rgb(222, 2, 17); }
        }
       #sensor-details.fault {
         background-color: white;
@@ -458,10 +478,10 @@ a {
         -webkit-mask-image: url(../img/flame.png);
       }
         #flame-details.alarm {
-          -webkit-mask-image: url(../img/flame.png);
-          Background-color: white;
-          -webkit-border-radius: none;
-          border-radius: none;
+         -webkit-mask-image: url(../img/flame.png);
+         background-color: white;
+         -webkit-border-radius: none;
+         border-radius: none;
          border: none;
          color: #FFFFFF;
          cursor: pointer;
@@ -501,13 +521,14 @@ a {
   .favorites {
 
   }
+
     .favorites h2 {
       display: block;
-      width: 1000px;
+      width: 100%;
       font-size: 18px;
       font-weight: 300;
-      padding-bottom: 12px;
-      margin-bottom: 15px;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
       color: white;
     }
     .favorites h2:after {
@@ -516,12 +537,23 @@ a {
       height: 1px;
       background: linear-gradient(to right, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
     }
+
     .favorites-inner {
+      display: inline-block /* 24052021 PeterDee*/
+      border: 0px solid white;
+      width: 79%;
+      float: left;
+      height: 100%;
+      margin-right:0%;
       font-size: 0;
       overflow-x: hidden;
       white-space: nowrap;
       overflow: hidden;
       -webkit-mask-image: linear-gradient(to right, #000000 90%, rgba(0,0,0,0) 100%);
+    }
+
+    .favorites-inner:last-child {
+      margin-right:0;
     }
 
   #flows {
@@ -666,6 +698,8 @@ a {
         overflow-y: visible;
       }
       .device {
+       /* width: 15vh; */
+       /* height: 15vh; */
         display: inline-block;
         vertical-align: middle;
         position: relative;
@@ -685,6 +719,8 @@ a {
       }
       .device.on {
         opacity: 0.95;
+/*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
+        text-shadow: 1px 1px 2px lightblue, 1px 0 1px slategrey, 0 0 1px darkblue;
         }
       }
       .device.armed {
@@ -715,38 +751,41 @@ a {
         border: none;
         color:  #FF0700;
         cursor: auto; /*-pointer;*/
-        -webkit-animation: glowing 5000ms infinite;
-
-        -o-animation: glowing 5000ms infinite;
-        animation: glowing 5000ms infinite;
+        text-shadow: none;
+        -webkit-animation: glowing 3500ms infinite;
+        -o-animation: glowing 3500ms infinite;
+        animation: glowing 3500ms infinite;
       }
         @-webkit-keyframes glowing {
-        0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+/*        0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
         50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
         100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
+*/
+        0%  { background-color: rgb(255, 212, 108); -webkit-box-shadow: 1 1 50px rgb(255, 212, 108); }
+        50% { background-color: rgb(255, 224, 179); -webkit-box-shadow: 0 0 1px rgb(255, 224, 179); }
+        100% { background-color: rgb(255, 212, 108); -webkit-box-shadow: 1 1 50px rgb(255, 212, 108); }
       }
 
-/* WAS Temp disabled and WAS active in ../themes/tablet.css */
-      .device.low {
+
+      .device.lowest {  /* Added lowest as extra value/color "iceblue" - PeterDee */
+        Background-color: rgb(2, 233, 250);
+        border: none;
+        color: rgb(2, 233, 250);
+      }
+      .device.low {  /* color the device green */
         Background-color: rgb(29, 185, 84);
-        /*-webkit-border-radius: none; *//* invalid property value - 17052021 PeterDee */
-        /*border-radius: none; *//* invalid property value - 17052021 PeterDee */
         border: none;
         color: rgb(29,185,84);
       }
-      .device.mid {
+      .device.mid {  /* color the device orange */
         Background-color: rgb(235, 141, 0);
-        /* -webkit-border-radius: none; *//* invalid property value - 17052021 PeterDee */
-        /* border-radius: none; *//* invalid property value - 17052021 PeterDee */
         border: none;
         color: rgb(255,102,0);
       }
-      .device.high {
-        Background-color:  rgb(204, 2, 16);
-        /* -webkit-border-radius: none; *//* invalid property value - 17052021 PeterDee */
-        /* border-radius: none; *//* invalid property value - 17052021 PeterDee */
+      .device.high {  /* color the device red */
+       Background-color: rgb(204, 2, 16);
         border: none;
-        color:  #FF0700;
+        color: rgb(204, 2, 16);;
       }
 
       .device.away {
@@ -769,6 +808,7 @@ a {
         height: 45px;
         background: black;
         margin-bottom: 1px;
+        box-shadow: 4px 3px 50px rgb(204, 194, 194);
         -webkit-mask-size: contain;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center center;
@@ -811,7 +851,7 @@ a {
          top: 2px;
          right: 2px;
          width: 50%;
-         font-size: 5px;
+         font-size: 4px;
          height: 20px;
          line-height: 11px;
          font-weight: 200;
@@ -840,7 +880,7 @@ a {
          width: 97%;
          height: 100%;
          max-height: 13px;
-         font-size: 13px;
+         font-size: 12px;
          line-height: 14px;
          font-weight: 800;
          overflow: hidden;
