@@ -14,12 +14,13 @@
     <link rel="apple-touch-icon" href="./img/favicon.png">
     <link rel="stylesheet" type="text/css" href="./css/homeydash.css">
 
-    <script type="text/javascript" src="//cdn.athom.com/athom-api/2.1.186/athom-api.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="./js/polyfill.js"></script>
-    <script type="text/javascript" src="./js/later.js"></script>
-    <script type="text/javascript" src="./js/homeydash.helpers.js"></script>
-    <script type="text/javascript" src="./js/homeydash.app.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="//cdn.athom.com/athom-api/2.1.186/athom-api.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./js/polyfill.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./js/later.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./js/homeydash.helpers.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./js/homeydash.app.js"></script>
+    <script ></script>
 
   </head>
   <body id="body">
@@ -70,26 +71,34 @@
           </div>
 
         </div>
-    
+
 		<script type="text/javascript">
 			window.setInterval(function(){
 				document.getElementById('measure_co2');
-      }, 660000); 
+      }, 660000);
     	</script>
 
         <div id="content">
+        <div>
 
+        </div>
           <div id="row1">
-            <div id="flows" class="favorites">
-              <h2><span id="favorite-flows"></span></h2>
-              <div id="flows-inner" class="flows favorites-inner"></div>
-            </div>
-          </div>
-
-          <div id="row2">
             <div id="devices" class="favorites">
               <h2><span id="favorite-devices"></span></h2>
               <div id="devices-inner" class="devices favorites-inner"></div>
+              <div id="devices-inner" class="devices favorites-inner"></div>
+<!-- 3 hour rainforecast Buienradar.nl - Centered at Schagen-Netherlands -->
+                <iframe src="https://gadgets.buienradar.nl/gadget/zoommap/?lat=52.7875&lng=4.79861&overname=2&zoom=8&naam=schagen&size=2&voor=1" scrolling=no width=256 height=256 frameborder=no></iframe>
+                <br />
+<!-- 5 day weatherforecast Buienradar.nl - Weatherstation Berkhout-Netherlands -->
+                <iframe src="//gadgets.buienradar.nl/gadget/forecastandstationportrait/6249/" noresize scrolling=no hspace=0 vspace=0 frameborder=0 marginheight=0 marginwidth=0 width=175 height=430></iframe>
+                <br />
+            </div>
+          </div>
+          <div id="row2">
+            <div id="flows" class="favorites">
+              <h2><span id="favorite-flows"></span></h2>
+              <div id="flows-inner" class="flows favorites-inner"></div>
             </div>
           </div>
 
