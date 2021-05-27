@@ -13,7 +13,7 @@
         "afternoon": "afternoon",
         "morning": "morning",
         "night": "night",
-        "today": "Today is ",
+        "today": "Hello, today is ",
         "the": "the",
         "of": "of"
     },
@@ -22,11 +22,11 @@
         "nonotification": "There are no notifications"
     },
     "weather": {
-        "title": "Weather information for ",
-        "temperature": "The current temperature is ",
-        "degrees": " degrees Celsius, ",
+        "title": "The weather today at ",
+        "temperature": "The temperature is around ",
+        "degrees": "°C, ",
         "humidity": "the humidity is ",
-        "pressure": "% and the pressure is ",
+        "pressure": "%, and the airpressure is ",
         "mbar": " mbar"
     },
     "sunevent": {
@@ -71,7 +71,7 @@
             "logo": "Logo (url)",
             "background": "Background (url)",
             "opacity": "Background opacity",
-            "clock": "Show clock",
+            "clock": "Show the time?",
             "zoom": "Zoom"
         },
         "errors": {

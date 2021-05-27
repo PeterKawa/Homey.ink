@@ -8,14 +8,14 @@
         "alldays": "alle dagen"
     },
     "text" : {
-        "__comment": "PeterDee original line: Goede",        
-        "good": "Familie x, goede", 
+        "__comment": "PeterDee original line was: Goede",
+        "good": "Hey gast, goeie",
         "evening": "navond",
         "afternoon": "middag",
-        "morning": "morgen",
+        "morning": "moggûh",
         "night": "nacht",
-        "__comment": "PeterDee original line: Vandaag is het",
-        "today": "Familie x, vandaag is het",
+        "__comment": "PeterDee original line was: Vandaag is het",
+        "today": "Moggûh, het is ",
         "the": "de",
         "of": ""
     },
@@ -24,11 +24,11 @@
         "nonotification": "Er zijn geen notificaties"
     },
     "weather": {
-        "title": "Weer informatie voor ",
-        "temperature": "De huidige temperatuur is ",
-        "degrees": "° Celsius, ",
-        "humidity": "de luchtvochtigheid is ",
-        "pressure": "% en de druk is ",
+        "title": "Het weer vandaag in ",
+        "temperature": "Het is rond de ",
+        "degrees": "°C, ",
+        "humidity": "bij een luchtvochtigheid van ",
+        "pressure": "% en luchtdruk van ",
         "mbar": " mbar"
     },
     "sunevent": {
@@ -54,7 +54,7 @@
         "title": "Brandmeldpaneel",
         "in": " in zone ",
         "alarm": " is in alarm.",
-        "noalarm": " Er zijn geen rook of CO melders in alarm.",
+        "noalarm": " Er zijn geen rook of co/co2 melders in alarm.",
         "testalarm": "Vergeet niet een keer per maand de rookmelders te testen voor een goede werking",
         "has": " heeft nog ",
         "left": "% over",
@@ -75,7 +75,7 @@
             "logo": "Logo (url):",
             "background": "Achtergrond (url):",
             "opacity": "Achtergrond transparantie:",
-            "clock": "Klok tonen?",
+            "clock": "De tijd tonen?",
             "zoom": "Zoomen:"
         },
         "errors": {
@@ -84,7 +84,7 @@
         },
         "update": {
             "titel": "Updates"
-            
+
         }
     }
 }
