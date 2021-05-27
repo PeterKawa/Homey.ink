@@ -2158,9 +2158,10 @@ if ( device.name == "Temp Koelkast" ) {
     } else {
       $textLarge.innerHTML = texts.text.good + tod + '!';
     }
-    // $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
-    $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
-    // [+ myweekday] shows name of weekday in front of date
+    $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
+    // To show custom weekday names. Disable line above, enable line below
+    // $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
+       // [+ myweekday] shows name of weekday in front of date
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
