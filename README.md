@@ -1,7 +1,7 @@
 # PeterDeeDash 
 #
 May 27th, 2021: <br><br>
-<b>v2.0</b><br><br><br>
+<b>v2.0</b><br><br>
 Common / Language
 - Changed Dutch text of "token and login" messages into English
 - Changed 'degrees' to '°C'
