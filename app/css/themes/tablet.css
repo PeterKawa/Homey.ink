@@ -41,17 +41,18 @@ h2 {
 #weather {
   width: 100vw;
   top: 0vw;
-}
+  }
+
 #weather-state-icon {
 
-}
+  }
 
 #weather-temperature {
+      font-weight: 400;
+  }
 
-}
-
-#weather-temperature:after {
-  content: "°";
+#weather-temperature-inside {
+      font-weight: 300;
   }
 
   #sun-events {
@@ -84,7 +85,7 @@ h2 {
       margin-top: 2vw;
       /*line-height: 1.1vh;*/
       height: 1.6vw;
-      opacity: 0.75; /* added PeterDee*/
+      opacity: 1; /* added PeterDee*/
       /*color: DodgerBlue;*/ /* added PeterDee */
     }
     #text-large:after { /* Divider between Clock and Date text */
@@ -100,7 +101,7 @@ h2 {
       font-size: 1.6vw; /* 1 PeterDee*/
       line-height: 9vh;
       font-style: italic; /* added style italic PeterDee*/
-      opacity: 0.8; /* added PeterDee*/
+      opacity: 1; /* added PeterDee*/
       /*color: DodgerBlue;*/ /* added PeterDee */
     }
 
@@ -113,7 +114,7 @@ h2 {
       display: inline-block;
       width: 2vw;
       height: 3vw;
-      opacity: 0.5; /* added PeterDee*/
+      opacity: 0.7; /* added PeterDee*/
     }
     #battery-details {
       display: inline-block;
@@ -139,13 +140,13 @@ h2 {
       display: inline-block;
       width: 3vw;
       height: 5vw;
-      opacity: 0.5; /* added PeterDee*/
+      opacity: 0.8; /* added PeterDee*/
     }
     #logo {
       display: inline-block;
       width: 6vw;
       height: 5vw;
-      opacity: 0.5; /* added PeterDee*/
+      opacity: 0.7; /* added PeterDee*/
     }
 
 .favorites {
@@ -184,6 +185,9 @@ h2 {
       vertical-align: middle;
       height: 1px;
       background: black;
+    }
+   .favorites-inner:last-child {
+     margin-right:0;
     }
 
 #flows {
@@ -261,10 +265,10 @@ h2 {
   position: auto;
 }
    .device {
-     width: 20vh;
-     height: 20vh;
+     width: 21.1vh;
+     height: 21.1vh;
      padding: 1.2vh;
-     margin-right: 0.6vw;
+     margin-right: 0.5vw;
      margin-bottom: 1.0vh;
      margin-top: 0.0vh;
      border-radius: 1.8vh;
@@ -272,8 +276,8 @@ h2 {
      background-color: white; /* to change device=OFF color - PeterDee */
    }
    .device .on {
-    opacity: 0.99;
-    background-color: white; /* added device=ON tile color - PeterDee */
+    opacity: 0.95;
+    background-color: beige; /* added device=ON tile color - PeterDee */
    }
     .device .icon {
       position: absolute;
@@ -294,17 +298,17 @@ h2 {
 */
     .device .value {
       position: sticky;
-      top: 1.5vh;
-      right: 0.4vh;
-      font-size: 2.2vh;
-      font-weight: 575;
-      line-height: 2.8vh;
+      top: 1.2vh;
+      right: 0.3vh;
+      font-size: 2.0vh;
+      font-weight: 560;
+      line-height: 2.6vh;
       width: auto;
       height: auto;
       max-height: 2.8vh;
       text-align: right;
       text-overflow: ellipsis;
-      color: slategrey; /* added PeterDee*/
+      color: RGB(0, 64, 69) /* verydarkgrey - color added PeterDee*/
     }
     #decimal {
       font-size: 1.85vh;
@@ -328,5 +332,5 @@ h2 {
       max-height: 8.4vh;
     }
     .device .name.highlight {
-      font-weight: 500;
+      font-weight: 600;
     }
