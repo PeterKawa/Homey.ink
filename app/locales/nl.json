@@ -8,14 +8,13 @@
         "alldays": "alle dagen"
     },
     "text" : {
-        "__comment": "PeterDee original line was: Goede",
-        "good": "Hey gast, goeie",
+        "good": "Goede",
         "evening": "navond",
         "afternoon": "middag",
-        "morning": "moggûh",
+        "morning": "morgen",
         "night": "nacht",
         "__comment": "PeterDee original line was: Vandaag is het",
-        "today": "Moggûh, het is ",
+        "today": "Hey, het is ",
         "the": "de",
         "of": ""
     },
