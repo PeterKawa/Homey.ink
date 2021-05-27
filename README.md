@@ -12,8 +12,8 @@ Weather
 - Fixed the weather icon appearance. Due to a change some time ago, the weather description is in the language of your country/region. And it can consist of more than one word, which resulted in an error.
 - Updated weather icons (animated)
 - Changed the indoor temp 'roof' icon into a house icon
-- Added weather description to weather info screen, divided the device row into two columns to place them next to the device tiles
-- Added "Buienradar.nl" 3hrs forecast .gif, and 5-day forecast pic
+- Added weather description to weather info screen
+- Added "Buienradar.nl" 3hrs forecast .gif, and 5-day forecast pic, the device row is split into two columns to place them next to the device tiles
 
 Layout
 - Changed layout and styles
@@ -40,7 +40,7 @@ Alert cababilities and levels (levels ara adjustable in 'homeydash.app.js')
   - Humidity: below 15 or above 99 = Alert
   - Moisture: below 20 or above 60 = Alert (Flora sensors)
   - Fertility: below 200 or above 1200 = Alert (Flora sensors)
-  -
+
 Alert setting for a device (monitor it's OnOff capability)
 - device.name = "NetScan Alert" Checks for OnOff state. If OnOff = true (device is on) then alert
 
@@ -107,8 +107,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 
 - Android Tablet Chromebrowser Landscape
 
-![Screenshot_20210515-164948](https://user-images.githubusercontent.com/74005072/118365892-d0f35400-b59e-11eb-9310-e14a4dfd0d16.png)
-
+![Screenshot_20210527-225221](https://user-images.githubusercontent.com/74005072/119896674-a52d8200-bf3f-11eb-9ed2-21ec96417b11.png)
 
 - Layout options (tablet.css file) edited a bit:
 
