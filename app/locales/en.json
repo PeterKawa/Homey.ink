@@ -75,8 +75,8 @@
             "zoom": "Zoom"
         },
         "errors": {
-            "logo": "Please fix logo url",
-            "background": "Please fix background url"
+            "logo": "Please, fix logo url",
+            "background": "Please, fix background url"
         }
     }
 }
