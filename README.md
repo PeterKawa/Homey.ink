@@ -1,7 +1,81 @@
 # PeterDeeDash 
 #
-May 25th, 2021: <br>
-<b>- Renamed Dutch weathericons, and adjusted some code, to comply with the (Dutch) weatherdescriptions from Openweathermap, used by Homey</b><br>
+May 27th, 2021: <br><br>
+<b>v2.0</b><br><br><br>
+Common / Language
+- Changed Dutch text of "token and login" messages into English
+- Changed 'degrees' to '°C'
+- Probably fixed a UTF-8 setting @ index.html. It should be declared before every .js script call, which wasn't.
+A German user got weather descriptions like "m%c3%a4%C3%9Figbew%C3%B6lkt", which is "mäßigbewölkt". Renaming the weather icons was not fun.
+
+Weather
+- Fixed the weather icon appearance. Due to a change some time ago, the weather description is in the language of your country/region. And it can consist of more than one word, which resulted in an error.
+- Updated weather icons (animated)
+- Changed the indoor temp 'roof' icon into a house icon
+- Added weather description to weather info screen, divided the device row into two columns to place them next to the device tiles
+- Added "Buienradar.nl" 3hrs forecast .gif, and 5-day forecast pic
+
+Layout
+- Changed layout and styles
+- Added custom device icons
+- Fixed view/hide of indoor temp indicator and house icon, if indoor thermometer is selected or none
+- Possibility to add custom device icons (adjustable in 'homeydash.app.js')
+
+Capabilities added:
+- alarm_offline (NetScan app) (also added to generic/motion/contact/water/tamper etc. alarms)
+- measure_co2 & alarm_co2 (also added that to smoke/fire/co/heat alarms)
+- measure_gust_angle (weather station / sensor apps)
+- measure_ph (weather station / sensor apps)
+- measure_rssi (weather station / sensor apps)
+- measure_orp (weather station / sensor apps)
+- measure_tdi (weather station / sensor apps)
+- measure_fertility (Flora Plant sensors)
+- measure_rain
+- measure_rain_day
+
+Alerts and specific value(s)range(s) display in different colors
+- Alerts layout: glowing animation of tile color from white to soft orange
+
+Alert cababilities and levels (levels ara adjustable in 'homeydash.app.js')
+  - Humidity: below 15 or above 99 = Alert
+  - Moisture: below 20 or above 60 = Alert (Flora sensors)
+  - Fertility: below 200 or above 1200 = Alert (Flora sensors)
+  -
+Alert setting for a device (monitor it's OnOff capability)
+- device.name = "NetScan Alert" Checks for OnOff state. If OnOff = true (device is on) then alert
+
+Value indicators (levels ara adjustable in 'homeydash.app.js'):
+- Added iceblue color for temperatures below 0°C. For use with your outside and/or freezer temperature sensors
+- Added Green/Orange/Red/Iceblue tile color setting to:
+  - co2(ppm): co2=>0 or co2>400 GREEN / co2>450 or co2>1400 ORANGE / co2>1450 or co2>4000 RED
+
+  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs.
+    (device.name = "tado° Thermostaat")
+    temperature=>0 or temperature>15 GREEN / temperature>15 or temperature>20
+    ORANGE / temperature>20 or temperature>60 RED / temperature<0 ICEBLUE
+
+  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs.
+    (device.name = "Temp Vriezer" )
+    temperature>-9 RED / temperature<-10 ICEBLUE
+
+  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs.
+    (device.name = "Temp Vriezer")
+    temperature<1 or temperature>10 RED / temperature>0 or temperature<9 ICEBLUE
+
+  - (measure_)power(W): I use one device for it, so change the device name to suit your needs.
+    (device.name = "Growatt Solarpanels")
+    My solarpanels generate 1900W max, so these ranges are set:
+    power>1050 or power>4000 GREEN / power>550 or power>1000 ORANGE / power>100 or power>500 RED
+
+  - (measure_)Rain(mm): For weather station rain meters
+    rain>0 or rain<1 GREEN / rain>0 or rain<5 ORANGE / rain>5 or rain>100 RED
+
+  - (measure_)wind_strength(km/h): For weather station wind meters
+    wind_strength>0 or wind_strength<11 GREEN / wind_strength>10 or wind_strength>18 ORANGE
+    / wind_strength>19 or wind_strength>180 RED
+    <br><br>
+    
+
 
 May 14th, 2021: <br> 
 <b>- Added configuration/modification how-to's</b><br> 
