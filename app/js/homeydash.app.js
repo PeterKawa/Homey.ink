@@ -203,21 +203,30 @@ window.addEventListener('load', function() {
       return renderInfoPanel('t',notifications);
     })
   });
-
+  // Outside temperature value is set by Homey if no thermometer has been selected.
   outdoortemperature = getCookie("outdoortemperature")
-  if ( outdoortemperature == undefined || outdoortemperature == "" ) { outdoortemperature = "homey"}
-	
+  if ( outdoortemperature == undefined || outdoortemperature == "" ) {
+    outdoortemperature = "homey"
+  }
+
+  // Show indoor icon and temperature value only if a thermometer has been selected.
   indoortemperature = getCookie("indoortemperature")
-  if ( indoortemperature != "" && indoortemperature != "none" ) {
+  if ( indoortemperature != "" || indoortemperature != "none" || indoortemperature != undefined ) {
     $weatherroof.style.visibility = "visible"
     $weathertemperatureinside.style.visibility = "visible"
+    if ( indoortemperature != "" || indoortemperature != "none" || indoortemperature != undefined ) {
+         $weathertemperatureinside.innerHTML = Math.round(weather.temperature ,1);
+         }
+    if ( indoortemperature == "" || indoortemperature == "none" || indoortemperature == undefined ) {
+         $weatherroof.style.visibility = "hidden"
+         $weathertemperatureinside.style.visibility = "hidden"
+         }
   }
 
   showTime = getCookie("showtime")
-  if ( showTime == undefined || showTime == "" || showTime == "none" ) {
-        showTime = "true"
-   }
-/* Show the time as default instead of Good Evening /*
+    showTime = ( showTime == "true") ? true: false;
+
+// Show the time as default instead of Good Evening
 /*
 change this:
   showTime = ( showTime == "true") ? true: false;
@@ -265,7 +274,7 @@ into this:
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-      $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center><br /><br /><br /><br />Credits to Danee de Kruyff, Roco damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center><br /><br /><br /><br />Credits to Danee de Kruyff, Roco damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
 
     return
   }
@@ -392,7 +401,7 @@ into this:
           return !!device;
         }).filter(function(device){
           if(!device.ui) return false;
-          //if(!device.ui.quickAction) return false; //Disabled shows all available values on tiles
+          // if(!device.ui.quickAction) return false; //Disabled, then it shows all available values on tiles
           return true;
         });
 
@@ -446,7 +455,7 @@ into this:
               }
             });
           }
-// added 17052021 - PeterDee
+          // added 17052021 - PeterDee
           if ( device.capabilitiesObj.alarm_co2 ) {
             device.makeCapabilityInstance('alarm_co2', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -545,6 +554,16 @@ into this:
               }
             });
           }
+          // added for NetScan app 25052021 - PeterDee
+          if ( device.capabilitiesObj.alarm_offline ) {
+            device.makeCapabilityInstance('alarm_offline', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                $deviceElement.classList.toggle('alarm', !!value);
+                checkSensorStates();
+              }
+            });
+          }
           if ( device.capabilitiesObj.vacuumcleaner_state ) {
             device.makeCapabilityInstance('vacuumcleaner_state', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -617,6 +636,32 @@ into this:
               }
             });
           }
+// /new 21052021 - PeterDee
+          if ( device.capabilitiesObj.measure_gust_angle ) {
+            device.makeCapabilityInstance('measure_gust_angle', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_gust_angle");
+                capability = device.capabilitiesObj['measure_gust_angle']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+// /new 22052021 - PeterDee. NOT WORKING because of the dot in rain.1h
+/*
+          if ( device.capabilitiesObj.measure_rain.1h ) {
+            device.makeCapabilityInstance('measure_rain\\.1h', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+               // var $rain1h = ( ":measure_rain\\.1h" )
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_rain\\.1h");
+                capability = device.capabilitiesObj['measure_rain\\.1h']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+                }
+            });
+          }
+*/
+// new 22052021 - PeterDee
           if ( device.capabilitiesObj.measure_rain ) {
             device.makeCapabilityInstance('measure_rain', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -624,9 +669,10 @@ into this:
                 var $valueElement = document.getElementById('value:' + device.id + ":measure_rain");
                 capability = device.capabilitiesObj['measure_rain']
                 renderValue($valueElement, capability.id, capability.value, capability.units)
-              }
+                }
             });
           }
+// new 22052021 - PeterDee
           if ( device.capabilitiesObj.measure_rain_day ) {
             device.makeCapabilityInstance('measure_rain_day', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -685,6 +731,10 @@ into this:
                 var $valueElement = document.getElementById('value:' + device.id + ":measure_power");
                 capability = device.capabilitiesObj['measure_power']
                 renderValue($valueElement, capability.id, capability.value, capability.units)
+               }
+              if( $deviceElement ) {
+                var $element = document.getElementById('value:' + device.id +":measure_power");
+                $element.innerHTML = Math.round(power) + "<span id='decimal'>W</span><br />"
               }
             });
           }
@@ -694,6 +744,61 @@ into this:
               if( $deviceElement ) {
                 var $valueElement = document.getElementById('value:' + device.id + ":measure_co");
                 capability = device.capabilitiesObj['measure_co']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+// new 21052021 - PeterDee
+          if ( device.capabilitiesObj.measure_ph ) {
+            device.makeCapabilityInstance('measure_ph', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_ph");
+                capability = device.capabilitiesObj['measure_ph']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+// new 21052021 - PeterDee
+          if ( device.capabilitiesObj.measure_rssi ) {
+            device.makeCapabilityInstance('measure_rssi', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_rssi");
+                capability = device.capabilitiesObj['measure_rssi']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+// new 21052021 - PeterDee
+          if ( device.capabilitiesObj.measure_orp ) {
+            device.makeCapabilityInstance('measure_orp', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_orp");
+                capability = device.capabilitiesObj['measure_orp']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+// new 21052021 - PeterDee
+          if ( device.capabilitiesObj.measure_tdi ) {
+            device.makeCapabilityInstance('measure_tdi', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_tdi");
+                capability = device.capabilitiesObj['measure_tdi']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+// new 19052021 - PeterDee
+          if ( device.capabilitiesObj.measure_co2 ) {
+            device.makeCapabilityInstance('measure_co2', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_co2");
+                capability = device.capabilitiesObj['measure_co2']
                 renderValue($valueElement, capability.id, capability.value, capability.units)
               }
             });
@@ -788,6 +893,15 @@ into this:
               }
             });
           }
+          if ( device.capabilitiesObj.flora_measure_fertility ) {
+            device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement) {
+                var $element = document.getElementById('value:' + device.id +":flora_measure_fertility");
+                $element.innerHTML = Math.round(fertility) + "<span id='decimal'>µS/cm</span><br />"
+              }
+            });
+          }
           if ( device.capabilitiesObj.flora_measure_moisture ) {
             device.makeCapabilityInstance('flora_measure_moisture', function(value) {
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -796,7 +910,7 @@ into this:
                 var $element = document.getElementById('value:' + device.id +":flora_measure_moisture");
                 $element.innerHTML = Math.round(moisture) + "<span id='decimal'>%</span><br />"
                 console.log(moisture)
-                if ( moisture < 20 || moisture > 65 ) {
+                if ( moisture < 20 || moisture > 60 ) {
                   console.log("moisture out of bounds")
                   $deviceElement.classList.add('alarm')
                   selectValue(device, $element)
@@ -808,72 +922,50 @@ into this:
               }
             });
           }
-// START - CO2 GREEN ORANGE RED INDICATOR
-          if ( device.capabilitiesObj.measure_co2 ) {
-            device.makeCapabilityInstance('measure_co2', function(value) {
-              var $deviceElement = document.getElementById('device:' + device.id);
-              var co2 = value;
-              if( $deviceElement) {
-                var $element = document.getElementById('value:' + device.id +":measure_co2");
-                $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
-                console.log(co2)
-                  if ( co2 > 1 || co2 > 400  ) {
-                    console.log("co2 out of bounds")
-                    $deviceElement.classList.add("low")
-                   } else {
-                    $deviceElement.classList.remove("low")
-                  }
-                  checkSensorStates();
-                }
-              });
-            }
-            if ( device.capabilitiesObj.measure_co2 ) {
-              device.makeCapabilityInstance('measure_co2', function(value) {
-                var $deviceElement = document.getElementById('device:' + device.id);
-                var co2 = value;
-                if( $deviceElement) {
-                  var $element = document.getElementById('value:' + device.id +":measure_co2");
-                  $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
-                  console.log(co2)
-                  if ( co2 > 401 || co2 > 1400   ) {
-                    console.log("co2 out of bounds")
-                    $deviceElement.classList.add("mid")
-                  } else {
-                    $deviceElement.classList.remove("mid")
-                  }
-                    checkSensorStates();
-                  }
-                });
-              }
-            if ( device.capabilitiesObj.measure_co2 ) {
-              device.makeCapabilityInstance('measure_co2', function(value) {
-                var $deviceElement = document.getElementById('device:' + device.id);
-                var co2 = value;
-                if( $deviceElement) {
-                  var $element = document.getElementById('value:' + device.id +":measure_co2");
-                  $element.innerHTML = Math.round(co2) + "<span id='decimal'><br />ppm</span><br />"
-                  console.log(co2)
-                    if ( co2 > 1401 || co2 > 4000  ) {
-                      console.log("co2 out of bounds")
-                      $deviceElement.classList.add("high")
-                    } else {
-                      $deviceElement.classList.remove("high")
-                    }
-                    checkSensorStates();
-                  }
-                });
-              }
-
+// added 19052021 - PeterDee
           if ( device.capabilitiesObj.flora_measure_fertility ) {
-            device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
+            device.makeCapabilityInstance('flora_measure_fertility', function(value) {
               var $deviceElement = document.getElementById('device:' + device.id);
+              var fertility = value;
               if( $deviceElement) {
                 var $element = document.getElementById('value:' + device.id +":flora_measure_fertility");
-                $element.innerHTML = Math.round(fertility) + "<span id='decimal'>%</span><br />"
+                $element.innerHTML = Math.round(moisture) + "<span id='decimal'>µS/cm</span><br />"
+                console.log(fertility)
+                if ( fertility < 200 || fertility > 1200 ) {
+                  console.log("fertility out of bounds")
+                  $deviceElement.classList.add('alarm')
+                  selectValue(device, $element)
+                  selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_fertility'])
+                } else {
+                  $deviceElement.classList.remove('alarm')
+                }
+                checkSensorStates();
               }
             });
           }
-        });
+        if ( device.capabilitiesObj.measure_humidity ) {
+           device.makeCapabilityInstance('measure_humidity', function(value) {
+             var $deviceElement = document.getElementById('device:' + device.id);
+             var humidity = value;
+             if( $deviceElement) {
+               var $element = document.getElementById('value:' + device.id +":measure_humidity");
+               $element.innerHTML = Math.round(humidity) + "<span id='decimal'>%</span><br />"
+               console.log(humidity)
+               if ( humidity < 15 || humidity > 99 ) {
+                 console.log("humidity out of bounds")
+                 $deviceElement.classList.add('alarm')
+                 selectValue(device, $element)
+                 selectIcon($element, $element.id, device, device.capabilitiesObj['measure_humidity'])
+               } else {
+                 $deviceElement.classList.remove('alarm')
+               }
+               checkSensorStates();
+             }
+           });
+          }
+//
+        }); // THIS "});" is so damn important. So do NOT delete....
+//
         homeydashdevicebrightness = getCookie("homeydashdevicebrightness")
         var brightness = 100
         for (item in devices) {
@@ -937,22 +1029,83 @@ into this:
       newVersion = true;
       $versionIcon.style.visibility = 'visible';
       $versionIcon.addEventListener('click', function() {
-        setCookie('version', version ,13)
-        changeLog = ""
-        changeLog = changeLog + "Version: A new one<br />"
-        changeLog = changeLog + "<br />"
-        changeLog = changeLog + "1. Added devices with a measuring temperature and (solar) power capability have now been given a color based on a level (It adjusts colors automatically)<br />"
-        changeLog = changeLog + "<br />"
-        changeLog = changeLog + "Temperature indicators. Adjust your Virtual Device measure_temperature sensor with the right calculation for a decent representation of your thermometers<br />"
-        changeLog = changeLog + "Default tile color = J.. J.. Jagermeister please... everything is frozen!<br />"
-	changeLog = changeLog + "Green = Man, is it me, or is it cold in here?<br />"
-        changeLog = changeLog +" Orange = a temp which isn't bad, or good....<br />"
-        changeLog = changeLog + "Red = Oh wow, it's getting hot in here....<br />"      
-        changeLog = changeLog + "<br />"
-        changeLog = changeLog + "(Solar)Power indicators. Adjust your Virtual Device measure_power sensor with the right calculation for a decent representation of your solar panel output<br />"
-        changeLog = changeLog + "Green = high (solar)power value <br />"
-        changeLog = changeLog +" Orange = moderate (solar)power value <br />"
-        changeLog = changeLog + "Red = low (solar)power value  ( tell the sun to go shine a bit )<br />"
+        setCookie('version', version ,16)
+        changeLog = "<br />"
+        changeLog = changeLog + "Version: 2.0 <br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Common / Language"
+        changeLog = changeLog + "- Changed Dutch text of 'token and login' messages into English"
+        changeLog = changeLog + "- Changed 'degrees' to '°C'"
+        changeLog = changeLog + "- Probably fixed a UTF-8 setting @ index.html. It should be declared before every .js script call, which wasn't. A German user got weather descriptions like 'm%c3%a4%C3%9Figbew%C3%B6lkt', which is 'mäßigbewölkt'. Renaming the weather icons was not fun.<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Weather"
+        changeLog = changeLog + "- Fixed the weather icon appearance. Due to a change some time ago, the weather description is in the language of your country/region. And it can consist of more than one word, which resulted in an error."
+        changeLog = changeLog + "- Fixed the weather icon appearance. Due to a change some time ago, the weather description is in the language of your country/region. And it can consist of more than one word, which resulted in an error."
+        changeLog = changeLog + "- Updated weather icons (animated)"
+        changeLog = changeLog + "- Changed the indoor temp 'roof' icon into a house icon"
+        changeLog = changeLog + "- Added weather description to weather info screen, divided the device row into two columns to place them next to the device tiles"
+        changeLog = changeLog + "- Added 'Buienradar.nl' 3hrs forecast .gif, and 5-day forecast pic<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Layout<br />"
+        changeLog = changeLog + "- Changed layout and styles"
+        changeLog = changeLog + "- Added custom device icons"
+        changeLog = changeLog + "- Fixed view/hide of indoor temp indicator and house icon, if indoor thermometer is selected or none"
+        changeLog = changeLog + "- Possibility to add custom device icons (adjustable in 'homeydash.app.js')<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Capabilities added:<br />"
+        changeLog = changeLog + "- alarm_offline (NetScan app) (also added to generic/motion/contact/water/tamper etc. alarms)"
+        changeLog = changeLog + "- measure_co2 & alarm_co2 (also added that to smoke/fire/co/heat alarms)"
+        changeLog = changeLog + "- measure_gust_angle (weather station / sensor apps)"
+        changeLog = changeLog + "- measure_ph (weather station / sensor apps)"
+        changeLog = changeLog + "- measure_rssi (weather station / sensor apps)"
+        changeLog = changeLog + "- measure_orp (weather station / sensor apps)"
+        changeLog = changeLog + "- measure_tdi (weather station / sensor apps)"
+        changeLog = changeLog + "- measure_fertility (Flora Plant sensors)"
+        changeLog = changeLog + "- measure_rain"
+        changeLog = changeLog + "- measure_rain_day<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Alerts and specific value(s)range(s) display in different colors<br />"
+        changeLog = changeLog + "- Alerts layout: glowing animation of tile color from white to soft orange<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Alert cababilities and levels (levels ara adjustable in 'homeydash.app.js')<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - Humidity: below 15 or above 99 = Alert"
+        changeLog = changeLog + "  - Moisture: below 20 or above 60 = Alert (Flora sensors)"
+        changeLog = changeLog + "  - Fertility: below 200 or above 1200 = Alert (Flora sensors)<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Alert setting for a device (monitor it's OnOff capability)<br />"
+        changeLog = changeLog + "- device.name = NetScan Alert Checks for OnOff state. If OnOff = true (device is on) then alert<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "Value indicators (levels ara adjustable in 'homeydash.app.js'):<br />"
+        changeLog = changeLog + "- Added iceblue color for temperatures below 0°C. For use with your outside and/or freezer temperature sensors"
+        changeLog = changeLog + "- Added Green/Orange/Red/Iceblue tile color setting to:<br />"
+        changeLog = changeLog + "  - co2(ppm): co2=>0 or co2>400 GREEN / co2>450 or co2>1400 ORANGE / co2>1450 or co2>4000 RED<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs."
+        changeLog = changeLog + "    (device.name = tado° Thermostaat)"
+        changeLog = changeLog + "    temperature=>0 or temperature>15 GREEN / temperature>15 or temperature>20"
+        changeLog = changeLog + "    ORANGE / temperature>20 or temperature>60 RED / temperature<0 ICEBLUE<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs."
+        changeLog = changeLog + "    (device.name = Temp Vriezer)"
+        changeLog = changeLog + "    temperature>-9 RED / temperature<-10 ICEBLUE<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs."
+        changeLog = changeLog + "    (device.name = Temp Vriezer)"
+        changeLog = changeLog + "    temperature<1 or temperature>10 RED / temperature>0 or temperature<9 ICEBLUE<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - (measure_)power(W): I use one device for it, so change the device name to suit your needs."
+        changeLog = changeLog + "    (device.name = Growatt Solarpanels)"
+        changeLog = changeLog + "    My solarpanels generate 1900W max, so these ranges are set:"
+        changeLog = changeLog + "    power>1050 or power>4000 GREEN / power>550 or power>1000 ORANGE / power>100 or power>500 RED"
+        changeLog = changeLog + "  - (measure_)Rain(mm): For weather station rain meters<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - (measure_)Rain(mm): For weather station rain meters    rain>0 or rain<1 GREEN / rain>0 or rain<5 ORANGE / rain>5 or rain>100 RED<br /><br />"
+        changeLog = changeLog + " "
+        changeLog = changeLog + "  - (measure_)wind_strength(km/h): For weather station wind meters"
+        changeLog = changeLog + "    wind_strength>0 or wind_strength<11 GREEN / wind_strength>10 or wind_strength>18 ORANGE"
+        changeLog = changeLog + "    / wind_strength>19 or wind_strength>180 RED"
+        changeLog = changeLog + " "
        renderInfoPanel("u",changeLog)
       })
     }
@@ -995,12 +1148,13 @@ into this:
       var sensorAlarm = false
       sensorDetails = [];
       for ( token in tokens) {
-        if (tokens[token].id == "alarm_generic" && tokens[token].value == true ||
-            tokens[token].id == "alarm_motion" && tokens[token].value == true ||
-            tokens[token].id == "alarm_contact" && tokens[token].value == true ||
-            tokens[token].id == "alarm_vibration" && tokens[token].value == true ||
-            tokens[token].id == "alarm_water" && tokens[token].value == true ||
-            tokens[token].id == "alarm_tamper" && tokens[token].value == true
+        if ( tokens[token].id == "alarm_generic" && tokens[token].value == true ||
+             tokens[token].id == "alarm_motion" && tokens[token].value == true ||
+             tokens[token].id == "alarm_contact" && tokens[token].value == true ||
+             tokens[token].id == "alarm_vibration" && tokens[token].value == true ||
+             tokens[token].id == "alarm_water" && tokens[token].value == true ||
+             tokens[token].id == "alarm_tamper" && tokens[token].value == true ||
+             tokens[token].id == "alarm_offline" && tokens[token].value == true  // added for NetScan app 25052021 - PeterDee
           ) {
             var element = {}
             element.name = tokens[token].uriObj.name
@@ -1021,15 +1175,13 @@ into this:
     homey.flowToken.getFlowTokens().then(function(tokens) {
       var flameAlarm = false
       flameDetails = [];
-      for ( token in tokens) {
-        if (
-            tokens[token].id == "alarm_smoke" && tokens[token].value == true ||
-            tokens[token].id == "alarm_fire" && tokens[token].value == true ||
-            tokens[token].id == "alarm_co" && tokens[token].value == true ||
-            tokens[token].id == "alarm_co2" && tokens[token].value == true || // added 17052021 - PeterDee
-            tokens[token].id == "alarm_heat" && tokens[token].value == true
-
-          ) {
+      for ( token in tokens ) {
+        if ( tokens[token].id == "alarm_smoke" && tokens[token].value == true ||
+             tokens[token].id == "alarm_fire" && tokens[token].value == true ||
+             tokens[token].id == "alarm_co" && tokens[token].value == true ||
+             tokens[token].id == "alarm_co2" && tokens[token].value == true || // added 17052021 - PeterDee
+             tokens[token].id == "alarm_heat" && tokens[token].value == true
+           ) {
             var element = {}
             element.name = tokens[token].uriObj.name
             element.zone = tokens[token].uriObj.meta.zoneName
@@ -1088,8 +1240,9 @@ into this:
         var $infoPanelWeather = document.createElement('div');
         $infoPanelWeather.id = "infopanel-weather"
         $infopanel.appendChild($infoPanelWeather);
-        $wi = "<center><h1>" + texts.weather.title + info.city + "</h1><br />"
-        $wi = $wi + "<h2>" + texts.weather.temperature + Math.round(info.temperature*10)/10 + texts.weather.degrees
+        // Added wheather description (info.state) to weather infopanel - 25052021 - PeterDee
+        $wi = "<center><h1>" + texts.weather.title + info.city + ': ' + info.state + "</h1><br />"
+        $wi = $wi + "<h2>" + texts.weather.temperature + Math.round(info.temperature ,2) + texts.weather.degrees
         $wi = $wi + texts.weather.humidity + Math.round(info.humidity*100) + texts.weather.pressure
         $wi = $wi + Math.round(info.pressure*1000) + texts.weather.mbar + "</h2></center>";
 
@@ -1101,10 +1254,15 @@ into this:
         $infopanelState.innerHTML = "";
         $infopanelState.classList.add('weather-state');
         var $icon = document.createElement('div');
-        $icon.id = 'weather-state-icon';
-        $icon.classList.add(info.state.toLowerCase());
-        $icon.style.backgroundImage = 'url(img/weather/' + info.state.toLowerCase() + dn + '.svg)';
-        $icon.style.webkitMaskImage = 'url(img/weather/' + info.state.toLowerCase() + dn + '.svg)';
+        $icon.id = ('weather-state-icon');
+        // first, erase possible whitespaces from weather description 22052021 - PeterDee
+        // New found code - 24052021 PeterDee
+        let $infoStateNoSpace = info.state.toLowerCase();
+          $infoStateNoSpace = $infoStateNoSpace.replace(/\s+/g,'');
+
+        $icon.classList.add($infoStateNoSpace);
+        $icon.style.backgroundImage = 'url(img/weather/' + $infoStateNoSpace + dn + '.svg)'; // dn = DayNight. It adds an 'n' at night
+        $icon.style.webkitMaskImage = 'url(img/weather/' + $infoStateNoSpace + dn + '.svg)';
 
         $infopanelState.appendChild($icon)
 
@@ -1205,13 +1363,18 @@ into this:
   }
 
   function renderWeather(weather) {
-    if ( outdoortemperature == "homey" ) {
-      $weatherTemperature.innerHTML = Math.round(weather.temperature);
-    }
-    $weatherStateIcon.classList.add(weather.state.toLowerCase());
-    $weatherStateIcon.style.backgroundImage = 'url(img/weather/' + weather.state.toLowerCase() + dn + '.svg)';
-    $weatherStateIcon.style.webkitMaskImage = 'url(img/weather/' + weather.state.toLowerCase() + dn + '.svg)';
-  }
+    if ( outdoortemperature != "" || outdoortemperature != "homey" ) {
+      $weatherTemperature.innerHTML = Math.round(weather.temperature ,2);
+   }
+    // First erase possible whitespaces from weather description 22052021 - PeterDee
+    // New found code - 24052021 PeterDee
+    let $WeatherStateNoSpace = weather.state.toLowerCase();
+      $WeatherStateNoSpace = $WeatherStateNoSpace.replace(/\s+/g,'');
+
+      $weatherStateIcon.classList.add($WeatherStateNoSpace);
+      $weatherStateIcon.style.backgroundImage = 'url(img/weather/' + $WeatherStateNoSpace + dn + '.svg)';
+      $weatherStateIcon.style.webkitMaskImage = 'url(img/weather/' + $WeatherStateNoSpace + dn + '.svg)';
+ }
 
   function renderAlarms(alarms) {
     if ( Object.keys(alarms).length != 0 ) {
@@ -1356,15 +1519,16 @@ into this:
       }
       $devicesInner.appendChild($deviceElement);
 
-      if (device.capabilitiesObj && device.capabilitiesObj.alarm_generic && device.capabilitiesObj.alarm_generic.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_motion && device.capabilitiesObj.alarm_motion.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_contact && device.capabilitiesObj.alarm_contact.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_vibration && device.capabilitiesObj.alarm_vibration.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_water && device.capabilitiesObj.alarm_water.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_co && device.capabilitiesObj.alarm_co.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_co2 && device.capabilitiesObj.alarm_co.value || // added 17052021- PeterDee
-          device.capabilitiesObj && device.capabilitiesObj.alarm_heat && device.capabilitiesObj.alarm_heat.value ||
-          device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value
+      if ( device.capabilitiesObj && device.capabilitiesObj.alarm_generic && device.capabilitiesObj.alarm_generic.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_motion && device.capabilitiesObj.alarm_motion.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_contact && device.capabilitiesObj.alarm_contact.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_vibration && device.capabilitiesObj.alarm_vibration.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_water && device.capabilitiesObj.alarm_water.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_co && device.capabilitiesObj.alarm_co.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_co2 && device.capabilitiesObj.alarm_co2.value || // added 17052021- PeterDee
+           device.capabilitiesObj && device.capabilitiesObj.alarm_heat && device.capabilitiesObj.alarm_heat.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_smoke && device.capabilitiesObj.alarm_smoke.value ||
+           device.capabilitiesObj && device.capabilitiesObj.alarm_offline && device.capabilitiesObj.alarm_offline.value // added for NetScan app 25052021 - PeterDee
           ) {
             $deviceElement.classList.add('alarm')
           }
@@ -1449,19 +1613,19 @@ into this:
             }
           });
         }
-
+//
+// Alerts to measured value levels below. Adjust the numbers to your needs
+//
       if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
         var moisture = device.capabilitiesObj.flora_measure_moisture.value
         console.log(moisture)
-        if ( moisture < 20 || moisture > 65 ) {
+        if ( moisture < 20 || moisture > 60 ) {
           console.log("moisture out of bounds")
           $deviceElement.classList.add('alarm')
-          //selectValue(device, $element)
-          //selectIcon($element, $element.id, device, device.capabilitiesObj['flora_measure_moisture'])
         }
       }
-// added 160521 PeterDee
-     if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_fertility ) {
+      // added 160521 PeterDee
+      if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_fertility ) {
         var fertility = device.capabilitiesObj.flora_measure_fertility.value
         console.log(fertility)
         if ( fertility < 200 || fertility > 1200 ) {
@@ -1469,13 +1633,34 @@ into this:
           $deviceElement.classList.add('alarm')
         }
       }
-// START - CO2 GREEN ORANGE RED INDICATOR
-      if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
-        var co2 = device.capabilitiesObj.measure_co2.value
-        console.log(co2)
-        if ( co2 > 1401 || co2 > 4000 ) {
+      if ( device.capabilitiesObj && device.capabilitiesObj._measure_humidity ) {
+        var humidity = device.capabilitiesObj.measure_humidity.value
+        console.log(humidity)
+        if ( humidity < 15 || humidity > 99 ) {
+          console.log("humidity out of bounds")
+          $deviceElement.classList.add('alarm')
+        }
+      }
+// added 270521 - PeterDee
+// To let a Virtual Light, which represents one or more offline NetScan devices, animate Orange alert
+      if ( device.name == "NetScan Alert" ) {
+        var onoff = device.capabilitiesObj.onoff.value
+        console.log(onoff)
+        if ( onoff = true ) {
+          console.log("onoff = true")
+          $deviceElement.classList.add('alarm')
+        }
+      }
+//
+// Good/Average/Bad color settings measured value levels below. Adjust the numbers to your needs
+//
+        // START - CO2 GREEN ORANGE RED INDICATOR
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
+          var co2 = device.capabilitiesObj.measure_co2.value
+          console.log(co2)
+        if ( co2 > 1450 || co2 > 4000 ) {
           console.log("co2 out of bounds")
-          $deviceElement.classList.add('high')
+          $deviceElement.classList.add('high') // RED  tile
         }else{
           $deviceElement.classList.remove('high')
         }
@@ -1483,25 +1668,25 @@ into this:
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
-        if ( co2 > 401 || co2 > 1400 ) {
+        if ( co2 > 450 || co2 > 1400 ) {
           console.log("co2 out of bounds")
-          $deviceElement.classList.add('mid')
+          $deviceElement.classList.add('mid') // ORANGE tile
         }else{
           $deviceElement.classList.remove('mid')
         }
      }
-
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
-        if ( co2 > 1 || co2 > 400 ) {
+        if ( co2 => 0 || co2 > 400 ) {
           console.log("co2 out of bounds")
-          $deviceElement.classList.add('low')
+          $deviceElement.classList.add('low') // GREEN tile
         }else{
           $deviceElement.classList.remove('low')
          }
         }
-// START - (SOLAR) POWER GREEN ORANGE RED INDICATOR
+// START - Watts SOLAR-POWEROUTPUT (&MAINS POWERUSAGE) GREEN ORANGE RED INDICATOR
+if ( device.name == "Growatt Solarpanels" ) {
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
           var power = device.capabilitiesObj.measure_power.value
           console.log(power)
@@ -1515,7 +1700,7 @@ into this:
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
           var power = device.capabilitiesObj.measure_power.value
           console.log(power)
-        if ( power > 501 || power > 1000 ) {
+        if ( power > 550 || power > 1000 ) {
           console.log("power out of bounds")
           $deviceElement.classList.add('mid') // mid == tile gets colored orange
         }else{
@@ -1525,39 +1710,8 @@ into this:
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
         var power = device.capabilitiesObj.measure_power.value
         console.log(power)
-        if ( power > 1001 || power > 4000 ) {
+        if ( power > 1050 || power > 4000 ) {
           console.log("power out of bounds")
-          $deviceElement.classList.add('low') // low == tile gets colored green
-        }else{
-          $deviceElement.classList.remove('low')
-        }
-      }
-// START - TEMPERATURE GREEN ORANGE RED INDICATOR
-        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
-          var temperature = device.capabilitiesObj.measure_temperature.value
-          console.log(temperature)
-        if ( temperature > 19 || temperature > 60 ) {  // value below 100, tile gets no special color
-          console.log("temperature out of bounds")
-          $deviceElement.classList.add('high') // high == tile gets colored red
-        }else{
-          $deviceElement.classList.remove('high')
-        }
-     }
-        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
-          var temperature = device.capabilitiesObj.measure_temperature.value
-          console.log(temperature)
-        if ( temperature > 11 || temperature > 19 ) {
-          console.log("temperature out of bounds")
-          $deviceElement.classList.add('mid') // mid == tile gets colored orange
-        }else{
-          $deviceElement.classList.remove('mid')
-       }
-     }
-        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
-        var temperature = device.capabilitiesObj.measure_temperature.value
-        console.log(temperature)
-        if ( temperature > 0 || temperature > 10 ) {  // value below 0, tile gets no special color
-          console.log("temperature out of bounds")
           $deviceElement.classList.add('low') // low == tile gets colored green
         }else{
           $deviceElement.classList.remove('low')
@@ -1570,7 +1724,6 @@ into this:
           $deviceElement.classList.add('away')
         }
       }
-
       if ( device.capabilitiesObj && device.capabilitiesObj.alarm_night ) {
         if ( device.capabilitiesObj.alarm_night.value ) {
           $deviceElement.classList.remove('day')
@@ -1578,7 +1731,200 @@ into this:
           $deviceElement.classList.add('day')
         }
       }
+}
+/*
+// START - kWh (SOLAR) TOTAL GENERATED POWER GREEN ORANGE RED INDICATOR
+        if ( device.capabilitiesObj && device.capabilitiesObj.meter_power) {
+          var meterpower = device.capabilitiesObj.meter_power.value
+          console.log(meterpower)
+        if ( device.name == "Growatt Solarpanels" )  // Comment out to apply to all meter_power devices.
+        if ( meterpower > 0 || meterpower > 1) {  // value 0, tile gets no special color
+          console.log("meterpower out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.meter_power) {
+          var meterpower = device.capabilitiesObj.meter_power.value
+          console.log(meterpower)
+        if ( device.name == "Growatt Solarpanels" )  // Comment out to apply to all meter_power devices.
+        if ( meterpower > 1 || meterpower > 4 ) {
+          console.log("meterpower out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.meter_power) {
+        var meterpower = device.capabilitiesObj.meter_power.value
+        console.log(meterpower)
+        if ( device.name == "Growatt Solarpanels" )  // Comment out to apply to all meter_power devices.
+        if ( meterpower > 4 || meterpower > 100 ) {
+          console.log("meterpower out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+      }
+*/
+// START - TEMPERATURE GREEN ORANGE RED ICEBLUE INDICATOR for tado° / Weer in 24u / Weer>Nu
+if ( device.name == "tado° Thermostaat" ) {  // This sensor only
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+          var temperature = device.capabilitiesObj.measure_temperature.value
+          console.log(temperature)
+        if ( temperature > 20 || temperature > 60 ) {  // value above 60, tile gets no special color
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+          var temperature = device.capabilitiesObj.measure_temperature.value
+          console.log(temperature)
+        if ( temperature > 15 || temperature > 20 ) {
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature => 0 || temperature > 15 ) {  // value below 0, tile gets no special color
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+      }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature < 0 ) {  // value below 0, tile gets no special color
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('lowest') // lowest == tile gets colored iceblue
+        }else{
+          $deviceElement.classList.remove('lowest')
+        }
+      }
+}
+// For Freezer unit; extra color iceblue for below zero temps; Red for -9 and higher temps. - 21052021 PeterDee
+if ( device.name == "Temp Vriezer" ) {
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature < -10 ) {  // value below -10, tile gets iceblue
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('lowest') // lowest == tile gets colored iceblue
+        }else{
+          $deviceElement.classList.remove('lowest')
+        }
+      }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature > -9 ) {  // value above -9, tile gets red
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+      }
+}
 
+// For fridge; extra color iceblue for 1° - 10° temps; Red for lower and higher temps. - 22052021 PeterDee
+if ( device.name == "Temp Koelkast" ) {
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature > 0 || temperature < 9 ) {  // value 1 - 8; tile gets iceblue
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('lowest')  // lowest == tile gets colored iceblue
+        }else{
+          $deviceElement.classList.remove('lowest')
+        }
+      }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature < 1 || temperature > 10 ) {  // value under 1 or above 8, tile gets red
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+      }
+}
+
+// NEW - 19052021 - PeterDee
+// START - RAIN (in mm) GREEN ORANGE RED INDICATOR
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_rain) {
+          var rain = device.capabilitiesObj.measure_rain.value
+          console.log(rain)
+        if ( rain > 5 || rain > 100 ) {  // value below 100, tile gets no special color
+          console.log("rain out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_rain) {
+          var rain = device.capabilitiesObj.measure_rain.value
+          console.log(rain)
+        if ( rain > 0 || rain > 5 ) {
+          console.log("rain out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_rain) {
+        var rain = device.capabilitiesObj.measure_rain.value
+        console.log(rain)
+        if ( rain > 0 || rain < 1 ) {
+          console.log("rain out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+      }
+// NEW - 19052021 - PeterDee
+// START - WIND STRENGTH (km/h) GREEN ORANGE RED INDICATOR
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_wind_strength) {
+          var wind_strength = device.capabilitiesObj.measure_wind_strength.value
+          console.log(wind_strength)
+        if ( wind_strength > 19 || wind_strength > 180 ) {
+          console.log("wind_strength out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_wind_strength) {
+          var windstrength = device.capabilitiesObj.measure_wind_strength.value
+          console.log(wind_strength)
+        if ( wind_strength > 10 || wind_strength > 18 ) {
+          console.log("wind_strength out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_wind_strength) {
+        var windstrength = device.capabilitiesObj.measure_wind_strength.value
+        console.log(wind_strength)
+        if (  wind_strength > 0 || wind_strength < 11 ) {
+          console.log("wind_strength out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+      }
+//
+// Device Icons stuff
       var $icon = document.createElement('div');
       $icon.id = 'icon:' + device.id
       $icon.classList.add('icon');
@@ -1587,12 +1933,69 @@ into this:
       } else if ( device.icon ) {
         $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
       }
-/*      if ( device.name == "Bier" || device.name == "Bier temperatuur" ) { /* crap 140521 PeterDee */
-/*        $icon.style.webkitMaskImage = 'url(img/capabilities/beer.png)';
-        $icon.style.backgroundImage = 'url(img/capabilities/beer.png)';
+//
+// Set a CUSTOM ICON per device here
+// Use the exact tile/device name to be able to change its icon
+//
+// solarpanels calculations
+      if ( device.name == "Huidig Verbruik kWh" || device.name == "Zon € indicator" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/solar-panel-rooftop-512.png)'; //
         $icon.style.backgroundSize = 'contain'
     }
-*/
+// aroma diffuser
+      if ( device.name == "Aroma Diffuser" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/diffuser3.png)';
+        $icon.style.backgroundImage = 'url(img/customicons/diffuser3.png)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// vacuum robot
+      if ( device.name == "VD Bob (Deebot Slim2)" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/vacuumcleaner.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/vacuumcleaner.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// freezer
+      if ( device.name == "Temp Vriezer" ) { // added  180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/freezer.png)';
+        $icon.style.backgroundImage = 'url(img/customicons/freezer.png)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// refrigerator
+      if ( device.name == "Temp Koelkast" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/refrigerator2.png)';
+        $icon.style.backgroundImage = 'url(img/customicons/refrigerator2.png)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// windowcoverings
+      if (device.name == "sn Rolgord UP" || device.name == "sn Rolgord VOOR DOWN" || device.name == "sn Rolgord 8R+BVN DOWN" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/windowcoverings.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/windowcoverings.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// Star Projector
+      if ( device.name == "Star Projector" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/star-projector1.jpg)';
+        $icon.style.backgroundImage = 'url(img/customicons/star-projector1.jpg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// Door/Window sensor
+      if ( device.name == "Deur/Raam" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/aqara_sensor_doorwindow.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/aqara_sensor_doorwindow.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// Movement sensor
+      if ( device.name == "Beweging" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/aqara_sensor_human.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/aqara_sensor_human.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light_ceilinglight
+      if ( device.name == "Lamp centraal keuken" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/light_ceilinglight.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/light_ceilinglight.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
       $deviceElement.appendChild($icon);
 
       var $iconCapability = document.createElement('div');
@@ -1732,11 +2135,11 @@ into this:
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
     var currentTime = hours + ":" + minutes + ":" + seconds;
-    // Added to be able to show name of weekday.
+    // Added to be able to show your custom name of weekday.
     // now.getDay() gets the day number
     // The array with names of the days makes it possible to replace that number...
     // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
-    var weekdayarray = ['zonnedag','baaldag','dinsdag','Woensdag','Dondersdag','VRIJdag','zaaaaaaterdag'];
+    var weekdayarray = ['zonnedag','baaldag','dinsdag','loensdag','wonderdag','VRIJdag','zaaaaaaterdag'];
 
     var myweekday = (weekdayarray[now.getDay()]);
     var tod;
@@ -1764,7 +2167,9 @@ into this:
     if ( capabilityUnits == null ) { capabilityUnits = "" }
     if ( capabilityUnits == "W/m^2" ) { capabilityUnits = "W/m²" }
     if ( capabilityValue == null ) { capabilityValue = "-" }
-    if (capabilityId == "measure_temperature" ||
+    if ( capabilityValue == "NaN%" ) { capabilityValue = "" }  // added to remove ugly error code - 21052021 PeterDee
+    if ( capabilityValue == "NaN" ) { capabilityValue = "" }  // added to remove ugly error code - 21052021 PeterDee
+    if ( capabilityId == "measure_temperature" ||
         capabilityId == "target_temperature" ||
         capabilityId == "measure_humidity"
         ) {
@@ -1842,6 +2247,7 @@ into this:
     } else {
       iconToShow = 'img/capabilities/' + capability.id + '.png'
     }
+
     if (device.name == "Bier") {iconToShow = 'img/capabilities/tap.png'}
     $icon = document.getElementById('icon:'+device.id);
     $iconcapability = document.getElementById('icon-capability:'+device.id);
@@ -1971,7 +2377,7 @@ into this:
       $slider.min = 0
       $slider.max = 100
       $slider.step = 1
-      sliderUnit = " %"
+      sliderUnit = "%"
       if ( device.capabilitiesObj.dim ) {
         $slidercapability.style.webkitMaskImage = 'url(img/capabilities/dim.png)';
         $slider.value = device.capabilitiesObj.dim.value*100
@@ -1986,7 +2392,7 @@ into this:
       $slider.max = device.capabilitiesObj.target_temperature.max
       $slider.step = device.capabilitiesObj.target_temperature.step
       $slidercapability.style.webkitMaskImage = 'url(img/capabilities/target_temperature.png)';
-      sliderUnit = "°"
+      sliderUnit = "°C"
       $slider.value = device.capabilitiesObj.target_temperature.value
       $slidervalue.innerHTML = $slider.value + sliderUnit
       showSlider = true
