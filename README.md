@@ -17,7 +17,7 @@ Weather
 
 Layout
 - Changed layout and styles
-- Added custom device icons
+- Added custom device icons to the `img` directory
 - Fixed view/hide of indoor temp indicator and house icon, if indoor thermometer is selected or none
 - Possibility to add custom device icons (adjustable in 'homeydash.app.js')
 
