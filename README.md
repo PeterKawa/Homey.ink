@@ -59,7 +59,7 @@ Value indicators (levels ara adjustable in 'homeydash.app.js'):
     temperature>-9 RED / temperature<-10 ICEBLUE
 
   - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs.
-    (device.name = "Temp Vriezer")
+    (device.name = "Temp Koelkast")
     temperature<1 or temperature>10 RED / temperature>0 or temperature<9 ICEBLUE
 
   - (measure_)power(W): I use one device for it, so change the device name to suit your needs.
