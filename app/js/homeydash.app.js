@@ -1,4 +1,4 @@
-var version = "1.0"
+var version = "2.0"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -1091,7 +1091,7 @@ into this:
         changeLog = changeLog + "    temperature>-9 RED / temperature<-10 ICEBLUE<br /><br />"
         changeLog = changeLog + " "
         changeLog = changeLog + "  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs."
-        changeLog = changeLog + "    (device.name = Temp Vriezer)"
+        changeLog = changeLog + "    (device.name Temp Koelkast)"
         changeLog = changeLog + "    temperature<1 or temperature>10 RED / temperature>0 or temperature<9 ICEBLUE<br /><br />"
         changeLog = changeLog + " "
         changeLog = changeLog + "  - (measure_)power(W): I use one device for it, so change the device name to suit your needs."
