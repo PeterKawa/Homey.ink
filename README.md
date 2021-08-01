@@ -29,7 +29,7 @@ Capabilities added:
 - measure_rssi (weather station / sensor apps)
 - measure_orp (weather station / sensor apps)
 - measure_tdi (weather station / sensor apps)
-- measure_fertility (Flora Plant sensors)
+- measure_nutrition (Flora Plant sensors)
 - measure_rain
 - measure_rain_day
 
