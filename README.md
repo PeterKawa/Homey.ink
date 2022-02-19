@@ -102,7 +102,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 # Screenshots: 
 
 - Added menu item Tablet
-</br>
+
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
 
 - Android Tablet Chromebrowser Landscape
