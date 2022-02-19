@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 
 body {
-    font-family: yanone kaffe, comfortaa, arial, sans-serif;
-    -webkit-user-select: none;
+    /*font-family: arial, sans-serif, yanone kaffe, comfortaa;
+*/    font-family: arial, sans-serif;
+-webkit-user-select: none;
 }
 
 fieldset {
@@ -17,13 +18,14 @@ fieldset {
 }
 
 #content {
-    display: flex; 
-    background-image: url(../img/background.jpg);
-    background-attachment: fixed;
+    display: flex;
+    /*background-image: url(../img/background.jpg);
+*/    background-attachment: fixed;
     background-size: cover;
     border-radius: 8px;
     padding: 20px 20px;
     flex-direction: column;
+    background: #00000f
   }
 
     #content > #row1 { order: 1; }
@@ -31,7 +33,7 @@ fieldset {
     #content > #row3 { order: 3; }
 
 .roworder {
-    color: white; 
+    color: white;
     margin-bottom:9px;
 }
 
@@ -328,7 +330,7 @@ input {
     display: inline-block;
     width: 75%;
   }
-  
+
   .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -343,11 +345,11 @@ input {
   .slider:disabled {
       opacity: 0.2;
   }
-  
+
   .slider:hover {
     opacity: 1;
   }
-  
+
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -360,7 +362,7 @@ input {
     background: rgb(75, 215, 98);
     cursor: pointer;
   }
-  
+
   .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
