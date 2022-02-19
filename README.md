@@ -1,7 +1,7 @@
 # PeterDeeDash 
 #
 Februari 19th, 2022: <br><br>
-- Adjusted Google Nest Theme to fit with weather images/gifs
+- Adjusted Google Nest Theme to fit with weather images/gifs. Check the screenshots below.
 <br><br>
 
 May 27th, 2021: <br><br>
