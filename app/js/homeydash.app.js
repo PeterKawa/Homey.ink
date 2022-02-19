@@ -1,4 +1,4 @@
-var version = "2.0"
+var version = "1.0"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -274,7 +274,7 @@ into this:
   urltoken = token;
 
   if ( token == undefined || token == "undefined" || token == "") {
-    $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center><br /><br /><br /><br />Credits to Danee de Kruyff, Roco damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
+    $container.innerHTML ="<br /><br /><br /><br /><center>Welcome to PeterDeeDash!<br /><br />Please log on at<br /><br /><a href='https://homey.ink'>homey.ink</a></center><br /><br />And follow instructions to obtain a Token<br /><br /><br /><br /><br /><center><a href='https://community.athom.com/t/homeydash-com-a-homey-dashboard/13509'>More information here</a></center><br /><br /><br /><br />Credits to Emile Nijssen, Danee de Kruyff, Roco Damhelse, Danny Mertens, Andre Prins, Cornelisse<br /><br />They created and/or edited this dashboard, this version is just my edited version, aimed at Android tablets and Google Hubs AND to view all device values available by default</center>"
 
     return
   }
@@ -893,6 +893,45 @@ into this:
               }
             });
           }
+// new 04062021 - PeterDee
+//        if ( device.name != "Blinds Test TILTonly" ) {
+          if ( device.capabilitiesObj.windowcoverings_set ) {
+            device.makeCapabilityInstance('windowcoverings_set', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":windowcoverings_set");
+                capability = device.capabilitiesObj['windowcoverings_set']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+//        }
+// new 05062021 - PeterDee
+//        if ( device.name == "Blinds Test TILTonly" ) {
+          if ( device.capabilitiesObj.windowcoverings_tilt_setnumber ) {
+            device.makeCapabilityInstance('windowcoverings_tilt_setnumber', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":windowcoverings_tilt_setnumber");
+                capability = device.capabilitiesObj['windowcoverings_tilt_setnumber']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+//        }
+// new 04062021 - PeterDee
+//        if ( device.name == "Blinds Test TILTonly" ) {
+          if ( device.capabilitiesObj.windowcoverings_tilt_set ) {
+            device.makeCapabilityInstance('windowcoverings_tilt_set', function(value){
+              var $deviceElement = document.getElementById('device:' + device.id);
+              if( $deviceElement ) {
+                var $valueElement = document.getElementById('value:' + device.id + ":windowcoverings_tilt_set");
+                capability = device.capabilitiesObj['windowcoverings_tilt_set']
+                renderValue($valueElement, capability.id, capability.value, capability.units)
+              }
+            });
+          }
+//        }
           if ( device.capabilitiesObj.flora_measure_fertility ) {
             device.makeCapabilityInstance('flora_measure_fertility', function(fertility) {
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -1091,7 +1130,7 @@ into this:
         changeLog = changeLog + "    temperature>-9 RED / temperature<-10 ICEBLUE<br /><br />"
         changeLog = changeLog + " "
         changeLog = changeLog + "  - (measure_)Temperature(°C): I use one device for it, so change the device name to suit your needs."
-        changeLog = changeLog + "    (device.name Temp Koelkast)"
+        changeLog = changeLog + "    (device.name = Temp Vriezer)"
         changeLog = changeLog + "    temperature<1 or temperature>10 RED / temperature>0 or temperature<9 ICEBLUE<br /><br />"
         changeLog = changeLog + " "
         changeLog = changeLog + "  - (measure_)power(W): I use one device for it, so change the device name to suit your needs."
@@ -2139,9 +2178,9 @@ if ( device.name == "Temp Koelkast" ) {
     // now.getDay() gets the day number
     // The array with names of the days makes it possible to replace that number...
     // ...with the corresponding day. Monday is day 1, Tuesday day 2 etc.
-    var weekdayarray = ['zonnedag','baaldag','dinsdag','loensdag','wonderdag','VRIJdag','zaaaaaaterdag'];
+    // var weekdayarray = ['zonnedag','baaldag','dinsdag','loensdag','wonderdag','VRIJdag','zaaaturdag'];
 
-    var myweekday = (weekdayarray[now.getDay()]);
+    //var myweekday = (weekdayarray[now.getDay()]);
     var tod;
     if( hours >= 18 ) {
       tod = texts.text.evening;
@@ -2159,35 +2198,59 @@ if ( device.name == "Temp Koelkast" ) {
       $textLarge.innerHTML = texts.text.good + tod + '!';
     }
     $textSmall.innerHTML = texts.text.today + moment(now).format(' D MMMM YYYY ');
-    // To show custom weekday names. Disable line above, enable line below
-    // $textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
-       // [+ myweekday] shows name of weekday in front of date
+    //$textSmall.innerHTML = texts.text.today + myweekday + ' de' + moment(now).format(' D') +'e' +moment(now).format(' MMMM YYYY ');
+    // [+ myweekday] shows name of weekday in front of date
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
     if ( capabilityUnits == null ) { capabilityUnits = "" }
     if ( capabilityUnits == "W/m^2" ) { capabilityUnits = "W/m²" }
-    if ( capabilityValue == null ) { capabilityValue = "-" }
-    if ( capabilityValue == "NaN%" ) { capabilityValue = "" }  // added to remove ugly error code - 21052021 PeterDee
-    if ( capabilityValue == "NaN" ) { capabilityValue = "" }  // added to remove ugly error code - 21052021 PeterDee
+    if ( capabilityValue == null ) { capabilityValue = "-- " }
+    if ( capabilityValue == undefined ) { capabilityValue = "!" }  // added to remove ugly error code - 21052021 PeterDee
+    if ( capabilityValue == "" ) { capabilityValue = "-- " }  // added to remove ugly error code - 04062021 PeterDee
+// added to display capability units - 04062021 PeterDee
+    if ( capabilityId == "light_hue" ) { capabilityUnits = capabilityUnits + "Hue" }
+    if ( capabilityId == "light_temperature" ) { capabilityUnits = capabilityUnits + "Ctmp" }
+    if ( capabilityId == "light_mode" ) { capabilityUnits = capabilityUnits + "Mode" }
+    if ( capabilityId == "light_saturation" ) { capabilityUnits = capabilityUnits + "Sat" }
+    if ( capabilityId == "measure_humidity" ) { capabilityUnits = capabilityUnits + "Hum" }
+    if ( capabilityId == "flora_measure_moisture" ) { capabilityUnits = capabilityUnits + "Mst" }
+    if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Bat" }
+    if ( capabilityId == "target_temperature" ) { capabilityUnits = "°S" } // The 'S' of Set
+
     if ( capabilityId == "measure_temperature" ||
         capabilityId == "target_temperature" ||
-        capabilityId == "measure_humidity"
+        capabilityId == "measure_humidity" ||
+        capabilityId == "measure_temperature.min" ||
+        capabilityId == "measure_temperature.max"
         ) {
-      capabilityValue = Math.round(capabilityValue*10)/10
+      capabilityValue = Math.round(capabilityValue*2)/2
             //var integer = Math.floor(capabilityValue)
             var integer = parseInt(capabilityValue)
       n = Math.abs(capabilityValue)
-      var decimal = Math.round((n - Math.floor(n))*10)/10 + "-"
-      var decimal = decimal.substring(2,3)
+      var decimal = Math.round((n - Math.floor(n))*2)/2 + ""
+      var decimal = decimal.substring(2,4)
 
-      $value.innerHTML = integer + "<span id='decimal'>" + decimal + capabilityUnits.substring(0,1) + "</span>"
+      $value.innerHTML = integer + "<span id='decimal'>" + decimal + capabilityUnits.substring(0,2) + "</span>"
     } else if ( capabilityId == "measure_pressure" ) {
-      $value.innerHTML = Math.round(capabilityValue) + "<br /><sup>" + capabilityUnits + "</sup>"
-    } else if ( capabilityId == "dim" || capabilityId == "volume_set") {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<br /><sup>" + capabilityUnits + "</sup>"
-    } else {
-      $value.innerHTML = capabilityValue + "<br /><sup>" + capabilityUnits + "</sup>"
+      $value.innerHTML = Math.round(capabilityValue) + "<sup>" + capabilityUnits + "</sup>"
+// 04062021 Added windowcoverings_set and _tilt_set - PeterDee
+    } else if ( capabilityId == "dim" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "Dim</sup>"
+    }
+else if ( capabilityId == "volume_set" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "dB/%</sup>"
+    }
+      else if ( capabilityId == "windowcoverings_set" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "Pos</sup>"
+    }
+      else if ( capabilityId == "windowcoverings_tilt_set" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tilt</sup>"
+    }
+      else if ( capabilityId == "windowcoverings_tilt_setnumber" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tiltno</sup>"
+    }     else {
+      $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
     }
   }
 
@@ -2373,18 +2436,31 @@ if ( device.name == "Temp Koelkast" ) {
     $sliderpanel.style.left = newX  + "px"
     $slidericon.style.webkitMaskImage = 'url(https://icons-cdn.athom.com/' + device.iconObj.id + '-128.png)';
     $slidername.innerHTML = device.name
-
-    if ( device.capabilitiesObj && device.capabilitiesObj.dim || device.capabilitiesObj && device.capabilitiesObj.volume_set ) {
+// 04062021 added windowcoverings_set, windowcoverings_tilt_set and windowcoverings_tilt_setnumber capabilities
+    if ( device.capabilitiesObj && device.capabilitiesObj.dim || device.capabilitiesObj && device.capabilitiesObj.volume_set || device.capabilitiesObj && device.capabilitiesObj.windowcoverings_set || device.capabilitiesObj && device.capabilitiesObj.windowcoverings_tilt_set || device.capabilitiesObj &&  device.capabilitiesObj.windowcoverings_tilt_setnumber ) {
       $slider.min = 0
       $slider.max = 100
       $slider.step = 1
       sliderUnit = "%"
-      if ( device.capabilitiesObj.dim ) {
+      if ( device.capabilitiesObj.dim & device.name != "Blinds Test Tilt" ) {
         $slidercapability.style.webkitMaskImage = 'url(img/capabilities/dim.png)';
         $slider.value = device.capabilitiesObj.dim.value*100
       } else if ( device.capabilitiesObj.volume_set ) {
         $slidercapability.style.webkitMaskImage = 'url(img/capabilities/volume_set.png)';
         $slider.value = device.capabilitiesObj.volume_set.value*100
+      }
+// 04062021 added windowcoverings_set, windowcoverings_tilt_set and windowcoverings_tilt_setnumber capabilities
+        else if ( device.capabilitiesObj.windowcoverings_set ) {
+        $slidercapability.style.webkitMaskImage = 'url(img/capabilities/curtain.png)';
+        $slider.value = device.capabilitiesObj.windowcoverings_set.value*100
+      }
+        else if ( device.capabilitiesObj.windowcoverings_tilt_set ) {
+        $slidercapability.style.webkitMaskImage = 'url(img/capabilities/curtain.png)';
+        $slider.value = device.capabilitiesObj.windowcoverings_tilt_set.value*100
+      }
+        else if ( device.capabilitiesObj.windowcoverings_tilt_setnumber ) {
+        $slidercapability.style.webkitMaskImage = 'url(img/capabilities/curtain.png)';
+        $slider.value = device.capabilitiesObj.windowcoverings_tilt_setnumber.value*100
       }
       $slidervalue.innerHTML = $slider.value + sliderUnit
       showSlider = true
@@ -2422,7 +2498,22 @@ if ( device.name == "Temp Koelkast" ) {
       } else if ( selectedDevice.capabilitiesObj && selectedDevice.capabilitiesObj.volume_set ) {
         newCapabilityId = 'volume_set'
         newCapabilityValue = ($slider.value/100)
-      } else if ( selectedDevice.capabilitiesObj && selectedDevice.capabilitiesObj.target_temperature ) {
+      }
+// 04062021 Added - PeterDee
+        else if ( selectedDevice.capabilitiesObj && selectedDevice.capabilitiesObj.windowcoverings_set ) {
+        newCapabilityId = 'windowcoverings_set'
+        newCapabilityValue = ($slider.value/100)
+      }
+// 04062021 Added - PeterDee
+        else if ( selectedDevice.capabilitiesObj && selectedDevice.capabilitiesObj.windowcoverings_tilt_set ) {
+        newCapabilityId = 'windowcoverings_tilt_set'
+        newCapabilityValue = ($slider.value/100)
+      }
+        else if ( selectedDevice.capabilitiesObj && selectedDevice.capabilitiesObj.windowcoverings_tilt_setnumber ) {
+        newCapabilityId = 'windowcoverings_tilt_setnumber'
+        newCapabilityValue = ($slider.value/100)
+      }
+      else if ( selectedDevice.capabilitiesObj && selectedDevice.capabilitiesObj.target_temperature ) {
         newCapabilityId = 'target_temperature'
         newCapabilityValue = ($slider.value/1)
       }
