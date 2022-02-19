@@ -113,9 +113,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 
 ![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
 
-![Screenshot_20210514-175240](https://user-images.githubusercontent.com/74005072/118332651-b66f9b00-b50a-11eb-8e2e-4da82d262fd7.png)
-
-- Google Hub (Thanx for testing and this picture, feRon)
+![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
 
 ![GoogleHub_view_with_tablet_theme](https://user-images.githubusercontent.com/74005072/117881075-1c5ce800-b2a9-11eb-916e-1eda42badca9.jpeg)
 
