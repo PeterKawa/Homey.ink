@@ -292,9 +292,10 @@ a {
       font-size: 2.2vw;
       line-height: 3vw;
       font-weight: 250;
-      /*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
-      text-shadow: 1px 1px 3px lightblue, 1px 0 2px slategrey, 0 0 1px darkblue;
-    }
+      /*text-shadow: 4px 3px 5px rgb(204, 194, 194);
+      */
+      /*text-shadow: 1px 1px 3px lightblue, 1px 0 2px slategrey, 0 0 1px darkblue;
+*/    }
     #weather-temperature:after {
       content: "°";
       font-size: 2.0vw;
@@ -320,9 +321,10 @@ a {
       line-height: 3vw;
       font-weight: 150;
       /*visibility: hidden;*/
-      /*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
-      text-shadow: 1px 1px 3px lightblue, 1px 0 2px slategrey, 0 0 1px darkblue;
-    }
+      /*      text-shadow: 4px 3px 5px rgb(204, 194, 194);
+*/
+      /*text-shadow: 1px 1px 3px lightblue, 1px 0 2px slategrey, 0 0 1px darkblue;
+*/    }
     #weather-temperature-inside:after {
       content: "°";
       font-size: 2vw;
@@ -341,8 +343,9 @@ a {
       font-size: 16px;
       font-weight: 400;
       margin-top: 10px;
-/*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
-/*      text-shadow: 2px 3px 3px lightblue, 1px 0 5px slategrey, 0 1px 2px darkblue;
+      /*text-shadow: 4px 3px 5px rgb(204, 194, 194);
+*/
+      /*text-shadow: 2px 3px 3px lightblue, 1px 0 5px slategrey, 0 1px 2px darkblue;
 */    }
     #text-large:before {
       content: "";
@@ -360,8 +363,10 @@ a {
       /* text-align: middle; */
       font-size: 14px;
       font-weight: 300;
-      text-shadow: 4px 3px 5px rgb(204, 194, 194);
-/*    text-shadow: 2px 1px 1px lightblue, 0px 0 1px slategrey, 0 0 1px darkblue; */
+      /*text-shadow: 4px 3px 5px rgb(204, 194, 194);
+*/
+      /*text-shadow: 2px 1px 1px lightblue, 0px 0 1px slategrey, 0 0 1px darkblue;
+*/
     }
     #text-small:before {
       content: "";
@@ -719,9 +724,10 @@ a {
       }
       .device.on {
         opacity: 0.95;
-/*      text-shadow: 4px 3px 5px rgb(204, 194, 194); */
-        text-shadow: 1px 1px 2px lightblue, 1px 0 1px slategrey, 0 0 1px darkblue;
-        }
+        /*text-shadow: 4px 3px 5px rgb(204, 194, 194);
+*/
+        /*text-shadow: 1px 1px 2px lightblue, 1px 0 1px slategrey, 0 0 1px darkblue;
+*/        }
       }
       .device.armed {
         background-color:  #FF0700;
@@ -851,9 +857,9 @@ a {
          top: 2px;
          right: 2px;
          width: 50%;
-         font-size: 4px;
-         height: 20px;
-         line-height: 11px;
+         font-size: 3vh;
+         height: 10px;
+         line-height: auto;
          font-weight: 200;
          vertical-align: text-top;
          overflow: hidden;
@@ -865,7 +871,7 @@ a {
          text-align: right;
        }
        #decimal {
-         font-size: 1.6vw;
+         font-size: 2.1vw;
          vertical-align: text-top;
          -webkit-user-select: none;
        }
