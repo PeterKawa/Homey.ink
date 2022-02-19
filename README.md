@@ -122,7 +122,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 
 ![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
 
-- Google Nest Hub with google_nest_hub theme:
+- Google Nest Hub with 'Google Nest Hub' theme:
 
 ![Screenshot from 2022-02-19 06-52-28](https://user-images.githubusercontent.com/74005072/154788337-0b50194a-9f05-46ea-a255-0cc8db28485a.png)
 
