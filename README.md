@@ -100,31 +100,27 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 3) I tweaked it to appear nice on a tablet running Android Chrome & Fully browsers, added menu item "Tablet". This theme also looks cool on a Google Nest Hub.
 
 # Screenshots: 
-</br>
+
 - Added menu item Tablet
 </br>
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
-</br>
-</br>
+
 - Android Tablet Chromebrowser Landscape
-</br>
+
 ![Screenshot_20210527-225221](https://user-images.githubusercontent.com/74005072/119896674-a52d8200-bf3f-11eb-9ed2-21ec96417b11.png)
-</br>
-</br>
+
 - Layout options (tablet.css file) edited a bit:
-</br>
+
 ![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
-</br>
-</br>
+
 - Google Nest Hub with google_nest_hub theme:
-</br>
+
 ![Screenshot from 2022-02-19 05-53-55](https://user-images.githubusercontent.com/74005072/154786824-1bce6cef-f211-46f1-9e6e-ec1aa199848f.png)
-</br>
+
 ![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
-</br>
-</br>
+
 - Android Phone Chromebrowser Portrait
-</br>
+
 ![Android Phone Portrait Chromebrowser](https://user-images.githubusercontent.com/74005072/113622433-49402e80-965d-11eb-9837-4db9fc7e3b56.jpg)
 
 </br>
