@@ -1,8 +1,8 @@
 # PeterDeeDash 
 #
-Februari 19th, 2022<br><br>
+Februari 19th, 2022: <br><br>
 Adjusted Google Nest Theme to fit with weather images
-
+<br><br>
 May 27th, 2021: <br><br>
 <b>v2.0</b><br><br>
 Common / Language
