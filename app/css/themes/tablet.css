@@ -24,7 +24,7 @@ h2 {
 }
 
 #content {
-  zoom: 1.0;
+  zoom: 1.0; /* 1.0 original - 19022022 PeterDee */
 }
 
 .info-message {
@@ -100,8 +100,8 @@ h2 {
       font-weight: 600; /* added value PeterDee*/
       font-size: 1.6vw; /* 1 PeterDee*/
       line-height: 9vh;
-      font-style: italic; /* added style italic PeterDee*/
-      opacity: 1; /* added PeterDee*/
+      /*font-style: italic; /* added style italic PeterDee*/
+*/      opacity: 1; /* added PeterDee*/
       /*color: DodgerBlue;*/ /* added PeterDee */
     }
 
@@ -265,18 +265,18 @@ h2 {
   position: auto;
 }
    .device {
-     width: 21.1vh;
+     width: 21.1vh; /* 21.1 original - 19022022 PeterDee */
      height: 21.1vh;
      padding: 1.2vh;
      margin-right: 0.5vw;
      margin-bottom: 1.0vh;
      margin-top: 0.0vh;
      border-radius: 1.8vh;
-     opacity: 0.35; /* to change device=OFF transparency - PeterDee */
+     opacity: 0.50; /* to change device=OFF transparency - PeterDee */
      background-color: white; /* to change device=OFF color - PeterDee */
    }
    .device .on {
-    opacity: 0.95;
+    opacity: 0.75;
     background-color: beige; /* added device=ON tile color - PeterDee */
    }
     .device .icon {
@@ -300,7 +300,7 @@ h2 {
       position: sticky;
       top: 1.2vh;
       right: 0.3vh;
-      font-size: 2.0vh;
+      font-size: 2.4vh;
       font-weight: 560;
       line-height: 2.6vh;
       width: auto;
@@ -330,6 +330,7 @@ h2 {
       width: auto;
       height: auto;
       max-height: 8.4vh;
+      color: black;
     }
     .device .name.highlight {
       font-weight: 600;

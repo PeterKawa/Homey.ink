@@ -1,78 +1,124 @@
 /*
- * Theme by: Danee de Kruyff
+ * Original theme by: Emile Nijssen
+ * Enriched by Danee de Kruyff
+ *
+ * Fd-up by PeterDee 17-03-2020,
+ * to show device values by default, & more space for longer device names
  */
 
- #container {
+body {
 
+}
+h1 {
+  font-size: 3vh;
+}
+
+h2 {
+  font-size: 2.8vh;
+  font-weight: 400;
+  margin-top: 0.3vw;
+}
+
+#container {
+
+}
+
+#content {
+  zoom: 0.80; /* 1.0 original - 19022022 PeterDee */
 }
 
 .info-message {
-  font-size: 3.4vh;
-  font-weight: 350;
+  font-size: 2.5vh;
+  font-weight: 500;
 }
 
 .info-date {
+  font-size: 2.5vh;
+  font-weight: 400;
   margin-bottom: 1%;
 }
 
-#zoom {
-  visibility: hidden;
-}
-
 #weather {
-  width: 42vw;
+  width: 100vw;
   top: 0vw;
-}
-  #sunrise-icon, #sunset-icon  {
-    width: 3vw;
-    height: 3vw;
-    margin-right: 0vw;
   }
-  #sunrise-time, #sunset-time {
-    font-size: 1.2vw;
-    line-height: 0vh;
+
+#weather-state-icon {
+
   }
-  #weather-state-icon {
+
+#weather-temperature {
+      font-weight: 400;
   }
-  #weather-temperature {
+
+#weather-temperature-inside {
+      font-weight: 300;
   }
-  #weather-temperature:after {
-    content: "°";
+
+  #sun-events {
+    left: 15vw;
+    width: 26vw;
   }
+    #sunrise, #sunset {
+      display: inline-block;
+    }
+    #sunrise-icon, #sunset-icon  {
+      width: 3.4vw;
+      height: 3.2vw;
+      margin-right: 0vw;
+    }
+    #sunrise-time, #sunset-time {
+      font-weight: 550; /* added value PeterDee*/
+      font-size: 1.5vw;
+      line-height: 0vh;
+    }
 
   #text {
     position: absolute;
     left: 30vw;
     right: 30vw;
-    height: 7vw;
+    height: 2vw;
   }
-    #text-large {
-      font-weight: 500;
-      font-size: 3vw;
-      margin-top: 1vw;
+    #text-large { /* Clock or Goodday text */
+      font-weight: 800;
+      font-size: 2.8vw;
+      margin-top: 2vw;
+      /*line-height: 1.1vh;*/
+      height: 1.6vw;
+      opacity: 1; /* added PeterDee*/
+      /*color: DodgerBlue;*/ /* added PeterDee */
     }
-    #text-large:after {
-      font-weight: 300;
-      width: 10vw;
-      margin: 0.5vw auto;
-    }
-    #text-small {
-      font-size: 1vw;
+    #text-large:after { /* Divider between Clock and Date text */
+      font-weight: 200;
+      width: 36vw; /* divider wideness */
+      margin: 1.7vw;
+      line-height: 2.0vh;
+      height: 0.1vw; /* divider thickness */
+      opacity: 0.0; /* added PeterDee*/
+     }
+    #text-small { /* Date shown */
+      font-weight: 600; /* added value PeterDee*/
+      font-size: 1.6vw; /* 1 PeterDee*/
+      line-height: 9vh;
+      /*font-style: italic; */ /* added style italic PeterDee*/
+      opacity: 1; /* added PeterDee*/
+      /*color: DodgerBlue;*/ /* added PeterDee */
     }
 
   #details {
     top: 1vh;
-    right: -2;
-    width: 30vw;
+    right: 0;
+    width: 26vw;
   }
     #version-icon {
       display: inline-block;
-      width: 3vw;
-      height: 5vw;
+      width: 2vw;
+      height: 3vw;
+      opacity: 0.7; /* added PeterDee*/
     }
     #battery-details {
       display: inline-block;
-      width: 3vw;
+      width: 2vw;
       height: 5vw;
     }
     #notification-details {
@@ -94,11 +140,13 @@
       display: inline-block;
       width: 3vw;
       height: 5vw;
+      opacity: 0.8; /* added PeterDee*/
     }
     #logo {
       display: inline-block;
-      width: 3vw;
+      width: 6vw;
       height: 5vw;
+      opacity: 0.7; /* added PeterDee*/
     }
 
 .favorites {
@@ -109,158 +157,181 @@
   .favorites-inner {
     white-space: normal;
     -webkit-mask-image: none;
+    /* align-items: center; */ /* 140521 PeterDee*/
+    margin-left: 0.01vw; /* kan ook in px - Centreren van devices,flows,alarms - 140521 PeterDee*/
   }
   .favorites h2 {
     display: block;
     width: auto;
-    font-size: 2vh;
-    margin-bottom: 1vh;
-    text-transform: uppercase;
-
+    font-size: 2.2vh;
+    margin-bottom: 0.5vh;
+    text-transform: lowercase; /* uppercase PeterDee*/
     display: flex;
     flex-direction: row;
-    align-items: center;
-
-    opacity: 0.3;
+    align-items: left;
+    opacity: 0.7;
   }
   .favorites h2:after {
-    display: none;
+    display: block;
   }
     .favorites h2 span {
       flex-shrink: 0;
-      margin-right: 1vw;
+      margin-right: 0vw;
     }
     .favorites h2:after {
       content: "";
       display: block;
-      width: 100%;
+      width: 0%;
       vertical-align: middle;
       height: 1px;
-      background: white;
+      background: black;
+    }
+   .favorites-inner:last-child {
+     margin-right:0;
     }
 
 #flows {
-  margin-bottom: 15px; /*2vh;*/
+  margin-bottom: 4vh;
 }
   .flow {
-    height: 52px; /*7vh;*/
-    margin-bottom: 15px; /*2vh;*/
-    border-radius: 52px; /*7vh;*/
+    height: 7vh;
+    margin-bottom: 1.5vh;
+    border-radius: 7vh;
+    background: rgb(11, 5, 96);
   }
   .flow.running:before {
-    font-size: 24px; /*3.2vh;*/
-    line-height: 52px; /*7vh;*/
+    font-size: 3.2vh;
+    line-height: 7vh;
   }
     .flow .play {
-      width: 52px; /*7vh;*/
-      height: 52px; /*7vh;*/
+      width: 7vh;
+      height: 7vh;
     }
     .flow .name {
-      font-weight: 300;
-      height: 52px; /*7vh;*/
-      line-height: 52px; /*7vh;*/
-      font-size: 21px; /*2.8vh;*/
-      padding: 0 22px; /*3vh;*/
-      padding-right: 30px; /*8vh;*/
-      max-width: 150px; /*20vw;*/
+      font-weight: 550;
+      height: 7vh;
+      line-height: 7vh;
+      font-size: 2.6vh;
+      padding: 0 .5vh;
+      padding-right: 1.5vh;
+      max-width: auto;
+      color: beige;
+      font-style: italic;
     }
 
 #alarms {
-  
+
 }
   .alarms .alarm {
-    width: 150px; /*20vh;*/
-    height: 120px; /*16vh;*/
-    padding: 15px; /*2vh;*/
-    margin-right: 13px; /*1.9vh;*/
-    margin-bottom: 15px; /*2vh;*/
-    border-radius: 22px; /*3vh;*/
+    width: 20vh;
+    height: 16vh;
+    padding: 2vh;
+    margin-right: 1.36vw;
+    margin-bottom: 3vh;
+    border-radius: 3vh;
   }
     .alarms .alarm .value {
-      top: 22px; /*3vh;*/
-      left: 15px; /*2vh;*/
-      right: 15px; /*2vh;*/
-      font-size: 31px; /*4.2vh;*/
+      top: 3vh;
+      left: 2vh;
+      right: 2vh;
+      font-size: 4.2vh;
       font-weight: 300;
-      line-height: 31px; /*4.2vh;*/
+      line-height: 4.2vh;
       height: auto;
-      max-height: 60px; /*8vh;*/
+      max-height: 8vh;
     }
     .alarms .alarm .name {
-      bottom: 37px; /*5vh;*/
-      left: 15px; /*2vh;*/
-      right: 15px; /*2vh;*/
-      font-size: 20px; /*2.7vh;*/
+      bottom: 5vh;
+      left: 2vh;
+      right: 2vh;
+      font-size: 2.7vh;
       font-weight: 300;
-      line-height: 20px; /*2.7vh;*/
-      max-height: 20px; /*2.7vh;*/
+      line-height: 2.7vh;
+      max-height: 2.7vh;
       width: auto;
       height: auto;
     }
     .alarms .alarm .schedule {
-      bottom: 15px; /*2vh;*/
-      left: 15px; /*2vh;*/
-      right: 15px; /*2vh;*/
-      max-height: 19px; /*2.5vh;*/
-      font-size: 14px; /*1.8vh;*/
-      line-height: 22px; /*3vh;*/
+      bottom: 2vh;
+      left: 2vh;
+      right: 2vh;
+      max-height: 2.5vh;
+      font-size: 1.8vh;
+      line-height: 3vh;
       font-weight: 200;
     }
 
 #devices {
-  position: static;
+  position: auto;
 }
-  .device {
-    width: 150px; /*20vh;*/
-    height: 150px; /*20vh;*/
-    padding: 15px; /*2vh;*/
-    margin-right: 13px; /*1.9vh;*/
-    margin-bottom: 15px; /*2vh;*/
-    border-radius: 22px; /*3vh;*/
-  }
+   .device {
+     width: 26.0vh; /* 21.1 original - 19022022 PeterDee */
+     height: 26.0vh;
+     padding: 1.2vh;
+     margin-right: 0.55vw;
+     margin-bottom: 1.0vh;
+     margin-top: 0.0vh;
+     border-radius: 1.8vh;
+     opacity: 0.50; /* to change device=OFF transparency - PeterDee */
+     background-color: white; /* to change device=OFF color - PeterDee */
+   }
+   .device .on {
+    opacity: 0.9;
+    background-color: white; /* added device=ON tile color - PeterDee */
+   }
     .device .icon {
       position: absolute;
-      top: 15px; /*2vh;*/
-      left: 15px; /*2vh;*/
-      width: 52px; /*7vh;*/
-      height: 52px; /*7vh;*/
+      top: 1.0vh;
+      left: 1.1vh;
+      width: 10.3vh;
+      height: 10.3vh;
     }
     .device .icon-capability {
       position: absolute;
-      top: 45px; /*6vh;*/
-      left: 19px; /*2.5vh;*/
-      width: 38px; /*5vh;*/
-      height: 38px; /*5vh;*/
+      top: 7vh;
+      left: 2.8vh;
+      width: 5vh;
+      height: 5vh;
     }
+/*   PeterDee
+    .device .value position: sticky; shows all available values below eachother
+*/
     .device .value {
-      position: absolute;
-      top: 22px; /*3vh;*/
-      right: 15px; /*2vh;*/
-      font-size: 31px; /*4.2vh;*/
-      font-weight: 300;
-      line-height: 31px; /*4.2vh;*/
+      position: sticky;
+      top: 1.2vh;
+      right: 0.3vh;
+      font-size: 3.1vh;
+      font-weight: 560;
+      line-height: 4.2vh;
       width: auto;
-      height: auto;
-      max-height: 60px; /*8vh;*/
+      height: 4.2vh;
+      max-height: 4.2vh;
       text-align: right;
+      /*text-overflow: ellipsis;
+*/      color: RGB(0, 64, 69) /* verydarkgrey - color added PeterDee*/
     }
-
     #decimal {
-      font-size: 3vh;
+      font-size: 2.8vh;
+      line-height: 3.0vh; /* added PeterDee*/
+      height: 3.0vh; /* added PeterDee*/
+      /*color: slategrey;*/ /* added PeterDee*/
+    }
+    .device .value.hidden {
+          /*visibility: hidden;*/ /* This hides the all available values */
     }
     .device .name {
       position: absolute;
-      bottom: 15px; /*2vh;*/
-      left: 15px; /*2vh;*/
-      right: 15px; /*2vh;*/
-      font-size: 20px; /*2.7vh;*/
-      font-weight: 300;
-      line-height: 26px; /*3.5vh;*/
+      bottom: 1.9vh;
+      left: 1.0vh;
+      right: 0.2vh;
+      font-size: 3.5vh;
+      font-weight: 575;
+      line-height: 3.9vh;
       width: auto;
       height: auto;
-      max-height: 52px; /*7vh;*/
+      max-height: 11.4vh;
+      color: black;
     }
     .device .name.highlight {
-      font-weight: 500;
+      font-weight: 600;
     }
-
