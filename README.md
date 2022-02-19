@@ -3,7 +3,7 @@
 Februari 19th, 2022: <br><br>
 - Adjusted Google Nest Theme to fit with weather images/gifs. 
 
-![Screenshot from 2022-02-19 06-49-27](https://user-images.githubusercontent.com/74005072/154788282-6ed7f4cd-c344-4ee6-bf81-1471221ab5da.png)
+![Screenshot from 2022-02-19 06-52-28](https://user-images.githubusercontent.com/74005072/154788337-0b50194a-9f05-46ea-a255-0cc8db28485a.png)
 
 ![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
 
@@ -124,7 +124,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 
 - Google Nest Hub with google_nest_hub theme:
 
-![Screenshot from 2022-02-19 06-49-27](https://user-images.githubusercontent.com/74005072/154788282-6ed7f4cd-c344-4ee6-bf81-1471221ab5da.png)
+![Screenshot from 2022-02-19 06-52-28](https://user-images.githubusercontent.com/74005072/154788337-0b50194a-9f05-46ea-a255-0cc8db28485a.png)
 
 ![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
 
