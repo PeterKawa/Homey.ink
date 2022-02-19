@@ -105,19 +105,23 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 
 ![menu_android_tablet](https://user-images.githubusercontent.com/74005072/113604096-15590f00-9645-11eb-85ef-d8af62dbce1e.png)
 
+
 - Android Tablet Chromebrowser Landscape
 
 ![Screenshot_20210527-225221](https://user-images.githubusercontent.com/74005072/119896674-a52d8200-bf3f-11eb-9ed2-21ec96417b11.png)
 
+
 - Layout options (tablet.css file) edited a bit:
 
 ![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
+
 
 - Google Nest Hub with google_nest_hub theme:
 
 ![Screenshot from 2022-02-19 05-53-55](https://user-images.githubusercontent.com/74005072/154786824-1bce6cef-f211-46f1-9e6e-ec1aa199848f.png)
 
 ![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
+
 
 - Android Phone Chromebrowser Portrait
 
