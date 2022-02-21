@@ -5,7 +5,8 @@ Februari 19th, 2022: <br><br>
 
 ![Screenshot from 2022-02-19 06-52-28](https://user-images.githubusercontent.com/74005072/154788337-0b50194a-9f05-46ea-a255-0cc8db28485a.png)
 
-![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
+![20220221_090312](https://user-images.githubusercontent.com/74005072/154913258-353e4fc0-b685-428b-aa5f-4e97bb147c29.jpg)
+
 
 <br><br>
 
