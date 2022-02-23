@@ -1822,7 +1822,7 @@ if ( device.name == "tado° Thermostaat" ) {  // This sensor only
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
           var temperature = device.capabilitiesObj.measure_temperature.value
           console.log(temperature)
-        if ( temperature > 15 || temperature > 20 ) {
+        if ( temperature > 15 || temperature > 21 ) {
           console.log("temperature out of bounds")
           $deviceElement.classList.add('mid') // mid == tile gets colored orange
         }else{
@@ -1913,7 +1913,7 @@ if ( device.name == "Temp Koelkast" ) {
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_rain) {
           var rain = device.capabilitiesObj.measure_rain.value
           console.log(rain)
-        if ( rain > 0 || rain > 5 ) {
+        if ( rain > 0.5 || rain > 5 ) {
           console.log("rain out of bounds")
           $deviceElement.classList.add('mid') // mid == tile gets colored orange
         }else{
@@ -1935,7 +1935,7 @@ if ( device.name == "Temp Koelkast" ) {
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_wind_strength) {
           var wind_strength = device.capabilitiesObj.measure_wind_strength.value
           console.log(wind_strength)
-        if ( wind_strength > 19 || wind_strength > 180 ) {
+        if ( wind_strength > 70 || wind_strength > 180 ) {
           console.log("wind_strength out of bounds")
           $deviceElement.classList.add('high') // high == tile gets colored red
         }else{
@@ -1945,7 +1945,7 @@ if ( device.name == "Temp Koelkast" ) {
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_wind_strength) {
           var windstrength = device.capabilitiesObj.measure_wind_strength.value
           console.log(wind_strength)
-        if ( wind_strength > 10 || wind_strength > 18 ) {
+        if ( wind_strength > 40 || wind_strength > 71 ) {
           console.log("wind_strength out of bounds")
           $deviceElement.classList.add('mid') // mid == tile gets colored orange
         }else{
@@ -1955,7 +1955,7 @@ if ( device.name == "Temp Koelkast" ) {
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_wind_strength) {
         var windstrength = device.capabilitiesObj.measure_wind_strength.value
         console.log(wind_strength)
-        if (  wind_strength > 0 || wind_strength < 11 ) {
+        if (  wind_strength > 0 || wind_strength < 41 ) {
           console.log("wind_strength out of bounds")
           $deviceElement.classList.add('low') // low == tile gets colored green
         }else{
@@ -1975,7 +1975,32 @@ if ( device.name == "Temp Koelkast" ) {
 //
 // Set a CUSTOM ICON per device here
 // Use the exact tile/device name to be able to change its icon
+// Enter an iconname corresponding to the desired icon in the folder img/customicons
+// All is case-sensitive
+// Icon file types can be .svg .png .jpg
 //
+// Example:
+// // My green light
+//        if ( device.name == "Green Light" ) {
+//          $icon.style.webkitMaskImage = 'url(img/customicons/green_light-icon.svg)';
+//          $icon.style.backgroundImage = 'url(img/customicons/green_light-icon.svg)';
+//          $icon.style.backgroundSize = 'contain'
+//       }
+// Example of multiple device tiles with the same icon
+// // My green, blue and yellow lights
+//        if ( device.name == "Green Light" || device.name == "Blue Light" device.name == "Yellow Light" ) {
+//          $icon.style.webkitMaskImage = 'url(img/customicons/colorlight-icon.svg)';
+//          $icon.style.backgroundImage = 'url(img/customicons/colorlight-icon.svg)';
+//          $icon.style.backgroundSize = 'contain'
+//       }
+// End of examples
+//
+// Homey RAM status
+      if ( device.name == "Homey FREE RAM (MB's)" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/wireless_thing.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/wireless_thing.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
 // solarpanels calculations
       if ( device.name == "Huidig Verbruik kWh" || device.name == "Zon € indicator" ) { // added 180521 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/solar-panel-rooftop-512.png)'; //
@@ -2006,9 +2031,14 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // windowcoverings
-      if (device.name == "sn Rolgord UP" || device.name == "sn Rolgord VOOR DOWN" || device.name == "sn Rolgord 8R+BVN DOWN" ) { // added 180521 PeterDee
-        $icon.style.webkitMaskImage = 'url(img/customicons/windowcoverings.svg)';
-        $icon.style.backgroundImage = 'url(img/customicons/windowcoverings.svg)';
+      if (device.name == "sn Rolgord UP" || device.name == "sn Rolgord VOOR DOWN" || device.name == "sn Rolgord 8R+BVN DOWN" || device.name == "sn Rolgord 8er UP") { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/blinds.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/blinds.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+      if (device.name == "Rolgordijn Voor" || device.name == "Rolgordijn Achter" || device.name == "Rolgordijn Slaapkamer") { // added 23022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/curtain.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/curtain.svg)';
         $icon.style.backgroundSize = 'contain'
     }
 // Star Projector
@@ -2018,23 +2048,90 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // Door/Window sensor
-      if ( device.name == "Deur/Raam" ) { // added 180521 PeterDee
+      if ( device.name == "Deur_Raam" ) { // added 180521 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/aqara_sensor_doorwindow.svg)';
         $icon.style.backgroundImage = 'url(img/customicons/aqara_sensor_doorwindow.svg)';
         $icon.style.backgroundSize = 'contain'
     }
 // Movement sensor
-      if ( device.name == "Beweging" ) { // added 180521 PeterDee
-        $icon.style.webkitMaskImage = 'url(img/customicons/aqara_sensor_human.svg)';
-        $icon.style.backgroundImage = 'url(img/customicons/aqara_sensor_human.svg)';
+      if ( device.name == "Beweging" || device.name == "Eettafel Sensor OnOff" ) { // added 180521 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/aqara_pir.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/aqara_pir.svg)';
         $icon.style.backgroundSize = 'contain'
     }
 // light_ceilinglight
-      if ( device.name == "Lamp centraal keuken" ) { // added 180521 PeterDee
+      if ( device.name == "Lamp centraal keuken" || device.name == "Lamp Hal" || device.name == "Lamp Bijkeuken") { // added 180521 & 21022022 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/light_ceilinglight.svg)';
         $icon.style.backgroundImage = 'url(img/customicons/light_ceilinglight.svg)';
         $icon.style.backgroundSize = 'contain'
+   }
+// light_small-light
+      if ( device.name == "Lamp Stereo" || device.name == "Lamp Staande Lamp" || device.name == "Lamp Voorraam" || device.name == "Lamp Bank R" || device.name == "Lamp Bank L" || device.name == "Lampen Bed" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/lamp_desklight_icon.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/lamp_desklight_icon.svg)';
+        $icon.style.backgroundSize = 'contain'
     }
+// light_candle
+      if ( device.name == "Lantaarn" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/candle_icon2.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/candle_icon2.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light_kitchen coffeemachine.svg
+      if ( device.name == "Lamp Aanrecht" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/coffeemachine.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/coffeemachine.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light_dining chairs_table_icon.svg
+      if ( device.name == "Lamp eettafel" || device.name == "Eettafel Lo Mid Hi Off") { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/chairs_table_icon.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/chairs_table_icon.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light_spot spot.svg
+      if ( device.name == "1. Spotjes keuken" || device.name == "Spot Keuken L" || device.name == "Spot Keuken M" || device.name == "Spot Keuken R" || device.name == "Lamp Dirk") { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/spot.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/spot.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light bedroom_icon.svg
+      if ( device.name == "Lampen Bed") { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/bedroom_icon.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/bedroom_icon.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light lampen boven trap_icon.svg
+      if ( device.name == "Lampen Boven" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/trap_icon.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/trap_icon.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light bathroom bathroom_icon.svg
+      if ( device.name == "Lamp Badkamer" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/bathroom_icon.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/bathroom_icon.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// light plafonniere_icon
+      if ( device.name == "Lamp Berging" || device.name == "Lamp Berging buiten" || device.name == "Lamp Voortuin" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/light_ceiling_bulb.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/light_ceiling_bulb.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+// Subwoofer SubWoofer_icon.svg
+      if ( device.name == "Sub LEM" || device.name == "Sub Yamaha" ) { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/subwoofer_icon.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/subwoofer_icon.svg)';
+        $icon.style.backgroundSize = 'contain'
+     }
+// Snow gladheid.svg
+      if ( device.name == "Sneeuw > 3uur (mm)" || device.name == "Sneeuw > NU (mm)") { // added 21022022 PeterDee
+        $icon.style.webkitMaskImage = 'url(img/customicons/gladheid.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/gladheid.svg)';
+        $icon.style.backgroundSize = 'contain'
+    }
+
       $deviceElement.appendChild($icon);
 
       var $iconCapability = document.createElement('div');
