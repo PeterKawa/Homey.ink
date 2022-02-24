@@ -393,10 +393,10 @@ a {
     }
     #battery-details {
       display: inline-block;
-      width: 5;
-      height: 5;
+      width: 9px;
+      height: 9px;
       margin-left: auto;
-      margin-right: -8px;
+      margin-right: -4px;
       background: rgb(29,185,84);
       -webkit-mask-size: contain;
       -webkit-mask-repeat: no-repeat;
@@ -411,14 +411,14 @@ a {
        border: none;
        color:  #FF0700;
        cursor: auto; /*-pointer;*/
-       -webkit-animation: glowing 2000ms infinite;
+       -webkit-animation: glowing 1800ms infinite;
 
-       -o-animation: glowing 2000ms infinite;
-        animation: glowing 2000ms infinite;
+       -o-animation: glowing 1800ms infinite;
+        animation: glowing 1800ms infinite;
       }
        @-webkit-keyframes glowing {
        0%  { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-       50% { background-color: #FF0700; -webkit-box-shadow: 0 0 50px  #FF0700; }
+       70% { background-color: #FF0700; -webkit-box-shadow: 0 0 50px  #FF0700; }
        100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
       }
     #notification-details{
@@ -456,14 +456,14 @@ a {
        border: none;
        color: #FFFFFF;
        cursor: pointer;
-       -webkit-animation: glowing 2000ms infinite;
+       -webkit-animation: glowing 1500ms infinite;
 
-       -o-animation: glowing 2000ms infinite;
-       animation: glowing 2000ms infinite;
+       -o-animation: glowing 1500ms infinite;
+       animation: glowing 1500ms infinite;
        }
        @-webkit-keyframes glowing {
        0%  { background-color: rgb(222, 2, 17); -webkit-box-shadow: 0 0 3px rgb(222, 2, 17); }
-       50% { background-color: rgb(255, 224, 179); -webkit-box-shadow: 0 0 50px rgb(255, 224, 179); }
+       50% { background-color: rgb(255, 14, 0); -webkit-box-shadow: 0 0 50px rgb(255, 14, 0); }
        100% { background-color: rgb(222, 2, 17); -webkit-box-shadow: 0 0 3px rgb(222, 2, 17); }
        }
       #sensor-details.fault {
@@ -514,8 +514,8 @@ a {
       }
     #logo {
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       margin-left: auto;
       margin-right: 0;
       background:  no-repeat center center;
@@ -758,18 +758,18 @@ a {
         color:  #FF0700;
         cursor: auto; /*-pointer;*/
         text-shadow: none;
-        -webkit-animation: glowing 3500ms infinite;
-        -o-animation: glowing 3500ms infinite;
-        animation: glowing 3500ms infinite;
+        -webkit-animation: glowing 1500ms infinite;
+        -o-animation: glowing 1500ms infinite;
+        animation: glowing 1500ms infinite;
       }
         @-webkit-keyframes glowing {
 /*        0%  { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
         50% { background-color: #ffe0b3; -webkit-box-shadow: 0 0 40px #ffe0b3; }
         100% { background-color: #ff9900; -webkit-box-shadow: 0 0 3px #ff9900; }
 */
-        0%  { background-color: rgb(255, 212, 108); -webkit-box-shadow: 1 1 50px rgb(255, 212, 108); }
-        50% { background-color: rgb(255, 224, 179); -webkit-box-shadow: 0 0 1px rgb(255, 224, 179); }
-        100% { background-color: rgb(255, 212, 108); -webkit-box-shadow: 1 1 50px rgb(255, 212, 108); }
+        0%  { background-color: rgb(239, 217, 131); -webkit-box-shadow: 1 1 50px rgb(239, 217, 131); }
+        50% { background-color: rgb(255, 175, 18); -webkit-box-shadow: 0 0 1px rgb(255, 175, 18); }
+        100% { background-color: rgb(239, 217, 131); -webkit-box-shadow: 1 1 50px rgb(239, 217, 131); }
       }
 
 
