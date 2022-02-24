@@ -1970,7 +1970,8 @@ if ( device.name == "Temp Koelkast" ) {
       if ( device.iconObj ) {
         $icon.style.webkitMaskImage = 'url(https://icons-cdn.athom.com/' + device.iconObj.id + '-128.png)';
       } else if ( device.icon ) {
-        $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
+       // $icon.style.webkitMaskImage ='url(img/capabilities/blank.png)';
+       $icon.style.webkitMaskImage ='url(img/capabilities/flow_icon.png)';
       }
 //
 // Set a CUSTOM ICON per device here
@@ -1988,7 +1989,7 @@ if ( device.name == "Temp Koelkast" ) {
 //       }
 // Example of multiple device tiles with the same icon
 // // My green, blue and yellow lights
-//        if ( device.name == "Green Light" || device.name == "Blue Light" device.name == "Yellow Light" ) {
+//        if ( device.name == "Green Light" || device.name == "Blue Light" || device.name == "Yellow Light" ) {
 //          $icon.style.webkitMaskImage = 'url(img/customicons/colorlight-icon.svg)';
 //          $icon.style.backgroundImage = 'url(img/customicons/colorlight-icon.svg)';
 //          $icon.style.backgroundSize = 'contain'
@@ -2300,23 +2301,41 @@ if ( device.name == "Temp Koelkast" ) {
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
-    if ( capabilityUnits == null ) { capabilityUnits = "--" }
+    if ( capabilityUnits == null ) { capabilityUnits = "-" }
     if ( capabilityUnits == "W/m^2" ) { capabilityUnits = "W/m²" }
-    if ( capabilityValue == undefined ) { capabilityValue = "!" }  // added to remove ugly error code - 21052021 PeterDee
+    if ( capabilityValue == undefined ) { capabilityValue = "~" }  // added to remove ugly error code - 21052021 PeterDee
     // if ( capabilityValue == "" ) { capabilityValue = "?" }  // added to remove ugly error code - 04062021 PeterDee
 
     // added to display capability units - 04062021 PeterDee
-    if ( capabilityId == "light_hue" ) { capabilityUnits = capabilityUnits + "Hue" }
-    if ( capabilityId == "light_temperature" ) { capabilityUnits = capabilityUnits + "Ctmp" }
-    if ( capabilityId == "light_mode" ) { capabilityUnits = capabilityUnits + "Mode" }
-    if ( capabilityId == "light_saturation" ) { capabilityUnits = capabilityUnits + "Sat" }
-    if ( capabilityId == "measure_humidity" ) { capabilityUnits = capabilityUnits + "Hum" }
-    if ( capabilityId == "flora_measure_moisture" ) { capabilityUnits = capabilityUnits + "Mst" }
+    if ( capabilityId == "light_hue" ) { capabilityUnits = "Hue" }
+    if ( capabilityId == "light_temperature" ) { capabilityUnits = "Ctmp" }
+    if ( capabilityId == "light_mode" ) { capabilityUnits = "Mode" }
+    if ( capabilityId == "light_saturation" ) { capabilityUnits = "Sat" }
+    if ( capabilityId == "measure_humidity" ) { capabilityUnits = "%Hm" }
+    if ( capabilityId == "measure_moisture" ) { capabilityUnits = "%Moist" }
     if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Bat" }
-    if ( capabilityId == "target_temperature" ) { capabilityUnits = "°S" } // The 'S' of Set
-    if ( capabilityId == "windowcoverings_set" ) { capabilityUnits = "^v" } // ^v as in UpDown
+    if ( capabilityId == "target_temperature" ) { capabilityUnits = capabilityUnits + "°S" } // The 'S' of Set
+    if ( capabilityId == "windowcoverings_set" ) { capabilityUnits = capabilityUnits + " ^v" } // ^v as in UpDown
+    if ( capabilityId == "windowcoverings_tilt_set" ) { capabilityUnits = capabilityUnits + "%Til" }
+    if ( capabilityId == "windowcoverings_tilt_setnumber" ) { capabilityUnits = capabilityUnits + "%Til#" }
+    if ( capabilityId == "dim" ) { capabilityUnits = capabilityUnits + "Dim"}
+    if ( capabilityId == "volume_set" ) {  capabilityUnits = "%"}
+    if ( capabilityId == "heating_power" ) {  capabilityUnits = capabilityUnits + "Cap"} // Heating power
+    if ( capabilityId == "measure_pressure" ) {  capabilityUnits = "mBar"}
+    if ( capabilityId == "measure_windstrength_beaufort" ) {  capabilityUnits = "Bf"}
 
-    if ( capabilityId == "measure_temperature" ||
+    // Display kWh without the 2 decimals (P1 meter HomeWizard)
+    if ( capabilityId == "meter_gas" ||
+        capabilityId == "meter_power" ||
+        capabilityId == "meter_power.consumed.t1" ||
+        capabilityId == "meter_power.produced.t1" ||
+        capabilityId == "meter_power.consumed.t2" ||
+        capabilityId == "meter_power.produced.t2"
+        ) {
+      $value.innerHTML = capabilityValue = Math.round(capabilityValue/2)*2 + capabilityUnits
+    }
+
+    else if ( capabilityId == "measure_temperature" ||
         capabilityId == "target_temperature" ||
         capabilityId == "measure_humidity" ||
         capabilityId == "measure_temperature.min" ||
@@ -2330,26 +2349,28 @@ if ( device.name == "Temp Koelkast" ) {
       var decimal = decimal.substring(2,4)
 
       $value.innerHTML = integer + "<span id='decimal'>" + decimal + capabilityUnits.substring(0,2) + "</span>"
-    } else if ( capabilityId == "measure_pressure" ) {
-      $value.innerHTML = Math.round(capabilityValue) + "<sup>" + capabilityUnits + "</sup>"
-    } else if ( capabilityId == "dim" ) {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "Dim</sup>"
     }
-      else if ( capabilityId == "volume_set" ) {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "dB/%</sup>"
+     else if ( capabilityId == "light_hue" ) {
+     $value.innerHTML = Math.round(capabilityValue*100)/100
     }
-      // 04062021 Added windowcoverings_set and _tilt_set - PeterDee
-      else if ( capabilityId == "windowcoverings_set") {
-        $value.innerHTML = Math.round(capabilityValue*100) + capabilityUnits
+     else if ( capabilityId == "dim" ) {
+     $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "</sup>"
     }
-      else if ( capabilityId == "windowcoverings_tilt_set" ) {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tilt</sup>"
+     else if ( capabilityId == "volume_set" ) {
+     $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "</sup>"
     }
-      else if ( capabilityId == "windowcoverings_tilt_setnumber" ) {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tilt#</sup>"
-    }     else {
+     else if ( capabilityId == "windowcoverings_set" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "</sup>"
+    }
+     else if ( capabilityId == "windowcoverings_tilt_set" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "</sup>"
+    }
+     else if ( capabilityId == "windowcoverings_tilt_setnumber" ) {
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%</sup>"
+    }
+      else {
       $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
-    }
+     }
   }
 
   function renderName(device, elementToShow) {
