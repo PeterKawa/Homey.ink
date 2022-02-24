@@ -2303,7 +2303,7 @@ if ( device.name == "Temp Koelkast" ) {
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
     if ( capabilityUnits == null ) { capabilityUnits = "-" }
     if ( capabilityUnits == "W/m^2" ) { capabilityUnits = "W/m²" }
-    if ( capabilityValue == undefined ) { capabilityValue = "~" }  // added to remove ugly error code - 21052021 PeterDee
+    if ( capabilityValue == undefined ) { capabilityValue = "<sup>..</sup>" }  // added to remove ugly error code - 21052021 PeterDee
     // if ( capabilityValue == "" ) { capabilityValue = "?" }  // added to remove ugly error code - 04062021 PeterDee
 
     // added to display capability units - 04062021 PeterDee
@@ -2319,21 +2319,10 @@ if ( device.name == "Temp Koelkast" ) {
     if ( capabilityId == "windowcoverings_tilt_set" ) { capabilityUnits = capabilityUnits + "%Til" }
     if ( capabilityId == "windowcoverings_tilt_setnumber" ) { capabilityUnits = capabilityUnits + "%Til#" }
     if ( capabilityId == "dim" ) { capabilityUnits = capabilityUnits + "Dim"}
-    if ( capabilityId == "volume_set" ) {  capabilityUnits = "%"}
-    if ( capabilityId == "heating_power" ) {  capabilityUnits = capabilityUnits + "Cap"} // Heating power
-    if ( capabilityId == "measure_pressure" ) {  capabilityUnits = "mBar"}
-    if ( capabilityId == "measure_windstrength_beaufort" ) {  capabilityUnits = "Bf"}
-
-    // Display kWh without the 2 decimals (P1 meter HomeWizard)
-    if ( capabilityId == "meter_gas" ||
-        capabilityId == "meter_power" ||
-        capabilityId == "meter_power.consumed.t1" ||
-        capabilityId == "meter_power.produced.t1" ||
-        capabilityId == "meter_power.consumed.t2" ||
-        capabilityId == "meter_power.produced.t2"
-        ) {
-      $value.innerHTML = capabilityValue = Math.round(capabilityValue/2)*2 + capabilityUnits
-    }
+    if ( capabilityId == "volume_set" ) { capabilityUnits = "%"}
+    if ( capabilityId == "heating_power" ) { capabilityUnits = capabilityUnits + "Cap"} // Heating power
+    if ( capabilityId == "measure_pressure" ) { capabilityUnits = "mBar"}
+    if ( capabilityId == "measure_windstrength_beaufort" ) { capabilityUnits = "Bf"}
 
     else if ( capabilityId == "measure_temperature" ||
         capabilityId == "target_temperature" ||
@@ -2351,7 +2340,10 @@ if ( device.name == "Temp Koelkast" ) {
       $value.innerHTML = integer + "<span id='decimal'>" + decimal + capabilityUnits.substring(0,2) + "</span>"
     }
      else if ( capabilityId == "light_hue" ) {
-     $value.innerHTML = Math.round(capabilityValue*100)/100
+     $value.innerHTML = Math.round(capabilityValue*100)/100 + capabilityUnits
+    }
+     else if ( capabilityId == "measure_humidity" ) {
+     $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
     }
      else if ( capabilityId == "dim" ) {
      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "</sup>"
@@ -2367,6 +2359,16 @@ if ( device.name == "Temp Koelkast" ) {
     }
      else if ( capabilityId == "windowcoverings_tilt_setnumber" ) {
       $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%</sup>"
+    }
+    // Display kWh without the 2 decimals (P1 meter HomeWizard)
+     else if ( capabilityId == "meter_gas" ||
+        capabilityId == "meter_power" ||
+        capabilityId == "meter_power.consumed.t1" ||
+        capabilityId == "meter_power.produced.t1" ||
+        capabilityId == "meter_power.consumed.t2" ||
+        capabilityId == "meter_power.produced.t2"
+        ) {
+      $value.innerHTML = capabilityValue = Math.round(capabilityValue/2)*2 + capabilityUnits
     }
       else {
       $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
