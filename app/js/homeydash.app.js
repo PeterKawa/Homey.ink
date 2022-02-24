@@ -2312,7 +2312,7 @@ if ( device.name == "Temp Koelkast" ) {
     if ( capabilityId == "light_saturation" ) { capabilityUnits = capabilityUnits + "Sat" }
     if ( capabilityId == "measure_humidity" ) { capabilityUnits = capabilityUnits + "Hum" }
     if ( capabilityId == "flora_measure_moisture" ) { capabilityUnits = capabilityUnits + "Mst" }
-    if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Btt" }
+    if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Bat" }
     if ( capabilityId == "target_temperature" ) { capabilityUnits = "°S" } // The 'S' of Set
     if ( capabilityId == "windowcoverings_set" ) { capabilityUnits = "^v" } // ^v as in UpDown
 
