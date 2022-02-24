@@ -2300,12 +2300,12 @@ if ( device.name == "Temp Koelkast" ) {
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
-    if ( capabilityUnits == null ) { capabilityUnits = "" }
+    if ( capabilityUnits == null ) { capabilityUnits = "--" }
     if ( capabilityUnits == "W/m^2" ) { capabilityUnits = "W/m²" }
-    if ( capabilityValue == null ) { capabilityValue = "-- " }
     if ( capabilityValue == undefined ) { capabilityValue = "!" }  // added to remove ugly error code - 21052021 PeterDee
-    if ( capabilityValue == "" ) { capabilityValue = "-- " }  // added to remove ugly error code - 04062021 PeterDee
-// added to display capability units - 04062021 PeterDee
+    // if ( capabilityValue == "" ) { capabilityValue = "?" }  // added to remove ugly error code - 04062021 PeterDee
+
+    // added to display capability units - 04062021 PeterDee
     if ( capabilityId == "light_hue" ) { capabilityUnits = capabilityUnits + "Hue" }
     if ( capabilityId == "light_temperature" ) { capabilityUnits = capabilityUnits + "Ctmp" }
     if ( capabilityId == "light_mode" ) { capabilityUnits = capabilityUnits + "Mode" }
@@ -2314,6 +2314,7 @@ if ( device.name == "Temp Koelkast" ) {
     if ( capabilityId == "flora_measure_moisture" ) { capabilityUnits = capabilityUnits + "Mst" }
     if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Bat" }
     if ( capabilityId == "target_temperature" ) { capabilityUnits = "°S" } // The 'S' of Set
+    if ( capabilityId == "windowcoverings_set" ) { capabilityUnits = "^v" } // ^v as in UpDown
 
     if ( capabilityId == "measure_temperature" ||
         capabilityId == "target_temperature" ||
@@ -2331,21 +2332,26 @@ if ( device.name == "Temp Koelkast" ) {
       $value.innerHTML = integer + "<span id='decimal'>" + decimal + capabilityUnits.substring(0,2) + "</span>"
     } else if ( capabilityId == "measure_pressure" ) {
       $value.innerHTML = Math.round(capabilityValue) + "<sup>" + capabilityUnits + "</sup>"
-// 04062021 Added windowcoverings_set and _tilt_set - PeterDee
     } else if ( capabilityId == "dim" ) {
       $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "Dim</sup>"
     }
-else if ( capabilityId == "volume_set" ) {
+      else if ( capabilityId == "volume_set" ) {
       $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "dB/%</sup>"
     }
-      else if ( capabilityId == "windowcoverings_set" ) {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "Pos</sup>"
+      // 04062021 Added windowcoverings_set and _tilt_set - PeterDee
+      else if ( capabilityId == "windowcoverings_set" || capabilityValue != ""   ) {
+        $value.innerHTML = Math.round(capabilityValue*100) + capabilityUnits
+    }
+      // If position = 0, the "NaN" value is shown
+      // Well, here we make a "0" of it, because we don't like NaN
+      else if ( capabilityId == "windowcoverings_set" || capabilityValue == ""  ) {
+        $value.innerHTML = "0" + capabilityUnits;
     }
       else if ( capabilityId == "windowcoverings_tilt_set" ) {
       $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tilt</sup>"
     }
       else if ( capabilityId == "windowcoverings_tilt_setnumber" ) {
-      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tiltno</sup>"
+      $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tilt#</sup>"
     }     else {
       $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
     }
