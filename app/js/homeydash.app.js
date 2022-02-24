@@ -2002,7 +2002,7 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // solarpanels calculations
-      if ( device.name == "Huidig Verbruik kWh" || device.name == "Zon € indicator" ) { // added 180521 PeterDee
+      if ( device.name == "Huidig Verbruik kWh" || device.name == "Zon € indicator" || device.name == "2.Zon Dagopbrengst") { // added 180521 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/solar-panel-rooftop-512.png)'; //
         $icon.style.backgroundSize = 'contain'
     }
@@ -2312,7 +2312,7 @@ if ( device.name == "Temp Koelkast" ) {
     if ( capabilityId == "light_saturation" ) { capabilityUnits = capabilityUnits + "Sat" }
     if ( capabilityId == "measure_humidity" ) { capabilityUnits = capabilityUnits + "Hum" }
     if ( capabilityId == "flora_measure_moisture" ) { capabilityUnits = capabilityUnits + "Mst" }
-    if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Bat" }
+    if ( capabilityId == "measure_battery" ) { capabilityUnits = capabilityUnits + "Btt" }
     if ( capabilityId == "target_temperature" ) { capabilityUnits = "°S" } // The 'S' of Set
     if ( capabilityId == "windowcoverings_set" ) { capabilityUnits = "^v" } // ^v as in UpDown
 
@@ -2339,13 +2339,8 @@ if ( device.name == "Temp Koelkast" ) {
       $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "dB/%</sup>"
     }
       // 04062021 Added windowcoverings_set and _tilt_set - PeterDee
-      else if ( capabilityId == "windowcoverings_set" || capabilityValue != ""   ) {
+      else if ( capabilityId == "windowcoverings_set") {
         $value.innerHTML = Math.round(capabilityValue*100) + capabilityUnits
-    }
-      // If position = 0, the "NaN" value is shown
-      // Well, here we make a "0" of it, because we don't like NaN
-      else if ( capabilityId == "windowcoverings_set" || capabilityValue == ""  ) {
-        $value.innerHTML = "0" + capabilityUnits;
     }
       else if ( capabilityId == "windowcoverings_tilt_set" ) {
       $value.innerHTML = Math.round(capabilityValue*100) + "<sup>" + capabilityUnits + "%Tilt</sup>"
