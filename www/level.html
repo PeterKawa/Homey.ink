@@ -1,0 +1,36 @@
+<!--
+Deze pagina kun je het volume laten weergeven;
+Voor bijv. 80% open je de pagina als volgt volume.html?volume=80
+-->
+<!doctype html>
+<html>
+ <body style="background-color: black";>
+    <style>
+    h1 {text-align: center;}
+    p {text-align: center; font-family: sans-serif; font-size: 30px;  color: steelblue;}
+    div {text-align: center; font-family: sans-serif; font-size: 150px; color: white;}
+    </style>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+        <div id="volume">%</div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+        <p>MARANTZ Volume level </p>
+    <script>
+    const params = new URLSearchParams(window.location.search)
+    document.getElementById('volume').innerHTML = `...  ${params.get('volume')}%  ...`;
+    </script>
+ </body>
+</html>
