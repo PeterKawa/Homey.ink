@@ -2301,7 +2301,7 @@ if ( device.name == "Temp Koelkast" ) {
   }
 
   function renderValue ($value, capabilityId, capabilityValue, capabilityUnits) {
-    if ( capabilityUnits == null ) { capabilityUnits = "-" }
+    if ( capabilityUnits == null ) { capabilityUnits = "" }
     if ( capabilityUnits == "W/m^2" ) { capabilityUnits = "W/m²" }
     if ( capabilityValue == undefined ) { capabilityValue = "<sup>..</sup>" }  // added to remove ugly error code - 21052021 PeterDee
     // if ( capabilityValue == "" ) { capabilityValue = "?" }  // added to remove ugly error code - 04062021 PeterDee
