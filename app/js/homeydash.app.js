@@ -2340,7 +2340,7 @@ if ( device.name == "Temp Koelkast" ) {
       $value.innerHTML = integer + "<span id='decimal'>" + decimal + capabilityUnits.substring(0,2) + "</span>"
     }
      else if ( capabilityId == "light_hue" ) {
-     $value.innerHTML = Math.round(capabilityValue*100)/100 + capabilityUnits
+     $value.innerHTML = Math.round(capabilityValue*100)/100 + "<sup>" + capabilityUnits + "</sup>"
     }
      else if ( capabilityId == "measure_humidity" ) {
      $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
@@ -2368,7 +2368,7 @@ if ( device.name == "Temp Koelkast" ) {
         capabilityId == "meter_power.consumed.t2" ||
         capabilityId == "meter_power.produced.t2"
         ) {
-      $value.innerHTML = capabilityValue = Math.round(capabilityValue/2)*2 + capabilityUnits
+      $value.innerHTML = capabilityValue = Math.round(capabilityValue/2)*2 + "<sup>" + capabilityUnits  + "</sup>"
     }
       else {
       $value.innerHTML = capabilityValue + "<sup>" + capabilityUnits + "</sup>"
