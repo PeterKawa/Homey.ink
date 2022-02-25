@@ -2061,7 +2061,7 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // light_ceilinglight
-      if ( device.name == "Lamp centraal keuken" || device.name == "Lamp Hal" || device.name == "Lamp Bijkeuken") { // added 180521 & 21022022 PeterDee
+      if ( device.name == "Lamp Centraal keuken" || device.name == "Lamp Hal" || device.name == "Lamp Bijkeuken") { // added 180521 & 21022022 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/light_ceilinglight.svg)';
         $icon.style.backgroundImage = 'url(img/customicons/light_ceilinglight.svg)';
         $icon.style.backgroundSize = 'contain'
