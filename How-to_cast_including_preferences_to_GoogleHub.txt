@@ -219,9 +219,9 @@ replace all 4 lines with these:
     indoortemperature = "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxx" }
 ```
 Comment:
-This large "xxxxx " string represents the device ID of my Tado Thermostate's thermometer device. To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
-`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
-    And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the settings dropdown list, e.g. MyTadoThermometer
+To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/devices](https://tools.developer.homey.app/tools/devices), 
+enter your device name at the search bar; The first value returned is "ID: xxxx-xxxxx ... "
+The device you would select from the dashboards' settings dropdown list, e.g. MyTadoRoomTemperature
 
 
 
@@ -242,13 +242,10 @@ to this:
     if ( outdoortemperature == undefined || outdoortemperature == "" || outdoortemperature == "homey" || outdoortemperature != "homey"  ) { outdoortemperature = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" }
 ```
 Comment:
- This large "xxxx " string represents the device ID of my Openweather device.
-   To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/api-playground](https://tools.developer.homey.app/tools/api-playground), clear the examples  and enter this:
-`Homey.devices.getDevices().then(f => Object.values(f).reduce((r,b)=>Object.assign(r,{[b.name]:b.id}), {}));`
-And then hit the "run" button. Then use the search function of your browser to search for the device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
-
-**Screenshot of my deviceID lookup results:**
-![finding_your_deviceID|690x333](upload://bLJljyN3yUUvOcjDMuQ8V0Np20l.png)
+This large "xxxx " string represents the device ID of my Openweather device.
+To discover YOUR device ID, goto [https://tools.developer.homey.app/tools/devices](https://tools.developer.homey.app/tools/devices), 
+enter your device name at the search bar; The first value returned is "ID: xxxx-xxxxx ... "
+The device you would select from the dashboards' settings dropdown list, e.g. MyOutsideThermometer
 
 
 
