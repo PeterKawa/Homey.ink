@@ -1,4 +1,4 @@
-var version = "1.0"
+﻿var version = "1.0"
 
 var CLIENT_ID = '5cbb504da1fc782009f52e46';
 var CLIENT_SECRET = 'gvhs0gebgir8vz8yo2l0jfb49u9xzzhrkuo1uvs8';
@@ -693,12 +693,12 @@ into this:
               }
             });
           }
-          if ( device.capabilitiesObj.measure_uv ) {
-            device.makeCapabilityInstance('measure_uv', function(value){
+          if ( device.capabilitiesObj.measure_ultraviolet ) {
+            device.makeCapabilityInstance('measure_ultraviolet', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
               if( $deviceElement ) {
-                var $valueElement = document.getElementById('value:' + device.id + ":measure_uv");
-                capability = device.capabilitiesObj['measure_uv']
+                var $valueElement = document.getElementById('value:' + device.id + ":measure_ultraviolet");
+                capability = device.capabilitiesObj['measure_ultraviolet']
                 renderValue($valueElement, capability.id, capability.value, capability.units)
               }
             });
@@ -723,7 +723,7 @@ into this:
               }
             });
           }
-          // /new 1.1.1.9
+// /new 1.1.1.9
           if ( device.capabilitiesObj.measure_power ) {
             device.makeCapabilityInstance('measure_power', function(value){
               var $deviceElement = document.getElementById('device:' + device.id);
@@ -1653,10 +1653,22 @@ into this:
           });
         }
 //
-// Alerts to measured value levels below. Adjust the numbers to your needs
+// ALERTS to measured value levels below. Adjust the numbers to your needs
 //
-      if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_moisture ) {
-        var moisture = device.capabilitiesObj.flora_measure_moisture.value
+// added for RAM alarm 06032022 - PeterDee
+    if ( device.name == "Homey FREE RAM (MB's)" ) {
+      if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature ) {
+        var temperature = device.capabilitiesObj.measure_temperature.value
+        console.log(temperature)
+        if ( temperature < 0 ) {
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('alarm')
+        }
+      }
+   }
+
+      if ( device.capabilitiesObj && device.capabilitiesObj.measure_moisture ) {
+        var moisture = device.capabilitiesObj.measure_moisture.value
         console.log(moisture)
         if ( moisture < 20 || moisture > 60 ) {
           console.log("moisture out of bounds")
@@ -1664,11 +1676,11 @@ into this:
         }
       }
       // added 160521 PeterDee
-      if ( device.capabilitiesObj && device.capabilitiesObj.flora_measure_fertility ) {
-        var fertility = device.capabilitiesObj.flora_measure_fertility.value
-        console.log(fertility)
-        if ( fertility < 200 || fertility > 1200 ) {
-          console.log("fertility out of bounds")
+      if ( device.capabilitiesObj && device.capabilitiesObj.measure_nutrition ) {
+        var nutrition = device.capabilitiesObj.measure_nutrition.value
+        console.log(nutrition)
+        if ( nutrition < 200 || nutrition > 1200 ) {
+          console.log("nutrition out of bounds")
           $deviceElement.classList.add('alarm')
         }
       }
@@ -1693,7 +1705,8 @@ into this:
 //
 // Good/Average/Bad color settings measured value levels below. Adjust the numbers to your needs
 //
-        // START - CO2 GREEN ORANGE RED INDICATOR
+
+// START - CO2 GREEN ORANGE RED INDICATOR
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
@@ -1717,13 +1730,138 @@ into this:
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_co2) {
           var co2 = device.capabilitiesObj.measure_co2.value
           console.log(co2)
-        if ( co2 => 0 || co2 > 400 ) {
+        if ( co2 => 0 || co2 > 450 ) {
           console.log("co2 out of bounds")
           $deviceElement.classList.add('low') // GREEN tile
         }else{
           $deviceElement.classList.remove('low')
          }
         }
+
+// NEW - 06032022 - PeterDee
+// START - for 5.Daluren J/N device. If meter_power DAL rate then GREEN INDICATOR
+if ( device.name == "5.Daluren J/N" ) {
+        if ( device.capabilitiesObj && device.capabilitiesObj.light_hue) {
+          var hue = device.capabilitiesObj.light_hue.value
+          console.log(hue)
+        if ( hue > 0.35 || hue < 0.37 ) {
+          console.log("hue out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+     }
+}
+// NEW - 06032022 - PeterDee
+// START - for 5.Daluren J/N Lock device. If meter_power DAL rate then GREEN INDICATOR
+if ( device.name == "5.Daluren J/N Lock" ) {
+        if ( device.capabilitiesObj && device.capabilitiesObj.locked) {
+          var locked = device.capabilitiesObj.locked.value
+          console.log(locked)
+        if ( locked == false ) {
+          console.log("locked out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+     }
+}
+
+// NEW - 06032022 - PeterDee
+// START - for Homey FREE RAM (MB's) device. If meter_power DAL rate then GREEN INDICATOR
+    if ( device.name == "Homey FREE RAM (MB's)" ) {
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+          var temperature = device.capabilitiesObj.measure_temperature.value
+          console.log(temperature)
+        if ( temperature < 0 ) {
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('high') // low == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
+          var temperature = device.capabilitiesObj.measure_temperature.value
+          console.log(temperature)
+        if ( temperature => 0 ) {
+          console.log("temperature out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+     }
+}
+
+//
+// NEW - 06032022 - PeterDee
+// START - for W Windkracht (Bf) > 5min. device. Windforce Beaufort
+    if ( device.name == "W Windkracht (Bf) > 5min." ) {
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_current) {
+          var current = device.capabilitiesObj.measure_current.value
+          console.log(current)
+        if ( current > 6 || current > 25) {
+          console.log("current out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_current) {
+          var current = device.capabilitiesObj.measure_current.value
+          console.log(current)
+        if ( current > 3 || current > 6 ) {
+          console.log("current out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_current) {
+        var current = device.capabilitiesObj.measure_current.value
+        console.log(current)
+        if ( current => 0 || current < 4 ) {
+          console.log("current out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+     }
+}
+
+// NEW - 06032022 - PeterDee
+// START - ULTRAVIOLET INDEX (UVI)) GREEN ORANGE RED INDICATOR
+// Values: 0 - 2 = green, 3 - 5 moderate , 6 - 7 = high, 8 - 10 = very high, 11+ = extreme
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_ultraviolet) {
+          var ultraviolet = device.capabilitiesObj.measure_ultraviolet.value
+          console.log(ultraviolet)
+        if ( ultraviolet > 5 || ultraviolet > 25) {
+          console.log("ultraviolet out of bounds")
+          $deviceElement.classList.add('high') // high == tile gets colored red
+        }else{
+          $deviceElement.classList.remove('high')
+        }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_ultraviolet) {
+          var ultraviolet = device.capabilitiesObj.measure_ultraviolet.value
+          console.log(ultraviolet)
+        if ( ultraviolet > 3 || ultraviolet > 5 ) {
+          console.log("ultraviolet out of bounds")
+          $deviceElement.classList.add('mid') // mid == tile gets colored orange
+        }else{
+          $deviceElement.classList.remove('mid')
+       }
+     }
+        if ( device.capabilitiesObj && device.capabilitiesObj.measure_ultraviolet) {
+        var ultraviolet = device.capabilitiesObj.measure_ultraviolet.value
+        console.log(ultraviolet)
+        if ( ultraviolet => 0 || ultraviolet < 3.01 ) {
+          console.log("ultraviolet out of bounds")
+          $deviceElement.classList.add('low') // low == tile gets colored green
+        }else{
+          $deviceElement.classList.remove('low')
+        }
+     }
+
 // START - Watts SOLAR-POWEROUTPUT (&MAINS POWERUSAGE) GREEN ORANGE RED INDICATOR
 if ( device.name == "Growatt Solarpanels" ) {
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_power) {
@@ -1754,20 +1892,6 @@ if ( device.name == "Growatt Solarpanels" ) {
           $deviceElement.classList.add('low') // low == tile gets colored green
         }else{
           $deviceElement.classList.remove('low')
-        }
-      }
-      if ( device.capabilitiesObj && device.capabilitiesObj.alarm_connected ) {
-        if ( device.capabilitiesObj.alarm_connected.value ) {
-          $deviceElement.classList.remove('away')
-        } else {
-          $deviceElement.classList.add('away')
-        }
-      }
-      if ( device.capabilitiesObj && device.capabilitiesObj.alarm_night ) {
-        if ( device.capabilitiesObj.alarm_night.value ) {
-          $deviceElement.classList.remove('day')
-        } else {
-          $deviceElement.classList.add('day')
         }
       }
 }
@@ -1807,6 +1931,7 @@ if ( device.name == "Growatt Solarpanels" ) {
         }
       }
 */
+//
 // START - TEMPERATURE GREEN ORANGE RED ICEBLUE INDICATOR for tado° / Weer in 24u / Weer>Nu
 if ( device.name == "tado° Thermostaat" ) {  // This sensor only
         if ( device.capabilitiesObj && device.capabilitiesObj.measure_temperature) {
@@ -1998,12 +2123,12 @@ if ( device.name == "Temp Koelkast" ) {
 //
 // Homey RAM status
       if ( device.name == "Homey FREE RAM (MB's)" ) { // added 21022022 PeterDee
-        $icon.style.webkitMaskImage = 'url(img/customicons/wireless_thing.svg)';
-        $icon.style.backgroundImage = 'url(img/customicons/wireless_thing.svg)';
+        $icon.style.webkitMaskImage = 'url(img/customicons/homey_pro.svg)';
+        $icon.style.backgroundImage = 'url(img/customicons/homey_pro.svg)';
         $icon.style.backgroundSize = 'contain'
     }
 // solarpanels calculations
-      if ( device.name == "Huidig Verbruik kWh" || device.name == "Zon € indicator" || device.name == "2.Zon Dagopbrengst") { // added 180521 PeterDee
+      if ( device.name == "Huidig Verbruik kWh" || device.name == "3.Zon € indicator" || device.name == "2.Zon Dagopbrengst") { // added 180521 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/solar-panel-rooftop-512.png)'; //
         $icon.style.backgroundSize = 'contain'
     }
@@ -2061,7 +2186,7 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // light_ceilinglight
-      if ( device.name == "Lamp Centraal keuken" || device.name == "Lamp Hal" || device.name == "Lamp Bijkeuken") { // added 180521 & 21022022 PeterDee
+      if ( device.name == "Lamp Centraal Keuken" || device.name == "Lamp Hal" || device.name == "Lamp Bijkeuken") { // added 180521 & 21022022 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/light_ceilinglight.svg)';
         $icon.style.backgroundImage = 'url(img/customicons/light_ceilinglight.svg)';
         $icon.style.backgroundSize = 'contain'
@@ -2091,7 +2216,7 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // light_spot spot.svg
-      if ( device.name == "1. Spotjes keuken" || device.name == "Spot Keuken L" || device.name == "Spot Keuken M" || device.name == "Spot Keuken R" || device.name == "Lamp Dirk") { // added 21022022 PeterDee
+      if ( device.name == "1.Spotjes keuken" || device.name == "Spot Keuken L" || device.name == "Spot Keuken M" || device.name == "Spot Keuken R" || device.name == "Lamp Dirk") { // added 21022022 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/spot.svg)';
         $icon.style.backgroundImage = 'url(img/customicons/spot.svg)';
         $icon.style.backgroundSize = 'contain'
@@ -2103,7 +2228,7 @@ if ( device.name == "Temp Koelkast" ) {
         $icon.style.backgroundSize = 'contain'
     }
 // light lampen boven trap_icon.svg
-      if ( device.name == "Lampen Boven" ) { // added 21022022 PeterDee
+      if ( device.name == "1.Lampen Boven" ) { // added 21022022 PeterDee
         $icon.style.webkitMaskImage = 'url(img/customicons/trap_icon.svg)';
         $icon.style.backgroundImage = 'url(img/customicons/trap_icon.svg)';
         $icon.style.backgroundSize = 'contain'
@@ -2307,6 +2432,7 @@ if ( device.name == "Temp Koelkast" ) {
     // if ( capabilityValue == "" ) { capabilityValue = "?" }  // added to remove ugly error code - 04062021 PeterDee
 
     // added to display capability units - 04062021 PeterDee
+    if ( capabilityId == "locked" ) { capabilityUnits = "Lck" } // added 06032022 PeterDee
     if ( capabilityId == "light_hue" ) { capabilityUnits = "Hue" }
     if ( capabilityId == "light_temperature" ) { capabilityUnits = "Ctmp" }
     if ( capabilityId == "light_mode" ) { capabilityUnits = "Mode" }
@@ -2426,8 +2552,8 @@ if ( device.name == "Temp Koelkast" ) {
   }
 
   function selectIcon($value, searchFor, device, capability) {
-    // measure_uv and measure_solarradiation icons are broken at icons-cdn.athom.com
-    if ( capability.iconObj && capability.id != "measure_uv" && capability.id != "measure_solarradiation" ) {
+    // measure_ultraviolet and measure_solarradiation icons are broken at icons-cdn.athom.com
+    if ( capability.iconObj && capability.id != "measure_ultraviolet" && capability.id != "measure_solarradiation" ) {
       iconToShow = 'https://icons-cdn.athom.com/' + capability.iconObj.id + '-128.png'
     } else {
       iconToShow = 'img/capabilities/' + capability.id + '.png'
@@ -2673,8 +2799,8 @@ if ( device.name == "Temp Koelkast" ) {
         if ( itemNr == showElement ) {
           elementToShow = searchElement
           capabilityToShow = capability.id
-          // measure_uv and measure_solarradiation icons are broken at icons-cdn.athom.com
-          if ( capability.iconObj && capability.id != "measure_uv" && capability.id != "measure_solarradiation" ) {
+          // measure_ultraviolet and measure_solarradiation icons are broken at icons-cdn.athom.com
+          if ( capability.iconObj && capability.id != "measure_ultraviolet" && capability.id != "measure_solarradiation" ) {
             //if ( capability.iconObj ) {
             iconToShow = 'https://icons-cdn.athom.com/' + capability.iconObj.id + '-128.png'
             console.log(iconToShow)
