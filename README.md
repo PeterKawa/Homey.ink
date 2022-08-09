@@ -159,7 +159,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 - Casting the dashboard to your Google hub can also be done by entering this URL to the "Cast" card in your flow.
 - <b>Your token can be acquired by visiting https://homey.ink, look for a large string in the console (push F12 mostly) after logging on</b>
 
-In case you want to stop the FTP server, just restart “Micro Web Server” app, b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash
+In case you want to stop the FTP server, just restart “Micro Web Server” app (make sure "Autolaunch FTP server" is unticked), b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash
 </br> 
 (thanks to Martin_van_der_Aart)
 </br>
