@@ -7,7 +7,8 @@ Februari 19th, 2022: <br><br>
 
 ![Screenshot from 2022-02-19 06-52-28](https://user-images.githubusercontent.com/74005072/154788337-0b50194a-9f05-46ea-a255-0cc8db28485a.png)
 
-![20220221_090312](https://user-images.githubusercontent.com/74005072/154913258-353e4fc0-b685-428b-aa5f-4e97bb147c29.jpg)
+<br>
+![20221005_184038](https://user-images.githubusercontent.com/74005072/194116813-61d352e3-da42-4d62-a1b3-1435e5cec71b.jpg)
 
 
 <br><br>
@@ -124,12 +125,6 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 - Layout options (tablet.css file) edited a bit:
 
 ![Screenshot_20210514-175224](https://user-images.githubusercontent.com/74005072/118332618-a657bb80-b50a-11eb-80bf-0806c760d945.png)
-
-- Google Nest Hub with 'Google Nest Hub' theme:
-
-![Screenshot from 2022-02-19 06-52-28](https://user-images.githubusercontent.com/74005072/154788337-0b50194a-9f05-46ea-a255-0cc8db28485a.png)
-
-![google_nest_hub](https://user-images.githubusercontent.com/74005072/154786637-dc521dbe-6ab3-4769-be7e-dbe98f9b4a66.jpg)
 
 - Android Phone Chromebrowser Portrait
 
