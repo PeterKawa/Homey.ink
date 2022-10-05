@@ -1,5 +1,7 @@
 # PeterDeeDash 
 #
+PeterDeeDash is an open-source project for (wall-mounted) Homey dashboards using webpages on a tablet. It runs on Google Hub as well. This project is forked from Homey.ink, homeydash.com and cornelisse dash. Thanks all for the work and inspiration.
+#
 Februari 19th, 2022: <br><br>
 - Adjusted Google Nest Theme to fit with weather images/gifs. 
 
