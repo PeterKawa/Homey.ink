@@ -152,7 +152,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 16. After a few secs or minutes, you'll find this folder in the right hand column, this is the server folder of your Homey.
 17. Yay, now PeterDeeDash is running from your Homey!
 18. Start your fav browser, and enter this:</br>
-`http://YourHomeyIPAddress:5080/peterdeedash/app?theme=tablet&lang=en&token=[YourToken**]`<br>
+`http://YourHomeyIPAddress:5080/peterdeedash/app?theme=tablet&lang=en&token=[YourToken]`<br>
 19. For your language, change `lang=en` into `lang=xx` (`where xx = cn/cs/da/de/en/es/fr/fy/it/lu/ma/nb/nl/ro/sv/tr`)
 - Casting the dashboard to your Google hub can also be done by entering this URL to the "Cast" card in your flow.
 - <b>Your token can be acquired by visiting https://homey.ink, look for a large string in the console (push F12 mostly) after logging on</b>
@@ -160,37 +160,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 In case you want to stop the FTP server, just restart “Micro Web Server” app (make sure "Autolaunch FTP server" is unticked), b/c FTP is only needed if you want to transfer files to Homey. No worries, the HTTP server stays online, so does PeterDeeDash
 </br> 
 (thanks to Martin_van_der_Aart)
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-# To run this dashboard locally @ raspberry or linux (vm) (linux command line):
-```
-npm i -g serve
-git clone https://github.com/PeterKawa/PeterDeeDash.git
-cd PeterDeeDash
-serve -p 5000 app
-```
-Then alter the URL with your token and language of choice (for your language, change `lang=en` into `lang=xx`, `where xx = cn/cs/da/de/en/es/fr/fy/it/lu/ma/nb/nl/ro/sv/tr`):</br>
-- Android tablet / phone: `http://localhost:5000/?theme=tablet&lang=en&token=<TOKEN>`</br>
-- Google Nest Hub: `http://localhost:5000/?theme=tablet&lang=en&token=<TOKEN>`</br>
-- iPad: `http://localhost:5000/?theme=ipad&lang=en&token=<TOKEN>`</br>
-- Raspberry: `http://localhost:5000/?theme=raspberry&lang=en&token=<TOKEN>`</br>
-- Web (common) `http://localhost:5000/?theme=web&lang=en&token=<TOKEN>`</br>
-</br>
-<b>Your token can be acquired by visiting https://homey.ink, look for a large string in the console (push F12 mostly) after logging in</b>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+
 </br>
 </br>
 </br>
