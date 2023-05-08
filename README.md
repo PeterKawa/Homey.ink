@@ -135,7 +135,7 @@ See file "How-to_cast_including_preferences_to_GoogleHub.txt"
 </br>
 </br>
 
-# To run this dashboard locally on Homey, using the micro server app:
+# To run this dashboard locally on Homey, using the Micro Webserver app https://homey.app/a/com.sdn.webserver/:
 1. Install the Micro Web Server app on your Homey
 2. Then go to config from within the app and push the button `Start FTP Server`, and check if it says `Running`
 3. Now look for the IP address of your Homey, it is presented in this screen, something like `192.168.1.23` or `192.168.2.54`
