@@ -382,12 +382,22 @@ into this:
       }).catch(console.error);
 
       homey.flow.getFlows().then(function(flows) {
-        var favoriteFlows = me.properties.favoriteFlows.map(function(flowId){
-          return flows[flowId];
-        }).filter(function(flow){
-          return !!flow;
-        });
-        return renderFlows(favoriteFlows);
+//        var favoriteFlows = me.properties.favoriteFlows.map(function(flowId){
+//          return flows[flowId];
+//        }).filter(function(flow){
+//          return !!flow;
+//        });
+//        return renderFlows(favoriteFlows);
+        return homey.flow.getAdvancedFlows()
+          .catch(() => { return {} })
+          .then(function (advancedFlows) {
+            var favoriteFlows = me.properties.favoriteFlows.map(function (flowId) {
+              return flows[flowId] || advancedFlows[flowId];
+            }).filter(function (flow) {
+              return !!flow;
+            });
+            return renderFlows(favoriteFlows);
+          })
       }).catch(console.error);
 
       homey.alarms.getAlarms().then(function(alarms) {
@@ -1517,7 +1527,7 @@ into this:
         $flow.classList.add('flow');
         $flow.addEventListener('click', function(){
           if( $flow.classList.contains('running') ) return;
-          homey.flow.triggerFlow({
+        homey.flow[flow.cards ? 'triggerAdvancedFlow' : 'triggerFlow']({
             id: flow.id,
           }).then(function(){
 
